@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BabyVoxFansite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffffff);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .navbar {
+      display: flex;
+      background-color: #ff66b2;
+      padding: 10px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .navbar img { height: 40px; margin-right: 15px; }
+    .navbar a {
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover { background-color: #ff3399; }
+
+    .content {
+      max-width: 1200px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .home-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .home-image img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+    }
+    .home-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 200px;
+    }
+    .home-tab {
+      background-color: #ffe6f0;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: left;
+    }
+    .home-tab a { color:#ff3399; text-decoration:none; }
+
+    .bottom-banger img, .home-banger img { width:100%; max-width:600px; border-radius:8px; }
+
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img src="Baby_V.O.X_logo.webp" alt="Baby Vox Logo">
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('members')">Members</a>
+    <a href="#" onclick="showPage('gallery')">Gallery</a>
+    <a href="#" onclick="showPage('socials')">Socials</a>
+  </div>
+
+  <!-- Top VOX.gif -->
+  <div class="home-banger">
+    <img src="VOX.gif" alt="VOX Banger GIF">
+  </div>
+
+  <div class="content">
+    <div id="home" class="page">
+      <h1>BabyVoxFansite</h1>
+      <div class="home-wrapper">
+        <div class="home-tabs">
+          <div class="home-tab"><strong>News:</strong> Latest updates on Baby Vox.</div>
+          <div class="home-tab"><strong>About Me:</strong> Hello! My name is Lewis and I’ve been a fan since 2022...</div>
+          <div class="home-tab"><strong>Mini Gallery:</strong> <a href="#gallery">Go to Gallery</a></div>
+          <div class="home-tab"><strong>Special Thanks:</strong> <a href="https://babyvoxi.com" target="_blank">BabyVoxi</a></div>
+          <div class="home-tab"><strong>Visitor Counter:</strong> <span id="visitor-count">0</span></div>
+        </div>
+        <div class="home-image">
+          <img src="babyvox.jpg" alt="Baby Vox Home">
+        </div>
+      </div>
+    </div>
+
+    <!-- Members Page -->
+    <div id="members" class="page" style="display:none;">
+      <h1>Members</h1>
+      <div class="members">
+        <div class="member" onclick="showFact('kim_ez')">
+          <img src="Kim_ez.jpg" alt="Kim EZ">
+          <p>Kim EZ</p>
+        </div>
+        <div class="member" onclick="showFact('yoon_eunhye')">
+          <img src="yoon_eunhye.webp" alt="Yoon Eun Hye">
+          <p>Yoon Eun Hye</p>
+        </div>
+        <div class="member" onclick="showFact('kan_miyoun')">
+          <img src="kan_miyoun.webp" alt="Kan Mi Youn">
+          <p>Kan Mi Youn</p>
+        </div>
+        <div class="member" onclick="showFact('shim_eunjin')">
+          <img src="shim_eunjin.jpg" alt="Shim Eun Jin">
+          <p>Shim Eun Jin</p>
+        </div>
+        <div class="member" onclick="showFact('lee_heejin')">
+          <img src="Lee_Heejin.webp" alt="Lee Hee Jin">
+          <p>Lee Hee Jin</p>
+        </div>
+        <div class="member" onclick="showFact('lee_gai')">
+          <img src="Lee_Gai.jpeg" alt="Lee Gai">
+          <p>Lee Gai</p>
+        </div>
+      </div>
+
+      <!-- Fact Files -->
+      <div id="kim_ez" class="fact-file">
+        <img src="Kim_ez.jpg" alt="Kim EZ">
+        <h2>Kim EZ (Kim Hee-Jung)</h2>
+        <p>Born: January 31, 1979</p>
+        <p>Main Rapper, Leader</p>
+        <p>Fun Fact: She was in Baby Vox for the group's entire tenure from 1997-2006.</p>
+      </div>
+
+      <div id="yoon_eunhye" class="fact-file">
+        <img src="yoon_eunhye.webp" alt="Yoon Eun Hye">
+        <h2>Yoon Eun Hye</h2>
+        <p>Born: October 3, 1984</p>
+        <p>Sub Vocalist, Maknae</p>
+        <p>Fun Fact: Starred in major K-dramas Coffee Prince (2007) and Princess Hours (2006).</p>
+      </div>
+
+      <div id="kan_miyoun" class="fact-file">
+        <img src="kan_miyoun.webp" alt="Kan Mi Youn">
+        <h2>Kan Mi Youn</h2>
+        <p>Born: February 2, 1983</p>
+        <p>Main Vocalist</p>
+        <p>Fun Fact: Launched three solo albums (2006, 2009, 2011), first hit single "Paparazzi".</p>
+      </div>
+
+      <div id="shim_eunjin" class="fact-file">
+        <img src="shim_eunjin.jpg" alt="Shim Eun Jin">
+        <h2>Shim Eun Jin</h2>
+        <p>Born: February 6, 1981</p>
+        <p>Lead Dancer, Vocalist</p>
+        <p>Fun Fact: Now a painter/artist, acted in a few K-dramas, performed solo under stage name Zeeny (2006-2007).</p>
+      </div>
+
+      <div id="lee_heejin" class="fact-file">
+        <img src="Lee_Heejin.webp" alt="Lee Hee Jin">
+        <h2>Lee Hee Jin</h2>
+        <p>Born: May 16, 1979</p>
+        <p>Visual, Sub Vocalist</p>
+        <p>Fun Fact: Popular for stage shows and K-dramas, also owns a coffee shop.</p>
+      </div>
+
+      <div id="lee_gai" class="fact-file">
+        <img src="Lee_Gai.jpeg" alt="Lee Gai">
+        <h2>Lee Gai</h2>
+        <p>Born: July 19, 1968</p>
+        <p>Vocalist</p>
+        <p>Fun Fact: Known as Lee Jisoo in her early career before joining Baby Vox (1998-1999).</p>
+      </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page" style="display:none;">
+      <h1>Gallery</h1>
+      <div class="gallery">
+        <a href="baby_vox.jpg" target="_blank"><img src="baby_vox.jpg" alt="Baby Vox"></a>
+        <a href="baby_vox copy.jpg" target="_blank"><img src="baby_vox copy.jpg" alt="Baby Vox Copy"></a>
+        <a href="babyvox.jpg" target="_blank"><img src="babyvox.jpg" alt="Baby Vox Home"></a>
+        <a href="Leeheejin.jpg" target="_blank"><img src="Leeheejin.jpg" alt="Lee Heejin"></a>
+        <a href="images.jpeg" target="_blank"><img src="images.jpeg" alt="Images"></a>
+        <a href="BABYVOX2.jpg" target="_blank"><img src="BABYVOX2.jpg" alt="Baby Vox 2"></a>
+        <a href="EUNHYE.jpg" target="_blank"><img src="EUNHYE.jpg" alt="EUNHYE"></a>
+        <a href="EUNHYE2.jpg" target="_blank"><img src="EUNHYE2.jpg" alt="EUNHYE2"></a>
+        <a href="EUNHYE3.jpg" target="_blank"><img src="EUNHYE3.jpg" alt="EUNHYE3"></a>
+        <a href="HEEJIN2.jpg" target="_blank"><img src="HEEJIN2.jpg" alt="HEEJIN2"></a>
+        <a href="HEEJIN3.jpg" target="_blank"><img src="HEEJIN3.jpg" alt="HEEJIN3"></a>
+        <a href="HEEJIN4.jpg" target="_blank"><img src="HEEJIN4.jpg" alt="HEEJIN4"></a>
+        <a href="EUNJIN.jpg" target="_blank"><img src="EUNJIN.jpg" alt="EUNJIN"></a>
+      </div>
+
+    </div>
+
+    <!-- Socials Page -->
+    <div id="socials" class="page" style="display:none;">
+      <h1>My Fanpage / Socials</h1>
+      <div class="socials">
+        <a href="https://instagram.com/lewislovesbabyvox" target="_blank">@lewislovesbabyvox on Instagram</a>
+        <a href="https://tiktok.com/@lewislovesbabyvox" target="_blank">@lewislovesbabyvox on TikTok</a>
+        <a href="https://www.instagram.com/miyoun_kan?igsh=MTY4ZHc5ZnYwZWRraA==" target="_blank">Kan Mi Youn on Instagram</a>
+        <a href="https://www.instagram.com/eundung81?igsh=bmxxdTdjd2F0cXM0" target="_blank">Shim Eun Jin on Instagram</a>
+        <a href="https://www.instagram.com/_lee_heejin?igsh=MXR2M2hhcGx4aThweg==" target="_blank">Lee Hee Jin on Instagram</a>
+        <a href="https://www.instagram.com/ezez0417?igsh=MXI5aHhodzVjdHU5eA==" target="_blank">Kim EZ on Instagram</a>
+        <a href="https://www.instagram.com/y1003_grace?igsh=M3NxbG1hMG91dDdz" target="_blank">Yoon Eun Hye on Instagram</a>
+        <a href="https://en.wikipedia.org/wiki/Baby_Vox" target="_blank">Wikipedia: Baby Vox</a>
+        <a href="https://www.youtube.com/c/babyvoxarchive" target="_blank">YouTube: Baby Vox Archive</a>
+        <a href="https://www.allkpop.com/babyvox" target="_blank">AllKpop: Baby Vox</a>
+      </div>
+    </div>
+
+    <!-- Bottom VOX2.gif -->
+    <div class="bottom-banger" style="text-align:center; margin-top:20px;">
+      <img src="VOX2.gif" alt="Bottom VOX Banger" style="width:100%; max-width:600px; border-radius:8px;">
+    </div>
+
+  </div> <!-- End of content -->
+
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(p => p.style.display = 'none');
+      document.getElementById(pageId).style.display = 'block';
+    }
+
+    function showFact(memberId) {
+      const facts = document.querySelectorAll('.fact-file');
+      facts.forEach(f => f.style.display = 'none');
+      document.getElementById(memberId).style.display = 'block';
+    }
+
+    // Visitor counter
+    if(localStorage.getItem('visitorCount')){
+      localStorage.setItem('visitorCount', Number(localStorage.getItem('visitorCount')) + 1);
+    } else {
+      localStorage.setItem('visitorCount', 1);
+    }
+    document.getElementById('visitor-count').innerText = localStorage.getItem('visitorCount');
+
+    // Show home page by default
+    showPage('home');
+
+    // Random Baby Vox trivia popup
+    const trivia = [
+      "Baby Vox cited later girl crush groups like TWICE, ITZY, BLACKPINK and more as inspirations.",
+      "They debuted in 1997 and became one of K-pop's iconic first generation girl groups.",
+      "Baby Vox's music videos influenced Y2K era pop aesthetics.",
+      "Their performances set a standard for synchronized choreography in K-pop."
+    ];
+
+    function showTrivia() {
+      const randomFact = trivia[Math.floor(Math.random() * trivia.length)];
+      alert(randomFact);
+    }
+
+    setInterval(showTrivia, 180000); // Show trivia every 3 minutes
+  </script>
+</body>
+</html>
