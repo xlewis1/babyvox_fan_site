@@ -392,6 +392,22 @@
   <img src="VOX2.gif" alt="VOX Bottom Banger GIF" style="width:600px; height:auto; border-radius:8px;">
 </div>
 
+ <script>
+  // Hide all pages initially except Home
+  document.addEventListener("DOMContentLoaded", function() {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none'); // hide all
+    document.getElementById('home').style.display = 'block'; // show Home
+  });
+
+  // Function to switch pages when navbar buttons are clicked
+  function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.style.display = 'none'); // hide all
+    document.getElementById(pageId).style.display = 'block'; // show selected
+  }
+</script>
+
 <!-- End of site -->
 </body>
 </html>
