@@ -84,9 +84,11 @@
     /* Members */
     .members {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
       gap: 20px;
       justify-items: center;
+       max-width: 600px;
+      margin: 0 auto;
     }
 
     .member img {
