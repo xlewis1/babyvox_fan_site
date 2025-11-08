@@ -142,6 +142,16 @@
   margin-top: 10px;
   font-weight: bold;
 }
+
+/* Spinning animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.navbar img.spinning {
+  animation: spin 4s linear infinite; /* rotate fully in 4 seconds, forever */
+}
   
   </style>
 </head>
@@ -149,7 +159,7 @@
 
 <!-- Navigation Bar -->
 <div class="navbar">
-  <img src="Baby_V.O.X_logo.webp" alt="Baby VOX Logo">
+  <img src="Baby_V.O.X_logo.webp" alt="Baby VOX Logo" class="spinning">
   <button onclick="showPage('home')">Home</button>
   <button onclick="showPage('members')">Members</button>
   <button onclick="showPage('gallery')">Gallery</button>
