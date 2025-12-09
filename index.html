@@ -61,19 +61,25 @@
       padding: 20px;
     }
 
-    .home-content {
-      display: flex;           
-      align-items: flex-start; 
-      gap: 20px;              
-      justify-content: center; 
+   .home-content {
+      display: flex;
+      flex-direction: row; /* side by side */
+      align-items: flex-start; /* top-align */
+      justify-content: flex-start; /* start from left */
+      gap: 20px;
+      flex-wrap: wrap; /* keeps responsive on small screens */
+      max-width: 1000px; /* optional: constrain container width */
+      margin: 0 auto; /* center the whole row horizontally */
     }
 
     /* Home tabs */
     .home-tabs {
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-width: 250px;
+      min-width: 200px;
+      max-width: 300px;   
     }
 
     .home-tab {
@@ -85,6 +91,7 @@
 
     .home-content img {
       max-width: 500px;
+      width: 100%;
       border-radius: 8px;
     }
 
@@ -213,7 +220,7 @@
     home of all BabyAngels please enjoy!
   </p>
 
-  <div class="home-content" style="display: flex; align-items: flex-start; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <div class="home-content">
   
   <img src="VoxXmas.JPG" alt="Baby VOX" width="500">
   <div class="home-tabs">
