@@ -16,6 +16,7 @@
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
+      cursor: url('EZcursor2.png'), auto;
      }
 
     /* Add this inside your <style> block */
@@ -99,11 +100,6 @@
       border-radius: 8px;
       margin-top: 15px;
     }
-
-   
-    body {
-  cursor: url('EZcursor2.png'), auto;
-}
 
     /* Gallery grid */
     .gallery {
@@ -639,19 +635,6 @@
 </div>
 
   <script>
-  // Hide all pages initially except Home
-  document.addEventListener("DOMContentLoaded", function() {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none'); // hide all
-    document.getElementById('home').style.display = 'block'; // show Home
-  });
-
-  // Function to switch pages when navbar buttons are clicked
-  function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none'); // hide all
-    document.getElementById(pageId).style.display = 'block'; // show selected
-  }
 </script>
 
 <!-- End of site -->
