@@ -55,6 +55,13 @@
       border-radius: 4px;
     }
 
+    /* Make the image scale to phone/tablet sizes */
+   .home-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+   }
+
     /* Page layout */
     .page {
       display: none;
@@ -74,6 +81,16 @@
       padding: 8px;
       border-radius: 6px;
     }
+
+    /* Media query: bigger screens get nicer spacing */
+    @media (min-width: 768px) {
+      .home-tabs {
+       max-width: 250px;
+    }
+    .home-container {
+    gap: 40px;
+  }
+}
 
     /* Banner images */
     .top-banner img, .bottom-banger img {
@@ -201,7 +218,7 @@
   </p>
 
  <div class="home-container" style="display:flex; align-items:flex-start; gap:20px; justify-content:center; flex-wrap:wrap;"> 
-  <img src="VoxXmas.JPG" alt="Baby VOX" width="500">
+  <img src="VoxXmas.JPG" alt="Baby VOX" class="home-img">
   <div class="home-tabs">
     <div class="home-tab"><strong>News:</strong> Merry Christmas and Happy New Year BabyAngels!</div>
     <div class="home-tab"><strong>About Me:</strong> Hello! My name is Lewis and I’ve been a fan of Baby V.O.X since 2022 ever since I found Get Up MV on YouTube, Bias is Kim EZ/Kan Mi Youn.</div>
