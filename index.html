@@ -61,19 +61,31 @@
       padding: 20px;
     }
 
+    .home-content {
+      display: flex;           
+      align-items: flex-start; 
+      gap: 20px;              
+      justify-content: center; 
+    }
+
     /* Home tabs */
     .home-tabs {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-width: 200px;
-      margin: 20px auto 0;
+      max-width: 250px;
     }
 
     .home-tab {
       background-color: #ffd6e8;
       padding: 8px;
       border-radius: 6px;
+      text-align: left;
+    }
+
+    .home-content img {
+      max-width: 500px;
+      border-radius: 8px;
     }
 
     /* Banner images */
@@ -200,6 +212,8 @@
   <p style="font-size: 16px; color: #4B0082; margin-bottom: 15px;">    
     home of all BabyAngels please enjoy!
   </p>
+
+  <div class="home-content" style="display: flex; align-items: flex-start; justify-content: center; gap: 20px; flex-wrap: wrap;">
   
   <img src="VoxXmas.JPG" alt="Baby VOX" width="500">
   <div class="home-tabs">
@@ -212,6 +226,7 @@
     <div class="home-tab"><strong>Special Thanks:</strong> thank you to my friend babyvoxi & Lulie for being major help with this fansite.<a href="https://babyvoxi.com" target="_blank">BabyVoxi</a></div>
     <div class="home-tab"><strong>Visitor Counter:</strong> <span id="visitor-count">0</span></div>
   </div>
+</div>
 </div>
 
 <script>
