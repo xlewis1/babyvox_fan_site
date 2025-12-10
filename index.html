@@ -139,14 +139,14 @@
 }
 
 
-  @keyframes pulseGlow {
-    0%, 100% {
-     box-shadow: 0 0 12px rgba(255, 105, 180, 0.5);
-    }
-    50% {
-      box-shadow: 0 0 14px rgba(255, 105, 180, 0.7);
-    }
- }
+   @keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(255, 105, 180, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+  }
+}
 
     /* Glow effect for gallery icons */
    .gallery-icons img {
@@ -178,7 +178,16 @@
       height: 80px;
       cursor: pointer;
       border-radius: 8px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5); /* soft pink glow */
+      animation: pulseGlow 2s infinite;
     }
+
+    /* Hover effect: brighter pink glow + slight scale */
+   .members img:hover {
+    box-shadow: 0 0 20px rgba(255, 105, 180, 1); /* bright pink glow */
+    transform: scale(1.1);
+   }
 
 
     .fact-file {
