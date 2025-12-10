@@ -151,7 +151,7 @@
     /* Glow effect for gallery icons */
    .gallery-icons img {
      transition: box-shadow 0.3s ease, transform 0.3s ease;
-     box-shadow: 0 0 8px rgba(255, 105, 180, 0.5); /* soft pink glow */
+     box-shadow: 0 0 8px rgba(255, 105, 180, 1); /* soft pink glow */
      cursor: pointer;
      animation: pulseGlow 2s infinite;
    }
@@ -160,7 +160,7 @@
    .gallery-icons img:hover {
      box-shadow: 0 0 20px rgba(255, 105, 180, 1); /* bright pink glow */
      transform: scale(1.1);
-     animation: none;
+     animation: pulseGlow 2s infinite;
    }
 
     /* Members */
