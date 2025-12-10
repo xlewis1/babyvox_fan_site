@@ -513,7 +513,7 @@
   </div>
 
   <!-- Yoon Eun Hye Gallery -->
-<div id="eunhye-gallery" class="member-gallery" style="display:none;">
+<div id="eunhye-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
     <a href="EUNHYE.jpg" target="_blank"><img src="EUNHYE.jpg" alt="Yoon Eun Hye 1" width="60" height="60"></a>
     <a href="EUNHYE2.jpg" target="_blank"><img src="EUNHYE2.jpg" alt="Yoon Eun Hye 2" width="60" height="60"></a>
     <a href="EUNHYE3.jpg" target="_blank"><img src="EUNHYE3.jpg" alt="Yoon Eun Hye 3" width="60" height="60"></a>
@@ -561,18 +561,88 @@
 
 </div> <!-- End of gallery page -->
 
-<!-- JavaScript to Show Only Selected Member Gallery -->
+<!-- Lightbox Overlay -->
+<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+     background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:1000;">
+  <span id="lightbox-close" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">&times;</span>
+  <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border:3px solid white;">
+  <a id="prev" style="position:absolute; left:20px; color:white; font-size:50px; cursor:pointer;">&#10094;</a>
+  <a id="next" style="position:absolute; right:20px; color:white; font-size:50px; cursor:pointer;">&#10095;</a>
+</div>
+
 <script>
   function showGallery(galleryId) {
-    // Hide all member galleries inside the gallery page
+    // Hide all member galleries
     const galleries = document.querySelectorAll('#gallery .member-gallery');
     galleries.forEach(g => g.style.display = 'none');
 
-    // Show the selected member gallery
+    // Show the selected gallery
     const selected = document.getElementById(galleryId);
-    if (selected) selected.style.display = 'grid';
+    if (selected) {
+      selected.style.display = 'grid';
+      
+      // Update lightbox links for the currently visible gallery
+      document.querySelectorAll('#gallery .member-gallery a').forEach(link => {
+        link.onclick = null; // remove previous handlers
+      });
+      
+      const links = selected.querySelectorAll('a');
+      links.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentGallery = Array.from(links);
+          currentIndex = index;
+          lightboxImg.src = this.href;
+          lightbox.style.display = 'flex';
+        });
+      });
+    }
   }
 </script>
+
+<!-- Lightbox JavaScript -->
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+
+  let currentGallery = [];
+  let currentIndex = 0;
+
+  // Open lightbox on gallery image click
+  document.querySelectorAll('#gallery .member-gallery a').forEach((link, index, links) => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      currentGallery = Array.from(links);
+      currentIndex = index;
+      lightboxImg.src = this.href;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  // Close lightbox
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // Navigate images
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+    lightboxImg.src = currentGallery[currentIndex].href;
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % currentGallery.length;
+    lightboxImg.src = currentGallery[currentIndex].href;
+  });
+
+  // Close lightbox on clicking outside image
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  });
+</script>  
 
 </div>
     
