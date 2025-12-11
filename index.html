@@ -458,17 +458,18 @@
     <h1>Gallery</h1>
 
   <!-- Member & Group Icons -->
-  <div class="gallery-icons" style="display:flex; gap:20px; justify-content:center; margin-bottom:30px;">
-    <img src="voxicon.gif" alt="Baby VOX Group" width="80" height="80" style="cursor:pointer;" onclick="showGallery('group-gallery')">
-    <img src="ezicon.gif" alt="Kim EZ" width="80" height="80" style="cursor:pointer;" onclick="showGallery('ez-gallery')">
-    <img src="heejinicon.gif" alt="Lee Heejin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('heejin-gallery')">
-    <img src="eunjinicon.gif" alt="Shim Eun Jin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunjin-gallery')">
-    <img src="eunhyeicon.gif" alt="Yoon Eun Hye" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunhye-gallery')">
-    <img src="miyounicon.gif" alt="Kan Mi Youn" width="80" height="80" style="cursor:pointer;" onclick="showGallery('miyoun-gallery')">
-  </div>
-
+ <div class="gallery-icons" style="display:flex; gap:20px; justify-content:center; margin-bottom:30px;">
+     <img src="voxicon.gif" alt="Baby VOX Group" width="80" height="80" style="cursor:pointer;" onclick="showPage('group-gallery')">
+     <img src="ezicon.gif" alt="Kim EZ" width="80" height="80" style="cursor:pointer;" onclick="showPage('ez-gallery')">
+     <img src="heejinicon.gif" alt="Lee Heejin" width="80" height="80" style="cursor:pointer;" onclick="showPage('heejin-gallery')">
+     <img src="eunjinicon.gif" alt="Shim Eun Jin" width="80" height="80" style="cursor:pointer;" onclick="showPage('eunjin-gallery')">
+     <img src="eunhyeicon.gif" alt="Yoon Eun Hye" width="80" height="80" style="cursor:pointer;" onclick="showPage('eunhye-gallery')">
+     <img src="miyounicon.gif" alt="Kan Mi Youn" width="80" height="80" style="cursor:pointer;" onclick="showPage('miyoun-gallery')">
+ </div>
+  
   <!-- Baby VOX Group Gallery -->
-  <div id="group-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+  <div id="ez-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+     <button onclick="showPage('gallery')" style="margin-bottom: 10px;">Back</button>
     <a href="Baby_Vox.jpg" target="_blank"><img src="Baby_Vox.jpg" alt="Baby Vox" width="60" height="60"></a>
     <a href="baby_vox copy.jpg" target="_blank"><img src="baby_vox copy.jpg" alt="Baby Vox Copy" width="60" height="60"></a>
     <a href="Babyvox.jpg" target="_blank"><img src="Babyvox.jpg" alt="Baby Vox Home" width="60" height="60"></a>
@@ -494,7 +495,8 @@
   </div>
 
   <!-- Kim EZ Gallery -->
-  <div id="ez-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+  <div id="group-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+     <button onclick="showPage('gallery')" style="margin-bottom: 10px;">Back</button>
     <a href="EZ2.jpg" target="_blank"><img src="EZ2.jpg" alt="Kim EZ 2" width="60" height="60"></a>
     <a href="EZ3.JPG" target="_blank"><img src="EZ3.JPG" alt="Kim EZ 3" width="60" height="60"></a>
     <a href="EZ4.JPG" target="_blank"><img src="EZ4.JPG" alt="Kim EZ 4" width="60" height="60"></a>
@@ -519,6 +521,7 @@
 
   <!-- Lee Heejin Gallery -->
   <div id="heejin-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+     <button onclick="showPage('gallery')" style="margin-bottom: 10px;">Back</button>
     <a href="Leeheejin.jpg" target="_blank"><img src="Leeheejin.jpg" alt="Lee Heejin" width="60" height="60"></a>
     <a href="HEEJIN2.jpg" target="_blank"><img src="HEEJIN2.jpg" alt="Lee Heejin 2" width="60" height="60"></a>
     <a href="HEEJIN3.jpg" target="_blank"><img src="HEEJIN3.jpg" alt="Lee Heejin 3" width="60" height="60"></a>
@@ -534,7 +537,8 @@
   </div>
 
    <!-- Shim Eun Jin Gallery (Eunjin) -->
-  <div id="eunjin-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+ <div id="eunjin-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+    <button onclick="showPage('gallery')" style="margin-bottom: 10px;">Back</button>
     <a href="EUNJIN.jpg" target="_blank"><img src="EUNJIN.jpg" alt="Shim Eun Jin 1" width="60" height="60"></a>
     <a href="shim_3rd13.jpg" target="_blank"><img src="shim_3rd13.jpg" alt="Shim Eun Jin 3" width="60" height="60"></a>
     <a href="shim_3rd14.jpg" target="_blank"><img src="shim_3rd14.jpg" alt="Shim Eun Jin 4" width="60" height="60"></a>
@@ -549,7 +553,8 @@
   </div>
 
   <!-- Yoon Eun Hye Gallery -->
-<div id="eunhye-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+<div id="eunhye-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+   <button onclick="showPage('gallery')" style="margin-bottom: 10px;">Back</button>
     <a href="EUNHYE.jpg" target="_blank"><img src="EUNHYE.jpg" alt="Yoon Eun Hye 1" width="60" height="60"></a>
     <a href="EUNHYE2.jpg" target="_blank"><img src="EUNHYE2.jpg" alt="Yoon Eun Hye 2" width="60" height="60"></a>
     <a href="EUNHYE3.jpg" target="_blank"><img src="EUNHYE3.jpg" alt="Yoon Eun Hye 3" width="60" height="60"></a>
@@ -567,7 +572,8 @@
 </div>
 
   <!-- Kan Mi Youn Gallery (Miyoun) -->
-  <div id="miyoun-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+  <div id="miyoun-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+     <button onclick="showPage('gallery')" style="margin-bottom: 10px;">Back</button>
     <a href="MIYOUN2.webp" target="_blank"><img src="MIYOUN2.webp" alt="Kan Mi Youn 2" width="60" height="60"></a>
     <a href="MIYOUN3.webp" target="_blank"><img src="MIYOUN3.webp" alt="Kan Mi Youn 3" width="60" height="60"></a>
     <a href="MIYOUN4.jpg" target="_blank"><img src="MIYOUN4.jpg" alt="Kan Mi Youn 4" width="60" height="60"></a>
