@@ -613,35 +613,49 @@
 </div>
 
 <script>
-  function showGallery(galleryId) {
-    // Hide all member galleries
-    const galleries = document.querySelectorAll('#gallery .member-gallery');
-    galleries.forEach(g => g.style.display = 'none');
+let currentGallery = [];
+let currentIndex = 0;
 
-    // Show the selected gallery
-    const selected = document.getElementById(galleryId);
-    if (selected) {
-      selected.style.display = 'grid';
-      
-      // Update lightbox links for the currently visible gallery
-      document.querySelectorAll('#gallery .member-gallery a').forEach(link => {
-        link.onclick = null; // remove previous handlers
-      });
-      
-      const links = selected.querySelectorAll('a');
-      links.forEach((link, index) => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          currentGallery = Array.from(links);
-          currentIndex = index;
-          lightboxImg.src = this.href;
-          lightbox.style.display = 'flex';
-        });
-      });
-    }
+function showGallery(galleryId) {
+  const galleryPage = document.getElementById('gallery'); // main gallery container
+  const memberGalleries = document.querySelectorAll('#gallery .member-gallery');
+
+  // Hide all member galleries
+  memberGalleries.forEach(g => g.style.display = 'none');
+
+  if (galleryId === 'main') {
+    // Show main gallery icons
+    galleryPage.style.display = 'block';
+    return;
   }
-</script>
 
+  // Hide main gallery icons when showing a member gallery
+  galleryPage.style.display = 'none';
+
+  const selected = document.getElementById(galleryId);
+  if (selected) {
+    selected.style.display = 'grid';
+
+    // Remove previous lightbox handlers
+    selected.querySelectorAll('a').forEach(link => {
+      link.onclick = null;
+    });
+
+    // Add lightbox handlers for this gallery only
+    const links = selected.querySelectorAll('a');
+    links.forEach((link, index) => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        currentGallery = Array.from(links);
+        currentIndex = index;
+        document.getElementById('lightbox-img').src = this.href;
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+    });
+  }
+}
+</script>
+  
 <!-- Lightbox JavaScript -->
 <script>
   const lightbox = document.getElementById('lightbox');
@@ -652,17 +666,6 @@
 
   let currentGallery = [];
   let currentIndex = 0;
-
-  // Open lightbox on gallery image click
-  document.querySelectorAll('#gallery .member-gallery a').forEach((link, index, links) => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      currentGallery = Array.from(links);
-      currentIndex = index;
-      lightboxImg.src = this.href;
-      lightbox.style.display = 'flex';
-    });
-  });
 
   // Close lightbox
   closeBtn.addEventListener('click', () => {
