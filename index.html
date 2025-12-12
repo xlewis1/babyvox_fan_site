@@ -457,18 +457,18 @@
 <div id="gallery" class="page" style="display:none;">
     <h1>Gallery</h1>
 
- <!-- Member & Group Icons -->
-<div class="gallery-icons" style="display:flex; gap:20px; justify-content:center; margin-bottom:30px;">
+  <!-- Member & Group Icons -->
+  <div class="gallery-icons" style="display:flex; gap:20px; justify-content:center; margin-bottom:30px;">
     <img src="voxicon.gif" alt="Baby VOX Group" width="80" height="80" style="cursor:pointer;" onclick="showGallery('group-gallery')">
     <img src="ezicon.gif" alt="Kim EZ" width="80" height="80" style="cursor:pointer;" onclick="showGallery('ez-gallery')">
     <img src="heejinicon.gif" alt="Lee Heejin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('heejin-gallery')">
     <img src="eunjinicon.gif" alt="Shim Eun Jin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunjin-gallery')">
     <img src="eunhyeicon.gif" alt="Yoon Eun Hye" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunhye-gallery')">
     <img src="miyounicon.gif" alt="Kan Mi Youn" width="80" height="80" style="cursor:pointer;" onclick="showGallery('miyoun-gallery')">
-</div>
-  
+  </div>
+
   <!-- Baby VOX Group Gallery -->
-  <div id="ez-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+  <div id="group-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
     <a href="Baby_Vox.jpg" target="_blank"><img src="Baby_Vox.jpg" alt="Baby Vox" width="60" height="60"></a>
     <a href="baby_vox copy.jpg" target="_blank"><img src="baby_vox copy.jpg" alt="Baby Vox Copy" width="60" height="60"></a>
     <a href="Babyvox.jpg" target="_blank"><img src="Babyvox.jpg" alt="Baby Vox Home" width="60" height="60"></a>
@@ -494,7 +494,7 @@
   </div>
 
   <!-- Kim EZ Gallery -->
-  <div id="group-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+  <div id="ez-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
     <a href="EZ2.jpg" target="_blank"><img src="EZ2.jpg" alt="Kim EZ 2" width="60" height="60"></a>
     <a href="EZ3.JPG" target="_blank"><img src="EZ3.JPG" alt="Kim EZ 3" width="60" height="60"></a>
     <a href="EZ4.JPG" target="_blank"><img src="EZ4.JPG" alt="Kim EZ 4" width="60" height="60"></a>
@@ -534,7 +534,7 @@
   </div>
 
    <!-- Shim Eun Jin Gallery (Eunjin) -->
- <div id="eunjin-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+  <div id="eunjin-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
     <a href="EUNJIN.jpg" target="_blank"><img src="EUNJIN.jpg" alt="Shim Eun Jin 1" width="60" height="60"></a>
     <a href="shim_3rd13.jpg" target="_blank"><img src="shim_3rd13.jpg" alt="Shim Eun Jin 3" width="60" height="60"></a>
     <a href="shim_3rd14.jpg" target="_blank"><img src="shim_3rd14.jpg" alt="Shim Eun Jin 4" width="60" height="60"></a>
@@ -549,7 +549,7 @@
   </div>
 
   <!-- Yoon Eun Hye Gallery -->
-<div id="eunhye-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+<div id="eunhye-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
     <a href="EUNHYE.jpg" target="_blank"><img src="EUNHYE.jpg" alt="Yoon Eun Hye 1" width="60" height="60"></a>
     <a href="EUNHYE2.jpg" target="_blank"><img src="EUNHYE2.jpg" alt="Yoon Eun Hye 2" width="60" height="60"></a>
     <a href="EUNHYE3.jpg" target="_blank"><img src="EUNHYE3.jpg" alt="Yoon Eun Hye 3" width="60" height="60"></a>
@@ -567,7 +567,7 @@
 </div>
 
   <!-- Kan Mi Youn Gallery (Miyoun) -->
-  <div id="miyoun-gallery" class="member-gallery page" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
+  <div id="miyoun-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
     <a href="MIYOUN2.webp" target="_blank"><img src="MIYOUN2.webp" alt="Kan Mi Youn 2" width="60" height="60"></a>
     <a href="MIYOUN3.webp" target="_blank"><img src="MIYOUN3.webp" alt="Kan Mi Youn 3" width="60" height="60"></a>
     <a href="MIYOUN4.jpg" target="_blank"><img src="MIYOUN4.jpg" alt="Kan Mi Youn 4" width="60" height="60"></a>
@@ -607,86 +607,78 @@
 </div>
 
 <script>
-let currentGallery = [];
-let currentIndex = 0;
-
-function showGallery(galleryId) {
-    const galleryPage = document.getElementById('gallery'); // main gallery container
-    const memberGalleries = document.querySelectorAll('#gallery .member-gallery');
-
+  function showGallery(galleryId) {
     // Hide all member galleries
-    memberGalleries.forEach(g => g.style.display = 'none');
+    const galleries = document.querySelectorAll('#gallery .member-gallery');
+    galleries.forEach(g => g.style.display = 'none');
 
-    // Remove old back buttons to avoid duplicates
-    document.querySelectorAll('.member-gallery .back-btn').forEach(btn => btn.remove());
-
-    if (galleryId === 'main') {
-        // Show main gallery icons
-        galleryPage.style.display = 'block';
-    } else {
-        // Hide main gallery
-        galleryPage.style.display = 'none';
-
-        // Show selected member gallery
-        const targetGallery = document.getElementById(galleryId);
-        if (targetGallery) {
-            targetGallery.style.display = 'grid';
-
-            // Add dynamic Back button
-            const backBtn = document.createElement('button');
-            backBtn.textContent = 'Back';
-            backBtn.className = 'back-btn';
-            backBtn.style.marginBottom = '10px';
-            backBtn.onclick = () => showGallery('main');
-            targetGallery.prepend(backBtn);
-
-            // Initialize lightbox for this gallery
-            const links = targetGallery.querySelectorAll('a');
-            links.forEach((link, index) => {
-                link.onclick = e => {
-                    e.preventDefault();
-                    openLightbox(links, index);
-                };
-            });
-        }
+    // Show the selected gallery
+    const selected = document.getElementById(galleryId);
+    if (selected) {
+      selected.style.display = 'grid';
+      
+      // Update lightbox links for the currently visible gallery
+      document.querySelectorAll('#gallery .member-gallery a').forEach(link => {
+        link.onclick = null; // remove previous handlers
+      });
+      
+      const links = selected.querySelectorAll('a');
+      links.forEach((link, index) => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentGallery = Array.from(links);
+          currentIndex = index;
+          lightboxImg.src = this.href;
+          lightbox.style.display = 'flex';
+        });
+      });
     }
-}
+  }
+</script>
 
-// Lightbox elements
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.getElementById('lightbox-close');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
+<!-- Lightbox JavaScript -->
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
 
-// Open lightbox function
-function openLightbox(links, index) {
-    currentGallery = Array.from(links);
-    currentIndex = index;
-    lightboxImg.src = currentGallery[currentIndex].href;
-    lightbox.style.display = 'flex';
-}
+  let currentGallery = [];
+  let currentIndex = 0;
 
-// Lightbox controls
-closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+  // Open lightbox on gallery image click
+  document.querySelectorAll('#gallery .member-gallery a').forEach((link, index, links) => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      currentGallery = Array.from(links);
+      currentIndex = index;
+      lightboxImg.src = this.href;
+      lightbox.style.display = 'flex';
+    });
+  });
 
-prevBtn.addEventListener('click', () => {
-    if (!currentGallery.length) return;
+  // Close lightbox
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  // Navigate images
+  prevBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
     lightboxImg.src = currentGallery[currentIndex].href;
-});
+  });
 
-nextBtn.addEventListener('click', () => {
-    if (!currentGallery.length) return;
+  nextBtn.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % currentGallery.length;
     lightboxImg.src = currentGallery[currentIndex].href;
-});
+  });
 
-// Close lightbox when clicking outside the image
-lightbox.addEventListener('click', e => {
+  // Close lightbox on clicking outside image
+  lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) lightbox.style.display = 'none';
-});
-</script>
+  });
+</script>  
 
 </div>
     
