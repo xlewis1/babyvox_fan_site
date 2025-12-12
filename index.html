@@ -457,15 +457,20 @@
 <div id="gallery" class="page" style="display:none;">
     <h1>Gallery</h1>
 
-  <!-- Member & Group Icons -->
-  <div class="gallery-icons" style="display:flex; gap:20px; justify-content:center; margin-bottom:30px;">
-    <img src="voxicon.gif" alt="Baby VOX Group" width="80" height="80" style="cursor:pointer;" onclick="showGallery('group-gallery')">
-    <img src="ezicon.gif" alt="Kim EZ" width="80" height="80" style="cursor:pointer;" onclick="showGallery('ez-gallery')">
-    <img src="heejinicon.gif" alt="Lee Heejin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('heejin-gallery')">
-    <img src="eunjinicon.gif" alt="Shim Eun Jin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunjin-gallery')">
-    <img src="eunhyeicon.gif" alt="Yoon Eun Hye" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunhye-gallery')">
-    <img src="miyounicon.gif" alt="Kan Mi Youn" width="80" height="80" style="cursor:pointer;" onclick="showGallery('miyoun-gallery')">
-  </div>
+<div class="gallery-icons" style="display:flex; gap:20px; justify-content:center; margin-bottom:30px;">
+  <img src="voxicon.gif" alt="Baby VOX Group" width="80" height="80" style="cursor:pointer;" 
+       onclick="openGallery('group-gallery')">
+  <img src="ezicon.gif" alt="Kim EZ" width="80" height="80" style="cursor:pointer;" 
+       onclick="openGallery('ez-gallery')">
+  <img src="heejinicon.gif" alt="Lee Heejin" width="80" height="80" style="cursor:pointer;" 
+       onclick="openGallery('heejin-gallery')">
+  <img src="eunjinicon.gif" alt="Shim Eun Jin" width="80" height="80" style="cursor:pointer;" 
+       onclick="openGallery('eunjin-gallery')">
+  <img src="eunhyeicon.gif" alt="Yoon Eun Hye" width="80" height="80" style="cursor:pointer;" 
+       onclick="openGallery('eunhye-gallery')">
+  <img src="miyounicon.gif" alt="Kan Mi Youn" width="80" height="80" style="cursor:pointer;" 
+       onclick="openGallery('miyoun-gallery')">
+</div>
 
   <!-- Baby VOX Group Gallery -->
   <div id="group-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
@@ -607,6 +612,7 @@
 </div>
 
 <script>
+  // Show gallery in the current tab (for lightbox)
   function showGallery(galleryId) {
     // Hide all member galleries
     const galleries = document.querySelectorAll('#gallery .member-gallery');
@@ -617,9 +623,9 @@
     if (selected) {
       selected.style.display = 'grid';
       
-      // Update lightbox links for the currently visible gallery
+      // Remove previous lightbox click handlers
       document.querySelectorAll('#gallery .member-gallery a').forEach(link => {
-        link.onclick = null; // remove previous handlers
+        link.onclick = null;
       });
       
       const links = selected.querySelectorAll('a');
@@ -634,6 +640,21 @@
       });
     }
   }
+
+  // Open gallery in a new tab
+  function openGallery(galleryId) {
+    // Open the same page with a query parameter
+    window.open(window.location.href.split('?')[0] + '?member=' + galleryId, '_blank');
+  }
+
+  // On page load, check if a member gallery should be shown
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const member = params.get('member');
+    if (member) {
+      showGallery(member);
+    }
+  });
 </script>
 
 <!-- Lightbox JavaScript -->
