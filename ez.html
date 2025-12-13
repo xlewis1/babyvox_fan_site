@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kim EZ Gallery - Baby VOX Fansite</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: rgba(0,0,0,0.1);
+  margin: 0;
+  padding: 20px;
+}
+
+/* Spinning logo */
+.logo {
+  height: 80px;
+  animation: spin 5s linear infinite;
+  margin-bottom: 20px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* Title & instructions */
+h1 {
+  color: #4B0082;
+}
+.instructions {
+  color: #4B0082;
+  margin-bottom: 30px;
+}
+
+/* Gallery grid */
+.member-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+.member-gallery img {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #ff99cc;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.member-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff66b2;
+  animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+  from { box-shadow: 0 0 15px #ff66b2; }
+  to { box-shadow: 0 0 25px #ff33aa; }
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.lightbox .controls button {
+  font-size: 20px;
+  margin: 5px;
+  padding: 5px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  border:none;
+  background: #ff3399;
+  color: white;
+}
+
+/* Back buttons */
+.back-btn {
+  margin: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #ff66b2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.back-btn:hover {
+  background: #ff33aa;
+}
+</style>
+</head>
+<body>
+
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+
+<h1>Kim EZ Gallery</h1>
+<p class="instructions">Click on one of the images to open the lightbox. Navigate using arrows or click X to close. Click the image in the lightbox for full resolution.</p>
+
+<div id="ez-gallery" class="member-gallery">
+  <!-- Your images -->
+  <a href="EZ2.jpg" target="_blank"><img src="EZ2.jpg" alt="Kim EZ 2"></a>
+  <a href="EZ3.JPG" target="_blank"><img src="EZ3.JPG" alt="Kim EZ 3"></a>
+  <a href="EZ4.JPG" target="_blank"><img src="EZ4.JPG" alt="Kim EZ 4"></a>
+  <a href="EZ5.jpg" target="_blank"><img src="EZ5.jpg" alt="Kim EZ 5"></a>
+  <a href="EZ6.png" target="_blank"><img src="EZ6.png" alt="Kim EZ 6"></a>
+  <a href="EZ7.png" target="_blank"><img src="EZ7.png" alt="Kim EZ 7"></a>
+  <a href="Eunhye&EZ.jpg" target="_blank"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
+  <a href="EZ8.jpg" target="_blank"><img src="EZ8.jpg" alt="Kim EZ 8"></a>
+  <a href="KimEZ15.jpg" target="_blank"><img src="KimEZ15.jpg" alt="Kim EZ 15"></a>
+  <a href="EZ20.jpg" target="_blank"><img src="EZ20.jpg" alt="Kim EZ 20"></a>
+  <a href="EZ&Eunhye2.jpg" target="_blank"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
+  <a href="EZ22.jpg" target="_blank"><img src="EZ22.jpg" alt="Kim EZ 22"></a>
+  <a href="EZ23.jpg" target="_blank"><img src="EZ23.jpg" alt="Kim EZ 23"></a>
+  <a href="EZ24.jpg" target="_blank"><img src="EZ24.jpg" alt="Kim EZ 24"></a>
+  <a href="KimEZ45.jpg" target="_blank"><img src="KimEZ45.jpg" alt="Kim EZ 45"></a>
+  <a href="EZ56.jpg" target="_blank"><img src="EZ56.jpg" alt="Kim EZ 56"></a>
+  <a href="EZ57.jpg" target="_blank"><img src="EZ57.jpg" alt="Kim EZ 57"></a>
+  <a href="EZ58.jpg" target="_blank"><img src="EZ58.jpg" alt="Kim EZ 58"></a>
+  <a href="EZ59.jpg" target="_blank"><img src="EZ59.jpg" alt="Kim EZ 59"></a>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img src="" alt="" id="lightbox-img">
+  <div class="controls">
+    <button id="prev">&#8592;</button>
+    <button id="next">&#8594;</button>
+    <button id="close">X</button>
+  </div>
+</div>
+
+<!-- Navigation buttons -->
+<div>
+  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+</div>
+
+<script>
+// Lightbox logic
+const gallery = document.querySelectorAll('#ez-gallery a');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+let currentIndex = 0;
+
+gallery.forEach((item, index) => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    currentIndex = index;
+    openLightbox();
+  });
+});
+
+function openLightbox() {
+  lightbox.style.display = 'flex';
+  lightboxImg.src = gallery[currentIndex].href;
+}
+
+function closeLightbox() {
+  lightbox.style.display = 'none';
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % gallery.length;
+  lightboxImg.src = gallery[currentIndex].href;
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+  lightboxImg.src = gallery[currentIndex].href;
+}
+
+// Lightbox image click opens full-res in new tab
+lightboxImg.addEventListener('click', () => {
+  window.open(lightboxImg.src, '_blank');
+});
+
+document.getElementById('close').addEventListener('click', closeLightbox);
+document.getElementById('next').addEventListener('click', nextImage);
+document.getElementById('prev').addEventListener('click', prevImage);
+</script>
+
+</body>
+</html>
