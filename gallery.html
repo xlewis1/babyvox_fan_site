@@ -1,130 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby V.O.X Gallery</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      background-color: rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby V.O.X Gallery</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    /* Spinning logo */
-    .logo {
-      height: 80px;
-      margin: 20px 0;
-      animation: spin 6s linear infinite;
-    }
+  /* Spinning Baby VOX logo */
+  .logo {
+    width: 100px;
+    animation: spin 4s linear infinite;
+    margin-bottom: 20px;
+  }
 
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 
-    h1 {
-      color: #4B0082;
-      margin-bottom: 30px;
-    }
+  h1 {
+    color: #4B0082;
+    margin-bottom: 10px;
+  }
 
-    /* Icons container */
-    .gallery-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: center;
-      margin-bottom: 50px;
-    }
+  p.instruction {
+    color: #4B0082;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
 
-    /* Icon links */
-    .gallery-icons a {
-      display: inline-block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 50%;
-    }
+  /* Gallery icons */
+  .gallery-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
 
-    /* Icon images */
-    .gallery-icons img {
-      width: 80px;
-      height: 80px;
-      cursor: pointer;
-      border-radius: 50%;
-    }
+  .gallery-icons img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #ff99cc;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse 2s infinite;
+  }
 
-    /* Glow + pulse on hover */
-    .gallery-icons a:hover img {
-      box-shadow: 0 0 15px #ff66b2, 0 0 25px #ff99cc;
-      transform: scale(1.15);
-      animation: pulse 1s infinite;
-    }
+  .gallery-icons img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #ff4ca6;
+  }
 
-    @keyframes pulse {
-      0% { transform: scale(1.15); }
-      50% { transform: scale(1.25); }
-      100% { transform: scale(1.15); }
-    }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
 
-    /* Back button */
-    .back-button {
-      padding: 10px 20px;
-      margin-bottom: 30px;
-      background-color: #ff66b2;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+  /* Back button */
+  .back-btn {
+    padding: 10px 20px;
+    background: #ff3399;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
 
-    .back-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #ff99cc;
-    }
-  </style>
+  .back-btn:hover {
+    transform: scale(1.1);
+  }
+</style>
 </head>
 <body>
 
-  <!-- Spinning Baby VOX logo -->
-  <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+<!-- Spinning Logo -->
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
-  <h1>Baby V.O.X Gallery</h1>
+<h1>Baby V.O.X Gallery</h1>
+<p class="instruction">Click on one of the Baby VOX member or group icons to reveal their galleries.</p>
 
-  <!-- Member & Group Icons -->
-  <div class="gallery-icons">
-    <a href="group-gallery.html">
-      <img src="voxicon.gif" alt="Baby VOX Group">
-    </a>
+<!-- Gallery Icons -->
+<div class="gallery-icons">
+  <img src="voxicon.gif" alt="Baby VOX Group" onclick="openGallery('group.html')">
+  <img src="ezicon.gif" alt="Kim EZ" onclick="openGallery('ez.html')">
+  <img src="heejinicon.gif" alt="Lee Heejin" onclick="openGallery('heejin.html')">
+  <img src="eunjinicon.gif" alt="Shim Eun Jin" onclick="openGallery('eunjin.html')">
+  <img src="eunhyeicon.gif" alt="Yoon Eun Hye" onclick="openGallery('eunhye.html')">
+  <img src="miyounicon.gif" alt="Kan Mi Youn" onclick="openGallery('miyoun.html')">
+</div>
 
-    <a href="kim-ez.html">
-      <img src="ezicon.gif" alt="Kim EZ">
-    </a>
+<!-- Back to Home -->
+<button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 
-    <a href="lee-heejin.html">
-      <img src="heejinicon.gif" alt="Lee Heejin">
-    </a>
-
-    <a href="shim-eun-jin.html">
-      <img src="eunjinicon.gif" alt="Shim Eun Jin">
-    </a>
-
-    <a href="yoon-eun-hye.html">
-      <img src="eunhyeicon.gif" alt="Yoon Eun Hye">
-    </a>
-
-    <a href="kan-mi-youn.html">
-      <img src="miyounicon.gif" alt="Kan Mi Youn">
-    </a>
-  </div>
-
-  <!-- Back to Home Button -->
-  <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
+<script>
+  // Function to open member or group galleries
+  function openGallery(url) {
+    window.location.href = url;
+  }
+</script>
 
 </body>
 </html>
