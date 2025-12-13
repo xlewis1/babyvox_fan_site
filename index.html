@@ -198,7 +198,7 @@ grid-row-gap: 0px;
       
     <p><strong>Special Thanks:</strong> thank you to my friend babyvoxi &amp; Lulie for being major help with this fansite. <a href="https://babyvoxi.com" target="_blank" bis_skin_checked="1">BabyVoxi</a></p>
   
-    <p><strong>Visitor Counter:</strong> <span id="visitor-count">...</span></p>
+    <p><strong>Visitor Counter:</strong> <span id="visitor-count">0</span></p>
     
     
 
@@ -248,25 +248,21 @@ grid-row-gap: 0px;
   }
 </script>
 
+<p>Visitor Count: <span id="visitor-count">0</span></p>
+
 <script>
-  // Visitor counter using countapi.xyz
-  async function updateVisitorCount() {
-    try {
-      const response = await fetch('https://api.countapi.xyz/hit/babyvox_fan_site/visits');
-      const data = await response.json();
-      document.getElementById('visitor-count').textContent = data.value;
-    } catch (error) {
-      console.error('Failed to fetch visitor count:', error);
-      document.getElementById('visitor-count').textContent = 'N/A';
-    }
-  }
+  // Get stored count, or start at 0
+  let visitorCount = localStorage.getItem('visitorCount');
+  if (!visitorCount) visitorCount = 0;
 
-  // Run the counter update when page loads
-  updateVisitorCount();
+  // Increment the count
+  visitorCount++;
+  localStorage.setItem('visitorCount', visitorCount);
 
-  setInterval(updateVisitorCount, 10000);
+  // Update the page
+  document.getElementById('visitor-count').textContent = visitorCount;
 </script>    
-    
+
   </body>
 </html>
 
