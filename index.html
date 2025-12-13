@@ -217,6 +217,7 @@ grid-row-gap: 0px;
 </div>
 
 <script>
+  // Array of random facts
   const facts = [
     "Baby V.O.X stands for 'Baby Voices of Xpression' and was one of the most popular 1st‑generation K-pop girl groups.",
     "They debuted in 1997 and helped pioneer the Korean Wave in China and Asia.",
@@ -228,9 +229,22 @@ grid-row-gap: 0px;
     "Baby V.O.X officially disbanded in 2006 after releasing seven studio albums."
   ];
 
+  // Create a display box for the random fact
+  const factBox = document.createElement('div');
+  factBox.id = "random-fact-box";
+  factBox.style.marginTop = "10px";
+  factBox.style.padding = "10px";
+  factBox.style.borderRadius = "6px";
+  factBox.style.background = "#ffccf0";
+  factBox.style.color = "#4B0082";
+  factBox.style.width = "300px";
+  factBox.style.minHeight = "40px";
+  document.querySelector('.right').appendChild(factBox);
+
+  // Function to show a random fact
   function showRandomFact() {
     const randomIndex = Math.floor(Math.random() * facts.length);
-    document.getElementById('random-fact-box').textContent = facts[randomIndex];
+    factBox.textContent = facts[randomIndex];
   }
 </script>
    
