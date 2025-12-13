@@ -251,7 +251,7 @@ grid-row-gap: 0px;
 <script>
   async function updateVisitorCount() {
     // increment and get current count from CounterAPI
-    const response = await fetch("https://counterapi.dev/track?name=babyvox_site");
+    const response = await fetch("https://counterapi.dev/track?name=babyvox_fan_site");
     const data = await response.json();
     document.getElementById("visitor-count").textContent = data.value;
   }
