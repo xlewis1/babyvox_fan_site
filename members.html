@@ -14,6 +14,24 @@
       text-align: center;
     }
 
+    .logo {
+      position: fixed;     /* top-left corner */
+       top: 10px;
+       left: 10px;
+       width: 60px;
+       height: auto;
+       z-index: 1000;
+
+      /* Spin animation */
+      animation: spin 4s linear infinite;
+    }
+
+    /* Keyframes for spinning */
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
     h1, h2 {
       color: #4B0082;
     }
