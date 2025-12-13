@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Baby VOX Fansite</title>
-  <style>
-    body {
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby V.O.X Fansite</title>
+    
+    
+    <style>
+    
+     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin: 0;
       padding: 0;
       background-color: rgba(0, 0, 0, 0.25);
+      cursor: url('EZcursor2.png'), auto;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
       /* Background image*/
       background-image: url("logo.png");
@@ -18,14 +28,12 @@
       background-size: contain;
      }
 
-    /* Add this inside your <style> block */
-  h1, h2, h3, h4, h5, h6 {
-    color: #4B0082; /* dark purple */
-}
 
-   /* Navigation Bar */
+ /* Navigation Bar */
     .navbar {
+      width: 100%;
       background-color: #1a1a1a;
+      
       padding: 10px;
       display: flex;
       align-items: center;
@@ -45,7 +53,7 @@
       margin-right: 15px;
     }
 
-    .navbar button {
+    .navbar button, a {
       margin: 5px;
       padding: 8px 12px;
       border: none;
@@ -53,177 +61,74 @@
       color: #ff3399;
       cursor: pointer;
       border-radius: 4px;
+      text-decoration: none;
     }
 
-    /* Page layout */
-    .page {
-      display: none;
-      padding: 20px;
-    }
+.right a{
+  
+  background: none;
+  margin: 0px;
+  padding: 0px;
+  color: #4B0082;
+  
+  
+}
+    
+    h1, h2, h3, h4, h5, h6 {
+    color: #4B0082; /* dark purple */
+}
+ 
+ 
+ .container{
 
-   .home-content {
-      display: flex;
-      flex-direction: row; /* side by side */
-      align-items: flex-start; /* top-align */
-      justify-content: flex-start; /* start from left */
-      gap: 20px;
-      flex-wrap: wrap; /* keeps responsive on small screens */
-      max-width: 1000px; /* optional: constrain container width */
-      margin: 0 auto; /* center the whole row horizontally */
-    }
-
-    /* Home tabs */
-    .home-tabs {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 200px;
-      max-width: 300px;   
-    }
-
-    .home-tab {
-      background-color: #ffd6e8;
-      padding: 8px;
-      border-radius: 6px;
-      text-align: left;
-      box-shadow: 0 0 8px 2px #ff99cc;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
+  width: 1000px;
+   
+   
+ }
 
 
-    .home-tab:hover {
-       box-shadow: 0 0 12px 4px #ff66b2; /* stronger glow on hover */
-       transform: translateY(-2px); /* optional: slight lift */
-    }
+.homepage {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(4, 1fr);
+grid-column-gap: 40px;
+grid-row-gap: 0px;
+}
 
-    .home-content img {
-      max-width: 500px;
-      width: 100%;
-      border-radius: 8px;
-    }
+.left { grid-area: 1 / 1 / 5 / 3; }
+.right { grid-area: 1 / 3 / 5 / 5; }
+
+
+
 
     /* Banner images */
     .top-banner img, .bottom-banger img {
-      width: 100%;
       max-width: 600px;
       border-radius: 8px;
       margin-top: 15px;
+      margin-bottom: 20px;
     }
 
+   .right p {
+     
+    background-color: #ffd6e8;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: 0 0 8px 2px #ff99cc;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    width: 300px;
+   }
    
-    body {
-  cursor: url('EZcursor2.png'), auto;
-}
-
-    /* Gallery grid */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-      gap: 10px;
-      justify-items: center;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .gallery img {
-      width: 60px;
-      height: 60px;
-    }
-
-    .member-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 10px;
-  justify-items: center;
-}
-
-
-   @keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 6px rgba(255, 105, 180, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
-  }
-}
-
-    /* Glow effect for gallery icons */
-   .gallery-icons img {
-     transition: box-shadow 0.3s ease, transform 0.3s ease;
-     box-shadow: 0 0 8px rgba(255, 105, 180, 1);
-     cursor: pointer;
-     animation: pulseGlow 2s infinite;
+   .right p:hover{
+     
+       box-shadow: 0 0 12px 4px #ff66b2; /* stronger glow on hover */
+       transform: translateY(-2px); /* optional: slight lift */
+     
    }
 
-   /* Hover effect: brighter pink glow + slight scale */
-   .gallery-icons img:hover {
-     box-shadow: 0 0 20px rgba(255, 105, 180, 1);
-     transform: scale(1.1);
-     animation: none;
-   }
-
-    /* Members */
-    .members {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-      gap: 20px;
-      justify-items: center;
-       max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .member img {
-      width: 80px;
-      height: 80px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5); /* soft pink glow */
-      animation: pulseGlow 2s infinite;
-    }
-
-    /* Hover effect: brighter pink glow + slight scale */
-   .members img:hover {
-    box-shadow: 0 0 20px rgba(255, 105, 180, 1); /* bright pink glow */
-    transform: scale(1.1);
-   }
-
-
-    .fact-file {
-    color: #FF33CC; /* bright yellow, for example */
-    font-size: 16px; /* optional: adjust size */
-    line-height: 1.5; /* optional: improve readability */
-   }
-
-    /* Fact files */
-    .fact-file img {
-      width: 150px;
-      height: 150px;
-      border-radius: 8px;
-    }
-
-    /* history */
-    #history ul li {
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-
-    .newsletter-icon-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centers horizontally */
-  margin: 40px 0;      /* adds vertical spacing */
-}
-
-.newsletter-caption {
-  color: #ff3399;      /* readable pink */
-  text-align: center;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* Spinning animation */
+    
+    /* Spinning animation */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -232,551 +137,89 @@
 .navbar img.spinning {
   animation: spin 4s linear infinite; /* rotate fully in 4 seconds, forever */
 }
+    
+    
+    
+    </style>
+   
+  </head>
+  <body>
   
-  </style>
-</head>
-<body>
-
-<!-- Navigation Bar -->
+  <!-- Navigation Bar -->
+  
+  
 <div class="navbar">
   <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="spinning">
-  <button onclick="showPage('home')">Home</button>
-  <button onclick="showPage('members')">Members</button>
-  <button onclick="showPage('gallery')">Gallery</button>
-  <button onclick="showPage('history')">History</button>
-  <button onclick="showPage('links')">Links</button>
-  <button onclick="showPage('newsletter')">Newsletter</button>
+  <a href="index.html">Home</a>
+  <a href="members.html">Members</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="history.html">History</a>
+  <a href="links.html">Links</a>
+  <a href="newsletter.html">Newsletter</a>
   <button onclick="showRandomFact()">Random Fact</button>
  </div>
 
 <!-- Top Banner -->
 <div class="top-banner">
-  <img src="VOX2.gif" alt="Baby VOX Banner">
+  <img src="VOX2.gif" alt="Baby VOX Banner" width="600"> 
 </div>
 
-<!-- Home Page -->
-<div id="home" class="page">
-  <h1>Welcome to the Baby VOX Fansite!</h1>
- 
-  <p style="font-size: 16px; color: #4B0082; margin-bottom: 15px;">    
-    home of all BabyAngels please enjoy!
-  </p>
 
-  <div class="home-content">
-  
-  <img src="VoxXmas.JPG" alt="Baby VOX" width="500"
-    style ="cursor:pointer;"
-    onclick="showPage('gallery')">
-  <div class="home-tabs">
-    <div class="home-tab"><strong>News:</strong>Merry Christmas Baby Angels!</div>
-    <div class="home-tab"><strong>About Me:</strong> Hello! My name is Lewis and I’ve been a fan of Baby V.O.X since 2022 ever since I found Get Up MV on YouTube, Bias is Kim EZ/Kan Mi Youn.</div>
-    <div class="home-tab">
-      <strong>Random Fact:</strong>
-      <button onclick="showRandomFact()">Click for a fact!</button>
-    </div>
-    <div class="home-tab"><strong>Special Thanks:</strong> thank you to my friend babyvoxi & Lulie for being major help with this fansite.<a href="https://babyvoxi.com" target="_blank">BabyVoxi</a></div>
-    <div class="home-tab"><strong>Visitor Counter:</strong> <span id="visitor-count">0</span></div>
-  </div>
-</div>
+
+<div class="container">
+
+<h1>Welcome to the Baby VOX Fansite!</h1>
+<p style="font-size: 16px; color: #4B0082; margin-bottom: 15px;">home of all BabyAngels please enjoy!</p>
+<!--Homepage -->
+
+<div class="homepage">
+
+
+
+<!--left img -->
+
+<div class="left">
+
+<img src="VoxXmas.jpg" alt="Baby VOX" width="500" style="cursor:pointer;" onclick="showPage('gallery')">
+
 </div>
 
-<script>
-  // Page switching
-  function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none');
-    document.getElementById(pageId).style.display = 'block';
-  }
+<!--right text -->
 
-  // Random Fact Generator
-  const randomFacts = [
-    "Baby VOX inspired modern K-pop girl groups.",
-    "Debuted in 1997 under DR Music.",
-    "Kim EZ was the leader and main rapper.",
-    "Yoon Eun Hye became a famous actress after Baby VOX.",
-    "They had hits like 'Xcstasy', 'Devotion', and 'Boyish Story'.",
-    "Kan Mi Youn is one of the most popular members due to her soft visuals.",
-    "Cha Yumi, Jung Hyun Jeon & Jung Ji Woon was the 3 original members in 1997 along with Kim EZ & Lee Heejin."
-  ];
+<div class="right"> 
 
-  function showRandomFact() {
-    const fact = randomFacts[Math.floor(Math.random() * randomFacts.length)];
-    alert(fact);
-  }
 
-  // Visitor counter
-  if (!localStorage.getItem("visitorCount")) {
-    localStorage.setItem("visitorCount", 1);
-  } else {
-    let count = parseInt(localStorage.getItem("visitorCount")) + 1;
-    localStorage.setItem("visitorCount", count);
-  }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("visitor-count").textContent = localStorage.getItem("visitorCount");
-    showPage('home');
-  });
-</script>
-
-<!-- Members Page -->
-  <div id="members" class="page">
-  <h1>Members</h1>
-
-  <p style="font-size: 16px; color: #4B0082; margin-bottom: 15px;">    
-     Click on a Baby Vox member to reveal their fact file!
-  </p>
+    <p> <strong> News:</strong>Merry Christmas Baby Angels!</p>
     
-    <h2>Current Lineup</h2>
-  <div class="members">
-    <div class="member" onclick="showFact('kim_ez')">
-      <img src="Kim_ez.jpg" alt="Kim EZ" width="80" height="80">
-      <p>Kim EZ</p>
-    </div>
-    <div class="member" onclick="showFact('yoon_eunhye')">
-      <img src="yoon_eunhye.webp" alt="Yoon Eun Hye" width="80" height="80">
-      <p>Yoon Eun Hye</p>
-    </div>
-    <div class="member" onclick="showFact('kan_miyoun')">
-      <img src="kan_miyoun.webp" alt="Kan Mi Youn" width="80" height="80">
-      <p>Kan Mi Youn</p>
-    </div>
-    <div class="member" onclick="showFact('shim_eunjin')">
-      <img src="shim_eunjin.jpg" alt="Shim Eun Jin" width="80" height="80">
-      <p>Shim Eun Jin</p>
-    </div>
-    <div class="member" onclick="showFact('lee_heejin')">
-      <img src="Lee_Heejin.webp" alt="Lee Hee Jin" width="80" height="80">
-      <p>Lee Hee Jin</p>
-    </div>
-  </div>
-
-    <h2>Former Members</h2>
-    <div class="members">
-    <div class="member" onclick="showFact('lee_gai')">
-      <img src="Lee_Gai.jpeg" alt="Lee Gai" width="80" height="80">
-      <p>Lee Gai</p>
-      </div>
-       <div class="member" onclick="showFact('cha_yumi')">
-      <img src="cha_yumi.WEBP" alt="Cha Yumi" width="80" height="80">
-      <p>Cha Yumi</p>
-      </div>
-     <div class="member" onclick="showFact('Jung Si Woon')">
-      <img src="jung si woon.WEBP" alt="Jung Si Woon" width="80" height="80">
-      <p>Jung Si Woon</p>
-  </div>
-      <div class="member" onclick="showFact('Jung Hyun Jeon')">
-      <img src="jung hyun jeon.WEBP" alt="Jung Hyun Jeon" width="80" height="80">
-      <p>Jung Hyun Jeon</p>
-  </div>
-  </div>
-
-  <!-- Fact Files -->
-  <div id="kim_ez" class="fact-file" style="display:none;">
-    <img src="Kim_ez.jpg" alt="Kim EZ" width="150" height="150">
-    <h2>Kim EZ (Kim Hee-Jung)</h2>
-    <p>Born: January 31, 1979</p>
-    <p>Main Rapper, Leader</p>
-    <p>Fun Fact: She was in Baby VOX for the group's entire tenure from 1997-2006.</p>
-  </div>
-
-  <div id="yoon_eunhye" class="fact-file" style="display:none;">
-    <img src="yoon_eunhye.webp" alt="Yoon Eun Hye" width="150" height="150">
-    <h2>Yoon Eun Hye</h2>
-    <p>Born: October 3, 1984</p>
-    <p>Sub Vocalist, Maknae</p>
-    <p>Fun Fact: Starred in Coffee Prince (2007) and Princess Hours (2006).</p>
-  </div>
-
-  <div id="kan_miyoun" class="fact-file" style="display:none;">
-    <img src="kan_miyoun.webp" alt="Kan Mi Youn" width="150" height="150">
-    <h2>Kan Mi Youn</h2>
-    <p>Born: February 2, 1983</p>
-    <p>Main Vocalist</p>
-    <p>Fun Fact: Released three solo albums; first hit single was "Paparazzi".</p>
-  </div>
-
-  <div id="shim_eunjin" class="fact-file" style="display:none;">
-    <img src="shim_eunjin.jpg" alt="Shim Eun Jin" width="150" height="150">
-    <h2>Shim Eun Jin</h2>
-    <p>Born: February 6, 1981</p>
-    <p>Lead Dancer, Vocalist</p>
-    <p>Fun Fact: Now a painter/artist, also performed solo under stage name Zeeny.</p>
-  </div>
-
-  <div id="lee_heejin" class="fact-file" style="display:none;">
-    <img src="Lee_Heejin.webp" alt="Lee Hee Jin" width="150" height="150">
-    <h2>Lee Hee Jin</h2>
-    <p>Born: May 16, 1979</p>
-    <p>Visual, Sub Vocalist</p>
-    <p>Fun Fact: Acted in K-dramas and runs her own coffee shop.</p>
-  </div>
-
-  <div id="lee_gai" class="fact-file" style="display:none;">
-    <img src="Lee_Gai.jpeg" alt="Lee Gai" width="150" height="150">
-    <h2>Lee Gai</h2>
-    <p>Born: July 19, 1968</p>
-    <p>Vocalist</p>
-    <p>Fun Fact: Known as Lee Jisoo before joining Baby VOX (1998–1999).</p>
-     </div>
-
-  <div id="cha_yumi" class="fact-file" style="display:none;">
-  <img src="cha_yumi.WEBP" alt="Cha Yumi" width="150" height="150">
-  <h2>Cha Yumi</h2>
-  <p>Original Member (1997)</p>
-  <p>Main Vocalist</p>
-  <p>Fun Fact: Left the group due to a severe leg injury before the 2nd album.</p>
-</div>
-
-<div id="Jung Si Woon" class="fact-file" style="display:none;">
-  <img src="jung si woon.WEBP" alt="Jung Si Woon" width="150" height="150">
-  <h2>Jung Si Woon</h2>
-  <p>Original Member (1997)</p>
-  <p>Rapper</p>
-  <p>Fun Fact: She was replaced after Baby VOX’s first album <em>Equalizeher</em>.</p>
-</div>
-
-  <div id="Jung Hyun Jeon" class="fact-file" style="display:none;">
-  <img src="jung hyun jeon.WEBP" alt="Jung Hyun Jeon" width="150" height="150">
-  <h2>Jung Hyun Jeon</h2>
-  <p>Original Member (1997)</p>
-  <p>Vocalist/Dancer</p>
-  <p>Fun Fact: She was replaced after Baby VOX’s first album by Shim Eun Jin.</p>
-</div>
- </div>
-
-<script>
-  // Function to show fact file when member is clicked
-  function showFact(memberId) {
-    const facts = document.querySelectorAll('.fact-file');
-    facts.forEach(f => f.style.display = 'none'); // Hide all
-    document.getElementById(memberId).style.display = 'block'; // Show clicked
-  }
-</script>
-
-<!-- Gallery Page Container -->
-<div id="gallery" class="page" style="display:none;">
-    <h1>Gallery</h1>
-
-  <!-- Member & Group Icons -->
-  <div class="gallery-icons" style="display:flex; gap:20px; justify-content:center; margin-bottom:30px;">
-    <img src="voxicon.gif" alt="Baby VOX Group" width="80" height="80" style="cursor:pointer;" onclick="showGallery('group-gallery')">
-    <img src="ezicon.gif" alt="Kim EZ" width="80" height="80" style="cursor:pointer;" onclick="showGallery('ez-gallery')">
-    <img src="heejinicon.gif" alt="Lee Heejin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('heejin-gallery')">
-    <img src="eunjinicon.gif" alt="Shim Eun Jin" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunjin-gallery')">
-    <img src="eunhyeicon.gif" alt="Yoon Eun Hye" width="80" height="80" style="cursor:pointer;" onclick="showGallery('eunhye-gallery')">
-    <img src="miyounicon.gif" alt="Kan Mi Youn" width="80" height="80" style="cursor:pointer;" onclick="showGallery('miyoun-gallery')">
-  </div>
-
-  <!-- Baby VOX Group Gallery -->
-  <div id="group-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
-    <a href="Baby_Vox.jpg" target="_blank"><img src="Baby_Vox.jpg" alt="Baby Vox" width="60" height="60"></a>
-    <a href="baby_vox copy.jpg" target="_blank"><img src="baby_vox copy.jpg" alt="Baby Vox Copy" width="60" height="60"></a>
-    <a href="Babyvox.jpg" target="_blank"><img src="Babyvox.jpg" alt="Baby Vox Home" width="60" height="60"></a>
-    <a href="BABYVOX2.jpg" target="_blank"><img src="BABYVOX2.jpg" alt="Baby Vox 2" width="60" height="60"></a>
-    <a href="BABYVOX4.jpg" target="_blank"><img src="BABYVOX4.jpg" alt="Baby Vox 4" width="60" height="60"></a>
-    <a href="BABYVOX5.jpg" target="_blank"><img src="BABYVOX5.jpg" alt="Baby Vox 5" width="60" height="60"></a>
-    <a href="BABYVOX6.jpg" target="_blank"><img src="BABYVOX6.jpg" alt="Baby Vox 6" width="60" height="60"></a>
-    <a href="BABYVOX7.jpeg" target="_blank"><img src="BABYVOX7.jpeg" alt="Baby Vox 7" width="60" height="60"></a>
-    <a href="BABYVOX8.jpeg" target="_blank"><img src="BABYVOX8.jpeg" alt="Baby Vox 8" width="60" height="60"></a>
-    <a href="Babyvox9.jpg" target="_blank"><img src="Babyvox9.jpg" alt="Baby Vox 9" width="60" height="60"></a>
-    <a href="vox_4th57.jpg" target="_blank"><img src="vox_4th57.jpg" alt="Baby Vox 10" width="60" height="60"></a>
-    <a href="vox_4th56.jpg" target="_blank"><img src="vox_4th56.jpg" alt="Baby Vox 11" width="60" height="60"></a>
-    <a href="Babyvox12.jpg" target="_blank"><img src="Babyvox12.jpg" alt="Baby Vox 12" width="60" height="60"></a>
-    <a href="Babyvox13.jpg" target="_blank"><img src="Babyvox13.jpg" alt="Baby Vox 13" width="60" height="60"></a>
-    <a href="babyvox1997.jpg" target="_blank"><img src="babyvox1997.jpg" alt="Baby Vox 1997" width="60" height="60"></a>
-    <a href="1997vox.jpg" target="_blank"><img src="1997vox.jpg" alt="Baby Vox 1997 2" width="60" height="60"></a>
-    <a href="BABYVOX14.jpg" target="_blank"><img src="BABYVOX14.jpg" alt="Baby Vox 14" width="60" height="60"></a>
-    <a href="BABYVOX15.jpg" target="_blank"><img src="BABYVOX15.jpg" alt="Baby Vox 15" width="60" height="60"></a>
-    <a href="image.jpeg" target="_blank"><img src="image.jpeg" alt="Baby Vox 16" width="60" height="60"></a>
-    <a href="babyvox30.jpg" target="_blank"><img src="babyvox30.jpg" alt="Baby Vox 30" width="60" height="60"></a>
-    <a href="Baby_Vox_Rares_6.jpg" target="_blank"><img src="Baby_Vox_Rares_6.jpg" alt="Baby Vox 31" width="60" height="60"></a>
-    <a href="VoxXmas.JPG" target="_blank"><img src="VoxXmas.JPG" alt="Baby Vox 32" width="60" height="60"></a>
-  </div>
-
-  <!-- Kim EZ Gallery -->
-  <div id="ez-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
-    <a href="EZ2.jpg" target="_blank"><img src="EZ2.jpg" alt="Kim EZ 2" width="60" height="60"></a>
-    <a href="EZ3.JPG" target="_blank"><img src="EZ3.JPG" alt="Kim EZ 3" width="60" height="60"></a>
-    <a href="EZ4.JPG" target="_blank"><img src="EZ4.JPG" alt="Kim EZ 4" width="60" height="60"></a>
-    <a href="EZ5.jpg" target="_blank"><img src="EZ5.jpg" alt="Kim EZ 5" width="60" height="60"></a>
-    <a href="EZ6.png" target="_blank"><img src="EZ6.png" alt="Kim EZ 6" width="60" height="60"></a>
-    <a href="EZ7.png" target="_blank"><img src="EZ7.png" alt="Kim EZ 7" width="60" height="60"></a>
-    <a href="Eunhye&EZ.jpg" target="_blank"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2" width="60" height="60"></a>
-    <a href="EZ8.jpg" target="_blank"><img src="EZ8.jpg" alt="Kim EZ 8" width="60" height="60"></a>
-    <a href="KimEZ15.jpg" target="_blank"><img src="KimEZ15.jpg" alt="Kim EZ 15" width="60" height="60"></a>
-     <a href="EZ20.jpg" target="_blank"><img src="EZ20.jpg" alt="Kim EZ 20" width="60" height="60"></a>
-      <a href="EZ&Eunhye2.jpg" target="_blank"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3" width="60" height="60"></a>
-    <a href="EZ22.jpg" target="_blank"><img src="EZ22.jpg" alt="Kim EZ 22" width="60" height="60"></a>
-     <a href="EZ23.jpg" target="_blank"><img src="EZ23.jpg" alt="Kim EZ 23" width="60" height="60"></a>
-     <a href="EZ24.jpg" target="_blank"><img src="EZ24.jpg" alt="Kim EZ 24" width="60" height="60"></a>
-    <a href="KimEZ45.jpg" target="_blank"><img src="KimEZ45.jpg" alt="Kim EZ 45" width="60" height="60"></a>
-    <a href="EZ56.jpg" target="_blank"><img src="EZ56.jpg" alt="Kim EZ 56" width="60" height="60"></a>
-    <a href="EZ57.jpg" target="_blank"><img src="EZ57.jpg" alt="Kim EZ 57" width="60" height="60"></a>
-    <a href="EZ58.jpg" target="_blank"><img src="EZ58.jpg" alt="Kim EZ 58" width="60" height="60"></a>
-    <a href="EZ59.jpg" target="_blank"><img src="EZ59.jpg" alt="Kim EZ 59" width="60" height="60"></a>
+    <p><strong>About Me:</strong> Hello! My name is Lewis and I’ve been a fan of Baby V.O.X since 2022 ever since I found Get Up MV on YouTube, Bias is Kim EZ/Kan Mi Youn.</p>
     
-  </div>
-
-  <!-- Lee Heejin Gallery -->
-  <div id="heejin-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
-    <a href="Leeheejin.jpg" target="_blank"><img src="Leeheejin.jpg" alt="Lee Heejin" width="60" height="60"></a>
-    <a href="HEEJIN2.jpg" target="_blank"><img src="HEEJIN2.jpg" alt="Lee Heejin 2" width="60" height="60"></a>
-    <a href="HEEJIN3.jpg" target="_blank"><img src="HEEJIN3.jpg" alt="Lee Heejin 3" width="60" height="60"></a>
-    <a href="HEEJIN4.jpg" target="_blank"><img src="HEEJIN4.jpg" alt="Lee Heejin 4" width="60" height="60"></a>
-    <a href="heejin5.jpg" target="_blank"><img src="heejin5.jpg" alt="Lee Heejin 5" width="60" height="60"></a>
-    <a href="HEEJIN8.jpg" target="_blank"><img src="HEEJIN8.jpg" alt="Lee Heejin 8" width="60" height="60"></a>
-     <a href="HEEJIN7.jpg" target="_blank"><img src="HEEJIN7.jpg" alt="Lee Heejin 7" width="60" height="60"></a>
-     <a href="HEEJIN9.jpg" target="_blank"><img src="HEEJIN9.jpg" alt="Lee Heejin 9" width="60" height="60"></a>
-    <a href="Baby_Vox_Rares_6.jpg" target="_blank"><img src="Baby_Vox_Rares_6.jpg" alt="Lee Heejin 27" width="60" height="60"></a>
-    <a href="Heejin48.jpg" target="_blank"><img src="Heejin48.jpg" alt="Lee Heejin 48" width="60" height="60"></a>
-     <a href="Heejin56.jpg" target="_blank"><img src="Heejin56.jpg" alt="Lee Heejin 56" width="60" height="60"></a>
-    <a href="Heejin&Miyoun1.jpg" target="_blank"><img src="Heejin&Miyoun1.jpg" alt="Lee Heejin and Kan Miyoun" width="60" height="60"></a>
-  </div>
-
-   <!-- Shim Eun Jin Gallery (Eunjin) -->
-  <div id="eunjin-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
-    <a href="EUNJIN.jpg" target="_blank"><img src="EUNJIN.jpg" alt="Shim Eun Jin 1" width="60" height="60"></a>
-    <a href="shim_3rd13.jpg" target="_blank"><img src="shim_3rd13.jpg" alt="Shim Eun Jin 3" width="60" height="60"></a>
-    <a href="shim_3rd14.jpg" target="_blank"><img src="shim_3rd14.jpg" alt="Shim Eun Jin 4" width="60" height="60"></a>
-    <a href="eunjin5.jpg" target="_blank"><img src="eunjin5.jpg" alt="Shim Eun Jin 5" width="60" height="60"></a>
-    <a href="eunjin6.jpg" target="_blank"><img src="eunjin6.jpg" alt="Shim Eun Jin 6" width="60" height="60"></a>
-     <a href="shimeunjin7.jpg" target="_blank"><img src="shimeunjin7.jpg" alt="Shim Eun Jin 7" width="60" height="60"></a>
-     <a href="eunjin11_upscaled.jpg" target="_blank"><img src="eunjin11_upscaled.jpg" alt="Shim Eun Jin 11" width="60" height="60"></a>
-    <a href="eunjin14.jpg" target="_blank"><img src="eunjin14.jpg" alt="Shim Eun Jin 14" width="60" height="60"></a>
-    <a href="Eunjin12_upscaled.jpg" target="_blank"><img src="Eunjin12_upscaled.jpg" alt="Shim Eun Jin 12" width="60" height="60"></a>
-    <a href="Eunjin45.jpg" target="_blank"><img src="Eunjin45.jpg" alt="Shim Eun Jin 45" width="60" height="60"></a>
-    <a href="Eunjin46.png" target="_blank"><img src="Eunjin46.png" alt="Shim Eun Jin 46" width="60" height="60"></a>
-  </div>
-
-  <!-- Yoon Eun Hye Gallery -->
-<div id="eunhye-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
-    <a href="EUNHYE.jpg" target="_blank"><img src="EUNHYE.jpg" alt="Yoon Eun Hye 1" width="60" height="60"></a>
-    <a href="EUNHYE2.jpg" target="_blank"><img src="EUNHYE2.jpg" alt="Yoon Eun Hye 2" width="60" height="60"></a>
-    <a href="EUNHYE3.jpg" target="_blank"><img src="EUNHYE3.jpg" alt="Yoon Eun Hye 3" width="60" height="60"></a>
-    <a href="EUNHYE4.jpeg" target="_blank"><img src="EUNHYE4.jpeg" alt="Yoon Eun Hye 4" width="60" height="60"></a>
-    <a href="EUNHYE5.jpg" target="_blank"><img src="EUNHYE5.jpg" alt="Yoon Eun Hye 5" width="60" height="60"></a>
-    <a href="EUNHYE6.jpg" target="_blank"><img src="EUNHYE6.jpg" alt="Yoon Eun Hye 6" width="60" height="60"></a>
-    <a href="EUNHYE7.jpg" target="_blank"><img src="EUNHYE7.jpg" alt="Yoon Eun Hye 7" width="60" height="60"></a>
-    <a href="EUNHYE8.jpg" target="_blank"><img src="EUNHYE8.jpg" alt="Yoon Eun Hye 8" width="60" height="60"></a>
-    <a href="EUNHYE9.jpg" target="_blank"><img src="EUNHYE9.jpg" alt="Yoon Eun Hye 9" width="60" height="60"></a>
-    <a href="EUNHYE10.jpg" target="_blank"><img src="EUNHYE10.jpg" alt="Yoon Eun Hye 10" width="60" height="60"></a>
-    <a href="eunhye&miyoun.jpg" target="_blank"><img src="eunhye&miyoun.jpg" alt="Yoon Eun Hye & Kan Mi Youn" width="60" height="60"></a>
-    <a href="Miyoun&Eunhye2.jpg" target="_blank"><img src="Miyoun&Eunhye2.jpg" alt="Miyoun & Eunhye 2" width="60" height="60"></a>
-    <a href="Eunhye&EZ.jpg" target="_blank"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2" width="60" height="60"></a>
-  <a href="EZ&Eunhye2.jpg" target="_blank"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3" width="60" height="60"></a>
-</div>
-
-  <!-- Kan Mi Youn Gallery (Miyoun) -->
-  <div id="miyoun-gallery" class="member-gallery" style="display:none; grid-template-columns:repeat(auto-fit, minmax(60px,1fr)); gap:10px; margin-bottom:40px;">
-    <a href="MIYOUN2.webp" target="_blank"><img src="MIYOUN2.webp" alt="Kan Mi Youn 2" width="60" height="60"></a>
-    <a href="MIYOUN3.webp" target="_blank"><img src="MIYOUN3.webp" alt="Kan Mi Youn 3" width="60" height="60"></a>
-    <a href="MIYOUN4.jpg" target="_blank"><img src="MIYOUN4.jpg" alt="Kan Mi Youn 4" width="60" height="60"></a>
-    <a href="MIYOUN5.jpg" target="_blank"><img src="MIYOUN5.jpg" alt="Kan Mi Youn 5" width="60" height="60"></a>
-    <a href="MIYOUN6.jpg" target="_blank"><img src="MIYOUN6.jpg" alt="Kan Mi Youn 6" width="60" height="60"></a>
-    <a href="MIYOUN7.jpg" target="_blank"><img src="MIYOUN7.jpg" alt="Kan Mi Youn 7" width="60" height="60"></a>
-    <a href="MIYOUN8.jpg" target="_blank"><img src="MIYOUN8.jpg" alt="Kan Mi Youn 8" width="60" height="60"></a>
-    <a href="MIYOUN21.JPG" target="_blank"><img src="MIYOUN21.JPG" alt="Kan Mi Youn 21" width="60" height="60"></a>
-     <a href="MIYOUN20.jpg" target="_blank"><img src="MIYOUN20.jpg" alt="Kan Mi Youn 20" width="60" height="60"></a>
-     <a href="MIYOUN22.jpg" target="_blank"><img src="MIYOUN22.jpg" alt="Kan Mi Youn 22" width="60" height="60"></a>
-     <a href="MIYOUN23.jpg" target="_blank"><img src="MIYOUN23.jpg" alt="Kan Mi Youn 23" width="60" height="60"></a>
-     <a href="MIYOUN24.jpg" target="_blank"><img src="MIYOUN24.jpg" alt="Kan Mi Youn 24" width="60" height="60"></a>
-     <a href="MIYOUN25.jpg" target="_blank"><img src="MIYOUN25.jpg" alt="Kan Mi Youn 25" width="60" height="60"></a>
-     <a href="Miyoun26.jpg" target="_blank"><img src="Miyoun26.jpg" alt="Kan Mi Youn 26" width="60" height="60"></a>
-    <a href="Miyoun27.jpg" target="_blank"><img src="Miyoun27.jpg" alt="Kan Mi Youn 27" width="60" height="60"></a>
-     <a href="Kan_Miyoun_Rares_1.jpg" target="_blank"><img src="Kan_Miyoun_Rares_1.jpg" alt="Kan Mi Youn 28" width="60" height="60"></a>
-     <a href="Kan_Mi_Youn_2010_4.jpg" target="_blank"><img src="Kan_Mi_Youn_2010_4.jpg" alt="Kan Mi Youn 28" width="60" height="60"></a>
-    <a href="MIYOUN48.jpg" target="_blank"><img src="MIYOUN48.jpg" alt="Kan Mi Youn 48" width="60" height="60"></a>
-    <a href="MIYOUN49.jpg" target="_blank"><img src="MIYOUN49.jpg" alt="Kan Mi Youn 49" width="60" height="60"></a>
-    <a href="MIYOUN50.jpg" target="_blank"><img src="MIYOUN50.jpg" alt="Kan Mi Youn 50" width="60" height="60"></a>
-    <a href="MIYOUN51.jpg" target="_blank"><img src="MIYOUN51.jpg" alt="Kan Mi Youn 51" width="60" height="60"></a>
-    <a href="MIYOUN52.jpg" target="_blank"><img src="MIYOUN52.jpg" alt="Kan Mi Youn 52" width="60" height="60"></a>
-    <a href="MIYOUN53.jpg" target="_blank"><img src="MIYOUN53.jpg" alt="Kan Mi Youn 53" width="60" height="60"></a>
-     <a href="Heejin&Miyoun1.jpg" target="_blank"><img src="Heejin&Miyoun1.jpg" alt="Kan Mi Youn and Lee Heejin" width="60" height="60"></a>
-    
-  </div>
-
-</div> <!-- End of gallery page -->
-
-<!-- Lightbox Overlay -->
-<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-     background:rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:1000;">
-  <span id="lightbox-close" style="position:absolute; top:20px; right:30px; font-size:40px; color:white; cursor:pointer;">&times;</span>
-  <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border:3px solid white;">
-  <a id="prev" style="position:absolute; left:20px; color:white; font-size:50px; cursor:pointer;">&#10094;</a>
-  <a id="next" style="position:absolute; right:20px; color:white; font-size:50px; cursor:pointer;">&#10095;</a>
-</div>
-
-<script>
-  function showGallery(galleryId) {
-    // Hide all member galleries
-    const galleries = document.querySelectorAll('#gallery .member-gallery');
-    galleries.forEach(g => g.style.display = 'none');
-
-    // Show the selected gallery
-    const selected = document.getElementById(galleryId);
-    if (selected) {
-      selected.style.display = 'grid';
+    <p><strong>Random Fact:</strong> <button onclick="showRandomFact()">Click for a fact!</button></p>
       
-      // Update lightbox links for the currently visible gallery
-      document.querySelectorAll('#gallery .member-gallery a').forEach(link => {
-        link.onclick = null; // remove previous handlers
-      });
-      
-      const links = selected.querySelectorAll('a');
-      links.forEach((link, index) => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          currentGallery = Array.from(links);
-          currentIndex = index;
-          lightboxImg.src = this.href;
-          lightbox.style.display = 'flex';
-        });
-      });
-    }
-  }
-</script>
-
-<!-- Lightbox JavaScript -->
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeBtn = document.getElementById('lightbox-close');
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-
-  let currentGallery = [];
-  let currentIndex = 0;
-
-  // Open lightbox on gallery image click
-  document.querySelectorAll('#gallery .member-gallery a').forEach((link, index, links) => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      currentGallery = Array.from(links);
-      currentIndex = index;
-      lightboxImg.src = this.href;
-      lightbox.style.display = 'flex';
-    });
-  });
-
-  // Close lightbox
-  closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-  });
-
-  // Navigate images
-  prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-    lightboxImg.src = currentGallery[currentIndex].href;
-  });
-
-  nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % currentGallery.length;
-    lightboxImg.src = currentGallery[currentIndex].href;
-  });
-
-  // Close lightbox on clicking outside image
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.style.display = 'none';
-  });
-</script>  
-
-</div>
+    <p><strong>Special Thanks:</strong> thank you to my friend babyvoxi &amp; Lulie for being major help with this fansite. <a href="https://babyvoxi.com" target="_blank" bis_skin_checked="1">BabyVoxi</a></p>
+  
+    <p><strong>Visitor Counter:</strong> <span id="visitor-count">12</span></p>
+    
     
 
-<!-- History Page -->
-<div id="history" class="page">
-  <h1>History of Baby V.O.X</h1>
- <p style="font-size: 16px; color: #4B0082; margin-bottom: 15px;">    
-     relive the history of Baby Vox here!
-  </p>
-  
-  <div class="history-logo">
-    <img src="Baby_V.O.X_logo.webp" alt="Baby VOX Logo" width="200" height="200">
-  </div>
-
-  <div class="history-timeline" style="max-width:600px; margin:20px auto; text-align:left;">
-    <ul>
-      <li><strong><span style="color:#ff3399";>July 3, 1997:</strong> Baby V.O.X debuts with their first studio album <em>Equalizeher</em> and the single "Hair Cut".</li>
-      <li><strong><span style="color:#ff3399";>1998:</strong> Cha Yumi leaves due to injury; replaced by Kan Mi Youn, Shim Eun Jin and Lee Gai later join for album Baby Vox II.</li>
-      <li><strong><span style="color:#ff3399";>1999:</strong> Lee Gai leaves the group and is replaced by a 15 year old Yoon Eun Hye, Get Up becomes major hit.</li>
-      <li><strong><span style="color:#ff3399";>2000:</strong> The album <em>Why is released with their hit singles Betrayal and Coincidence that gain number 1 in korean charts.</li>
-      <li><strong><span style="color:#ff3399";>2001:</strong> The album <em>Boyish Story</em> is released, including singles like "Game Over" and "Doll".</li>
-      <li><strong><span style="color:#ff3399";>2003:</strong> The album <em>Devotion</em> is released, featuring the hit "What Should I Do" and a deep club mix version of Coincidence.</li>
-      <li><strong><span style="color:#ff3399";>2004:</strong> The album <em>Ride West</em> is released, featuring the controversial song "Xcstasy" and "Play Remix".</li>
-      <li><strong><span style="color:#ff3399";>October 2004:</strong> Shim Eun Jin leaves the group.</li>
-      <li><strong><span style="color:#ff3399";>April 2005:</strong> Yoon Eun Hye leaves the group.</li>
-      <li><strong><span style="color:#ff3399";>February 5, 2006:</strong> Baby V.O.X officially disbands.</li>
-      <li><strong><span style="color:#ff3399";>2010:</strong> Baby V.O.X reunites for a special appearance on the music talk show "Kim Jung-eun's Chocolate".</li>
-      <li><strong><span style="color:#ff3399";>December 2024:</strong> The group reunites for a special stage at KBS' End of the Year Broadcast.</li>
-      <li><strong><span style="color:#ff3399";>February 13, 2025:</strong> Baby V.O.X releases the single album "New Baby V.O.X 2025", featuring re-recorded versions of "Killer" and "Coincidence".</li>
-      <li><strong><span style="color:#ff3399";>July 15, 2025:</strong> Baby V.O.X announces a solo concert at the Peace Hall of Kyung Hee University in Seoul, scheduled for September 26 and 27, 2025.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- Socials / Links Page -->
-<div id="links" class="page">
-<h1>Links</h1>
- 
-  <p style="font-size: 16px; color: #4B0082; margin-bottom: 15px;">    
-     click on a link to learn more about Baby Vox beyond this fansite with resources I've collected!
-  </p>
-
-  <div class="links" style="display:flex; flex-direction:column; gap:10px; align-items:center; margin-bottom:40px;">
-    <!-- Your fanpage -->
-    <a href="https://instagram.com/lewislovesbabyvox" target="_blank">@lewislovesbabyvox on Instagram</a>
-    <a href="https://www.tiktok.com/@lewislovesbabyvox" target="_blank">@lewislovesbabyvox on TikTok</a>
-
-    <!-- Baby VOX Members Instagram -->
-    <a href="https://www.instagram.com/miyoun_kan" target="_blank">Kan Mi Youn on Instagram</a>
-    <a href="https://www.instagram.com/eundung81" target="_blank">Shim Eun Jin on Instagram</a>
-    <a href="https://www.instagram.com/_lee_heejin" target="_blank">Lee Hee Jin on Instagram</a>
-    <a href="https://www.instagram.com/ezez0417" target="_blank">Kim EZ on Instagram</a>
-    <a href="https://www.instagram.com/y1003_grace" target="_blank">Yoon Eun Hye on Instagram</a>
-
-    <!-- Baby VOX Resources -->
-    <a href="https://en.wikipedia.org/wiki/Baby_VOX" target="_blank">Baby VOX Wikipedia</a>
-    <a href="https://www.youtube.com/c/babyvoxarchive" target="_blank">Baby VOX YouTube Archive</a>
-    <a href="https://www.allkpop.com/search/articles/baby%20vox">Allkpop - Baby VOX</a>
-    <a href="https://babyvoxi.com">BabyVoxi Fansite</a>
-    <a href="https://kpop.fandom.com/wiki/Baby_V.O.X_(group)">Baby Vox Kpop Wiki Page</a>
     
-  </div>
+
+
+</div>
 </div>
 
-  <!-- Newsletter page container -->
-<div id="newsletter" class="page" style="display:none;">
-  <h2>Baby VOX Newsletter</h2>
-  
-  <div class="newsletter-icon-container">
-    <a href="babyvox_newsletter.pdf" target="_blank">
-      <img src="icon.gif" alt="Kim EZ Icon" width="100" height="100">
-    </a>
-    <p class="newsletter-caption">Click here for this month's Baby VOX fan newsletter</p>
-  </div>
-</div>
 
 <!-- Bottom GIF (at the very bottom of the page) -->
 <div class="bottom-banger" style="text-align:center; margin-top:20px;">
   <img src="Vox3.gif" alt="VOX Bottom Banger GIF" style="width:600px; height:auto; border-radius:8px;">
 </div>
 
-  <script>
-  // Hide all pages initially except Home
-  document.addEventListener("DOMContentLoaded", function() {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none'); // hide all
-    document.getElementById('home').style.display = 'block'; // show Home
-  });
+</div>
 
-  // Function to switch pages when navbar buttons are clicked
-  function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(p => p.style.display = 'none'); // hide all
-    document.getElementById(pageId).style.display = 'block'; // show selected
-  }
-</script>
+  
+  
+  
+  
+  </body>
+</html>
 
-<!-- End of site -->
-</body>
-</html> 
