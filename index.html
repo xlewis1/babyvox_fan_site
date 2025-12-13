@@ -198,7 +198,7 @@ grid-row-gap: 0px;
       
     <p><strong>Special Thanks:</strong> thank you to my friend babyvoxi &amp; Lulie for being major help with this fansite. <a href="https://babyvoxi.com" target="_blank" bis_skin_checked="1">BabyVoxi</a></p>
   
-    <p><strong>Visitor Counter:</strong> <span id="visitor-count">12</span></p>
+    <p><strong>Visitor Counter:</strong> <span id="visitor-count">...</span></p>
     
     
 
@@ -247,6 +247,17 @@ grid-row-gap: 0px;
     factBox.textContent = facts[randomIndex];
   }
 </script>
+
+<script>
+  async function updateVisitorCount() {
+    // increment and get current count from CounterAPI
+    const response = await fetch("https://counterapi.dev/track?name=babyvox_site");
+    const data = await response.json();
+    document.getElementById("visitor-count").textContent = data.value;
+  }
+
+  updateVisitorCount();
+</script>    
    
   </body>
 </html>
