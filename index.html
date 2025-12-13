@@ -216,10 +216,24 @@ grid-row-gap: 0px;
 
 </div>
 
-  
-  
-  
-  
+<script>
+  const facts = [
+    "Baby V.O.X stands for 'Baby Voices of Xpression' and was one of the most popular 1st‑generation K-pop girl groups.",
+    "They debuted in 1997 and helped pioneer the Korean Wave in China and Asia.",
+    "Their famous hit 'Get Up' helped the group rise to the top of the Korean pop charts.",
+    "All five final members reunited and performed together for the first time in 14 years at the 2024 KBS Song Festival.",
+    "Baby V.O.X announced their first solo concert in 23 years for September 26–27, 2025.",
+    "Former member Lee Gai was almost 10 years older than the group’s public age listing, causing a controversy in 1998.",
+    "Yoon Eun Hye later became a successful actress after leaving the group in 2005.",
+    "Baby V.O.X officially disbanded in 2006 after releasing seven studio albums."
+  ];
+
+  function showRandomFact() {
+    const randomIndex = Math.floor(Math.random() * facts.length);
+    document.getElementById('random-fact-box').textContent = facts[randomIndex];
+  }
+</script>
+   
   </body>
 </html>
 
