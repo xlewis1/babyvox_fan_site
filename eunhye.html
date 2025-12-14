@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoon Eun Hye Gallery - Baby VOX Fansite</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: rgba(0,0,0,0.1);
+  margin: 0;
+  padding: 20px;
+}
+
+/* Spinning logo */
+.logo {
+  height: 80px;
+  animation: spin 5s linear infinite;
+  margin-bottom: 20px;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Title & instructions */
+h1 {
+  color: #4B0082;
+}
+.instructions {
+  color: #4B0082;
+  margin-bottom: 30px;
+}
+
+/* Gallery grid */
+.member-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+.member-gallery img {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #ff99cc;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.member-gallery img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px #ff66b2;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.lightbox .controls button {
+  font-size: 20px;
+  margin: 5px;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #ff3399;
+  color: white;
+}
+
+/* Navigation buttons */
+.back-btn {
+  margin: 10px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #ff66b2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.back-btn:hover {
+  background: #ff33aa;
+}
+</style>
+</head>
+
+<body>
+
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+
+<h1>Yoon Eun Hye Gallery</h1>
+<p class="instructions">
+Click any image to open the lightbox.  
+Use arrows to navigate, X to close.  
+Click the image to open full resolution in a new tab.
+</p>
+
+<!-- Eunhye Gallery -->
+<div id="eunhye-gallery" class="member-gallery">
+  <a href="EUNHYE.jpg"><img src="EUNHYE.jpg" alt="Yoon Eun Hye 1"></a>
+  <a href="EUNHYE2.jpg"><img src="EUNHYE2.jpg" alt="Yoon Eun Hye 2"></a>
+  <a href="EUNHYE3.jpg"><img src="EUNHYE3.jpg" alt="Yoon Eun Hye 3"></a>
+  <a href="EUNHYE4.jpeg"><img src="EUNHYE4.jpeg" alt="Yoon Eun Hye 4"></a>
+  <a href="EUNHYE5.jpg"><img src="EUNHYE5.jpg" alt="Yoon Eun Hye 5"></a>
+  <a href="EUNHYE6.jpg"><img src="EUNHYE6.jpg" alt="Yoon Eun Hye 6"></a>
+  <a href="EUNHYE7.jpg"><img src="EUNHYE7.jpg" alt="Yoon Eun Hye 7"></a>
+  <a href="EUNHYE8.jpg"><img src="EUNHYE8.jpg" alt="Yoon Eun Hye 8"></a>
+  <a href="EUNHYE9.jpg"><img src="EUNHYE9.jpg" alt="Yoon Eun Hye 9"></a>
+  <a href="EUNHYE10.jpg"><img src="EUNHYE10.jpg" alt="Yoon Eun Hye 10"></a>
+  <a href="eunhye&miyoun.jpg"><img src="eunhye&miyoun.jpg" alt="Eunhye & Miyoun"></a>
+  <a href="Miyoun&Eunhye2.jpg"><img src="Miyoun&Eunhye2.jpg" alt="Miyoun & Eunhye 2"></a>
+  <a href="Eunhye&EZ.jpg"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
+  <a href="EZ&Eunhye2.jpg"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+  <div class="controls">
+    <button id="prev">&#8592;</button>
+    <button id="next">&#8594;</button>
+    <button id="close">X</button>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div>
+  <button class="back-btn" onclick="location.href='gallery.html'">Back to Gallery</button>
+  <button class="back-btn" onclick="location.href='index.html'">Back to Home</button>
+</div>
+
+<script>
+const links = document.querySelectorAll('#eunhye-gallery a');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+let index = 0;
+
+links.forEach((link, i) => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    index = i;
+    open();
+  });
+});
+
+function open() {
+  lightbox.style.display = 'flex';
+  lightboxImg.src = links[index].href;
+}
+
+function close() {
+  lightbox.style.display = 'none';
+}
+
+function next() {
+  index = (index + 1) % links.length;
+  lightboxImg.src = links[index].href;
+}
+
+function prev() {
+  index = (index - 1 + links.length) % links.length;
+  lightboxImg.src = links[index].href;
+}
+
+lightboxImg.addEventListener('click', () => {
+  window.open(lightboxImg.src, '_blank');
+});
+
+document.getElementById('close').onclick = close;
+document.getElementById('next').onclick = next;
+document.getElementById('prev').onclick = prev;
+</script>
+
+</body>
+</html>
