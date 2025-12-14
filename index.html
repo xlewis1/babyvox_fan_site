@@ -76,6 +76,21 @@ body {
   text-align: left;
 }
 
+#mini-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+#mini-gallery img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 5px #ff99cc;
+}
+
 /* Top GIF banner */
 .top-gifs {
   display: flex;
@@ -158,6 +173,8 @@ body {
     <p><strong>About Me:</strong> Hello! My name is Lewis and I’ve been a fan of Baby V.O.X since 2022. My bias is Kim EZ/Kan Mi Youn.</p>
     <p><strong>Special Thanks:</strong> Thank you to BabyVoxi & Lulie for helping with this fansite. <a href="https://babyvoxi.com" target="_blank">BabyVoxi</a></p>
     <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
+    <p><strong>Mini Gallery:</strong></p>
+    <div id="mini-gallery"></div>
   </div>
 
   <!-- Center content -->
@@ -173,6 +190,31 @@ body {
 <div class="footer">
   &copy; 2025 Baby V.O.X Fansite. All rights reserved.
 </div>
+
+<script>
+  // All your gallery images
+  const galleryImages = [
+    "BV2.jpeg",
+    "BV3.jpeg",
+    "BV4.jpeg",
+    "BV5.jpeg",
+    "BV6.jpeg" // add more if you have
+  ];
+
+  const miniGallery = document.getElementById('mini-gallery');
+  
+  // Shuffle and select 3 random images
+  const shuffled = galleryImages.sort(() => 0.5 - Math.random());
+  const selectedImages = shuffled.slice(0, 3);
+
+  // Create img elements for mini gallery
+  selectedImages.forEach(src => {
+    const img = document.createElement('img');
+    img.src = src;
+    miniGallery.appendChild(img);
+  });
+</script>  
+  
 
 <script>
   // Array of random facts
