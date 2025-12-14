@@ -207,15 +207,19 @@ body {
   const shuffled = galleryImages.sort(() => 0.5 - Math.random());
   const selectedImages = shuffled.slice(0, 3);
 
-  // Create img elements for mini gallery
+  // Create img elements wrapped in links for mini gallery
   selectedImages.forEach(src => {
+    const link = document.createElement('a');
+    link.href = src;
+    link.target = "_blank";
     const img = document.createElement('img');
     img.src = src;
-    miniGallery.appendChild(img);
+    link.appendChild(img);
+    miniGallery.appendChild(link);
   });
+ 
 </script>  
   
-
 <script>
   // Array of random facts
   const facts = [
