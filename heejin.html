@@ -26,49 +26,47 @@ body {
 }
 
 /* Title & instructions */
-h1 {
-  color: #4B0082;
-}
-.instructions {
-  color: #4B0082;
-  margin-bottom: 30px;
-}
+h1 { color: #4B0082; }
+.instructions { color: #4B0082; margin-bottom: 30px; }
 
 /* Gallery grid */
 .member-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
+  gap: 14px;
   justify-items: center;
   margin-bottom: 40px;
 }
+
+/* Portrait thumbnails */
 .member-gallery img {
   width: 120px;
-  height: 180px;
+  height: 170px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: 0 0 8px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .member-gallery img:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 18px #ff66b2;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff66b2;
 }
 
 /* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
-  inset: 0;
+  top:0; left:0;
+  width:100%; height:100%;
   background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
   flex-direction: column;
+  z-index: 1000;
 }
 .lightbox img {
-  max-width: 80%;
+  max-width: 85%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
@@ -78,7 +76,7 @@ h1 {
   margin: 5px;
   padding: 6px 14px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 4px;
   border: none;
   background: #ff3399;
   color: white;
@@ -87,33 +85,28 @@ h1 {
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
 }
-.back-btn:hover {
-  background: #ff33aa;
-}
+.back-btn:hover { background: #ff33aa; }
 </style>
 </head>
-
 <body>
 
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Lee Heejin Gallery</h1>
 <p class="instructions">
-Click any image to open the lightbox.  
-Use arrows to navigate, X to close.  
-Click the image to open full resolution in a new tab.
+Click an image to open the lightbox. Use arrows to navigate. Click the image to view full resolution in a new tab.
 </p>
 
 <!-- Heejin Gallery -->
 <div id="heejin-gallery" class="member-gallery">
-  <a href="Leeheejin.jpg"><img src="Leeheejin.jpg" alt="Lee Heejin 1"></a>
+  <a href="Leeheejin.jpg"><img src="Leeheejin.jpg" alt="Lee Heejin"></a>
   <a href="HEEJIN2.jpg"><img src="HEEJIN2.jpg" alt="Lee Heejin 2"></a>
   <a href="HEEJIN3.jpg"><img src="HEEJIN3.jpg" alt="Lee Heejin 3"></a>
   <a href="HEEJIN4.jpg"><img src="HEEJIN4.jpg" alt="Lee Heejin 4"></a>
@@ -121,15 +114,15 @@ Click the image to open full resolution in a new tab.
   <a href="HEEJIN8.jpg"><img src="HEEJIN8.jpg" alt="Lee Heejin 8"></a>
   <a href="HEEJIN7.jpg"><img src="HEEJIN7.jpg" alt="Lee Heejin 7"></a>
   <a href="HEEJIN9.jpg"><img src="HEEJIN9.jpg" alt="Lee Heejin 9"></a>
-  <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Lee Heejin Group"></a>
+  <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Lee Heejin 27"></a>
   <a href="Heejin48.jpg"><img src="Heejin48.jpg" alt="Lee Heejin 48"></a>
   <a href="Heejin56.jpg"><img src="Heejin56.jpg" alt="Lee Heejin 56"></a>
-  <a href="Heejin&Miyoun1.jpg"><img src="Heejin&Miyoun1.jpg" alt="Heejin & Miyoun"></a>
+  <a href="Heejin&Miyoun1.jpg"><img src="Heejin&Miyoun1.jpg" alt="Lee Heejin & Kan Miyoun"></a>
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="" alt="">
+  <img src="" id="lightbox-img" alt="">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -139,50 +132,44 @@ Click the image to open full resolution in a new tab.
 
 <!-- Navigation -->
 <div>
-  <button class="back-btn" onclick="location.href='gallery.html'">Back to Gallery</button>
-  <button class="back-btn" onclick="location.href='index.html'">Back to Home</button>
+  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 </div>
 
 <script>
-const links = document.querySelectorAll('#heejin-gallery a');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-let index = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelectorAll('#heejin-gallery a');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
 
-links.forEach((link, i) => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    index = i;
-    open();
+  gallery.forEach((item, index) => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      currentIndex = index;
+      lightbox.style.display = 'flex';
+      lightboxImg.src = gallery[currentIndex].href;
+    });
   });
+
+  function closeLightbox() { lightbox.style.display = 'none'; }
+  function nextImage() { 
+    currentIndex = (currentIndex + 1) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+  function prevImage() { 
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  lightboxImg.addEventListener('click', () => {
+    window.open(lightboxImg.src, '_blank');
+  });
+
+  document.getElementById('close').onclick = closeLightbox;
+  document.getElementById('next').onclick = nextImage;
+  document.getElementById('prev').onclick = prevImage;
 });
-
-function open() {
-  lightbox.style.display = 'flex';
-  lightboxImg.src = links[index].href;
-}
-
-function close() {
-  lightbox.style.display = 'none';
-}
-
-function next() {
-  index = (index + 1) % links.length;
-  lightboxImg.src = links[index].href;
-}
-
-function prev() {
-  index = (index - 1 + links.length) % links.length;
-  lightboxImg.src = links[index].href;
-}
-
-lightboxImg.addEventListener('click', () => {
-  window.open(lightboxImg.src, '_blank');
-});
-
-document.getElementById('close').onclick = close;
-document.getElementById('next').onclick = next;
-document.getElementById('prev').onclick = prev;
 </script>
 
 </body>
