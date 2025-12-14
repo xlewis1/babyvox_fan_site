@@ -35,7 +35,7 @@ body {
   position: relative;
 }
 
-/* Optional watermark */
+/* Watermark */
 .newsletter-container::before {
   content: "";
   background: url('Baby_V.O.X_logo.webp') no-repeat center;
@@ -50,15 +50,14 @@ body {
   pointer-events: none;
 }
 
-/* Section headers */
 .newsletter-container h2 {
   color: #ff3399;
   text-shadow: 1px 1px 2px #ff66b2;
   margin-top: 20px;
 }
 
-/* PDF button */
-#downloadBtn {
+/* Buttons */
+button {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -70,28 +69,11 @@ body {
   box-shadow: 0 0 15px #ff66b2, 0 0 30px #ff99cc;
   transition: background 0.3s;
 }
-#downloadBtn:hover {
+
+button:hover {
   background: #ff33aa;
 }
 
-/* Back to Home button */
-#homeBtn {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  background: #ff66b2;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 15px #ff66b2, 0 0 30px #ff99cc;
-  transition: background 0.3s;
-}
-#homeBtn:hover {
-  background: #ff33aa;
-}
-
-/* Paragraph styling */
 .newsletter-container p {
   font-size: 16px;
   margin-bottom: 15px;
@@ -107,7 +89,6 @@ body {
 
 <div class="newsletter-container" id="newsletterContent">
   <p>Dear Baby VOX fans,</p>
-
   <p>Welcome to the second issue of the Baby VOX fan newsletter! In this edition, we share updates about our website, highlighting the new features, fixes, and performance improvements compared to the old version.</p>
 
   <h2>New Features</h2>
@@ -122,22 +103,27 @@ body {
 
 <button id="downloadBtn">Download Newsletter as PDF</button>
 <br>
-<button id="homeBtn" onclick="window.location.href='index.html'">Back to Home</button>
+<button onclick="window.location.href='index.html'">Back to Home</button>
 
+<!-- JS libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
 document.getElementById("downloadBtn").addEventListener("click", () => {
   const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-
+  const doc = new jsPDF('p', 'pt', 'a4');
   const content = document.getElementById("newsletterContent");
+
   doc.html(content, {
-    callback: function(doc) {
+    callback: function (doc) {
       doc.save("BabyVOX_Newsletter_Issue2.pdf");
     },
-    x: 10,
-    y: 10,
-    html2canvas: { scale: 0.5 }
+    x: 20,
+    y: 20,
+    html2canvas: {
+      scale: 1,
+      useCORS: true
+    }
   });
 });
 </script>
