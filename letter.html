@@ -54,6 +54,7 @@ body {
 .newsletter-container h2 {
   color: #ff3399;
   text-shadow: 1px 1px 2px #ff66b2;
+  margin-top: 20px;
 }
 
 /* PDF button */
@@ -73,6 +74,23 @@ body {
   background: #ff33aa;
 }
 
+/* Back to Home button */
+#homeBtn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #ff66b2;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff66b2, 0 0 30px #ff99cc;
+  transition: background 0.3s;
+}
+#homeBtn:hover {
+  background: #ff33aa;
+}
+
 /* Paragraph styling */
 .newsletter-container p {
   font-size: 16px;
@@ -88,17 +106,23 @@ body {
 <h1>Baby VOX Newsletter Issue 2</h1>
 
 <div class="newsletter-container" id="newsletterContent">
-  <h2>Site Updates</h2>
-  <p>Our fansite has been updated with a cleaner design, improved navigation, and better performance for both desktop and mobile users.</p>
+  <p>Dear Baby VOX fans,</p>
 
-  <h2>Fixes</h2>
-  <p>Fixed gallery sizing issues, lightbox navigation bugs, and link errors across multiple pages.</p>
+  <p>Welcome to the second issue of the Baby VOX fan newsletter! In this edition, we share updates about our website, highlighting the new features, fixes, and performance improvements compared to the old version.</p>
 
-  <h2>Performance</h2>
-  <p>The site now loads faster, with optimized images and smoother transitions between gallery and history pages.</p>
+  <h2>New Features</h2>
+  <p>The site is now cleaner, faster, and easier to navigate. The gallery pages have been optimized for both desktop and mobile, and history pages now have multiple sections for a smoother experience.</p>
+
+  <h2>Fixes & Improvements</h2>
+  <p>Resolved gallery sizing issues, lightbox navigation bugs, and broken links. Overall performance has been enhanced for quicker load times and better user experience.</p>
+
+  <h2>Special Thanks</h2>
+  <p>A big thank you to <strong>BabyVoxi</strong> for helping fix issues and providing resources for this update!</p>
 </div>
 
 <button id="downloadBtn">Download Newsletter as PDF</button>
+<br>
+<button id="homeBtn" onclick="window.location.href='index.html'">Back to Home</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
