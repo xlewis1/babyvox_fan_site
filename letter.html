@@ -35,21 +35,19 @@ body {
   position: relative;
 }
 
-/* Watermark */
-.newsletter-container::before {
-  content: "";
-  background: url('Baby_V.O.X_logo.webp') no-repeat center;
-  background-size: 150px 150px;
-  opacity: 0.05;
+/* Watermark as actual img */
+.newsletter-container .watermark {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
   pointer-events: none;
 }
 
+/* Section headers */
 .newsletter-container h2 {
   color: #ff3399;
   text-shadow: 1px 1px 2px #ff66b2;
@@ -88,6 +86,9 @@ button:hover {
 <h1>Baby VOX Newsletter Issue 2</h1>
 
 <div class="newsletter-container" id="newsletterContent">
+  <!-- Watermark as img -->
+  <img src="Baby_V.O.X_logo.webp" class="watermark" alt="Watermark">
+
   <p>Dear Baby VOX fans,</p>
   <p>Welcome to the second issue of the Baby VOX fan newsletter! In this edition, we share updates about our website, highlighting the new features, fixes, and performance improvements compared to the old version.</p>
 
@@ -115,7 +116,7 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   const content = document.getElementById("newsletterContent");
 
   doc.html(content, {
-    callback: function (doc) {
+    callback: function(doc) {
       doc.save("BabyVOX_Newsletter_Issue2.pdf");
     },
     x: 20,
