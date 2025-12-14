@@ -76,27 +76,6 @@ body {
   text-align: left;
 }
 
-/* Mini gallery in sidebar */
-.mini-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  justify-content: center;
-  margin-top: 10px;
-}
-.mini-gallery img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 0 5px #ff99cc;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-.mini-gallery img:hover {
-  transform: scale(1.1);
-}
-
 /* Top GIF banner */
 .top-gifs {
   display: flex;
@@ -148,6 +127,7 @@ body {
   font-size: 14px;
   color: #4B0082;
 }
+
 </style>
 </head>
 <body>
@@ -166,8 +146,8 @@ body {
 
 <!-- Top GIFs -->
 <div class="top-gifs">
-  <img id="top-gif1" src="VOX2.gif" alt="VOX GIF 1">
-  <img id="top-gif2" src="Vox3.gif" alt="VOX GIF 2">
+  <img src="VOX2.gif" alt="VOX GIF 1">
+  <img src="Vox3.gif" alt="VOX GIF 2">
 </div>
 
 <div class="main-container">
@@ -178,9 +158,6 @@ body {
     <p><strong>About Me:</strong> Hello! My name is Lewis and I’ve been a fan of Baby V.O.X since 2022. My bias is Kim EZ/Kan Mi Youn.</p>
     <p><strong>Special Thanks:</strong> Thank you to BabyVoxi & Lulie for helping with this fansite. <a href="https://babyvoxi.com" target="_blank">BabyVoxi</a></p>
     <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
-
-    <!-- Mini gallery -->
-    <div class="mini-gallery" id="mini-gallery"></div>
   </div>
 
   <!-- Center content -->
@@ -198,7 +175,7 @@ body {
 </div>
 
 <script>
-  // Random facts
+  // Array of random facts
   const facts = [
     "Baby V.O.X stands for 'Baby Voices of Xpression' and was one of the most popular 1st‑generation K-pop girl groups.",
     "They debuted in 1997 and helped pioneer the Korean Wave in China and Asia.",
@@ -210,37 +187,16 @@ body {
     "Baby V.O.X officially disbanded in 2006 after releasing seven studio albums."
   ];
 
+  // Function to show a random fact
   function showRandomFact() {
     const randomIndex = Math.floor(Math.random() * facts.length);
     alert(facts[randomIndex]);
   }
 
-  // Visitor counter
+  // Visitor Counter
   let visitorCount = localStorage.getItem('visitorCount') || 0;
   visitorCount++;
   localStorage.setItem('visitorCount', visitorCount);
   document.getElementById('visitor-count').textContent = visitorCount;
-
-  // Random center image
-  const centerImages = ["BV2.jpeg","BV3.jpeg","BV4.jpeg","BV5.jpeg"];
-  document.getElementById('center-img').src = centerImages[Math.floor(Math.random() * centerImages.length)];
-
-  // Mini-gallery setup
-  const galleryImages = ["gallery1.jpg","gallery2.jpg","gallery3.jpg","gallery4.jpg","gallery5.jpg"];
-  const miniGallery = document.getElementById("mini-gallery");
-  
-  // Pick 3 unique random images
-  const shuffled = galleryImages.sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, 3);
-  selected.forEach(img => {
-    const imageEl = document.createElement("img");
-    imageEl.src = img;
-    imageEl.alt = "Mini gallery image";
-    // Optional: click to go to gallery.html
-    imageEl.onclick = () => window.location.href = "gallery.html";
-    miniGallery.appendChild(imageEl);
-  });
 </script>
 
-</body>
-</html>
