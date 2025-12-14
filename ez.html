@@ -35,17 +35,17 @@ h1 {
   font-size: 16px;
 }
 
-/* Portrait gallery grid */
+/* Portrait gallery grid - updated sizes */
 .member-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
   justify-items: center;
   margin-bottom: 40px;
 }
 .member-gallery img {
-  width: 80px;
-  height: 120px; /* portrait rectangle */
+  width: 120px;
+  height: 180px;
   object-fit: cover;
   cursor: pointer;
   border-radius: 6px;
@@ -53,13 +53,8 @@ h1 {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .member-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ff66b2;
-  animation: pulse 1s infinite alternate;
-}
-@keyframes pulse {
-  from { box-shadow: 0 0 20px #ff66b2; }
-  to { box-shadow: 0 0 35px #ff33aa; }
+  transform: scale(1.06);
+  box-shadow: 0 0 18px #ff66b2;
 }
 
 /* Lightbox */
