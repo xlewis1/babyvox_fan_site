@@ -26,34 +26,31 @@ body {
 }
 
 /* Title & instructions */
-h1 {
-  color: #4B0082;
-}
-.instructions {
-  color: #4B0082;
-  margin-bottom: 30px;
-}
+h1 { color: #4B0082; }
+.instructions { color: #4B0082; margin-bottom: 30px; }
 
 /* Gallery grid */
 .member-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
+  gap: 14px;
   justify-items: center;
   margin-bottom: 40px;
 }
+
+/* Portrait thumbnails */
 .member-gallery img {
   width: 120px;
   height: 180px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: 0 0 8px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .member-gallery img:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 18px #ff66b2;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff66b2;
 }
 
 /* Lightbox */
@@ -64,11 +61,11 @@ h1 {
   background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
   flex-direction: column;
+  z-index: 1000;
 }
 .lightbox img {
-  max-width: 80%;
+  max-width: 85%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
@@ -87,16 +84,14 @@ h1 {
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 8px 14px;
+  border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
 }
-.back-btn:hover {
-  background: #ff33aa;
-}
+.back-btn:hover { background: #ff33aa; }
 </style>
 </head>
 
@@ -106,9 +101,8 @@ h1 {
 
 <h1>Yoon Eun Hye Gallery</h1>
 <p class="instructions">
-Click any image to open the lightbox.  
-Use arrows to navigate, X to close.  
-Click the image to open full resolution in a new tab.
+Click an image to view it in the lightbox.  
+Use arrows to navigate. Click the image for full resolution.
 </p>
 
 <!-- Eunhye Gallery -->
@@ -131,7 +125,7 @@ Click the image to open full resolution in a new tab.
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="" alt="">
+  <img src="" id="lightbox-img" alt="">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -141,8 +135,8 @@ Click the image to open full resolution in a new tab.
 
 <!-- Navigation -->
 <div>
-  <button class="back-btn" onclick="location.href='gallery.html'">Back to Gallery</button>
-  <button class="back-btn" onclick="location.href='index.html'">Back to Home</button>
+  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 </div>
 
 <script>
@@ -155,25 +149,23 @@ links.forEach((link, i) => {
   link.addEventListener('click', e => {
     e.preventDefault();
     index = i;
-    open();
+    openLightbox();
   });
 });
 
-function open() {
+function openLightbox() {
   lightbox.style.display = 'flex';
   lightboxImg.src = links[index].href;
 }
 
-function close() {
-  lightbox.style.display = 'none';
-}
+function closeLightbox() { lightbox.style.display = 'none'; }
 
-function next() {
+function nextImage() {
   index = (index + 1) % links.length;
   lightboxImg.src = links[index].href;
 }
 
-function prev() {
+function prevImage() {
   index = (index - 1 + links.length) % links.length;
   lightboxImg.src = links[index].href;
 }
@@ -182,9 +174,9 @@ lightboxImg.addEventListener('click', () => {
   window.open(lightboxImg.src, '_blank');
 });
 
-document.getElementById('close').onclick = close;
-document.getElementById('next').onclick = next;
-document.getElementById('prev').onclick = prev;
+document.getElementById('close').onclick = closeLightbox;
+document.getElementById('next').onclick = nextImage;
+document.getElementById('prev').onclick = prevImage;
 </script>
 
 </body>
