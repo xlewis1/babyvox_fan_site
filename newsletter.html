@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby VOX Newsletter</title>
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: #4B0082;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px #ff99cc;
+}
+
+.newsletter-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.newsletter-icon-container a img {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff66b2;
+  transition: box-shadow 0.5s;
+}
+
+.newsletter-icon-container a img:hover {
+  box-shadow: 0 0 35px #ff33aa;
+}
+
+.newsletter-caption {
+  font-size: 16px;
+  color: #880e4f;
+}
+
+.back-btn {
+  margin-top: 40px;
+  padding: 10px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ff66b2;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #ff33aa;
+}
+</style>
+</head>
+<body>
+
+<h1>Baby VOX Newsletter</h1>
+
+<div class="newsletter-icon-container">
+  <a href="letter.html">
+    <img src="icon.gif" alt="Kim EZ Icon">
+  </a>
+  <p class="newsletter-caption">Click the icon to open the upcoming Baby VOX fan newsletter</p>
+</div>
+
+<button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+
+</body>
+</html>
