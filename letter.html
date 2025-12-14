@@ -29,22 +29,10 @@ body {
   margin: 0 auto;
   padding: 25px;
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 0 20px #ff66b2, 0 0 40px #ff99cc;
   text-align: left;
   position: relative;
-}
-
-/* Watermark as actual img */
-.newsletter-container .watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 150px;
-  height: 150px;
-  transform: translate(-50%, -50%);
-  opacity: 0.05;
-  pointer-events: none;
 }
 
 /* Section headers */
@@ -86,9 +74,6 @@ button:hover {
 <h1>Baby VOX Newsletter Issue 2</h1>
 
 <div class="newsletter-container" id="newsletterContent">
-  <!-- Watermark as img -->
-  <img src="Baby_V.O.X_logo.webp" class="watermark" alt="Watermark">
-
   <p>Dear Baby VOX fans,</p>
   <p>Welcome to the second issue of the Baby VOX fan newsletter! In this edition, we share updates about our website, highlighting the new features, fixes, and performance improvements compared to the old version.</p>
 
@@ -106,7 +91,6 @@ button:hover {
 <br>
 <button onclick="window.location.href='index.html'">Back to Home</button>
 
-<!-- JS libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
@@ -121,10 +105,7 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
     },
     x: 20,
     y: 20,
-    html2canvas: {
-      scale: 1,
-      useCORS: true
-    }
+    html2canvas: { scale: 1, useCORS: true }
   });
 });
 </script>
