@@ -32,6 +32,7 @@ h1 {
 .instructions {
   color: #4B0082;
   margin-bottom: 30px;
+  font-size: 16px;
 }
 
 /* Gallery grid */
@@ -44,7 +45,7 @@ h1 {
 }
 .member-gallery img {
   width: 80px;
-  height: 120px; /* portrait rectangle */
+  height: 120px; /* consistent portrait ratio */
   object-fit: cover;
   cursor: pointer;
   border-radius: 6px;
@@ -53,12 +54,12 @@ h1 {
 }
 .member-gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #ff66b2;
+  box-shadow: 0 0 20px #ff66b2;
   animation: pulse 1s infinite alternate;
 }
 @keyframes pulse {
-  from { box-shadow: 0 0 15px #ff66b2; }
-  to { box-shadow: 0 0 25px #ff33aa; }
+  from { box-shadow: 0 0 20px #ff66b2; }
+  to { box-shadow: 0 0 35px #ff33aa; }
 }
 
 /* Lightbox */
@@ -110,32 +111,34 @@ h1 {
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Baby VOX Group Gallery</h1>
-<p class="instructions">Click on one of the images to open the lightbox. Navigate using arrows or click X to close. Click the image in the lightbox for full resolution.</p>
+<p class="instructions">
+Click an image to open the lightbox. Navigate with arrows or click X to close. Click the lightbox image for full resolution.
+</p>
 
 <div id="group-gallery" class="member-gallery">
   <!-- Group images -->
-  <a href="Baby_Vox.jpg" target="_blank"><img src="Baby_Vox.jpg" alt="Baby Vox"></a>
-  <a href="baby_vox copy.jpg" target="_blank"><img src="baby_vox copy.jpg" alt="Baby Vox Copy"></a>
-  <a href="Babyvox.jpg" target="_blank"><img src="Babyvox.jpg" alt="Baby Vox Home"></a>
-  <a href="BABYVOX2.jpg" target="_blank"><img src="BABYVOX2.jpg" alt="Baby Vox 2"></a>
-  <a href="BABYVOX4.jpg" target="_blank"><img src="BABYVOX4.jpg" alt="Baby Vox 4"></a>
-  <a href="BABYVOX5.jpg" target="_blank"><img src="BABYVOX5.jpg" alt="Baby Vox 5"></a>
-  <a href="BABYVOX6.jpg" target="_blank"><img src="BABYVOX6.jpg" alt="Baby Vox 6"></a>
-  <a href="BABYVOX7.jpeg" target="_blank"><img src="BABYVOX7.jpeg" alt="Baby Vox 7"></a>
-  <a href="BABYVOX8.jpeg" target="_blank"><img src="BABYVOX8.jpeg" alt="Baby Vox 8"></a>
-  <a href="Babyvox9.jpg" target="_blank"><img src="Babyvox9.jpg" alt="Baby Vox 9"></a>
-  <a href="vox_4th57.jpg" target="_blank"><img src="vox_4th57.jpg" alt="Baby Vox 10"></a>
-  <a href="vox_4th56.jpg" target="_blank"><img src="vox_4th56.jpg" alt="Baby Vox 11"></a>
-  <a href="Babyvox12.jpg" target="_blank"><img src="Babyvox12.jpg" alt="Baby Vox 12"></a>
-  <a href="Babyvox13.jpg" target="_blank"><img src="Babyvox13.jpg" alt="Baby Vox 13"></a>
-  <a href="babyvox1997.jpg" target="_blank"><img src="babyvox1997.jpg" alt="Baby Vox 1997"></a>
-  <a href="1997vox.jpg" target="_blank"><img src="1997vox.jpg" alt="Baby Vox 1997 2"></a>
-  <a href="BABYVOX14.jpg" target="_blank"><img src="BABYVOX14.jpg" alt="Baby Vox 14"></a>
-  <a href="BABYVOX15.jpg" target="_blank"><img src="BABYVOX15.jpg" alt="Baby Vox 15"></a>
-  <a href="image.jpeg" target="_blank"><img src="image.jpeg" alt="Baby Vox 16"></a>
-  <a href="babyvox30.jpg" target="_blank"><img src="babyvox30.jpg" alt="Baby Vox 30"></a>
-  <a href="Baby_Vox_Rares_6.jpg" target="_blank"><img src="Baby_Vox_Rares_6.jpg" alt="Baby Vox 31"></a>
-  <a href="VoxXmas.JPG" target="_blank"><img src="VoxXmas.JPG" alt="Baby Vox 32"></a>
+  <a href="Baby_Vox.jpg"><img src="Baby_Vox.jpg" alt="Baby Vox"></a>
+  <a href="baby_vox copy.jpg"><img src="baby_vox copy.jpg" alt="Baby Vox Copy"></a>
+  <a href="Babyvox.jpg"><img src="Babyvox.jpg" alt="Baby Vox Home"></a>
+  <a href="BABYVOX2.jpg"><img src="BABYVOX2.jpg" alt="Baby Vox 2"></a>
+  <a href="BABYVOX4.jpg"><img src="BABYVOX4.jpg" alt="Baby Vox 4"></a>
+  <a href="BABYVOX5.jpg"><img src="BABYVOX5.jpg" alt="Baby Vox 5"></a>
+  <a href="BABYVOX6.jpg"><img src="BABYVOX6.jpg" alt="Baby Vox 6"></a>
+  <a href="BABYVOX7.jpeg"><img src="BABYVOX7.jpeg" alt="Baby Vox 7"></a>
+  <a href="BABYVOX8.jpeg"><img src="BABYVOX8.jpeg" alt="Baby Vox 8"></a>
+  <a href="Babyvox9.jpg"><img src="Babyvox9.jpg" alt="Baby Vox 9"></a>
+  <a href="vox_4th57.jpg"><img src="vox_4th57.jpg" alt="Baby Vox 10"></a>
+  <a href="vox_4th56.jpg"><img src="vox_4th56.jpg" alt="Baby Vox 11"></a>
+  <a href="Babyvox12.jpg"><img src="Babyvox12.jpg" alt="Baby Vox 12"></a>
+  <a href="Babyvox13.jpg"><img src="Babyvox13.jpg" alt="Baby Vox 13"></a>
+  <a href="babyvox1997.jpg"><img src="babyvox1997.jpg" alt="Baby Vox 1997"></a>
+  <a href="1997vox.jpg"><img src="1997vox.jpg" alt="Baby Vox 1997 2"></a>
+  <a href="BABYVOX14.jpg"><img src="BABYVOX14.jpg" alt="Baby Vox 14"></a>
+  <a href="BABYVOX15.jpg"><img src="BABYVOX15.jpg" alt="Baby Vox 15"></a>
+  <a href="image.jpeg"><img src="image.jpeg" alt="Baby Vox 16"></a>
+  <a href="babyvox30.jpg"><img src="babyvox30.jpg" alt="Baby Vox 30"></a>
+  <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Baby Vox 31"></a>
+  <a href="VoxXmas.JPG"><img src="VoxXmas.JPG" alt="Baby Vox 32"></a>
 </div>
 
 <!-- Lightbox -->
@@ -188,7 +191,7 @@ function prevImage() {
   lightboxImg.src = gallery[currentIndex].href;
 }
 
-// Lightbox image click opens full-res in new tab
+// Full resolution on click
 lightboxImg.addEventListener('click', () => {
   window.open(lightboxImg.src, '_blank');
 });
