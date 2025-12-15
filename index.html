@@ -281,17 +281,26 @@ body {
 </script>
 
 <script>
-  // CountAPI visitor counter
-  const visitorCountEl = document.getElementById('visitor-count');
-  const NAMESPACE = "babyvox_fan_site";
-  const KEY = "visitors";
+const visitorCountEl = document.getElementById('visitor-count');
+const NAMESPACE = "babyvox_fan_site";
+const KEY = "visitors";
 
-  fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
-    .then(res => res.json())
-    .then(data => {
-      visitorCountEl.textContent = data.value;
-    })
-    .catch(err => console.error(err));
+// Try hitting the counter, create if missing
+fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    if (!data.value) {
+      // Counter doesn't exist yet – create it
+      return fetch(`https://api.countapi.xyz/create?namespace=${NAMESPACE}&key=${KEY}&value=0`)
+        .then(() => fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`))
+        .then(res => res.json());
+    }
+    return data;
+  })
+  .then(data => {
+    visitorCountEl.textContent = data.value;
+  })
+  .catch(err => console.error(err));
 </script>  
 
 </body>
