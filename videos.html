@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby V.O.X Videos</title>
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  color: #4B0082;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Video Grid */
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.video-thumb {
+  width: 200px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff99cc;
+  transition: transform 0.2s;
+}
+.video-thumb:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox */
+#video-lightbox {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.8);
+  display:none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#video-lightbox video {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+}
+
+#video-lightbox span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Back to Home Button */
+.back-home {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 20px;
+  background: #ff3399;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+.back-home:hover {
+  background: #ff66b2;
+}
+</style>
+</head>
+<body>
+
+<h1>Baby V.O.X Videos</h1>
+
+<div class="video-container" id="video-container">
+  <!-- Thumbnails added via JS -->
+</div>
+
+<!-- Lightbox -->
+<div id="video-lightbox">
+  <span onclick="closeLightbox()">&times;</span>
+  <video id="lightbox-video" controls></video>
+</div>
+
+<a href="index.html" class="back-home">Back to Home</a>
+
+<script>
+const videos = [
+  {thumb: "BV1.mp4", src: "BV1.mp4"},
+  {thumb: "BV2.mp4", src: "BV2.mp4"},
+  {thumb: "BV3.mp4", src: "BV3.mp4"}
+];
+
+const container = document.getElementById('video-container');
+const lightbox = document.getElementById('video-lightbox');
+const lightboxVideo = document.getElementById('lightbox-video');
+
+videos.forEach(video => {
+  const img = document.createElement('img');
+  img.src = video.thumb;
+  img.className = "video-thumb";
+  img.onclick = () => {
+    lightboxVideo.src = video.src;
+    lightbox.style.display = "flex";
+    lightboxVideo.play();
+  };
+  container.appendChild(img);
+});
+
+function closeLightbox() {
+  lightboxVideo.pause();
+  lightbox.style.display = "none";
+  lightboxVideo.src = "";
+}
+</script>
+
+</body>
+</html>
