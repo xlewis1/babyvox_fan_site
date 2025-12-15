@@ -278,19 +278,21 @@ body {
     alert(facts[randomIndex]);
   }
 
-  <script>
-const visitorCountEl = document.getElementById('visitor-count');
-const NAMESPACE = "babyvox_fan_site";
-const KEY = "visitors";
-
-// Increment the count and get updated value
-fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
-  .then(res => res.json())
-  .then(data => {
-    visitorCountEl.textContent = data.value;
-  })
-  .catch(err => console.error(err));
 </script>
+
+<script>
+  // CountAPI visitor counter
+  const visitorCountEl = document.getElementById('visitor-count');
+  const NAMESPACE = "babyvox_fan_site";
+  const KEY = "visitors";
+
+  fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
+    .then(res => res.json())
+    .then(data => {
+      visitorCountEl.textContent = data.value;
+    })
+    .catch(err => console.error(err));
+</script>  
 
 </body>
 </html>
