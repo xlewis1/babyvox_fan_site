@@ -45,6 +45,30 @@ body {
   text-decoration: none;
 }
 
+/* News Ticker */
+.news-ticker {
+  width: 100%;
+  overflow: hidden;
+  background: #ffb6d9;
+  padding: 5px 0;
+  border-bottom: 2px solid #ff66b2;
+  box-shadow: 0 2px 5px rgba(255, 0, 128, 0.3);
+}
+
+.news-ticker p {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll-left 15s linear infinite;
+  font-weight: bold;
+  color: #4B0082;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}  
+  
 /* Main layout */
 .main-container {
   display: grid;
@@ -182,6 +206,11 @@ body {
     <p><strong>Mini Gallery:</strong></p>
     <div id="mini-gallery"></div>
   </div>
+
+  <!-- News Ticker -->
+<div class="news-ticker">
+  <p id="news-text">Baby V.O.X Fansite News: Video page has been added with old Baby V.O.X videos!</p>
+</div>
 
   <!-- Center content -->
   <div class="center-content">
