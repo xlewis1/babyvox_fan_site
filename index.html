@@ -278,13 +278,19 @@ body {
     alert(facts[randomIndex]);
   }
 
-  // Visitor Counter
-  let visitorCount = localStorage.getItem('visitorCount') || 0;
-  visitorCount++;
-  localStorage.setItem('visitorCount', visitorCount);
-  document.getElementById('visitor-count').textContent = visitorCount;
+  <script>
+const visitorCountEl = document.getElementById('visitor-count');
+const NAMESPACE = "babyvox_fan_site";
+const KEY = "visitors";
+
+// Increment the count and get updated value
+fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${KEY}`)
+  .then(res => res.json())
+  .then(data => {
+    visitorCountEl.textContent = data.value;
+  })
+  .catch(err => console.error(err));
 </script>
-  
-</body>
-</html>
+
+ /html>
 
