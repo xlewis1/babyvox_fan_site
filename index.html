@@ -48,9 +48,11 @@ body {
 /* News Ticker */
 .news-ticker {
   width: 100%;
+  height: 50px; /* same height as navbar */
   overflow: hidden;
-  background: #ffb6d9;
-  padding: 5px 0;
+  background: #ff3399; /* bright pink */
+  display: flex;
+  align-items: center;
   border-bottom: 2px solid #ff66b2;
   box-shadow: 0 2px 5px rgba(255, 0, 128, 0.3);
 }
@@ -61,13 +63,15 @@ body {
   padding-left: 100%;
   animation: scroll-left 15s linear infinite;
   font-weight: bold;
-  color: #4B0082;
+  color: white; /* white text */
+  font-size: 16px; /* same size as navbar text */
+  margin: 0;
 }
 
 @keyframes scroll-left {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-100%); }
-}  
+}
   
 /* Main layout */
 .main-container {
@@ -189,6 +193,11 @@ body {
   <button onclick="showRandomFact()">Random Fact</button>
 </div>
 
+   <!-- News Ticker -->
+<div class="news-ticker">
+  <p id="news-text">Baby V.O.X Fansite News: Video page has been added with old Baby V.O.X videos!</p>
+</div>   
+
 <!-- Top GIFs -->
 <div class="top-gifs">
   <img src="VOX2.gif" alt="VOX GIF 1">
@@ -206,11 +215,6 @@ body {
     <p><strong>Mini Gallery:</strong></p>
     <div id="mini-gallery"></div>
   </div>
-
-  <!-- News Ticker -->
-<div class="news-ticker">
-  <p id="news-text">Baby V.O.X Fansite News: Video page has been added with old Baby V.O.X videos!</p>
-</div>
 
   <!-- Center content -->
   <div class="center-content">
