@@ -176,6 +176,26 @@ body {
   color: #4B0082;
 }
 
+/* Clock styles */
+  #site-clock {
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #ff99ff, #ff33aa);
+    color: white;
+    font-weight: bold;
+    font-family: 'Verdana', 'Tahoma', sans-serif;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff66cc, 0 0 20px #ff33aa inset;
+    text-shadow: 1px 1px 2px #660066;
+    transition: all 0.3s ease;
+  }
+  #site-clock:hover {
+    background: linear-gradient(135deg, #ff33aa, #ff66ff);
+    box-shadow: 0 0 15px #ff99ff, 0 0 25px #ff66cc inset;
+    transform: scale(1.05);
+  }  
+  
 </style>
 </head>
 <body>
@@ -192,7 +212,8 @@ body {
   <a href="links.html">Links</a>
   <a href="newsletter.html">Newsletter</a>
   <a href="bias.html">My Bias</a>
-  <button onclick="showRandomFact()">Random Fact</button>  
+  <button onclick="showRandomFact()">Random Fact</button> 
+  <span id="site-clock"></span>
 </div>
 
 
@@ -301,6 +322,23 @@ body {
   visitorCountEl.textContent = count;
 </script>  
 
+<script>
+  function updateClock() {
+      const clockEl = document.getElementById("site-clock");
+      if (!clockEl) return;
+
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2,"0");
+      const minutes = String(now.getMinutes()).padStart(2,"0");
+      const seconds = String(now.getSeconds()).padStart(2,"0");
+
+      clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>  
+  
 </body>
 </html>
 
