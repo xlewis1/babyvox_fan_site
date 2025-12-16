@@ -195,6 +195,30 @@ body {
     box-shadow: 0 0 15px #ff99ff, 0 0 25px #ff66cc inset;
     transform: scale(1.05);
   }  
+
+  /* Sidebar language selector */
+#language-selector {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  background: #ff3399;  /* same pink as sidebar buttons */
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #ff99cc, 0 0 10px #ff66b2 inset;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for dropdown */
+#language-selector:hover {
+  background: #ff66b2;
+  box-shadow: 0 0 8px #ff99cc, 0 0 12px #ff66b2 inset;
+  transform: scale(1.02);
+}
   
 </style>
 </head>
@@ -236,6 +260,13 @@ body {
     <p><strong>News:</strong> Merry Christmas Baby Angels!</p>
     <p><strong>About Me:</strong> Hello! My name is Lewis and I’ve been a fan of Baby V.O.X since 2022. My bias is Kim EZ/Kan Mi Youn.</p>
     <p><strong>Special Thanks:</strong> Thank you to BabyVoxi & Lulie for helping with this fansite. <a href="https://babyvoxi.com" target="_blank">BabyVoxi</a></p>
+    <p><strong>Select Language:</strong></p>
+    <select id="language-selector">
+     <option value="en">English</option>
+     <option value="ko">Korean</option>
+     <option value="zh">Chinese</option>
+     <option value="ja">Japanese</option>
+    </select>
     <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
     <p><strong>Mini Gallery:</strong></p>
     <div id="mini-gallery"></div>
@@ -338,7 +369,35 @@ body {
   updateClock();
   setInterval(updateClock, 1000);
 </script>  
-  
+
+<script>
+const welcomeMessages = {
+  en: "Welcome to the Baby V.O.X Fansite – new and improved with better performance, cleaner and more polished appearance!",
+  ko: "베이비복스 팬사이트에 오신 것을 환영합니다 – 성능 개선, 더 깔끔하고 세련된 모습!",
+  zh: "欢迎来到Baby V.O.X粉丝站 – 提升性能，更加干净和精致！",
+  ja: "Baby V.O.Xファンサイトへようこそ – パフォーマンス向上、より洗練された外観！"
+};
+
+// Function to set welcome message
+function setWelcome(lang) {
+  const welcomeSpan = document.querySelector(".welcome-box span");
+  if (welcomeSpan && welcomeMessages[lang]) {
+    welcomeSpan.textContent = welcomeMessages[lang];
+  }
+}
+
+// Event listener for dropdown
+const langSelector = document.getElementById("language-selector");
+if (langSelector) {
+  langSelector.addEventListener("change", (e) => {
+    setWelcome(e.target.value);
+  });
+}
+
+// Initialize with default language
+setWelcome("en");
+</script>  
+    
 </body>
 </html>
 
