@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baby V.O.X – Members</title>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,20 +14,19 @@
     }
 
     .logo {
-      position: fixed;     /* top-left corner */
-       top: 10px;
-       left: 10px;
-       width: 60px;
-       height: auto;
-       z-index: 1000;
-       animation: spin 4s linear infinite;
-     }
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: auto;
+      z-index: 1000;
+      animation: spin 4s linear infinite;
+    }
 
-     /* Keyframes for spinning */
-     @keyframes spin {
-       from { transform: rotate(0deg); }
-       to   { transform: rotate(360deg); }
-     }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
 
     h1, h2 {
       color: #4B0082;
@@ -54,6 +52,8 @@
       cursor: pointer;
       box-shadow: 0 0 10px rgba(255, 102, 178, 0.4);
       transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
     }
 
     .member:hover {
@@ -67,164 +67,61 @@
       border-radius: 50%;
       object-fit: cover;
     }
-
-    .fact-file {
-      display: none;
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
-      margin-top: 20px;
-    }
-
-    .fact-file img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
   </style>
 </head>
-
 <body>
-  
- <img src="logo.png" alt="Logo" class="logo">
- 
+  <img src="logo.png" alt="Logo" class="logo">
   <div class="container">
     <a href="index.html" style="display:inline-block; margin-bottom:20px; padding:8px 12px; background:#ff80bf; color:white; border-radius:6px; text-decoration:none;">
       ← Back to Home
     </a>
+
     <h1>Members</h1>
-    <p style="color:#4B0082;">Click a member to view their fact file</p>
+    <p style="color:#4B0082;">Click a member to view their page</p>
 
     <h2>Current Lineup</h2>
     <div class="members">
-      <div class="member" onclick="showFact('kim_ez')">
+      <a class="member" href="kim_ez.html">
         <img src="Kim_ez.jpg" alt="Kim EZ">
         <p>Kim EZ</p>
-      </div>
-      <div class="member" onclick="showFact('yoon_eunhye')">
+      </a>
+      <a class="member" href="yoon_eunhye.html">
         <img src="yoon_eunhye.webp" alt="Yoon Eun Hye">
         <p>Yoon Eun Hye</p>
-      </div>
-      <div class="member" onclick="showFact('kan_miyoun')">
+      </a>
+      <a class="member" href="kan_miyoun.html">
         <img src="kan_miyoun.webp" alt="Kan Mi Youn">
         <p>Kan Mi Youn</p>
-      </div>
-      <div class="member" onclick="showFact('shim_eunjin')">
+      </a>
+      <a class="member" href="shim_eunjin.html">
         <img src="shim_eunjin.jpg" alt="Shim Eun Jin">
         <p>Shim Eun Jin</p>
-      </div>
-      <div class="member" onclick="showFact('lee_heejin')">
+      </a>
+      <a class="member" href="lee_heejin.html">
         <img src="Lee_Heejin.webp" alt="Lee Hee Jin">
         <p>Lee Hee Jin</p>
-      </div>
+      </a>
     </div>
 
     <h2>Former Members</h2>
     <div class="members">
-      <div class="member" onclick="showFact('lee_gai')">
+      <a class="member" href="lee_gai.html">
         <img src="Lee_Gai.jpeg" alt="Lee Gai">
         <p>Lee Gai</p>
-      </div>
-      <div class="member" onclick="showFact('cha_yumi')">
+      </a>
+      <a class="member" href="cha_yumi.html">
         <img src="cha_yumi.WEBP" alt="Cha Yumi">
         <p>Cha Yumi</p>
-      </div>
-      <div class="member" onclick="showFact('jung_siwoon')">
+      </a>
+      <a class="member" href="jung_siwoon.html">
         <img src="jung si woon.WEBP" alt="Jung Si Woon">
         <p>Jung Si Woon</p>
-      </div>
-      <div class="member" onclick="showFact('jung_hyunjeon')">
+      </a>
+      <a class="member" href="jung_hyunjeon.html">
         <img src="jung hyun jeon.WEBP" alt="Jung Hyun Jeon">
         <p>Jung Hyun Jeon</p>
-      </div>
-    </div>
-
-    <!-- FACT FILES -->
-
-    <div id="kim_ez" class="fact-file">
-      <img src="Kim_ez.jpg">
-      <h2>Kim EZ (Kim Hee-Jung)</h2>
-      <p>Born: January 31, 1979</p>
-      <p>Main Rapper, Leader</p>
-      <p>Stayed with Baby V.O.X from 1997–2006</p>
-    </div>
-
-    <div id="yoon_eunhye" class="fact-file">
-      <img src="yoon_eunhye.webp">
-      <h2>Yoon Eun Hye</h2>
-      <p>Born: October 3, 1984</p>
-      <p>Sub Vocalist, Maknae</p>
-      <p>Famous for Coffee Prince & Princess Hours</p>
-    </div>
-
-    <div id="kan_miyoun" class="fact-file">
-      <img src="kan_miyoun.webp">
-      <h2>Kan Mi Youn</h2>
-      <p>Born: February 2, 1983</p>
-      <p>Main Vocalist</p>
-      <p>Successful solo career after Baby V.O.X</p>
-    </div>
-
-    <div id="shim_eunjin" class="fact-file">
-      <img src="shim_eunjin.jpg">
-      <h2>Shim Eun Jin</h2>
-      <p>Born: February 6, 1981</p>
-      <p>Lead Dancer, Vocalist</p>
-      <p>Later became an artist and painter</p>
-    </div>
-
-    <div id="lee_heejin" class="fact-file">
-      <img src="Lee_Heejin.webp">
-      <h2>Lee Hee Jin</h2>
-      <p>Born: May 16, 1979</p>
-      <p>Visual, Sub Vocalist</p>
-      <p>Actress and café owner</p>
-    </div>
-
-    <div id="lee_gai" class="fact-file">
-      <img src="Lee_Gai.jpeg">
-      <h2>Lee Gai</h2>
-      <p>Born: July 19, 1968</p>
-      <p>Member (1998–1999)</p>
-      <p>Left the group after controversy</p>
-    </div>
-
-    <div id="cha_yumi" class="fact-file">
-      <img src="cha_yumi.WEBP">
-      <h2>Cha Yumi</h2>
-      <p>Original member (1997)</p>
-      <p>Main Vocalist</p>
-      <p>Left due to injury</p>
-    </div>
-
-    <div id="jung_siwoon" class="fact-file">
-      <img src="jung si woon.WEBP">
-      <h2>Jung Si Woon</h2>
-      <p>Original member (1997)</p>
-      <p>Rapper</p>
-      <p>Replaced after debut album</p>
-    </div>
-
-    <div id="jung_hyunjeon" class="fact-file">
-      <img src="jung hyun jeon.WEBP">
-      <h2>Jung Hyun Jeon</h2>
-      <p>Original member (1997)</p>
-      <p>Vocalist / Dancer</p>
-      <p>Replaced by Shim Eun Jin</p>
+      </a>
     </div>
   </div>
-
-  <script>
-    function showFact(id) {
-      document.querySelectorAll('.fact-file')
-        .forEach(f => f.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    }
-  </script>
-
 </body>
 </html>
