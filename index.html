@@ -409,32 +409,10 @@ setWelcome("en");
 </script>  
 
 <script>
-fetch('https://api.github.com/repos/xlewis1/babyvox_fan_site/commits/main')
-  .then(response => {
-    if (!response.ok) throw new Error('Network response not ok');
-    return response.json();
-  })
-  .then(data => {
-    if(data && data.length > 0) {
-      const latestCommit = data[0].commit;
-      const date = new Date(latestCommit.author.date);
-      const formattedDate = date.toLocaleDateString(); // e.g., 12/18/2025
-      const message = latestCommit.message;
-
-      const el = document.getElementById('last-update');
-      if(el) {
-        el.textContent = `Last Fansite Update: ${formattedDate} – ${message}`;
-      }
-    }
-  })
-  .catch(err => {
-    console.error('Error fetching GitHub commits:', err);
-    const el = document.getElementById('last-update');
-    if(el) el.textContent = 'Last Fansite Update: Could not fetch latest info';
-  });
+const updateMsg = "December 18, 2025 – Added new Heejin pics!";
+document.getElementById("update-msg").textContent = updateMsg;
 </script>
-  
-    
+     
 </body>
 </html>
 
