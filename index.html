@@ -221,13 +221,15 @@ body {
 }
 
 #last-update {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 250px; /* adjust to fit your navbar */
-  font-weight: bold;
-  color: white;
-}  
+  white-space: normal;       /* allow wrapping */
+  overflow: visible;         /* show all text */
+  text-overflow: clip;       /* no ellipsis needed */
+  max-width: 100%;           /* fill the sidebar width */
+  font-weight: normal;       /* match other sidebar text */
+  color: #4B0082;            /* match sidebar text color */
+  margin-bottom: 10px;       /* spacing above the next element */
+  font-size: 14px;           /* slightly smaller than navbar */
+}
   
 </style>
 </head>
