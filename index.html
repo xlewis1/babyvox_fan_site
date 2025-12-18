@@ -226,7 +226,7 @@ body {
   text-overflow: ellipsis;
   max-width: 250px; /* adjust to fit your navbar */
   font-weight: bold;
-  color: #ffccff;
+  color: white;
 }  
   
 </style>
@@ -410,7 +410,10 @@ setWelcome("en");
 
 <script>
 fetch('https://api.github.com/repos/xlewis1/babyvox_fan_site/commits/main')
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) throw new Error('Network response not ok');
+    return response.json();
+  })
   .then(data => {
     if(data && data.length > 0) {
       const latestCommit = data[0].commit;
@@ -418,16 +421,18 @@ fetch('https://api.github.com/repos/xlewis1/babyvox_fan_site/commits/main')
       const formattedDate = date.toLocaleDateString(); // e.g., 12/18/2025
       const message = latestCommit.message;
 
-      document.getElementById('last-update').textContent =
-        `Last Fansite Update: ${formattedDate} – ${message}`;
+      const el = document.getElementById('last-update');
+      if(el) {
+        el.textContent = `Last Fansite Update: ${formattedDate} – ${message}`;
+      }
     }
   })
   .catch(err => {
     console.error('Error fetching GitHub commits:', err);
-    document.getElementById('last-update').textContent =
-      'Last Fansite Update: Could not fetch latest info';
+    const el = document.getElementById('last-update');
+    if(el) el.textContent = 'Last Fansite Update: Could not fetch latest info';
   });
-</script>  
+</script>
   
     
 </body>
