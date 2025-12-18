@@ -219,6 +219,15 @@ body {
   box-shadow: 0 0 8px #ff99cc, 0 0 12px #ff66b2 inset;
   transform: scale(1.02);
 }
+
+#last-update {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px; /* adjust to fit your navbar */
+  font-weight: bold;
+  color: #ffccff;
+}  
   
 </style>
 </head>
@@ -226,6 +235,7 @@ body {
 
 <!-- Navbar -->
 <div class="navbar">
+  <p id="last-update"><strong>Last Fansite Update:</strong> Loading...</p>
   <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
   <a href="index.html">Home</a>
   <a href="members.html">Members</a>
@@ -397,6 +407,28 @@ if (langSelector) {
 // Initialize with default language
 setWelcome("en");
 </script>  
+
+<script>
+fetch('https://api.github.com/repos/xlewis1/babyvox_fan_site/commits/main')
+  .then(response => response.json())
+  .then(data => {
+    if(data && data.length > 0) {
+      const latestCommit = data[0].commit;
+      const date = new Date(latestCommit.author.date);
+      const formattedDate = date.toLocaleDateString(); // e.g., 12/18/2025
+      const message = latestCommit.message;
+
+      document.getElementById('last-update').textContent =
+        `Last Fansite Update: ${formattedDate} – ${message}`;
+    }
+  })
+  .catch(err => {
+    console.error('Error fetching GitHub commits:', err);
+    document.getElementById('last-update').textContent =
+      'Last Fansite Update: Could not fetch latest info';
+  });
+</script>  
+  
     
 </body>
 </html>
