@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splash Page</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: url('babyvox30.jpg') no-repeat center center;
+      background-size: cover;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      border-radius: 16px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: white;
+      color: #000;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Welcome!</h1>
+    <p>Click below to enter the site</p>
+    <a href="index.html">Enter Site</a>
+  </div>
+</body>
+</html>
