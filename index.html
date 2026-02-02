@@ -8,8 +8,7 @@
 /* Reset and body */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
   color: #4B0082;
 }
@@ -62,9 +61,22 @@ body {
   color: #4B0082; gap: 15px; text-align: left;
 }
 .welcome-box img { width: 80px; border-radius: 8px; }
+
+/* Splash overlay */
+#splash {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(135deg, #ff99ff, #ff66cc);
+  display: flex; justify-content: center; align-items: center;
+  font-size: 2em; color: white;
+  z-index: 9999;
+  text-align: center;
+}
 </style>
 </head>
 <body>
+
+<!-- Splash overlay -->
+<div id="splash">Welcome to Baby V.O.X Fansite!</div>
 
 <!-- Navbar -->
 <div class="navbar">
@@ -79,6 +91,7 @@ body {
   <a href="newsletter.html">Newsletter</a>
   <a href="bias.html">My Bias</a>
   <button onclick="showRandomFact()">Random Fact</button>
+  <span id="site-clock"></span>
 </div>
 
 <div class="main-container">
@@ -105,61 +118,71 @@ body {
     <img id="center-img" src="BV2.jpeg" alt="Baby VOX Center">
     <div class="welcome-box">
       <img src="BV.gif" alt="BV GIF">
-      <span>Welcome to the Baby V.O.X Fansite – new and improved with better performance!</span>
+      <span>Welcome to the Baby V.O.X Fansite – new and improved!</span>
     </div>
   </div>
 </div>
 
 <script>
-  // Splash page logic
-  window.addEventListener('load', () => {
-    // Show splash page each time user visits
-    if (!sessionStorage.getItem('showedSplash')) {
-      sessionStorage.setItem('showedSplash', 'true');
-      window.location.href = 'splash.html';
-    }
-  });
+// ----- Splash Overlay -----
+window.addEventListener('load', () => {
+  const splash = document.getElementById('splash');
+  setTimeout(() => { splash.style.display = 'none'; }, 3000); // show 3 sec
+});
 
-  // Visitor counter
-  const visitorCountEl = document.getElementById('visitor-count');
-  let count = parseInt(localStorage.getItem('visitorCount')) || 0;
-  count++; localStorage.setItem('visitorCount', count);
-  visitorCountEl.textContent = count;
+// ----- Visitor Counter -----
+const visitorCountEl = document.getElementById('visitor-count');
+let count = parseInt(localStorage.getItem('visitorCount')) || 0;
+count++;
+localStorage.setItem('visitorCount', count);
+visitorCountEl.textContent = count;
 
-  // Mini gallery
-  const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
-  const miniGallery = document.getElementById('mini-gallery');
-  galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
-    const link = document.createElement('a'); link.href = src; link.target="_blank";
-    const img = document.createElement('img'); img.src = src;
-    link.appendChild(img); miniGallery.appendChild(link);
-  });
+// ----- Mini Gallery -----
+const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
+const miniGallery = document.getElementById('mini-gallery');
+galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
+  const link = document.createElement('a'); link.href = src; link.target="_blank";
+  const img = document.createElement('img'); img.src = src;
+  link.appendChild(img); miniGallery.appendChild(link);
+});
 
-  // Random facts
-  const facts = [
-    "Baby V.O.X stands for 'Baby Voices of Xpression'.",
-    "They debuted in 1997 and helped pioneer the Korean Wave.",
-    "Their hit 'Get Up' helped the group rise to the top charts.",
-    "All five final members reunited at the 2024 KBS Song Festival.",
-    "First solo concert in 23 years: September 26–27, 2025."
-  ];
-  function showRandomFact() {
-    const randomIndex = Math.floor(Math.random()*facts.length);
-    alert(facts[randomIndex]);
-  }
+// ----- Random Facts -----
+const facts = [
+  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
+  "They debuted in 1997 and helped pioneer the Korean Wave.",
+  "Their hit 'Get Up' helped the group rise to the top charts.",
+  "All five final members reunited at the 2024 KBS Song Festival.",
+  "First solo concert in 23 years: September 26–27, 2025."
+];
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random()*facts.length);
+  alert(facts[randomIndex]);
+}
 
-  // Language selector
-  const welcomeMessages = {
-    en: "Welcome to the Baby V.O.X Fansite – new and improved!",
-    ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
-    zh: "欢迎来到Baby V.O.X粉丝站!",
-    ja: "Baby V.O.Xファンサイトへようこそ!"
-  };
-  const langSelector = document.getElementById('language-selector');
-  langSelector.addEventListener('change', e => {
-    document.querySelector(".welcome-box span").textContent = welcomeMessages[e.target.value];
-  });
-  document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
+// ----- Language Selector -----
+const welcomeMessages = {
+  en: "Welcome to the Baby V.O.X Fansite – new and improved!",
+  ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
+  zh: "欢迎来到Baby V.O.X粉丝站!",
+  ja: "Baby V.O.Xファンサイトへようこそ!"
+};
+const langSelector = document.getElementById('language-selector');
+langSelector.addEventListener('change', e => {
+  document.querySelector(".welcome-box span").textContent = welcomeMessages[e.target.value];
+});
+document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
+
+// ----- Clock -----
+function updateClock() {
+  const clockEl = document.getElementById("site-clock");
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+  clockEl.textContent = `${h}:${m}:${s}`;
+}
+updateClock();
+setInterval(updateClock, 1000);
 </script>
 
 </body>
