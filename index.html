@@ -366,6 +366,15 @@ musicPlayer.addEventListener('touchend', e => {
   }
 });
 
+// ----- STOP PAGE SCROLL WHILE DRAGGING OR PINCHING -----
+function preventScroll(e) {
+  if (isDragging || e.touches.length === 2) {
+    e.preventDefault();
+  }
+}
+
+document.addEventListener('touchmove', preventScroll, { passive: false })
+
 // ----- VISITOR COUNTER -----
 const visitorCountEl = document.getElementById('visitor-count');
 let count = parseInt(localStorage.getItem('visitorCount')) || 0;
