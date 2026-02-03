@@ -299,6 +299,7 @@ musicPlayer.addEventListener('mousedown', e => {
     isDragging = true;
     dragOffsetX = e.clientX - musicPlayer.offsetLeft;
     dragOffsetY = e.clientY - musicPlayer.offsetTop;
+    e.preventDefault();
   }
 });
 document.addEventListener('mousemove', e => {
@@ -307,6 +308,7 @@ document.addEventListener('mousemove', e => {
     musicPlayer.style.top = (e.clientY - dragOffsetY) + 'px';
     musicPlayer.style.right = 'auto';
     musicPlayer.style.bottom = 'auto';
+    e.preventDefault();
   }
 });
 document.addEventListener('mouseup', () => { isDragging = false; });
@@ -325,6 +327,7 @@ document.addEventListener('touchmove', e => {
     musicPlayer.style.top = (touch.clientY - dragOffsetY) + 'px';
     musicPlayer.style.right = 'auto';
     musicPlayer.style.bottom = 'auto';
+    e.preventDefault();
   }
 });
 document.addEventListener('touchend', () => { isDragging = false; });
