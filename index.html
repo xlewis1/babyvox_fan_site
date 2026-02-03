@@ -4,16 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Fansite</title>
+
 <style>
-/* RESET & BODY */
+/* ===============================
+   RESET & BODY
+   =============================== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
   color: #4B0082;
 }
 
-/* SPLASH OVERLAY */
+/* ===============================
+   SPLASH OVERLAY
+   =============================== */
 #splash {
   position: fixed;
   inset: 0;
@@ -48,7 +54,9 @@ body {
   transform: scale(1.05);
 }
 
-/* NAVBAR */
+/* ===============================
+   NAVBAR
+   =============================== */
 .navbar {
   width: 100%;
   background-color: #1a1a1a;
@@ -70,7 +78,9 @@ body {
   border-radius: 4px; text-decoration: none;
 }
 
-/* CLOCK */
+/* ===============================
+   CLOCK
+   =============================== */
 #site-clock {
   margin-left: 15px;
   padding: 4px 12px;
@@ -83,7 +93,9 @@ body {
   letter-spacing: 1px;
 }
 
-/* TICKER BELOW NAVBAR */
+/* ===============================
+   TICKER BELOW NAVBAR
+   =============================== */
 #ticker {
   width: 100%;
   background: #ff66cc;
@@ -102,7 +114,9 @@ body {
   100% { transform: translateX(-100%); }
 }
 
-/* MAIN LAYOUT */
+/* ===============================
+   MAIN LAYOUT
+   =============================== */
 .main-container {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -111,7 +125,9 @@ body {
   margin: 20px auto;
 }
 
-/* SIDEBAR */
+/* ===============================
+   SIDEBAR
+   =============================== */
 .sidebar {
   background: #ffe6f0; 
   padding: 15px; 
@@ -123,11 +139,15 @@ body {
 #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
 #mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; }
 
-/* CENTER CONTENT */
+/* ===============================
+   CENTER CONTENT
+   =============================== */
 .center-content { text-align: center; margin-bottom: 20px; }
 .center-content img#center-img { width: 600px; border-radius: 12px; }
 
-/* WELCOME BOX */
+/* ===============================
+   WELCOME BOX
+   =============================== */
 .welcome-box {
   display: inline-flex; align-items: center;
   background: #ffd6e8; padding: 15px; border-radius: 12px;
@@ -135,19 +155,63 @@ body {
 }
 .welcome-box img { width: 80px; border-radius: 8px; }
 
-/* BUTTONS */
+/* ===============================
+   BUTTONS
+   =============================== */
 button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
+
+/* ===============================
+   MUSIC PLAYER
+   =============================== */
+#music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  text-align: center;
+  z-index: 9999;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  font-family: Arial, sans-serif;
+}
+#player-graphic {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.controls button {
+  margin: 3px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+}
+.controls button:hover {
+  background: #ff99cc;
+  transform: scale(1.05);
+}
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
+<!-- ===============================
+     SPLASH
+     =============================== -->
 <div id="splash">
   <h1>Welcome to Baby V.O.X Fansite!</h1>
   <button id="enter-site">Enter Site</button>
 </div>
 
-<!-- NAVBAR -->
+<!-- ===============================
+     NAVBAR
+     =============================== -->
 <div class="navbar">
   <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
   <a href="index.html">Home</a>
@@ -163,10 +227,14 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
   <span id="site-clock"></span>
 </div>
 
-<!-- TICKER -->
+<!-- ===============================
+     TICKER
+     =============================== -->
 <div id="ticker"><p>🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀</p></div>
 
-<!-- MAIN CONTAINER -->
+<!-- ===============================
+     MAIN CONTAINER
+     =============================== -->
 <div class="main-container">
   <!-- SIDEBAR -->
   <div class="sidebar">
@@ -196,8 +264,23 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
   </div>
 </div>
 
+<!-- ===============================
+     MUSIC PLAYER
+     =============================== -->
+<div id="music-player">
+  <img src="86A6FE02-F2E5-4DAA-BB55-088744D69B46.jpeg" alt="Baby V.O.X Player Graphic" id="player-graphic">
+  <div class="controls">
+    <button id="prev">Prev</button>
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="next">Next</button>
+  </div>
+  <audio id="audio" src="reflections.mp3"></audio>
+</div>
+
 <script>
-// ----- SPLASH OVERLAY WITH SESSION STORAGE -----
+// ===============================
+/* SPLASH OVERLAY WITH SESSION STORAGE */
 const splash = document.getElementById('splash');
 const enterButton = document.getElementById('enter-site');
 
@@ -206,7 +289,6 @@ function hideSplash() {
   sessionStorage.setItem('splashShown', 'true');
 }
 
-// Only show splash if not already shown this session
 if (!sessionStorage.getItem('splashShown')) {
   splash.style.display = 'flex';
 } else {
@@ -215,14 +297,16 @@ if (!sessionStorage.getItem('splashShown')) {
 
 enterButton.addEventListener('click', hideSplash);
 
-// ----- VISITOR COUNTER -----
+// ===============================
+/* VISITOR COUNTER */
 const visitorCountEl = document.getElementById('visitor-count');
 let count = parseInt(localStorage.getItem('visitorCount')) || 0;
 count++;
 localStorage.setItem('visitorCount', count);
 visitorCountEl.textContent = count;
 
-// ----- MINI GALLERY -----
+// ===============================
+/* MINI GALLERY */
 const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
 const miniGallery = document.getElementById('mini-gallery');
 galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
@@ -231,7 +315,8 @@ galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
   link.appendChild(img); miniGallery.appendChild(link);
 });
 
-// ----- RANDOM FACTS -----
+// ===============================
+/* RANDOM FACTS */
 const facts = [
   "Baby V.O.X stands for 'Baby Voices of Xpression'.",
   "They debuted in 1997 and helped pioneer the Korean Wave.",
@@ -244,7 +329,8 @@ function showRandomFact() {
   alert(facts[randomIndex]);
 }
 
-// ----- LANGUAGE SELECTOR -----
+// ===============================
+/* LANGUAGE SELECTOR */
 const welcomeMessages = {
   en: "Welcome to the Baby V.O.X Fansite – new and improved!",
   ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
@@ -257,7 +343,8 @@ langSelector.addEventListener('change', e => {
 });
 document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
 
-// ----- CLOCK -----
+// ===============================
+/* CLOCK */
 function updateClock() {
   const clockEl = document.getElementById("site-clock");
   const now = new Date();
@@ -268,11 +355,20 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 1000);
+
+// ===============================
+/* MUSIC PLAYER */
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('play');
+const pauseBtn = document.getElementById('pause');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+playBtn.addEventListener('click', () => audio.play());
+pauseBtn.addEventListener('click', () => audio.pause());
+prevBtn.addEventListener('click', () => audio.currentTime = 0);
+nextBtn.addEventListener('click', () => audio.currentTime = 0);
 </script>
-  <!-- Music Player Widget -->
-<iframe src="babyvox-music-player.html" 
-        style="position:fixed; bottom:20px; right:20px; width:200px; height:300px; border:none; z-index:9999;"
-        scrolling="no">
-</iframe>
+
 </body>
 </html>
