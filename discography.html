@@ -106,6 +106,56 @@ h1 {
   font-weight: bold;
   box-shadow: 0 0 12px #ff66cc;
 }
+
+#music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  padding: 10px;
+  display: none;
+  touch-action: none; /* prevent default touch scrolling */
+  z-index: 2000;
+}
+
+#player-graphic {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: grab;
+}
+
+.controls button {
+  margin: 2px;
+  padding: 6px 12px;
+  border: none;
+  background: #ff80bf;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+   background: #e066b3;
+}
+
+#close-player {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background: #ff4d6d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+  
 </style>
 </head>
 
@@ -253,6 +303,104 @@ h1 {
 </div>
 
 <a href="index.html" class="back-home">← Back to Home</a>
+
+<!-- MUSIC PLAYER -->
+<div id="music-player">
+  <button id="close-player">X</button>
+  <img src="86A6FE02-F2E5-4DAA-BB55-088744D69B46.jpeg" alt="Baby V.O.X Player Graphic" id="player-graphic">
+  <div class="controls">
+    <button id="prev">Prev</button>
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="next">Next</button>
+  </div>
+    <audio id="audio" src="r e f l e c t i o n s.mp3"></audio>
+  </div>
+
+<script>
+  // ---------------- MUSIC PLAYER ----------------
+  const musicPlayer = document.getElementById('music-player');
+  const audio = document.getElementById('audio');
+
+  // Show player automatically (optional)
+  musicPlayer.style.display = 'block';
+
+  // Player controls
+  document.getElementById('play').addEventListener('click', () => audio.play());
+  document.getElementById('pause').addEventListener('click', () => audio.pause());
+  document.getElementById('prev').addEventListener('click', () => audio.currentTime = 0);
+  document.getElementById('next').addEventListener('click', () => audio.currentTime = 0);
+  document.getElementById('close-player').addEventListener('click', () => musicPlayer.style.display = 'none');
+
+  // Drag & pinch-to-scale variables
+  let isDragging = false, dragOffsetX = 0, dragOffsetY = 0;
+  let initialDistance = null, initialScale = 1;
+  musicPlayer.style.transformOrigin = 'center center';
+
+  // Prevent default scrolling while dragging or pinching
+  function preventDefaultTouch(e) {
+    if (isDragging || e.touches.length === 2) e.preventDefault();
+  }
+  document.addEventListener('touchmove', preventDefaultTouch, { passive: false });
+
+  // ---------------- MOUSE DRAG ----------------
+  musicPlayer.addEventListener('mousedown', e => {
+    if (e.target === musicPlayer || e.target === document.getElementById('player-graphic')) {
+      isDragging = true;
+      dragOffsetX = e.clientX - musicPlayer.offsetLeft;
+      dragOffsetY = e.clientY - musicPlayer.offsetTop;
+      e.preventDefault();
+    }
+  });
+  document.addEventListener('mousemove', e => {
+    if (isDragging) {
+      musicPlayer.style.left = (e.clientX - dragOffsetX) + 'px';
+      musicPlayer.style.top = (e.clientY - dragOffsetY) + 'px';
+      musicPlayer.style.right = 'auto';
+      musicPlayer.style.bottom = 'auto';
+      e.preventDefault();
+    }
+  });
+  document.addEventListener('mouseup', () => { isDragging = false; });
+
+  // ---------------- TOUCH DRAG & PINCH ----------------
+  musicPlayer.addEventListener('touchstart', e => {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      dragOffsetX = e.touches[0].clientX - musicPlayer.offsetLeft;
+      dragOffsetY = e.touches[0].clientY - musicPlayer.offsetTop;
+    }
+  });
+
+  musicPlayer.addEventListener('touchmove', e => {
+    if (e.touches.length === 1 && isDragging) {
+      const touch = e.touches[0];
+      musicPlayer.style.left = (touch.clientX - dragOffsetX) + 'px';
+      musicPlayer.style.top = (touch.clientY - dragOffsetY) + 'px';
+      musicPlayer.style.right = 'auto';
+      musicPlayer.style.bottom = 'auto';
+    } else if (e.touches.length === 2) {
+      const t1 = e.touches[0], t2 = e.touches[1];
+      const distance = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+      if (!initialDistance) initialDistance = distance;
+      else {
+        let scale = (distance / initialDistance) * initialScale;
+        scale = Math.max(0.5, Math.min(2, scale)); // limit 50%–200%
+        musicPlayer.style.transform = `scale(${scale})`;
+      }
+    }
+    e.preventDefault();
+  }, { passive: false });
+
+  musicPlayer.addEventListener('touchend', e => {
+    if (e.touches.length < 2) {
+      const match = musicPlayer.style.transform.match(/scale\(([^)]+)\)/);
+      initialScale = match ? parseFloat(match[1]) : 1;
+      initialDistance = null;
+      if (e.touches.length === 0) isDragging = false;
+    }
+  });
+</script>
 
 </body>
 </html>
