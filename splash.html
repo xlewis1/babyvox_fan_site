@@ -1,85 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X Splash</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baby V.O.X Splash</title>
 
-<style>
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  font-family: "Segoe UI", Arial, sans-serif;
-}
+  <style>
+    /* Fix mobile + desktop viewport issues */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
 
-/* Full background image */
-body {
-  background: url('babyvox30.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
 
-/* Y2K glass overlay */
-.overlay {
-  padding: 40px 60px;
-  border-radius: 22px;
+      /* FULLSCREEN BACKGROUND IMAGE */
+      background-image: url('babyvox30.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
 
-  background: linear-gradient(
-    rgba(255, 182, 213, 0.35),
-    rgba(220, 220, 220, 0.35)
-  );
-  backdrop-filter: blur(12px);
+    /* Dark glass overlay */
+    .overlay {
+      background: rgba(0, 0, 0, 0.45);
+      padding: 40px 50px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
 
-  box-shadow:
-    0 0 25px rgba(255, 105, 180, 0.8),
-    inset 0 0 15px rgba(255, 255, 255, 0.6);
+    h1 {
+      font-size: 2.5rem;
+      margin: 0 0 10px;
+    }
 
-  text-align: center;
-}
+    p {
+      margin: 0 0 25px;
+      font-size: 1.1rem;
+    }
 
-/* Text */
-h1 {
-  margin: 0 0 10px;
-  font-size: 2.4rem;
-  color: white;
-  text-shadow: 0 0 12px rgba(255,255,255,0.7);
-}
+    a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: white;
+      color: #000;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-p {
-  margin: 0 0 25px;
-  font-size: 1.1rem;
-  color: white;
-}
-
-/* Enter button */
-a {
-  display: inline-block;
-  padding: 14px 34px;
-  background: white;
-  color: #000;
-  text-decoration: none;
-  border-radius: 999px;
-  font-weight: bold;
-
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
-}
-</style>
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+  </style>
 </head>
 
-<body onclick="location.href='index.html'">
+<body>
   <div class="overlay">
-    <h1>Baby V.O.X</h1>
-    <p>Click or tap to enter</p>
+    <h1>Welcome</h1>
+    <p>Tap or click to enter the Baby V.O.X fansite</p>
     <a href="index.html">Enter Site</a>
   </div>
 </body>
