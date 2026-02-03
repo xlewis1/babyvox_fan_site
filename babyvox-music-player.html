@@ -1,0 +1,78 @@
+<!-- Music Player -->
+<div id="music-player">
+  <img src="86A6FE02-F2E5-4DAA-BB55-088744D69B46.jpeg" alt="Baby V.O.X Player Graphic" id="player-graphic">
+  <div class="controls">
+    <button id="prev"><</button>
+    <button id="play">></button>
+    <button id="pause">||</button>
+    <button id="next">></button>
+  </div>
+  <audio id="audio" src="reflections.mp3"></audio>
+</div>
+
+<style>
+#music-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  text-align: center;
+  z-index: 9999;
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(8px);
+  padding: 10px;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  font-family: Arial, sans-serif;
+}
+
+#player-graphic {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.controls button {
+  margin: 3px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.controls button:hover {
+  background: #ff99cc;
+  transform: scale(1.05);
+}
+</style>
+
+<script>
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('play');
+const pauseBtn = document.getElementById('pause');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+
+// Play
+playBtn.addEventListener('click', () => {
+  audio.play();
+});
+
+// Pause
+pauseBtn.addEventListener('click', () => {
+  audio.pause();
+});
+
+// Prev / Next placeholders (can add more songs later)
+prevBtn.addEventListener('click', () => {
+  audio.currentTime = 0; // restart song for now
+});
+
+nextBtn.addEventListener('click', () => {
+  audio.currentTime = 0; // restart song for now
+});
+</script>
