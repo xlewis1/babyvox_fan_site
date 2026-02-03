@@ -4,22 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Fansite</title>
-
 <style>
-/* ===============================
-   RESET & BODY
-   =============================== */
+/* RESET & BODY */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
   color: #4B0082;
 }
 
-/* ===============================
-   SPLASH OVERLAY
-   =============================== */
+/* SPLASH OVERLAY */
 #splash {
   position: fixed;
   inset: 0;
@@ -54,9 +48,7 @@ body {
   transform: scale(1.05);
 }
 
-/* ===============================
-   NAVBAR
-   =============================== */
+/* NAVBAR */
 .navbar {
   width: 100%;
   background-color: #1a1a1a;
@@ -78,9 +70,7 @@ body {
   border-radius: 4px; text-decoration: none;
 }
 
-/* ===============================
-   CLOCK
-   =============================== */
+/* CLOCK */
 #site-clock {
   margin-left: 15px;
   padding: 4px 12px;
@@ -93,9 +83,26 @@ body {
   letter-spacing: 1px;
 }
 
-/* ===============================
-   MAIN LAYOUT
-   =============================== */
+/* TICKER BELOW NAVBAR */
+#ticker {
+  width: 100%;
+  background: #ff66cc;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 0 10px #ff99cc;
+}
+#ticker p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerMove 20s linear infinite;
+}
+@keyframes tickerMove {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* MAIN LAYOUT */
 .main-container {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -104,7 +111,7 @@ body {
   margin: 20px auto;
 }
 
-/* Sidebar */
+/* SIDEBAR */
 .sidebar {
   background: #ffe6f0; 
   padding: 15px; 
@@ -116,11 +123,11 @@ body {
 #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
 #mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; }
 
-/* Center content */
+/* CENTER CONTENT */
 .center-content { text-align: center; margin-bottom: 20px; }
 .center-content img#center-img { width: 600px; border-radius: 12px; }
 
-/* Welcome box */
+/* WELCOME BOX */
 .welcome-box {
   display: inline-flex; align-items: center;
   background: #ffd6e8; padding: 15px; border-radius: 12px;
@@ -128,11 +135,10 @@ body {
 }
 .welcome-box img { width: 80px; border-radius: 8px; }
 
-/* Buttons */
+/* BUTTONS */
 button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
 </style>
 </head>
-
 <body>
 
 <!-- SPLASH -->
@@ -157,9 +163,11 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
   <span id="site-clock"></span>
 </div>
 
+<!-- TICKER -->
+<div id="ticker"><p>🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀</p></div>
+
 <!-- MAIN CONTAINER -->
 <div class="main-container">
-
   <!-- SIDEBAR -->
   <div class="sidebar">
     <p id="last-update"><strong>Last Fansite Update:</strong> 18/11/25 – Added new Heejin pics!</p>
@@ -186,30 +194,35 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
       <span>Welcome to the Baby V.O.X Fansite – new and improved!</span>
     </div>
   </div>
-
 </div>
 
 <script>
-// ----- Splash Overlay -----
+// ----- SPLASH OVERLAY WITH SESSION STORAGE -----
 const splash = document.getElementById('splash');
 const enterButton = document.getElementById('enter-site');
-const splashImg = document.getElementById('splash-img');
 
 function hideSplash() {
+  splash.style.display = 'none';
+  sessionStorage.setItem('splashShown', 'true');
+}
+
+// Only show splash if not already shown this session
+if (!sessionStorage.getItem('splashShown')) {
+  splash.style.display = 'flex';
+} else {
   splash.style.display = 'none';
 }
 
 enterButton.addEventListener('click', hideSplash);
-if (splashImg) splashImg.addEventListener('click', hideSplash);
 
-// ----- Visitor Counter -----
+// ----- VISITOR COUNTER -----
 const visitorCountEl = document.getElementById('visitor-count');
 let count = parseInt(localStorage.getItem('visitorCount')) || 0;
 count++;
 localStorage.setItem('visitorCount', count);
 visitorCountEl.textContent = count;
 
-// ----- Mini Gallery -----
+// ----- MINI GALLERY -----
 const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
 const miniGallery = document.getElementById('mini-gallery');
 galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
@@ -218,7 +231,7 @@ galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
   link.appendChild(img); miniGallery.appendChild(link);
 });
 
-// ----- Random Facts -----
+// ----- RANDOM FACTS -----
 const facts = [
   "Baby V.O.X stands for 'Baby Voices of Xpression'.",
   "They debuted in 1997 and helped pioneer the Korean Wave.",
@@ -231,7 +244,7 @@ function showRandomFact() {
   alert(facts[randomIndex]);
 }
 
-// ----- Language Selector -----
+// ----- LANGUAGE SELECTOR -----
 const welcomeMessages = {
   en: "Welcome to the Baby V.O.X Fansite – new and improved!",
   ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
@@ -244,7 +257,7 @@ langSelector.addEventListener('change', e => {
 });
 document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
 
-// ----- Clock -----
+// ----- CLOCK -----
 function updateClock() {
   const clockEl = document.getElementById("site-clock");
   const now = new Date();
@@ -256,6 +269,5 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 </script>
-
 </body>
 </html>
