@@ -71,28 +71,29 @@ body {
   z-index: 9999;
   text-align: center;
 }
-#splash img { max-width: 80%; border-radius:12px; box-shadow:0 0 30px #ff66cc; margin-bottom:30px; }
-#splash button {
-  padding:12px 24px;
-  font-size:18px;
-  font-weight:bold;
-  background:#ff3399;
-  color:white;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  box-shadow:0 0 10px #ff66cc,0 0 20px #ff33aa inset;
-  transition:all 0.3s ease;
+#splash img {
+  width: 250px; margin-bottom: 30px; cursor: pointer;
 }
-#splash button:hover { transform: scale(1.05); }
+#splash button {
+  padding: 12px 25px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+  background: white;
+  color: #ff3399;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff66cc;
+}
+#splash button:hover { transform: scale(1.05); transition: 0.2s; }
 </style>
 </head>
 <body>
 
 <!-- Splash overlay -->
 <div id="splash">
-  <img src="babyvox30.jpg" alt="Baby V.O.X Splash">
-  <button id="enter-btn">Enter Fansite</button>
+  <img src="babyvox30.jpg" alt="BabyVOX Logo" id="splash-img">
+  <div>Welcome to Baby V.O.X Fansite!</div>
+  <button id="enter-site">Enter Site</button>
 </div>
 
 <!-- Navbar -->
@@ -143,18 +144,15 @@ body {
 <script>
 // ----- Splash Overlay -----
 const splash = document.getElementById('splash');
-const enterBtn = document.getElementById('enter-btn');
+const enterButton = document.getElementById('enter-site');
+const splashImg = document.getElementById('splash-img');
 
-// Click button to hide splash
-enterBtn.addEventListener('click', () => {
-  splash.style.display = 'none';
-  sessionStorage.setItem('splashSeen', 'true');
-});
-
-// Hide splash if already seen
-if (sessionStorage.getItem('splashSeen')) {
+function hideSplash() {
   splash.style.display = 'none';
 }
+
+enterButton.addEventListener('click', hideSplash);
+splashImg.addEventListener('click', hideSplash);
 
 // ----- Visitor Counter -----
 const visitorCountEl = document.getElementById('visitor-count');
