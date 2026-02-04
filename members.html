@@ -166,14 +166,31 @@
     const musicPlayer = document.getElementById('music-player');
     const audio = document.getElementById('audio');
 
+    const playlist = [
+     "r e f l e c t i o n s.mp3",
+     "9jackjack8-neon-amnesia-club-house-2010-375600.mp3"
+    ];
+
+    let currentTrack = 0;
+    audio.src = playlist[currentTrack];
+    
     // Show player (optional: remove if you want it hidden initially)
     musicPlayer.style.display = 'block';
 
     // Controls
     document.getElementById('play').addEventListener('click', () => audio.play());
     document.getElementById('pause').addEventListener('click', () => audio.pause());
-    document.getElementById('prev').addEventListener('click', () => audio.currentTime = 0);
-    document.getElementById('next').addEventListener('click', () => audio.currentTime = 0);
+    document.getElementById('next').addEventListener('click', () => {
+       currentTrack = (currentTrack + 1) % playlist.length;
+       audio.src = playlist[currentTrack];
+       audio.play();
+     });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+      audio.src = playlist[currentTrack];
+      audio.play();
+    });
     document.getElementById('close-player').addEventListener('click', () => musicPlayer.style.display = 'none');
 
     // Drag & pinch
@@ -240,6 +257,12 @@
         initialDistance = null;
         if (e.touches.length === 0) isDragging = false;
       }
+    });
+
+    audio.addEventListener('ended', () => {
+     currentTrack = (currentTrack + 1) % playlist.length;
+     audio.src = playlist[currentTrack];
+     audio.play();
     });
   </script>
 </body>
