@@ -186,6 +186,22 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
   background: #ff99cc;
   transform: scale(1.05);
 }
+
+.gallery-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #ff66b2;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff99cc;
+}
+.gallery-btn:hover {
+  background: #ff33aa;
+  transform: scale(1.05);
+}
 </style>
 </head>
 <body>
@@ -233,6 +249,9 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
     <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
     <p><strong>Mini Gallery:</strong></p>
     <div id="mini-gallery"></div>
+    <button class="gallery-btn" onclick="window.location.href='gallery.html'">
+        View Full Gallery
+    </button>
   </div>
 
   <!-- CENTER CONTENT -->
