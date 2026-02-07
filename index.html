@@ -211,6 +211,37 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
   color: #4B0082;
   opacity: 0.75;
 }
+
+.motd-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffd6e8;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ff99cc;
+  text-align: center;
+}
+
+.motd-box img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 0 10px #ff66b2;
+}
+
+.motd-box button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #ff66b2;
+  color: white;
+  cursor: pointer;
+}
+
+.motd-box button:hover {
+  background: #ff33aa;
+}
   
 </style>
 </head>
@@ -263,6 +294,13 @@ button:hover { transform: scale(1.05); transition: 0.2s; cursor: pointer; }
         View Full Gallery
     </button>
   </div>
+
+  <div class="motd-box">
+  <h2>🎀 Member of the Day 🎀</h2>
+  <img id="motd-img" alt="Member of the Day">
+  <p id="motd-name"></p>
+  <button id="motd-link">View Gallery</button>
+</div>
 
   <!-- CENTER CONTENT -->
   <div class="center-content">
@@ -481,6 +519,36 @@ function updateClock() {
 }
 updateClock();
 setInterval(updateClock, 1000);
+
+// ----- MEMBER OF THE DAY -----
+const members = [
+  { name: "Kim EZ", img: "EZ56.jpg", link: "ez.html" },
+  { name: "Kan Mi Youn", img: "MIYOUN49.jpg", link: "miyoun.html" },
+  { name: "Lee Hee Jin", img: "Heejin56.jpg", link: "heejin.html" },
+  { name: "Shim Eun Jin", img: "Eunjin12_upscaled.jpg", link: "eunjin.html" },
+  { name: "Yoon Eun Hye", img: "EUNHYE10.jpg", link: "eunhye.html" }
+];
+
+const today = new Date().toDateString();
+const savedMOTD = JSON.parse(localStorage.getItem("memberOfTheDay"));
+
+let motd;
+
+if (savedMOTD && savedMOTD.date === today) {
+  motd = savedMOTD.member;
+} else {
+  motd = members[Math.floor(Math.random() * members.length)];
+  localStorage.setItem(
+    "memberOfTheDay",
+    JSON.stringify({ date: today, member: motd })
+  );
+}
+
+document.getElementById("motd-img").src = motd.img;
+document.getElementById("motd-name").textContent = motd.name;
+document.getElementById("motd-link").onclick = () => {
+  window.location.href = motd.link;
+};
 </script>
 
 <footer class="site-footer">
