@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby V.O.X Fansite – Mobile/Tablet</title>
+<style>
+/* RESET & BODY */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; padding: 0;
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  color: #4B0082;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* SPLASH OVERLAY */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: 
+    linear-gradient(rgba(255,105,180,0.35), rgba(255,105,180,0.35)),
+    url("babyvox30.jpg") center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 9999;
+  text-align: center;
+}
+#splash h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff33aa;
+}
+#splash button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: none;
+  background: white;
+  color: #ff3399;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff66cc, 0 0 25px #ff3399;
+  transition: transform 0.2s ease;
+}
+#splash button:hover { transform: scale(1.05); }
+
+/* SIDEBAR / NAVBAR TOP */
+.sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #ffe6f0;
+  padding: 10px 0;
+  box-shadow: 0 0 10px #ff99cc;
+}
+.sidebar img {
+  width: 60px;
+  border-radius: 50%;
+  animation: spin 6s linear infinite;
+}
+@keyframes spin { 0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);} }
+
+.sidebar a, .sidebar button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #ff66b2;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.sidebar a:hover, .sidebar button:hover { background: #ff33aa; transform: scale(1.05); }
+
+/* CENTER CONTENT */
+.center-content {
+  width: 95%;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 15px;
+}
+.center-content img#center-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* WELCOME PANEL */
+.welcome-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffd6e8;
+  padding: 15px;
+  border-radius: 12px;
+  color: #4B0082;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.welcome-box img { width: 60px; border-radius: 8px; }
+
+/* RIGHT PANEL INFO (now stacked under content) */
+.right-panel {
+  width: 95%;
+  max-width: 500px;
+  background: #ffe6f0;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ff99cc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.right-panel img { width: 100%; border-radius: 12px; margin-bottom: 10px; }
+.right-panel p { margin: 5px 0; text-align: center; }
+.right-panel #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+.right-panel #mini-gallery img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; }
+.right-panel button { width: 100%; margin-top: 5px; }
+
+/* TICKER */
+#ticker {
+  width: 100%;
+  background: transparent;
+  color: #ff3399;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+#ticker p {
+  display: inline-block;
+  animation: tickerMove 15s linear infinite;
+}
+@keyframes tickerMove {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* FOOTER */
+.site-footer {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: #4B0082;
+  opacity: 0.75;
+}
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <h1>Welcome to Baby V.O.X Fansite!</h1>
+  <button id="enter-site">Enter Site</button>
+</div>
+
+<!-- SIDEBAR / NAVBAR TOP -->
+<div class="sidebar">
+  <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
+  <a href="index.html">Home</a>
+  <a href="members.html">Members</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="videos.html">Videos</a>
+  <a href="discography.html">Discography</a>
+  <a href="history.html">History</a>
+  <a href="links.html">Links</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a href="bias.html">My Bias</a>
+  <button onclick="showRandomFact()">Random Fact</button>
+</div>
+
+<!-- CENTER CONTENT -->
+<div class="center-content">
+  <div id="ticker"><p>🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀</p></div>
+  <img id="center-img" src="IMG_2391.jpeg" alt="Baby VOX Center">
+  <div class="welcome-box">
+    <img src="BV.gif" alt="BV GIF">
+    <span>Welcome to the Baby V.O.X Fansite – new and improved!</span>
+  </div>
+</div>
+
+<!-- RIGHT PANEL INFO -->
+<div class="right-panel">
+  <p id="last-update"><strong>Last Fansite Update:</strong> 9/2/26 – updated home page center image</p>
+  <p><strong>News:</strong> Please check out Babyvoxi new website design! Link in the links page</p>
+  <p><strong>Select Language:</strong></p>
+  <select id="language-selector">
+    <option value="en">English</option>
+    <option value="ko">Korean</option>
+    <option value="zh">Chinese</option>
+    <option value="ja">Japanese</option>
+  </select>
+  <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
+  <p><strong>Mini Gallery:</strong></p>
+  <div id="mini-gallery"></div>
+  <button class="gallery-btn" onclick="window.location.href='gallery.html'">View Full Gallery</button>
+  <button class="gallery-btn" onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
+  <button class="gallery-btn" onclick="window.location.href='index.html'">Desktop Version</button>
+</div>
+
+<script>
+// ----- SPLASH -----
+const splash = document.getElementById('splash');
+const enterButton = document.getElementById('enter-site');
+function hideSplash() { splash.style.display = 'none'; }
+if (!sessionStorage.getItem('splashShown')) { splash.style.display = 'flex'; } 
+else { splash.style.display = 'none'; }
+enterButton.addEventListener('click', () => { hideSplash(); sessionStorage.setItem('splashShown','true'); });
+
+// ----- VISITOR COUNTER -----
+const visitorCountEl = document.getElementById('visitor-count');
+let count = parseInt(localStorage.getItem('visitorCount')) || 0;
+count++;
+localStorage.setItem('visitorCount', count);
+visitorCountEl.textContent = count;
+
+// ----- MINI GALLERY -----
+const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
+const miniGallery = document.getElementById('mini-gallery');
+galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
+  const link = document.createElement('a'); link.href = src; link.target="_blank";
+  const img = document.createElement('img'); img.src = src;
+  link.appendChild(img); miniGallery.appendChild(link);
+});
+
+// ----- RANDOM FACTS -----
+const facts = [
+  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
+  "They debuted in 1997 and helped pioneer the Korean Wave.",
+  "Their hit 'Get Up' helped the group rise to the top charts.",
+  "All five final members reunited at the 2024 KBS Song Festival.",
+  "First solo concert in 23 years: September 26–27, 2025."
+];
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random()*facts.length);
+  alert(facts[randomIndex]);
+}
+
+// ----- LANGUAGE SELECTOR -----
+const welcomeMessages = {
+  en: "Welcome to the Baby V.O.X Fansite – new and improved!",
+  ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
+  zh: "欢迎来到Baby V.O.X粉丝站!",
+  ja: "Baby V.O.Xファンサイトへようこそ!"
+};
+const langSelector = document.getElementById('language-selector');
+langSelector.addEventListener('change', e => {
+  document.querySelector(".welcome-box span").textContent = welcomeMessages[e.target.value];
+});
+document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
+</script>
+
+<footer class="site-footer">
+  <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
+</footer>
+
+</body>
+</html>
