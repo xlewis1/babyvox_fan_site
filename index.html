@@ -7,8 +7,8 @@
 <style>
 /* RESET & BODY */
 body {
-  margin: 0; padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0; padding: 0;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
   color: #4B0082;
   display: flex;
@@ -49,105 +49,111 @@ body {
   transform: scale(1.05);
 }
 
-/* SIDEBAR / NAVBAR LEFT PANEL */
+/* SIDEBAR NAVIGATION (LEFT) */
 .sidebar {
-  width: 260px;
-  background: linear-gradient(180deg, #ffe6f0, #ffccf0);
-  padding: 20px;
+  width: 220px;
+  background: #ffe6f0;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ff99cc;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 4px 0 15px #ff66cc;
-  position: fixed;
-  left: 0; top: 0; bottom: 0;
-  overflow-y: auto;
-  border-right: 2px solid #ff66b2;
 }
-.sidebar img.logo {
-  width: 140px;
-  border-radius: 12px;
+.sidebar img {
+  width: 120px;
   margin-bottom: 20px;
-  box-shadow: 0 0 12px #ff99cc;
+  border-radius: 50%;
+  animation: spin 6s linear infinite;
 }
-.sidebar a, .sidebar button {
-  display: block;
-  width: 100%;
-  margin: 6px 0;
-  padding: 10px;
-  text-align: center;
-  border-radius: 8px;
-  border: 2px solid #ff3399;
-  background: #ffe6f0;
-  color: #4B0082;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.2s;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-.sidebar a:hover, .sidebar button:hover {
+.sidebar button, .sidebar a {
+  margin: 5px 0;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
   background: #ff66b2;
   color: white;
-  box-shadow: 0 0 12px #ff99cc;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 0 10px #ff99cc;
+  transition: 0.2s;
+}
+.sidebar button:hover, .sidebar a:hover {
+  background: #ff33aa;
   transform: scale(1.05);
 }
 
-/* MAIN CONTENT */
-.main-content {
-  margin-left: 280px;
+/* CENTER CONTENT */
+.center-content {
   flex: 1;
+  text-align: center;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-
-/* CENTER IMAGE */
-#center-img {
+.center-content img#center-img {
   width: 600px;
   border-radius: 12px;
-  box-shadow: 0 0 20px #ff66b2;
   margin-bottom: 20px;
 }
 
 /* WELCOME PANEL */
 .welcome-box {
-  background: linear-gradient(135deg, #ffd6e8, #ff99cc);
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 0 20px #ff66cc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffd6e8;
+  padding: 15px 20px;
+  border-radius: 12px;
   color: #4B0082;
-  width: 90%;
-  text-align: center;
-  margin-bottom: 30px;
+  gap: 15px;
+  margin-bottom: 20px;
 }
-.welcome-box img { width: 80px; border-radius: 8px; vertical-align: middle; margin-right: 15px; }
-.welcome-box span { font-size: 1.2rem; vertical-align: middle; }
+.welcome-box img { width: 80px; border-radius: 8px; }
 
-/* MINI GALLERY */
-#mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; margin-top: 10px; }
-#mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #ff66b2; }
-
-/* MUSIC PLAYER */
-#music-player {
-  position: fixed;
-  bottom: 20px; right: 20px;
-  width: 200px;
-  text-align: center;
-  z-index: 9999;
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(8px);
-  padding: 10px;
-  border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  font-family: Arial, sans-serif;
+/* RIGHT PANEL (News, Mini Gallery, Visitor Count) */
+.right-panel {
+  width: 220px;
+  background: #ffe6f0;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ff99cc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#music-player #close-player {
-  position: absolute; top: 5px; right: 5px;
-  border: none; background: #ff3399;
-  color: white; font-weight: bold; border-radius: 50%;
-  width: 22px; height: 22px; cursor: pointer;
+.right-panel img { width: 100%; border-radius: 12px; margin-bottom: 10px; }
+.right-panel p { margin: 5px 0; text-align: center; }
+.right-panel #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
+.right-panel #mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; }
+.right-panel button { width: 100%; }
+
+/* TICKER */
+#ticker {
+  width: 100%;
+  background: #ff66cc;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 0 0 10px #ff99cc;
+  margin-bottom: 10px;
+}
+#ticker p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerMove 20s linear infinite;
+}
+@keyframes tickerMove {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
 
-/* FOOTER */
+/* SITE FOOTER */
 .site-footer {
   margin-top: 40px;
   padding: 18px;
@@ -155,17 +161,6 @@ body {
   font-size: 13px;
   color: #4B0082;
   opacity: 0.75;
-}
-
-/* CLOCK */
-#site-clock {
-  margin-top: 15px;
-  padding: 6px 12px;
-  background: #ff66cc;
-  color: white;
-  font-weight: bold;
-  border-radius: 8px;
-  font-family: monospace;
 }
 </style>
 </head>
@@ -177,9 +172,9 @@ body {
   <button id="enter-site">Enter Site</button>
 </div>
 
-<!-- SIDEBAR LEFT NAV -->
+<!-- LEFT SIDEBAR NAVIGATION -->
 <div class="sidebar">
-  <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+  <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
   <a href="index.html">Home</a>
   <a href="members.html">Members</a>
   <a href="gallery.html">Gallery</a>
@@ -190,23 +185,11 @@ body {
   <a href="newsletter.html">Newsletter</a>
   <a href="bias.html">My Bias</a>
   <button onclick="showRandomFact()">Random Fact</button>
-  <p><strong>Select Language:</strong></p>
-  <select id="language-selector">
-      <option value="en">English</option>
-      <option value="ko">Korean</option>
-      <option value="zh">Chinese</option>
-      <option value="ja">Japanese</option>
-  </select>
-  <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
-  <p><strong>Mini Gallery:</strong></p>
-  <div id="mini-gallery"></div>
-  <button class="gallery-btn" onclick="window.location.href='gallery.html'">View Full Gallery</button>
-  <button class="gallery-btn" onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
-  <span id="site-clock"></span>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="main-content">
+<!-- CENTER CONTENT -->
+<div class="center-content">
+  <div id="ticker"><p>🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀</p></div>
   <img id="center-img" src="IMG_2391.jpeg" alt="Baby VOX Center">
   <div class="welcome-box">
     <img src="BV.gif" alt="BV GIF">
@@ -214,60 +197,52 @@ body {
   </div>
 </div>
 
-<!-- MUSIC PLAYER -->
-<div id="music-player" style="display:none;">
-  <button id="close-player">X</button>
-  <img src="86A6FE02-F2E5-4DAA-BB55-088744D69B46.jpeg" alt="Baby V.O.X Player Graphic" id="player-graphic">
-  <div class="controls">
-    <button id="prev">Prev</button>
-    <button id="play">Play</button>
-    <button id="pause">Pause</button>
-    <button id="next">Next</button>
-  </div>
-  <audio id="audio" src="r e f l e c t i o n s.mp3"></audio>
+<!-- RIGHT PANEL -->
+<div class="right-panel">
+  <p id="last-update"><strong>Last Fansite Update:</strong> 9/2/26 – updated home page center image</p>
+  <p><strong>News:</strong> Please check out Babyvoxi new website design! Link in the links page</p>
+  <p><strong>Select Language:</strong></p>
+  <select id="language-selector">
+    <option value="en">English</option>
+    <option value="ko">Korean</option>
+    <option value="zh">Chinese</option>
+    <option value="ja">Japanese</option>
+  </select>
+  <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
+  <p><strong>Mini Gallery:</strong></p>
+  <div id="mini-gallery"></div>
+  <button class="gallery-btn" onclick="window.location.href='gallery.html'">View Full Gallery</button>
+  <button class="gallery-btn" onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
 </div>
 
 <script>
-// --- SPLASH ---
+// ----- SPLASH -----
 const splash = document.getElementById('splash');
 const enterButton = document.getElementById('enter-site');
-const musicPlayer = document.getElementById('music-player');
+
 function hideSplash() {
   splash.style.display = 'none';
-  sessionStorage.setItem('splashShown', 'true');
-  musicPlayer.style.display = 'block';
 }
+
 if (!sessionStorage.getItem('splashShown')) {
   splash.style.display = 'flex';
-  musicPlayer.style.display = 'none';
 } else {
   splash.style.display = 'none';
-  musicPlayer.style.display = 'block';
 }
-enterButton.addEventListener('click', hideSplash);
 
-// --- MUSIC PLAYER ---
-const audio = document.getElementById('audio');
-const playlist = ["r e f l e c t i o n s.mp3","9jackjack8-neon-amnesia-club-house-2010-375600.mp3"];
-let currentTrack = 0;
-audio.src = playlist[currentTrack];
-document.getElementById('play').addEventListener('click', () => audio.play());
-document.getElementById('pause').addEventListener('click', () => audio.pause());
-document.getElementById('next').addEventListener('click', () => {
-  currentTrack = (currentTrack + 1) % playlist.length; audio.src = playlist[currentTrack]; audio.play();
+enterButton.addEventListener('click', () => {
+  hideSplash();
+  sessionStorage.setItem('splashShown', 'true');
 });
-document.getElementById('prev').addEventListener('click', () => {
-  currentTrack = (currentTrack - 1 + playlist.length) % playlist.length; audio.src = playlist[currentTrack]; audio.play();
-});
-document.getElementById('close-player').addEventListener('click', () => musicPlayer.style.display='none');
 
-// --- VISITOR COUNT ---
+// ----- VISITOR COUNTER -----
 const visitorCountEl = document.getElementById('visitor-count');
-let count = parseInt(localStorage.getItem('visitorCount')) || 0; count++;
+let count = parseInt(localStorage.getItem('visitorCount')) || 0;
+count++;
 localStorage.setItem('visitorCount', count);
 visitorCountEl.textContent = count;
 
-// --- MINI GALLERY ---
+// ----- MINI GALLERY -----
 const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
 const miniGallery = document.getElementById('mini-gallery');
 galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
@@ -276,7 +251,7 @@ galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
   link.appendChild(img); miniGallery.appendChild(link);
 });
 
-// --- RANDOM FACT ---
+// ----- RANDOM FACTS -----
 const facts = [
   "Baby V.O.X stands for 'Baby Voices of Xpression'.",
   "They debuted in 1997 and helped pioneer the Korean Wave.",
@@ -289,7 +264,7 @@ function showRandomFact() {
   alert(facts[randomIndex]);
 }
 
-// --- LANGUAGE SELECTOR ---
+// ----- LANGUAGE SELECTOR -----
 const welcomeMessages = {
   en: "Welcome to the Baby V.O.X Fansite – new and improved!",
   ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
@@ -301,19 +276,6 @@ langSelector.addEventListener('change', e => {
   document.querySelector(".welcome-box span").textContent = welcomeMessages[e.target.value];
 });
 document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
-
-// --- CLOCK ---
-function updateClock() {
-  const clockEl = document.getElementById("site-clock");
-  const now = new Date();
-  const h = String(now.getHours()).padStart(2,'0');
-  const m = String(now.getMinutes()).padStart(2,'0');
-  const s = String(now.getSeconds()).padStart(2,'0');
-  clockEl.textContent = `${h}:${m}:${s}`;
-}
-updateClock();
-setInterval(updateClock,1000);
-
 </script>
 
 <footer class="site-footer">
