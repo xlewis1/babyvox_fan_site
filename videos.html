@@ -16,7 +16,6 @@ body {
   overflow-x: hidden;
   animation: bgPulse 5s infinite alternate;
 }
-
 @keyframes bgPulse {
   0% { background-position: 0 0; }
   50% { background-position: 50px 50px; }
@@ -30,12 +29,10 @@ body {
   display: block;
   animation: spin 6s linear infinite, bounce 2s ease-in-out infinite;
 }
-
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 @keyframes bounce {
   0%, 100% { transform: rotate(0deg) translateY(0); }
   50% { transform: rotate(-5deg) translateY(-5px); }
@@ -53,61 +50,51 @@ h1 {
   color: #aa33aa;
   margin-bottom: 20px;
 }
-
 @keyframes titleGlow {
   0% { text-shadow: 2px 2px #ffe6f0; }
   100% { text-shadow: 2px 2px #ff66b2; }
 }
 
-/* ---------------- VIDEO CONTAINER ---------------- */
-.video-container {
-  display: flex;
-  flex-wrap: nowrap; 
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  margin-bottom: 30px;
+/* ---------------- VIDEO GRID ---------------- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 0 20px 30px 20px;
+  justify-items: center;
 }
 
-.video-container::-webkit-scrollbar {
-  height: 8px;
-}
-.video-container::-webkit-scrollbar-thumb {
-  background: #ff66b2;
-  border-radius: 4px;
-}
-
-/* ---------------- VIDEO THUMB ---------------- */
-.video-wrapper {
+/* ---------------- VIDEO BOX ---------------- */
+.video-box {
   position: relative;
-  min-width: 260px;
-  min-height: 160px;
   border: 3px double #ff3399;
   border-radius: 12px;
-  flex-shrink: 0;
+  padding: 10px;
   background: #fff0f5;
+  box-shadow: 0 0 20px #ff99cc;
+  animation: float 3s ease-in-out infinite alternate, glow 3s ease-in-out infinite alternate;
   transition: transform 0.3s, box-shadow 0.3s;
-  scroll-snap-align: start;
-  animation: float 3s ease-in-out infinite alternate;
 }
-.video-wrapper:hover {
+.video-box:hover {
   transform: scale(1.1) rotate(-2deg);
-  box-shadow: 0 0 25px #ff66b2;
+  box-shadow: 0 0 30px #ff66b2;
 }
-
-.video-thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
 @keyframes float {
   0% { transform: translateY(0px); }
   100% { transform: translateY(-5px); }
+}
+@keyframes glow {
+  0% { box-shadow: 0 0 15px #ff99cc; }
+  100% { box-shadow: 0 0 30px #ff66b2; }
+}
+
+/* ---------------- VIDEO THUMB ---------------- */
+.video-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 /* ---------------- MUTE BUTTON ---------------- */
@@ -141,17 +128,17 @@ h1 {
   z-index: 1000;
   flex-direction: column;
   padding: 20px;
-  animation: fadeIn 0.3s ease forwards;
+  display: none;
 }
 #video-lightbox video {
   max-width: 90%;
   max-height: 80%;
   border: 4px solid #ff3399;
   border-radius: 12px;
-  transition: all 0.3s ease;
   box-shadow: 0 0 30px #ff66b2;
+  transition: all 0.3s ease;
 }
-#video-lightbox button {
+#video-lightbox button, #video-lightbox span {
   position: absolute;
   top: 20px;
   font-size: 28px;
@@ -161,15 +148,9 @@ h1 {
   border: none;
   border-radius: 50%;
   padding: 5px 10px;
-  margin: 0 5px;
 }
 #close-btn { right: 30px; }
 #max-btn { right: 80px; }
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
 
 /* ---------------- BACK HOME BUTTON ---------------- */
 .back-home {
@@ -181,8 +162,6 @@ h1 {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  text-decoration: none;
-  text-align: center;
   font-size: 18px;
   box-shadow: 0 0 10px #ff66b2;
   transition: transform 0.2s, background 0.2s;
@@ -200,10 +179,11 @@ h1 {
 <h1>Baby V.O.X Videos</h1>
 <p class="subtitle">Mini previews autoplay! Click to enlarge</p>
 
-<div class="video-container" id="video-container"></div>
+<!-- VIDEO GRID -->
+<div class="video-grid" id="video-grid"></div>
 
 <!-- LIGHTBOX -->
-<div id="video-lightbox" style="display:none;">
+<div id="video-lightbox">
   <span id="close-btn" onclick="closeLightbox()">&times;</span>
   <button id="max-btn" onclick="toggleMaximize()">⛶</button>
   <video id="lightbox-video" controls></video>
@@ -220,15 +200,15 @@ const videos = [
   {src: "BV5.mp4"}
 ];
 
-const container = document.getElementById('video-container');
+const grid = document.getElementById('video-grid');
 const lightbox = document.getElementById('video-lightbox');
 const lightboxVideo = document.getElementById('lightbox-video');
 let isMaximized = false;
 
-// Create thumbnails
+// Create video boxes
 videos.forEach(video => {
-  const wrapper = document.createElement('div');
-  wrapper.className = "video-wrapper";
+  const box = document.createElement('div');
+  box.className = "video-box";
 
   const vid = document.createElement('video');
   vid.src = video.src;
@@ -237,10 +217,7 @@ videos.forEach(video => {
   vid.loop = true;
   vid.autoplay = true;
   vid.playsInline = true;
-  vid.setAttribute("autoplay", "");
-  vid.setAttribute("muted", "");
-  vid.setAttribute("playsinline", "");
-  wrapper.appendChild(vid);
+  box.appendChild(vid);
 
   const btn = document.createElement('button');
   btn.className = "mute-btn";
@@ -250,21 +227,21 @@ videos.forEach(video => {
     vid.muted = !vid.muted;
     btn.textContent = vid.muted ? "🔇" : "🔊";
   };
-  wrapper.appendChild(btn);
+  box.appendChild(btn);
 
-  // Click to open lightbox
-  wrapper.onclick = () => {
+  box.onclick = () => {
     lightboxVideo.src = video.src;
     lightbox.style.display = "flex";
     lightboxVideo.play();
-    lightboxVideo.classList.remove("maximized");
     isMaximized = false;
+    lightboxVideo.style.width = "90%";
+    lightboxVideo.style.height = "80%";
   };
 
-  container.appendChild(wrapper);
+  grid.appendChild(box);
 });
 
-// ---------------- LIGHTBOX FUNCTIONS ----------------
+// ---------------- LIGHTBOX ----------------
 function closeLightbox() {
   lightboxVideo.pause();
   lightbox.style.display = "none";
