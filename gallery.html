@@ -61,6 +61,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     justify-content: center;
+    margin-bottom: 25px; /* space above button */
   }
 
   .gallery-icons img {
@@ -83,9 +84,9 @@
     50% { transform: scale(1.05); }
   }
 
-  /* Back button */
+  /* Back button inside frame */
   .back-btn {
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 12px 24px;
     font-weight: bold;
     background: #ff3399;
@@ -95,6 +96,7 @@
     cursor: pointer;
     text-decoration: none;
     font-size: 18px;
+    display: inline-block;
   }
   .back-btn:hover {
     background: #ff66b2;
@@ -120,10 +122,10 @@
     <img src="D96498F8-FF33-4F95-9B2F-B582920044C0.gif" alt="Yoon Eun Hye" onclick="openGallery('eunhye.html')">
     <img src="7461FA96-C93D-4E07-8140-E2F68988762F.gif" alt="Kan Mi Youn" onclick="openGallery('miyoun.html')">
   </div>
-</div>
 
-<!-- Back to Home -->
-<button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+  <!-- Back to Home Button inside frame -->
+  <button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+</div>
 
 <script>
 function openGallery(url) {
