@@ -5,45 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Videos</title>
 <style>
+/* ---------------- BODY ---------------- */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  background: url('retro-pattern.png') repeat; /* Geocities-style tiled background */
   color: #4B0082;
-  overflow-x: hidden;
-}
-
-/* Logo */
-.logo {
-  display: block;
-  margin: 20px auto;
-  width: 150px;
-}
-
-/* Page title */
-h1 {
   text-align: center;
+  overflow-x: hidden;
+  animation: bgPulse 5s infinite alternate;
+}
+
+@keyframes bgPulse {
+  0% { background-position: 0 0; }
+  50% { background-position: 50px 50px; }
+  100% { background-position: 0 0; }
+}
+
+/* ---------------- LOGO ---------------- */
+.logo {
+  width: 150px;
+  margin: 20px auto;
+  display: block;
+  animation: spin 6s linear infinite, bounce 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(-5deg) translateY(-5px); }
+}
+
+/* ---------------- TITLES ---------------- */
+h1 {
   margin: 10px 0 5px 0;
+  text-decoration: underline wavy #ff3399;
+  text-shadow: 2px 2px #ffe6f0;
+  animation: titleGlow 3s infinite alternate;
 }
 .subtitle {
-  text-align: center;
   font-size: 16px;
   color: #aa33aa;
   margin-bottom: 20px;
 }
 
+@keyframes titleGlow {
+  0% { text-shadow: 2px 2px #ffe6f0; }
+  100% { text-shadow: 2px 2px #ff66b2; }
+}
+
+/* ---------------- VIDEO CONTAINER ---------------- */
 .video-container {
   display: flex;
-  flex-wrap: nowrap; /* keep scrolling horizontal */
+  flex-wrap: nowrap; 
   overflow-x: auto;
   gap: 20px;
   padding: 20px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  margin-bottom: 30px;
 }
 
-/* Optional: hide scrollbar for a cleaner look */
 .video-container::-webkit-scrollbar {
   height: 8px;
 }
@@ -51,24 +78,25 @@ h1 {
   background: #ff66b2;
   border-radius: 4px;
 }
-  
+
+/* ---------------- VIDEO THUMB ---------------- */
 .video-wrapper {
   position: relative;
-  min-width: 240px;
-  min-height: 130px;
+  min-width: 260px;
+  min-height: 160px;
+  border: 3px double #ff3399;
   border-radius: 12px;
-  box-shadow: 0 0 15px #ff99cc;
   flex-shrink: 0;
   background: #fff0f5;
   transition: transform 0.3s, box-shadow 0.3s;
   scroll-snap-align: start;
+  animation: float 3s ease-in-out infinite alternate;
 }
 .video-wrapper:hover {
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(-2deg);
   box-shadow: 0 0 25px #ff66b2;
 }
 
-/* Mini video */
 .video-thumb {
   width: 100%;
   height: 100%;
@@ -77,63 +105,76 @@ h1 {
   cursor: pointer;
 }
 
-@media (max-width: 500px) {
-  .video-wrapper {
-    min-width: 180px;
-    min-height: 120px;
-  }
-}  
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-5px); }
+}
 
-/* Mute button */
+/* ---------------- MUTE BUTTON ---------------- */
 .mute-btn {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.9);
   border: none;
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
+  transition: transform 0.2s, background 0.2s;
+}
+.mute-btn:hover {
+  transform: scale(1.2);
+  background: #ff66b2;
+  color: white;
 }
 
-/* Lightbox */
+/* ---------------- LIGHTBOX ---------------- */
 #video-lightbox {
   position: fixed;
   top:0; left:0;
   width:100%; height:100%;
-  background: rgba(0,0,0,0.85);
-  display:none;
+  background: rgba(0,0,0,0.9);
+  display:flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   flex-direction: column;
+  padding: 20px;
+  animation: fadeIn 0.3s ease forwards;
 }
 #video-lightbox video {
   max-width: 90%;
   max-height: 80%;
+  border: 4px solid #ff3399;
   border-radius: 12px;
-  margin-bottom: 10px;
   transition: all 0.3s ease;
+  box-shadow: 0 0 30px #ff66b2;
 }
-#video-lightbox span, #video-lightbox button {
+#video-lightbox button {
   position: absolute;
   top: 20px;
-  font-size: 30px;
+  font-size: 28px;
   color: white;
   cursor: pointer;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   border: none;
   border-radius: 50%;
   padding: 5px 10px;
+  margin: 0 5px;
 }
 #close-btn { right: 30px; }
 #max-btn { right: 80px; }
 
-/* Back to Home Button */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ---------------- BACK HOME BUTTON ---------------- */
 .back-home {
   display: block;
-  margin: 30px auto;
+  margin: 20px auto 40px auto;
   padding: 12px 20px;
   background: #ff3399;
   color: white;
@@ -142,25 +183,27 @@ h1 {
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  font-size: 18px;
+  box-shadow: 0 0 10px #ff66b2;
+  transition: transform 0.2s, background 0.2s;
 }
 .back-home:hover {
+  transform: scale(1.1);
   background: #ff66b2;
 }
 </style>
 </head>
 <body>
 
-<img src="logo.png" alt="Baby V.O.X Logo" class="logo">
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Baby V.O.X Videos</h1>
-<p class="subtitle">These videos were collected mostly by Vox Archive on YouTube</p>
+<p class="subtitle">Mini previews autoplay! Click to enlarge</p>
 
-<div class="video-container" id="video-container">
-  <!-- Video thumbnails generated by JS -->
-</div>
+<div class="video-container" id="video-container"></div>
 
-<!-- Lightbox -->
-<div id="video-lightbox">
+<!-- LIGHTBOX -->
+<div id="video-lightbox" style="display:none;">
   <span id="close-btn" onclick="closeLightbox()">&times;</span>
   <button id="max-btn" onclick="toggleMaximize()">⛶</button>
   <video id="lightbox-video" controls></video>
@@ -169,7 +212,7 @@ h1 {
 <a href="index.html" class="back-home">Back to Home</a>
 
 <script>
-// Video list (two videos to keep GitHub size small)
+// ---------------- VIDEO LIST ----------------
 const videos = [
   {src: "BV1.mp4"},
   {src: "BV3.mp4"},
@@ -197,11 +240,6 @@ videos.forEach(video => {
   vid.setAttribute("autoplay", "");
   vid.setAttribute("muted", "");
   vid.setAttribute("playsinline", "");
-  vid.onclick = () => {
-    lightboxVideo.src = video.src;
-    lightbox.style.display = "flex";
-    lightboxVideo.play();
-  };
   wrapper.appendChild(vid);
 
   const btn = document.createElement('button');
@@ -214,10 +252,19 @@ videos.forEach(video => {
   };
   wrapper.appendChild(btn);
 
+  // Click to open lightbox
+  wrapper.onclick = () => {
+    lightboxVideo.src = video.src;
+    lightbox.style.display = "flex";
+    lightboxVideo.play();
+    lightboxVideo.classList.remove("maximized");
+    isMaximized = false;
+  };
+
   container.appendChild(wrapper);
 });
 
-// Close lightbox
+// ---------------- LIGHTBOX FUNCTIONS ----------------
 function closeLightbox() {
   lightboxVideo.pause();
   lightbox.style.display = "none";
@@ -225,15 +272,14 @@ function closeLightbox() {
   if(isMaximized) toggleMaximize();
 }
 
-// Maximize/Minimize video
 function toggleMaximize() {
   if(!isMaximized) {
-    lightboxVideo.style.maxWidth = "98%";
-    lightboxVideo.style.maxHeight = "95%";
+    lightboxVideo.style.width = "98%";
+    lightboxVideo.style.height = "95%";
     isMaximized = true;
   } else {
-    lightboxVideo.style.maxWidth = "90%";
-    lightboxVideo.style.maxHeight = "80%";
+    lightboxVideo.style.width = "90%";
+    lightboxVideo.style.height = "80%";
     isMaximized = false;
   }
 }
