@@ -6,66 +6,117 @@
 <title>Baby V.O.X Discography</title>
 
 <style>
+/* ---------- BODY & BACKGROUND ---------- */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Verdana", "Tahoma", sans-serif;
-  background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
+  font-family: 'Comic Sans MS', Verdana, sans-serif;
+  background: url('retro-pattern.png') repeat, linear-gradient(135deg, #ffe6ff, #e6f0ff);
   color: #3b0066;
+  overflow-x: hidden;
+  position: relative;
 }
 
+body::after {
+  content: "✨";
+  position: fixed;
+  top: 20px;
+  left: 40%;
+  font-size: 25px;
+  animation: sparkle 4s infinite alternate;
+  opacity: 0.5;
+}
+
+@keyframes sparkle {
+  0% { transform: translateX(0px) scale(1); opacity:0.4;}
+  50% { transform: translateX(20px) scale(1.3); opacity:1;}
+  100% { transform: translateX(-10px) scale(1); opacity:0.4;}
+}
+
+/* ---------- LOGO ---------- */
 .logo-spin {
   position: fixed;
   top: 15px;
   right: 15px;
-  width: 80px;
-  animation: spin 10s linear infinite;
+  width: 100px;
+  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
   z-index: 100;
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
 }
 
+@keyframes bounce {
+  0%,100% { transform: translateY(0);}
+  50% { transform: translateY(-5px);}
+}
+
+/* ---------- HEADINGS ---------- */
 h1 {
   text-align: center;
-  margin: 30px 0 10px;
-  font-size: 36px;
+  margin: 60px 0 10px;
+  font-size: 40px;
   text-shadow: 2px 2px #ff99ff;
+  animation: neonGlow 2s infinite alternate;
+  position: relative;
+}
+
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 4px #ff99ff, 0 0 10px #ff66cc;}
+  50% { text-shadow: 0 0 8px #ff33aa, 0 0 20px #ff99cc;}
+  100% { text-shadow: 0 0 4px #ff99ff, 0 0 10px #ff66cc;}
 }
 
 .subtitle {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   font-size: 14px;
   opacity: 0.9;
+  animation: fadeInSubtitle 3s infinite alternate;
 }
 
+@keyframes fadeInSubtitle {
+  0% { color: #aa33aa; }
+  50% { color: #ff3399; }
+  100% { color: #aa33aa; }
+}
+
+/* ---------- DISCO GRID ---------- */
 .disco-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  padding: 0 30px 40px;
+  gap: 30px;
+  padding: 0 30px 60px;
   max-width: 1400px;
   margin: auto;
 }
 
-.album-link {
-  text-decoration: none;
-  color: inherit;
-}
-
+/* ---------- ALBUM BOX ---------- */
 .album-box {
   background: linear-gradient(145deg, #fff0fb, #f3e6ff);
+  border: 4px double #ff33aa;
   border-radius: 16px;
-  box-shadow: 0 0 12px #ff66cc, inset 0 0 8px #ffffff;
+  box-shadow: 0 0 15px #ff66cc, inset 0 0 6px #ffffff;
   padding: 15px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.album-box::before {
+  content: "💿";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 24px;
+  animation: spin 8s linear infinite;
 }
 
 .album-box:hover {
-  transform: scale(1.03);
+  transform: scale(1.06) rotate(-1deg);
+  box-shadow: 0 0 35px #ff66cc, inset 0 0 12px #ffffff;
 }
 
 .album-box img {
@@ -73,17 +124,31 @@ h1 {
   border-radius: 12px;
   box-shadow: 0 0 15px #cc66ff;
   margin-bottom: 12px;
+  transition: transform 0.3s;
+}
+
+.album-box img:hover {
+  transform: scale(1.08) rotate(2deg);
 }
 
 .album-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 6px;
+  text-align: center;
+  animation: titleBounce 3s infinite alternate;
+}
+
+@keyframes titleBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
 }
 
 .album-meta {
   font-size: 13px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 .tracklist {
@@ -91,12 +156,15 @@ h1 {
   background: #ffe6f5;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: inset 0 0 6px #ff99cc;
+  box-shadow: inset 0 0 8px #ff99cc;
+  max-height: 150px;
+  overflow-y: auto;
 }
 
+/* ---------- BACK HOME BUTTON ---------- */
 .back-home {
   display: block;
-  margin: 30px auto 40px;
+  margin: 40px auto 60px;
   padding: 12px 22px;
   background: #ff33aa;
   color: white;
@@ -105,197 +173,138 @@ h1 {
   width: fit-content;
   font-weight: bold;
   box-shadow: 0 0 12px #ff66cc;
+  transition: transform 0.2s, background 0.2s;
+}
+.back-home:hover {
+  transform: scale(1.1);
+  background: #ff66cc;
 }
 
-#music-player {
+/* ---------- EXTRA FUN ANIMATIONS ---------- */
+.star {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 250px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-  padding: 10px;
-  display: none;
-  touch-action: none; /* prevent default touch scrolling */
-  z-index: 2000;
+  font-size: 18px;
+  animation: floatStar 5s linear infinite;
 }
 
-#player-graphic {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  cursor: grab;
+@keyframes floatStar {
+  0% { transform: translateY(0) rotate(0deg); opacity:0.6; }
+  50% { transform: translateY(-10px) rotate(180deg); opacity:1; }
+  100% { transform: translateY(0) rotate(360deg); opacity:0.6; }
 }
-
-.controls button {
-  margin: 2px;
-  padding: 6px 12px;
-  border: none;
-  background: #ff80bf;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.controls button:hover {
-   background: #e066b3;
-}
-
-#close-player {
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  background: #ff4d6d;
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-  
 </style>
 </head>
 
 <body>
 
-<img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo-spin">
 
 <h1>Baby V.O.X Discography</h1>
 <p class="subtitle">1997 – 2004 · 8 Official Albums · No Singles Included</p>
 
 <div class="disco-grid">
 
-  <!-- 1997 -->
+  <!-- 1997: Equalizeher -->
   <a href="equalizeher.html" class="album-link">
     <div class="album-box">
       <img src="Unknown-1.jpeg" alt="Equalizeher">
       <div class="album-title">Equalizeher</div>
       <div class="album-meta">📅 1997 · Debut Album</div>
       <div class="tracklist">
-        Baby V.O.X’s debut introduced an R&B and New Jack Swing–influenced sound
-        that set them apart from contemporaries.
-        <br><br>
-        Featuring the original five-member lineup, the album laid the foundation
-        for the group’s image and vocal style during Korea’s first-generation idol era.
+        Baby V.O.X’s debut introduced an R&B and New Jack Swing–influenced sound.<br><br>
+        Featuring the original five-member lineup, laying the foundation
+        for the group’s image and vocal style.
       </div>
     </div>
   </a>
 
-  <!-- 1998 -->
+  <!-- 1998: Baby V.O.X II -->
   <a href="babyvox2.html" class="album-link">
     <div class="album-box">
       <img src="Unknown-3.jpeg" alt="Baby V.O.X II">
       <div class="album-title">Baby V.O.X II</div>
       <div class="album-meta">📅 1998</div>
       <div class="tracklist">
-        A transitional release marked by major lineup changes.
-        <br><br>
-        Lee Gai and Shim Eun Jin joined the group during this era,
-        pushing Baby V.O.X toward a stronger pop identity while
-        navigating public controversy and instability.
+        Transitional release with major lineup changes.<br><br>
+        Lee Gai and Shim Eun Jin joined, shaping Baby V.O.X’s pop identity.
       </div>
     </div>
   </a>
 
-  <!-- 1999 -->
+  <!-- 1999: Come Come Baby -->
   <a href="comecomebaby.html" class="album-link">
     <div class="album-box">
       <img src="Unknown-4.jpeg" alt="Come Come Baby">
       <div class="album-title">Come Come Baby</div>
       <div class="album-meta">📅 1999</div>
       <div class="tracklist">
-        A defining turning point in Baby V.O.X’s career.
-        <br><br>
-        Following Lee Gai’s departure, Yoon Eun Hye officially joined the group.
-        This album introduced the lineup that would dominate the early 2000s.
-        <br><br>
-        Members: Kim EZ, Kan Mi Youn, Lee Hee Jin, Shim Eun Jin, Yoon Eun Hye
+        Yoon Eun Hye officially joined, solidifying the iconic lineup:<br>
+        Kim EZ, Kan Mi Youn, Lee Hee Jin, Shim Eun Jin, Yoon Eun Hye.
       </div>
     </div>
   </a>
 
-  <!-- 2000 -->
+  <!-- 2000: Why -->
   <a href="why.html" class="album-link">
     <div class="album-box">
       <img src="Unknown-5.jpeg" alt="Why">
       <div class="album-title">Why</div>
       <div class="album-meta">📅 2000</div>
       <div class="tracklist">
-        Released during the group’s commercial peak,
-        this album solidified Baby V.O.X as one of the leading
-        first-generation girl groups.
-        <br><br>
-        The era is remembered for its strong public recognition,
-        confident image, and lasting cultural impact.
+        Released during their commercial peak.<br><br>
+        Recognized for strong public acclaim, confident image, and cultural impact.
       </div>
     </div>
   </a>
 
-  <!-- 2001 -->
+  <!-- 2001: Boyish Story -->
   <a href="boyishstory.html" class="album-link">
     <div class="album-box">
       <img src="BoyishStory.jpeg" alt="Boyish Story">
       <div class="album-title">Boyish Story</div>
       <div class="album-meta">📅 2001</div>
       <div class="tracklist">
-        Notable for including collectible cards inside physical copies,
-        a concept now seen as a precursor to modern K-pop photocards.
-        <br><br>
-        Musically and visually, the album reflected a confident,
-        youth-oriented image at the height of Baby V.O.X’s fame.
+        Known for collectible cards inside physical copies.<br><br>
+        Musically and visually reflects a confident, youth-oriented image.
       </div>
     </div>
   </a>
 
-  <!-- 2002 -->
+  <!-- 2002: Special Album -->
   <a href="specialalbum.html" class="album-link">
     <div class="album-box">
       <img src="Unknown-6.jpeg" alt="Special Album">
       <div class="album-title">Special Album</div>
       <div class="album-meta">📅 2002 · 3 CDs + 1 VCD</div>
       <div class="tracklist">
-        A large-scale compilation celebrating Baby V.O.X’s peak years.
-        <br><br>
-        Originally planned as a five-disc project including multiple VCDs,
-        remixes, unreleased tracks, and ballads, the release was scaled down
-        due to cost and format limitations.
-        <br><br>
-        Despite being a compilation, it is widely treated as an
-        official album release due to its scope and exclusive content.
+        A large-scale compilation celebrating peak years.<br><br>
+        Includes remixes, unreleased tracks, and ballads, widely considered an official release.
       </div>
     </div>
   </a>
 
-  <!-- 2003 -->
+  <!-- 2003: Devotion -->
   <a href="devotion.html" class="album-link">
     <div class="album-box">
       <img src="Devotion.jpeg" alt="Devotion">
       <div class="album-title">Devotion</div>
       <div class="album-meta">📅 2003</div>
       <div class="tracklist">
-        Marked a sharp stylistic shift toward electronic and dance music.
-        <br><br>
-        The album showcased a more mature, experimental direction,
-        setting it apart from the group’s earlier pop-focused sound.
+        Stylistic shift toward electronic and dance music.<br><br>
+        Showcases a mature, experimental direction distinct from earlier pop sound.
       </div>
     </div>
   </a>
 
-  <!-- 2004 -->
+  <!-- 2004: Ride West -->
   <a href="ridewest.html" class="album-link">
     <div class="album-box">
       <img src="Unknown-7.jpeg" alt="Ride West">
       <div class="album-title">Ride West</div>
       <div class="album-meta">📅 2004 · Final Album</div>
       <div class="tracklist">
-        Baby V.O.X’s most controversial release.
-        <br><br>
-        Featuring Western-influenced production and packaged in a DVD-style case
-        with a bonus disc, the album marked the group’s final chapter
-        before disbandment.
+        Western-influenced production packaged in DVD-style case.<br><br>
+        Controversial final chapter before disbandment.
       </div>
     </div>
   </a>
@@ -304,103 +313,11 @@ h1 {
 
 <a href="index.html" class="back-home">← Back to Home</a>
 
-<!-- MUSIC PLAYER -->
-<div id="music-player">
-  <button id="close-player">X</button>
-  <img src="86A6FE02-F2E5-4DAA-BB55-088744D69B46.jpeg" alt="Baby V.O.X Player Graphic" id="player-graphic">
-  <div class="controls">
-    <button id="prev">Prev</button>
-    <button id="play">Play</button>
-    <button id="pause">Pause</button>
-    <button id="next">Next</button>
-  </div>
-    <audio id="audio" src="r e f l e c t i o n s.mp3"></audio>
-  </div>
-
-<script>
-  // ---------------- MUSIC PLAYER ----------------
-  const musicPlayer = document.getElementById('music-player');
-  const audio = document.getElementById('audio');
-
-  // Show player automatically (optional)
-  musicPlayer.style.display = 'block';
-
-  // Player controls
-  document.getElementById('play').addEventListener('click', () => audio.play());
-  document.getElementById('pause').addEventListener('click', () => audio.pause());
-  document.getElementById('prev').addEventListener('click', () => audio.currentTime = 0);
-  document.getElementById('next').addEventListener('click', () => audio.currentTime = 0);
-  document.getElementById('close-player').addEventListener('click', () => musicPlayer.style.display = 'none');
-
-  // Drag & pinch-to-scale variables
-  let isDragging = false, dragOffsetX = 0, dragOffsetY = 0;
-  let initialDistance = null, initialScale = 1;
-  musicPlayer.style.transformOrigin = 'center center';
-
-  // Prevent default scrolling while dragging or pinching
-  function preventDefaultTouch(e) {
-    if (isDragging || e.touches.length === 2) e.preventDefault();
-  }
-  document.addEventListener('touchmove', preventDefaultTouch, { passive: false });
-
-  // ---------------- MOUSE DRAG ----------------
-  musicPlayer.addEventListener('mousedown', e => {
-    if (e.target === musicPlayer || e.target === document.getElementById('player-graphic')) {
-      isDragging = true;
-      dragOffsetX = e.clientX - musicPlayer.offsetLeft;
-      dragOffsetY = e.clientY - musicPlayer.offsetTop;
-      e.preventDefault();
-    }
-  });
-  document.addEventListener('mousemove', e => {
-    if (isDragging) {
-      musicPlayer.style.left = (e.clientX - dragOffsetX) + 'px';
-      musicPlayer.style.top = (e.clientY - dragOffsetY) + 'px';
-      musicPlayer.style.right = 'auto';
-      musicPlayer.style.bottom = 'auto';
-      e.preventDefault();
-    }
-  });
-  document.addEventListener('mouseup', () => { isDragging = false; });
-
-  // ---------------- TOUCH DRAG & PINCH ----------------
-  musicPlayer.addEventListener('touchstart', e => {
-    if (e.touches.length === 1) {
-      isDragging = true;
-      dragOffsetX = e.touches[0].clientX - musicPlayer.offsetLeft;
-      dragOffsetY = e.touches[0].clientY - musicPlayer.offsetTop;
-    }
-  });
-
-  musicPlayer.addEventListener('touchmove', e => {
-    if (e.touches.length === 1 && isDragging) {
-      const touch = e.touches[0];
-      musicPlayer.style.left = (touch.clientX - dragOffsetX) + 'px';
-      musicPlayer.style.top = (touch.clientY - dragOffsetY) + 'px';
-      musicPlayer.style.right = 'auto';
-      musicPlayer.style.bottom = 'auto';
-    } else if (e.touches.length === 2) {
-      const t1 = e.touches[0], t2 = e.touches[1];
-      const distance = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
-      if (!initialDistance) initialDistance = distance;
-      else {
-        let scale = (distance / initialDistance) * initialScale;
-        scale = Math.max(0.5, Math.min(2, scale)); // limit 50%–200%
-        musicPlayer.style.transform = `scale(${scale})`;
-      }
-    }
-    e.preventDefault();
-  }, { passive: false });
-
-  musicPlayer.addEventListener('touchend', e => {
-    if (e.touches.length < 2) {
-      const match = musicPlayer.style.transform.match(/scale\(([^)]+)\)/);
-      initialScale = match ? parseFloat(match[1]) : 1;
-      initialDistance = null;
-      if (e.touches.length === 0) isDragging = false;
-    }
-  });
-</script>
+<!-- ---------- FUN FLOATING STARS ---------- -->
+<span class="star" style="top:80px; left:10%;">🌟</span>
+<span class="star" style="top:150px; left:70%;">✨</span>
+<span class="star" style="top:300px; left:30%;">💫</span>
+<span class="star" style="top:500px; left:80%;">🌟</span>
 
 </body>
 </html>
