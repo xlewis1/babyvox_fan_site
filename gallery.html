@@ -6,61 +6,76 @@
 <title>Baby V.O.X Gallery</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: 'Comic Sans MS', Arial, sans-serif;
     margin: 0;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0;
+    background: url('retro-pattern.png') repeat; /* Geocities-style tiled background */
+    color: #4B0082;
+    text-align: center;
   }
 
-  /* Spinning Baby VOX logo */
+  /* Spinning logo */
   .logo {
-    width: 100px;
-    animation: spin 4s linear infinite;
-    margin-bottom: 20px;
+    width: 120px;
+    margin: 10px auto;
+    display: block;
+    animation: spin 6s linear infinite;
   }
-
   @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
 
   h1 {
-    color: #4B0082;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    text-decoration: underline wavy #ff3399;
+    text-shadow: 2px 2px #ffe6f0;
   }
 
   p.instruction {
-    color: #4B0082;
-    font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
   }
 
-  /* Gallery icons */
-  .gallery-icons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
+  /* Gallery frame */
+  .gallery-frame {
+    display: inline-block;
+    border: 5px double #ff66b2;
+    border-radius: 12px;
+    padding: 25px;
+    background: #fff0f5;
+    box-shadow: 0 0 20px #ff99cc;
     margin-bottom: 30px;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 15px #ff99cc; }
+    100% { box-shadow: 0 0 30px #ff4ca6; }
+  }
+
+  /* Grid layout inside frame */
+  .gallery-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    justify-content: center;
   }
 
   .gallery-icons img {
-    width: 80px;
-    height: 80px;
+    width: 140px;       /* bigger GIFs */
+    height: 140px;
+    border: 3px solid #ff3399;
+    border-radius: 10px;
     cursor: pointer;
-    border-radius: 12px;
-    box-shadow: 0 0 8px #ff99cc;
     transition: transform 0.3s, box-shadow 0.3s;
     animation: pulse 2s infinite;
   }
 
   .gallery-icons img:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px #ff4ca6;
+    transform: scale(1.25) rotate(-5deg);
+    box-shadow: 0 0 25px #ff3399;
   }
 
   @keyframes pulse {
@@ -70,17 +85,19 @@
 
   /* Back button */
   .back-btn {
-    padding: 10px 20px;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-weight: bold;
     background: #ff3399;
     color: white;
-    border: none;
+    border: 2px outset #ff66b2;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
-    transition: transform 0.2s;
+    text-decoration: none;
+    font-size: 18px;
   }
-
   .back-btn:hover {
+    background: #ff66b2;
     transform: scale(1.1);
   }
 </style>
@@ -91,26 +108,27 @@
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Baby V.O.X Gallery</h1>
-<p class="instruction">Click on one of the Baby VOX member or group icons to reveal their galleries.</p>
+<p class="instruction">Click on a member or group to reveal their gallery!</p>
 
-<!-- Gallery Icons -->
-<div class="gallery-icons">
-  <img src="voxicon.gif" alt="Baby VOX Group" onclick="openGallery('group.html')">
-  <img src="9AC44AF6-F2D0-4737-B57D-6235A6A88451.gif" alt="Kim EZ" onclick="openGallery('ez.html')">
-  <img src="9EF6FA94-5256-4BC8-A5CA-C81C1452A5CC.gif" alt="Lee Heejin" onclick="openGallery('heejin.html')">
-  <img src="IMG_2304.jpeg" alt="Shim Eun Jin" onclick="openGallery('eunjin.html')">
-  <img src="D96498F8-FF33-4F95-9B2F-B582920044C0.gif" alt="Yoon Eun Hye" onclick="openGallery('eunhye.html')">
-  <img src="7461FA96-C93D-4E07-8140-E2F68988762F.gif" alt="Kan Mi Youn" onclick="openGallery('miyoun.html')">
+<!-- Gallery Frame -->
+<div class="gallery-frame">
+  <div class="gallery-icons">
+    <img src="voxicon.gif" alt="Baby VOX Group" onclick="openGallery('group.html')">
+    <img src="9AC44AF6-F2D0-4737-B57D-6235A6A88451.gif" alt="Kim EZ" onclick="openGallery('ez.html')">
+    <img src="9EF6FA94-5256-4BC8-A5CA-C81C1452A5CC.gif" alt="Lee Heejin" onclick="openGallery('heejin.html')">
+    <img src="IMG_2304.jpeg" alt="Shim Eun Jin" onclick="openGallery('eunjin.html')">
+    <img src="D96498F8-FF33-4F95-9B2F-B582920044C0.gif" alt="Yoon Eun Hye" onclick="openGallery('eunhye.html')">
+    <img src="7461FA96-C93D-4E07-8140-E2F68988762F.gif" alt="Kan Mi Youn" onclick="openGallery('miyoun.html')">
+  </div>
 </div>
 
 <!-- Back to Home -->
-<button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+<button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
 
 <script>
-  // Function to open member or group galleries
-  function openGallery(url) {
-    window.location.href = url;
-  }
+function openGallery(url) {
+  window.location.href = url;
+}
 </script>
 
 </body>
