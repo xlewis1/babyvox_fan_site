@@ -12,6 +12,8 @@ body {
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
   color: #4B0082;
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* SPLASH OVERLAY */
@@ -47,6 +49,15 @@ body {
 }
 #splash button:hover {
   transform: scale(1.05);
+}
+
+/* MAIN FLEX CONTAINER */
+.main-container {
+  flex: 1; /* expand to fill available space */
+  display: flex;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 20px auto;
 }
 
 /* SIDEBAR NAVIGATION (LEFT) */
@@ -116,7 +127,7 @@ body {
 }
 .welcome-box img { width: 80px; border-radius: 8px; }
 
-/* RIGHT PANEL (News, Mini Gallery, Visitor Count) */
+/* RIGHT PANEL */
 .right-panel {
   width: 220px;
   background: #ffe6f0;
@@ -127,35 +138,14 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.right-panel img { width: 100%; border-radius: 12px; margin-bottom: 10px; }
 .right-panel p { margin: 5px 0; text-align: center; }
 .right-panel #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
 .right-panel #mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; }
-.right-panel button { width: 100%; }
-
-/* TICKER */
-#ticker {
-  width: 100%;
-  background: #ff66cc;
-  color: white;
-  overflow: hidden;
-  white-space: nowrap;
-  box-shadow: 0 0 10px #ff99cc;
-  margin-bottom: 10px;
-}
-#ticker p {
-  display: inline-block;
-  padding-left: 100%;
-  animation: tickerMove 20s linear infinite;
-}
-@keyframes tickerMove {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
-}
+.right-panel button { width: 100%; margin-top: 5px; }
 
 /* SITE FOOTER */
 .site-footer {
-  margin-top: 40px;
+  margin-top: auto;
   padding: 18px;
   text-align: center;
   font-size: 13px;
@@ -172,47 +162,49 @@ body {
   <button id="enter-site">Enter Site</button>
 </div>
 
-<!-- LEFT SIDEBAR NAVIGATION -->
-<div class="sidebar">
-  <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
-  <a href="index.html">Home</a>
-  <a href="members.html">Members</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="videos.html">Videos</a>
-  <a href="discography.html">Discography</a>
-  <a href="history.html">History</a>
-  <a href="links.html">Links</a>
-  <a href="newsletter.html">Newsletter</a>
-  <a href="bias.html">My Bias</a>
-  <button onclick="showRandomFact()">Random Fact</button>
-</div>
-
-<!-- CENTER CONTENT -->
-<div class="center-content">
-  <div id="ticker"><p>🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀</p></div>
-  <img id="center-img" src="IMG_2391.jpeg" alt="Baby VOX Center">
-  <div class="welcome-box">
-    <img src="BV.gif" alt="BV GIF">
-    <span>Welcome to the Baby V.O.X Fansite – new and improved!</span>
+<!-- MAIN CONTAINER -->
+<div class="main-container">
+  <!-- LEFT SIDEBAR NAVIGATION -->
+  <div class="sidebar">
+    <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
+    <a href="index.html">Home</a>
+    <a href="members.html">Members</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="videos.html">Videos</a>
+    <a href="discography.html">Discography</a>
+    <a href="history.html">History</a>
+    <a href="links.html">Links</a>
+    <a href="newsletter.html">Newsletter</a>
+    <a href="bias.html">My Bias</a>
+    <button onclick="showRandomFact()">Random Fact</button>
   </div>
-</div>
 
-<!-- RIGHT PANEL -->
-<div class="right-panel">
-  <p id="last-update"><strong>Last Fansite Update:</strong> 9/2/26 – updated home page center image</p>
-  <p><strong>News:</strong> Please check out Babyvoxi new website design! Link in the links page</p>
-  <p><strong>Select Language:</strong></p>
-  <select id="language-selector">
-    <option value="en">English</option>
-    <option value="ko">Korean</option>
-    <option value="zh">Chinese</option>
-    <option value="ja">Japanese</option>
-  </select>
-  <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
-  <p><strong>Mini Gallery:</strong></p>
-  <div id="mini-gallery"></div>
-  <button class="gallery-btn" onclick="window.location.href='gallery.html'">View Full Gallery</button>
-  <button class="gallery-btn" onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
+  <!-- CENTER CONTENT -->
+  <div class="center-content">
+    <img id="center-img" src="IMG_2391.jpeg" alt="Baby VOX Center">
+    <div class="welcome-box">
+      <img src="BV.gif" alt="BV GIF">
+      <span>Welcome to the Baby V.O.X Fansite – new and improved!</span>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <p id="last-update"><strong>Last Fansite Update:</strong> 9/2/26 – updated home page center image</p>
+    <p><strong>News:</strong> Please check out Babyvoxi new website design! Link in the links page</p>
+    <p><strong>Select Language:</strong></p>
+    <select id="language-selector">
+      <option value="en">English</option>
+      <option value="ko">Korean</option>
+      <option value="zh">Chinese</option>
+      <option value="ja">Japanese</option>
+    </select>
+    <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
+    <p><strong>Mini Gallery:</strong></p>
+    <div id="mini-gallery"></div>
+    <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
+    <button onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
+  </div>
 </div>
 
 <script>
