@@ -270,6 +270,7 @@ body {
 
   <!-- RIGHT PANEL -->
   <div class="right-panel">
+    <div id="local-clock" style="font-family: monospace; font-size: 1.1rem; color: black; margin-bottom: 10px;"></div>
     <p id="last-update"><strong>Last Fansite Update:</strong> 9/2/26 – updated home page center image</p>
     <p><strong>News:</strong> Please check out Babyvoxi new website design! Link in the links page</p>
     <p><strong>Select Language:</strong></p>
@@ -335,6 +336,23 @@ langSelector.addEventListener('change', e => {
   document.querySelector(".welcome-box span").textContent = welcomeMessages[e.target.value];
 });
 document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
+
+// ----- LOCAL CLOCK -----
+function updateClock() {
+  const clockEl = document.getElementById('local-clock');
+  const now = new Date();
+
+  // Format: HH:MM:SS
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+
+  clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// Update every second
+setInterval(updateClock, 1000);
+updateClock(); // initialize immediately
 </script>
 
 <footer class="site-footer">
