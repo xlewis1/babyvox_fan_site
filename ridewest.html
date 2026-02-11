@@ -6,15 +6,17 @@
 <title>Ride West — Baby V.O.X</title>
 
 <style>
+/* ---------------- BODY ---------------- */
 body {
   margin: 0;
   padding: 0;
   font-family: "Verdana", "Tahoma", sans-serif;
   background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
   color: #3b0066;
+  text-align: center;
 }
 
-/* Spinning logo */
+/* ---------------- SPINNING LOGO ---------------- */
 .logo-spin {
   position: fixed;
   top: 15px;
@@ -28,12 +30,14 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* ---------------- CONTAINER ---------------- */
 .container {
   max-width: 1000px;
   margin: 60px auto 40px;
   padding: 0 20px;
 }
 
+/* ---------------- ALBUM HEADER ---------------- */
 .album-header {
   display: flex;
   align-items: flex-start;
@@ -49,6 +53,7 @@ body {
 .album-info {
   font-size: 14px;
   line-height: 1.6;
+  text-align: left;
 }
 
 .album-info h1 {
@@ -57,12 +62,15 @@ body {
   text-shadow: 2px 2px #ff99ff;
 }
 
+/* ---------------- SECTION TITLE ---------------- */
 .section-title {
   font-size: 18px;
   margin-top: 22px;
   text-decoration: underline dotted #ff66cc;
+  text-align: center;
 }
 
+/* ---------------- TRACKLIST BOX ---------------- */
 .tracklist-box {
   background: #ffe6f5;
   padding: 12px;
@@ -70,8 +78,26 @@ body {
   box-shadow: inset 0 0 8px #ff99cc;
   font-size: 13px;
   margin-top: 8px;
+  text-align: left;
 }
 
+/* ---------------- CD HEADINGS WITH SPARKLES ---------------- */
+.cd-sparkle::before {
+  content: "✨";
+  margin-right: 6px;
+  animation: blink 1.5s infinite alternate;
+}
+.cd-sparkle::after {
+  content: "✨";
+  margin-left: 6px;
+  animation: blink 2s infinite alternate;
+}
+@keyframes blink {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* ---------------- BACK LINK ---------------- */
 .back-link {
   display: inline-block;
   margin-top: 30px;
@@ -82,9 +108,26 @@ body {
   border-radius: 8px;
   font-weight: bold;
   box-shadow: 0 0 12px #ff66cc;
+  transition: all 0.3s ease;
 }
 .back-link:hover {
   background: #ff66cc;
+  transform: scale(1.05);
+}
+
+/* ---------------- BLINKIES IN BODY ---------------- */
+body::after {
+  content: "✨💖🌟";
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  font-size: 24px;
+  opacity: 0.5;
+  animation: sparkleMove 5s infinite alternate;
+}
+@keyframes sparkleMove {
+  0% { transform: translateX(-30px); }
+  100% { transform: translateX(30px); }
 }
 </style>
 </head>
@@ -109,19 +152,17 @@ body {
         Ride West is the seventh and final studio album
         by Baby V.O.X before their official disbandment in 2006.  
         <br><br>
-        The album is notable for its blend of English, Korean, Chinese, and
-        Japanese tracks, reflecting a deliberate push toward the
-        global market with influences from hip‑hop and Western pop.  
+        This album is known for its cross-cultural experimentation
+        with English, Korean, Chinese, and Japanese tracks, as well
+        as hip-hop and Western pop influences.  
         <br><br>
-        Producers included international collaborators, and
-        the album contains multiple versions of key songs like
-        “Xcstasy” and “Play Remix,” including English and Korean
-        variations.
+        Key songs like “Xcstasy” and “Play Remix” have multiple
+        versions and showcased the group’s ambition to appeal
+        internationally.  
         <br><br>
-        Though not as commercially successful as some earlier
-        albums, *Ride West* remains special for its ambitious
-        cross‑cultural experimentation and serves as the
-        closing chapter of Baby V.O.X’s original discography.  
+        Ride West remains controversial among fans due to stylistic
+        changes and experimental direction, but it closes Baby V.O.X’s
+        original discography with a bold statement.  
       </p>
     </div>
   </div>
