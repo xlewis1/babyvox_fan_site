@@ -6,15 +6,17 @@
 <title>Special Album — Baby V.O.X</title>
 
 <style>
+/* ---------------- BODY ---------------- */
 body {
   margin: 0;
   padding: 0;
   font-family: "Verdana", "Tahoma", sans-serif;
   background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
   color: #3b0066;
+  text-align: center;
 }
 
-/* Spinning logo */
+/* ---------------- SPINNING LOGO ---------------- */
 .logo-spin {
   position: fixed;
   top: 15px;
@@ -28,12 +30,14 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* ---------------- CONTAINER ---------------- */
 .container {
   max-width: 1000px;
   margin: 60px auto 40px;
   padding: 0 20px;
 }
 
+/* ---------------- ALBUM HEADER ---------------- */
 .album-header {
   display: flex;
   align-items: flex-start;
@@ -49,6 +53,7 @@ body {
 .album-info {
   font-size: 14px;
   line-height: 1.6;
+  text-align: left;
 }
 
 .album-info h1 {
@@ -57,12 +62,15 @@ body {
   text-shadow: 2px 2px #ff99ff;
 }
 
+/* ---------------- SECTION TITLE ---------------- */
 .section-title {
   font-size: 18px;
   margin-top: 22px;
   text-decoration: underline dotted #ff66cc;
+  text-align: center;
 }
 
+/* ---------------- TRACKLIST BOX ---------------- */
 .tracklist-box {
   background: #ffe6f5;
   padding: 12px;
@@ -70,8 +78,26 @@ body {
   box-shadow: inset 0 0 8px #ff99cc;
   font-size: 13px;
   margin-top: 8px;
+  text-align: left;
 }
 
+/* ---------------- CD HEADINGS WITH SPARKLES ---------------- */
+.cd-sparkle::before {
+  content: "✨";
+  margin-right: 6px;
+  animation: blink 1.5s infinite alternate;
+}
+.cd-sparkle::after {
+  content: "✨";
+  margin-left: 6px;
+  animation: blink 2s infinite alternate;
+}
+@keyframes blink {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* ---------------- BACK LINK ---------------- */
 .back-link {
   display: inline-block;
   margin-top: 30px;
@@ -82,9 +108,26 @@ body {
   border-radius: 8px;
   font-weight: bold;
   box-shadow: 0 0 12px #ff66cc;
+  transition: all 0.3s ease;
 }
 .back-link:hover {
   background: #ff66cc;
+  transform: scale(1.05);
+}
+
+/* ---------------- BLINKIES IN BODY ---------------- */
+body::after {
+  content: "✨💖🌟";
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  font-size: 24px;
+  opacity: 0.5;
+  animation: sparkleMove 5s infinite alternate;
+}
+@keyframes sparkleMove {
+  0% { transform: translateX(-30px); }
+  100% { transform: translateX(30px); }
 }
 </style>
 </head>
@@ -106,7 +149,7 @@ body {
          Yoon Eun‑hye, Lee Hee‑jin</p>
       <p><strong>Album Type:</strong> Compilation / Special Album</p>
       <p><strong>Bio / Fun Facts:</strong><br>
-        *Special Album* is a major compilation released to
+        <em>Special Album</em> is a major compilation released to
         celebrate the group’s fifth anniversary and career
         highlights. The final product included three CDs and
         one VCD with music video footage and exclusive
@@ -118,7 +161,7 @@ body {
         limitations to a 3 CD + 1 VCD package.  
         <br><br>
         The album features the World Cup–themed title track
-        *By Chance* (also known as “Coincidence”) and the song
+        <em>By Chance</em> (also known as “Coincidence”) and the song
         “Go.” It became one of the group’s best‑selling releases
         to date. 
       </p>
@@ -127,13 +170,13 @@ body {
 
   <div class="section-title">Tracklist (Selected Highlights)</div>
   <div class="tracklist-box">
-    <strong>CD 1 • New Songs & Classic Mix:</strong><br>
+    <strong class="cd-sparkle">CD 1 • New Songs & Classic Mix:</strong><br>
     Coincidence (우연), Go, Betrayal (배신), Game Over, YaYaYa, Get Up, Killer, Why, Dolls, Love and Extasy<br><br>
 
-    <strong>CD 2 • Non‑Stop Dance Mix:</strong><br>
+    <strong class="cd-sparkle">CD 2 • Non‑Stop Dance Mix:</strong><br>
     Cut, Recall (회상), I Love You (사랑해요), Mask, Bad Boy, Come To Me, Lucky7, Puzzle, Lasso, Summer Story, Resurrection, Floral Bikini, Sugar Baby<br><br>
 
-    <strong>CD 3 • Ballads:</strong><br>
+    <strong class="cd-sparkle">CD 3 • Ballads:</strong><br>
     Missing You, Consent (허락), Waiting, Before Sunrise, Love With the Sky, In the Sad Star, Hope You Were My Love
   </div>
 
