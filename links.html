@@ -4,50 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby VOX Links</title>
+
 <style>
+/* ---------------- BODY ---------------- */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #ffe4ec, #f3e5f5);
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  background: url('retro-pattern.png') repeat;
   margin: 0;
   padding: 20px;
   text-align: center;
   color: #4B0082;
+  overflow-x: hidden;
 }
 
+/* Subtle sparkle overlay */
+body::after {
+  content: "✨";
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  font-size: 28px;
+  opacity: 0.3;
+  animation: sparkleMove 6s infinite alternate;
+}
+
+@keyframes sparkleMove {
+  0% { transform: translateX(-30px); }
+  100% { transform: translateX(30px); }
+}
+
+/* ---------------- IMAGES ---------------- */
 .logo-top, .secondary-img {
-  width: 200px;
-  height: auto;
-  margin-bottom: 15px;
   border-radius: 12px;
   box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
+  margin-bottom: 15px;
+}
+
+.logo-top {
+  width: 300px;
+  animation: bounce 2s infinite alternate;
 }
 
 .secondary-img {
-  width: 180px;
+  width: 240px;
   box-shadow: 0 0 20px #ff99cc, 0 0 40px #ff66b2;
+  animation: bounce 2s infinite alternate-reverse;
 }
 
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
+/* ---------------- HEADINGS ---------------- */
 h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 3px #ff99cc;
+  text-shadow: 2px 2px 6px #ff99cc;
 }
 
+h2 {
+  font-size: 1.8em;
+  margin-top: 40px;
+  text-shadow: 1px 1px 4px #ff66b2;
+}
+
+/* ---------------- LINKS BOX ---------------- */
 .links-box {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 400px;
+  gap: 14px;
+  max-width: 500px;
   margin: 0 auto 40px auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-  box-shadow: 0 0 20px #ff66b2, 0 0 40px #ff33aa;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
   text-align: center;
 }
 
 .links-box a {
-  font-size: 16px;
+  font-size: 18px;
   color: #880e4f;
   text-decoration: none;
   transition: color 0.3s, transform 0.2s;
@@ -55,28 +92,47 @@ h1 {
 
 .links-box a:hover {
   color: #ff3399;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
+/* ---------------- BACK BUTTON ---------------- */
 .back-btn {
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 24px;
+  font-size: 18px;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   background: #ff66b2;
   color: white;
   cursor: pointer;
-  transition: background 0.3s;
+  box-shadow: 0 0 15px #ff99cc;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .back-btn:hover {
   background: #ff33aa;
+  transform: scale(1.05);
+}
+
+/* ---------------- AFFILIATED GIF ---------------- */
+.affiliated-gif {
+  width: 220px;
+  margin-top: 10px;
+  image-rendering: pixelated;
+  animation: bounce 2s infinite alternate;
+}
+
+/* Small footer text */
+.footer-note {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-top: 6px;
 }
 </style>
 </head>
 <body>
 
+<!-- MAIN LOGO & IMAGE -->
 <img src="VOX.gif" alt="Baby VOX Logo" class="logo-top">
 <img src="image.gif" alt="Baby VOX Image" class="secondary-img">
 
@@ -103,19 +159,13 @@ h1 {
 
 <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 
-<h2 style="margin-top:40px;">Affiliated Fansites</h2>
+<h2>Affiliated Fansites</h2>
 
 <a href="https://babyvoxi.neocities.org/" target="_blank">
-  <img 
-    src="72DA04B6-53C0-48F2-A9EF-2B686EEC50B3.jpeg"
-    alt="BabyVoxi Fansite Button"
-    style="margin-top:10px; image-rendering: pixelated;"
-  >
+  <img src="72DA04B6-53C0-48F2-A9EF-2B686EEC50B3.jpeg" alt="BabyVoxi Fansite Button" class="affiliated-gif">
 </a>
 
-<p style="font-size:13px; opacity:0.8; margin-top:6px;">
-  Linked with permission 💗
-</p>
+<p class="footer-note">Linked with permission 💗</p>
 
 </body>
 </html>
