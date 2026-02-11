@@ -4,168 +4,192 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby VOX Links</title>
-
 <style>
 /* ---------------- BODY ---------------- */
 body {
   font-family: 'Comic Sans MS', Arial, sans-serif;
   background: url('retro-pattern.png') repeat;
+  color: #4B0082;
+  text-align: center;
   margin: 0;
   padding: 20px;
-  text-align: center;
-  color: #4B0082;
   overflow-x: hidden;
 }
 
-/* Subtle sparkle overlay */
+/* Sparkle effect */
 body::after {
   content: "✨";
   position: fixed;
-  top: 50px;
+  top: 10px;
   left: 50%;
-  font-size: 28px;
-  opacity: 0.3;
-  animation: sparkleMove 6s infinite alternate;
+  font-size: 24px;
+  opacity: 0.5;
+  animation: sparkleMove 5s infinite alternate;
 }
-
 @keyframes sparkleMove {
   0% { transform: translateX(-30px); }
   100% { transform: translateX(30px); }
 }
 
-/* ---------------- IMAGES ---------------- */
+/* ---------------- LOGOS & GIFS ---------------- */
 .logo-top, .secondary-img {
   border-radius: 12px;
   box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
   margin-bottom: 15px;
 }
 
-.logo-top {
-  width: 300px;
-  animation: bounce 2s infinite alternate;
-}
+.logo-top { width: 220px; height: auto; }
+.secondary-img { width: 180px; height: auto; }
 
-.secondary-img {
-  width: 240px;
-  box-shadow: 0 0 20px #ff99cc, 0 0 40px #ff66b2;
-  animation: bounce 2s infinite alternate-reverse;
-}
-
-@keyframes bounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-15px); }
-}
-
-/* ---------------- HEADINGS ---------------- */
+/* ---------------- TITLES ---------------- */
 h1 {
-  font-size: 2.5em;
+  font-size: 2.2em;
+  text-shadow: 2px 2px #ff99cc, -2px -2px #ff66b2;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 6px #ff99cc;
 }
 
 h2 {
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin-top: 40px;
-  text-shadow: 1px 1px 4px #ff66b2;
+  text-shadow: 1px 1px #ff66b2;
 }
 
 /* ---------------- LINKS BOX ---------------- */
 .links-box {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 500px;
+  gap: 12px;
+  max-width: 450px;
   margin: 0 auto 40px auto;
   padding: 25px;
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
+  border: 5px double #ff3399;
+  border-radius: 15px;
   box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
   text-align: center;
+  position: relative;
 }
 
+/* Add small GIF sparkles inside links box corners */
+.links-box::before,
+.links-box::after {
+  content: "✨";
+  position: absolute;
+  font-size: 24px;
+}
+.links-box::before {
+  top: 5px; left: 5px; animation: blink 1.5s infinite alternate;
+}
+.links-box::after {
+  bottom: 5px; right: 5px; animation: blink 2s infinite alternate;
+}
+@keyframes blink {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* ---------------- LINKS ---------------- */
 .links-box a {
-  font-size: 18px;
+  font-size: 16px;
   color: #880e4f;
   text-decoration: none;
-  transition: color 0.3s, transform 0.2s;
+  padding: 6px 8px;
+  border-radius: 8px;
+  display: block;
+  transition: all 0.3s ease;
 }
-
 .links-box a:hover {
-  color: #ff3399;
-  transform: scale(1.1);
+  color: white;
+  background: #ff3399;
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 15px #ff66b2;
 }
 
 /* ---------------- BACK BUTTON ---------------- */
 .back-btn {
   margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 18px;
+  padding: 12px 22px;
+  font-size: 16px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #ff66b2;
   color: white;
   cursor: pointer;
-  box-shadow: 0 0 15px #ff99cc;
-  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 0 15px #ff33aa;
+  transition: all 0.3s ease;
 }
-
 .back-btn:hover {
   background: #ff33aa;
   transform: scale(1.05);
 }
 
-/* ---------------- AFFILIATED GIF ---------------- */
-.affiliated-gif {
-  width: 220px;
-  margin-top: 10px;
-  image-rendering: pixelated;
-  animation: bounce 2s infinite alternate;
+/* ---------------- FANSITES SECTION ---------------- */
+.fansites-title {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-decoration: underline wavy #ff3399;
+}
+.fansite-button {
+  display: block;
+  margin: 6px auto;
+  width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff66b2;
+  transition: all 0.3s ease;
+}
+.fansite-button:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 30px #ff33aa;
 }
 
-/* Small footer text */
-.footer-note {
-  font-size: 13px;
+/* ---------------- SMALL NOTE ---------------- */
+.permission-note {
+  font-size: 12px;
+  color: #880e4f;
   opacity: 0.8;
-  margin-top: 6px;
+  margin-bottom: 10px;
 }
 </style>
 </head>
 <body>
 
-<!-- MAIN LOGO & IMAGE -->
+<!-- MAIN LOGOS -->
 <img src="VOX.gif" alt="Baby VOX Logo" class="logo-top">
 <img src="image.gif" alt="Baby VOX Image" class="secondary-img">
 
-<h1>Links</h1>
+<h1>Baby VOX Links</h1>
 
 <div class="links-box">
-  <!-- Your fanpage -->
+  <!-- Fan accounts -->
+  <h2 class="fansites-title">Fan Accounts</h2>
   <a href="https://instagram.com/lewislovesbabyvox" target="_blank">@lewislovesbabyvox on Instagram</a>
   <a href="https://www.tiktok.com/@lewislovesbabyvox" target="_blank">@lewislovesbabyvox on TikTok</a>
 
-  <!-- Baby VOX Members Instagram -->
+  <!-- Official member Instagram -->
+  <h2 class="fansites-title">Members</h2>
   <a href="https://www.instagram.com/miyoun_kan" target="_blank">Kan Mi Youn on Instagram</a>
   <a href="https://www.instagram.com/eundung81" target="_blank">Shim Eun Jin on Instagram</a>
   <a href="https://www.instagram.com/_lee_heejin" target="_blank">Lee Hee Jin on Instagram</a>
   <a href="https://www.instagram.com/ezez0417" target="_blank">Kim EZ on Instagram</a>
   <a href="https://www.instagram.com/y1003_grace" target="_blank">Yoon Eun Hye on Instagram</a>
 
-  <!-- Baby VOX Resources -->
+  <!-- Resources -->
+  <h2 class="fansites-title">Resources</h2>
   <a href="https://en.wikipedia.org/wiki/Baby_VOX" target="_blank">Baby VOX Wikipedia</a>
   <a href="https://www.youtube.com/c/babyvoxarchive" target="_blank">Baby VOX YouTube Archive</a>
   <a href="https://www.allkpop.com/search/articles/baby%20vox" target="_blank">Allkpop - Baby VOX</a>
   <a href="https://kpop.fandom.com/wiki/Baby_V.O.X_(group)" target="_blank">Baby Vox Kpop Wiki Page</a>
+
+  <!-- Fansites -->
+  <h2 class="fansites-title">Fansites & Community</h2>
+  <a href="https://babyvoxi.neocities.org/" target="_blank">
+    <img src="72DA04B6-53C0-48F2-A9EF-2B686EEC50B3.jpeg" alt="BabyVoxi Fansite Button" class="fansite-button">
+  </a>
+  <p class="permission-note">Linked with permission 💗</p>
 </div>
 
 <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
-
-<h2>Affiliated Fansites</h2>
-
-<a href="https://babyvoxi.neocities.org/" target="_blank">
-  <img src="72DA04B6-53C0-48F2-A9EF-2B686EEC50B3.jpeg" alt="BabyVoxi Fansite Button" class="affiliated-gif">
-</a>
-
-<p class="footer-note">Linked with permission 💗</p>
 
 </body>
 </html>
