@@ -4,22 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Videos</title>
+
 <style>
+
 /* ---------------- BODY ---------------- */
 body {
   font-family: 'Comic Sans MS', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: url('retro-pattern.png') repeat; /* Geocities-style tiled background */
+  background: url('retro-pattern.png') repeat;
   color: #4B0082;
   text-align: center;
   overflow-x: hidden;
-  animation: bgPulse 5s infinite alternate;
 }
-@keyframes bgPulse {
-  0% { background-position: 0 0; }
-  50% { background-position: 50px 50px; }
-  100% { background-position: 0 0; }
+
+/* Subtle moving background */
+body::after {
+  content: "✨";
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  font-size: 24px;
+  opacity: 0.4;
+  animation: sparkleMove 6s infinite alternate;
+}
+
+@keyframes sparkleMove {
+  0% { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
 }
 
 /* ---------------- LOGO ---------------- */
@@ -27,68 +39,79 @@ body {
   width: 150px;
   margin: 20px auto;
   display: block;
-  animation: spin 6s linear infinite, bounce 2s ease-in-out infinite;
+  animation: spin 8s linear infinite;
 }
+
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-@keyframes bounce {
-  0%, 100% { transform: rotate(0deg) translateY(0); }
-  50% { transform: rotate(-5deg) translateY(-5px); }
 }
 
 /* ---------------- TITLES ---------------- */
 h1 {
   margin: 10px 0 5px 0;
-  text-decoration: underline wavy #ff3399;
-  text-shadow: 2px 2px #ffe6f0;
-  animation: titleGlow 3s infinite alternate;
-}
-.subtitle {
-  font-size: 16px;
-  color: #aa33aa;
-  margin-bottom: 20px;
-}
-@keyframes titleGlow {
-  0% { text-shadow: 2px 2px #ffe6f0; }
-  100% { text-shadow: 2px 2px #ff66b2; }
+  text-shadow: 0 0 10px #ff66b2;
+  animation: glowTitle 2s infinite alternate;
 }
 
-/* ---------------- VIDEO GRID ---------------- */
+@keyframes glowTitle {
+  0% { color: #aa33aa; }
+  100% { color: #ff3399; }
+}
+
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* ---------------- MAIN VIDEO CONTAINER ---------------- */
+.video-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto 40px auto;
+  padding: 20px;
+  background: linear-gradient(145deg, #ffe6f5, #fff0fb);
+  border: 5px double #ff3399;
+  border-radius: 20px;
+  box-shadow: 0 0 40px #ff66b2;
+  position: relative;
+}
+
+/* Animated header strip */
+.video-header {
+  font-weight: bold;
+  margin-bottom: 15px;
+  animation: blinkText 2s infinite alternate;
+}
+
+@keyframes blinkText {
+  0% { color: #aa33aa; }
+  100% { color: #ff3399; }
+}
+
+/* ---------------- LOCKED 2 COLUMN GRID ---------------- */
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  padding: 0 20px 30px 20px;
-  justify-items: center;
+  grid-template-columns: 1fr 1fr; /* ALWAYS 2 */
+  gap: 20px;
 }
 
 /* ---------------- VIDEO BOX ---------------- */
 .video-box {
   position: relative;
-  border: 3px double #ff3399;
+  border: 3px solid #ff66b2;
   border-radius: 12px;
-  padding: 10px;
-  background: #fff0f5;
-  box-shadow: 0 0 20px #ff99cc;
-  animation: float 3s ease-in-out infinite alternate, glow 3s ease-in-out infinite alternate;
+  padding: 8px;
+  background: white;
+  box-shadow: 0 0 15px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .video-box:hover {
-  transform: scale(1.1) rotate(-2deg);
-  box-shadow: 0 0 30px #ff66b2;
-}
-@keyframes float {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-5px); }
-}
-@keyframes glow {
-  0% { box-shadow: 0 0 15px #ff99cc; }
-  100% { box-shadow: 0 0 30px #ff66b2; }
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 0 25px #ff33aa;
 }
 
-/* ---------------- VIDEO THUMB ---------------- */
 .video-thumb {
   width: 100%;
   height: 160px;
@@ -108,12 +131,14 @@ h1 {
   padding: 5px;
   cursor: pointer;
   font-size: 16px;
-  transition: transform 0.2s, background 0.2s;
 }
-.mute-btn:hover {
-  transform: scale(1.2);
-  background: #ff66b2;
-  color: white;
+
+/* ---------------- NOW WATCHING ---------------- */
+#now-watching {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ff3399;
 }
 
 /* ---------------- LIGHTBOX ---------------- */
@@ -122,22 +147,21 @@ h1 {
   top:0; left:0;
   width:100%; height:100%;
   background: rgba(0,0,0,0.9);
-  display:flex;
+  display:none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   flex-direction: column;
-  padding: 20px;
-  display: none;
 }
+
 #video-lightbox video {
   max-width: 90%;
   max-height: 80%;
   border: 4px solid #ff3399;
   border-radius: 12px;
   box-shadow: 0 0 30px #ff66b2;
-  transition: all 0.3s ease;
 }
+
 #video-lightbox button, #video-lightbox span {
   position: absolute;
   top: 20px;
@@ -149,27 +173,23 @@ h1 {
   border-radius: 50%;
   padding: 5px 10px;
 }
+
 #close-btn { right: 30px; }
 #max-btn { right: 80px; }
 
-/* ---------------- BACK HOME BUTTON ---------------- */
+/* ---------------- BACK BUTTON ---------------- */
 .back-home {
   display: block;
   margin: 20px auto 40px auto;
   padding: 12px 20px;
   background: #ff3399;
   color: white;
-  border: none;
   border-radius: 8px;
-  cursor: pointer;
+  text-decoration: none;
   font-size: 18px;
   box-shadow: 0 0 10px #ff66b2;
-  transition: transform 0.2s, background 0.2s;
 }
-.back-home:hover {
-  transform: scale(1.1);
-  background: #ff66b2;
-}
+
 </style>
 </head>
 <body>
@@ -177,10 +197,13 @@ h1 {
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Baby V.O.X Videos</h1>
-<p class="subtitle">Mini previews autoplay! Click to enlarge</p>
+<p class="subtitle">Mini previews autoplay · Click to enlarge</p>
 
-<!-- VIDEO GRID -->
-<div class="video-grid" id="video-grid"></div>
+<div class="video-container">
+  <div class="video-header">★ OFFICIAL MV ARCHIVE ★</div>
+  <div class="video-grid" id="video-grid"></div>
+  <div id="now-watching">Now Watching: None</div>
+</div>
 
 <!-- LIGHTBOX -->
 <div id="video-lightbox">
@@ -192,21 +215,23 @@ h1 {
 <a href="index.html" class="back-home">Back to Home</a>
 
 <script>
-// ---------------- VIDEO LIST ----------------
+
 const videos = [
-  {src: "BV1.mp4"},
-  {src: "BV3.mp4"},
-  {src: "BV4.mp4"},
-  {src: "BV5.mp4"}
+  {src: "BV1.mp4", title: "Video 1"},
+  {src: "BV3.mp4", title: "Video 2"},
+  {src: "BV4.mp4", title: "Video 3"},
+  {src: "BV5.mp4", title: "Video 4"}
 ];
 
 const grid = document.getElementById('video-grid');
 const lightbox = document.getElementById('video-lightbox');
 const lightboxVideo = document.getElementById('lightbox-video');
+const nowWatching = document.getElementById('now-watching');
+
 let isMaximized = false;
 
-// Create video boxes
 videos.forEach(video => {
+
   const box = document.createElement('div');
   box.className = "video-box";
 
@@ -217,7 +242,6 @@ videos.forEach(video => {
   vid.loop = true;
   vid.autoplay = true;
   vid.playsInline = true;
-  box.appendChild(vid);
 
   const btn = document.createElement('button');
   btn.className = "mute-btn";
@@ -227,26 +251,26 @@ videos.forEach(video => {
     vid.muted = !vid.muted;
     btn.textContent = vid.muted ? "🔇" : "🔊";
   };
-  box.appendChild(btn);
 
   box.onclick = () => {
     lightboxVideo.src = video.src;
     lightbox.style.display = "flex";
     lightboxVideo.play();
+    nowWatching.textContent = "Now Watching: " + video.title;
     isMaximized = false;
     lightboxVideo.style.width = "90%";
     lightboxVideo.style.height = "80%";
   };
 
+  box.appendChild(vid);
+  box.appendChild(btn);
   grid.appendChild(box);
 });
 
-// ---------------- LIGHTBOX ----------------
 function closeLightbox() {
   lightboxVideo.pause();
   lightbox.style.display = "none";
   lightboxVideo.src = "";
-  if(isMaximized) toggleMaximize();
 }
 
 function toggleMaximize() {
@@ -260,6 +284,7 @@ function toggleMaximize() {
     isMaximized = false;
   }
 }
+
 </script>
 
 </body>
