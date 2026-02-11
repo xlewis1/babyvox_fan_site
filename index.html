@@ -194,7 +194,30 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 12px #ff99cc;
 }
-  
+
+
+/* ---------- TOP SCROLLING BANGER ---------- */
+.top-banger {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 2px dashed #ff66cc; /* optional Geocities flair */
+  border-radius: 12px;
+  background: #ffe6f0;
+}
+
+.scrolling-banger {
+  display: inline-block;
+  height: 120px; /* adjust size so it's big but not overwhelming */
+  animation: scrollLeft 15s linear infinite;
+  white-space: nowrap; /* ensures no line breaks inside the img */
+}
+
+@keyframes scrollLeft {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+ 
 </style>
 </head>
 <body>
@@ -224,6 +247,11 @@ body {
 
   <!-- CENTER CONTENT -->
   <div class="center-content">
+    
+  <!-- TOP SCROLLING BANGER -->
+  <div class="top-banger">
+    <img src="vox83.gif" alt="Baby V.O.X Banger" class="scrolling-banger">
+  </div>
     <!-- TICKER WITH SIDE GIFS -->
  <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
    <img src="IMG_2504.gif" alt="Left GIF" style="width:60px; height:60px; margin-right:10px;">
