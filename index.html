@@ -211,6 +211,19 @@ body {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
+
+.bottom-image {
+  text-align: center;
+  margin: 30px 0 15px 0;
+}
+
+.bottom-image img {
+  max-width: 45%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #ff99cc;
+}
+  
 </style>
 </head>
 <body>
@@ -354,6 +367,11 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock(); // initialize immediately
 </script>
+
+<!-- BOTTOM FEATURE IMAGE -->
+<div class="bottom-image">
+  <img src="vox1125.jpeg" alt="Baby V.O.X Feature">
+</div>
 
 <footer class="site-footer">
   <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
