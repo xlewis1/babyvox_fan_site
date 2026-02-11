@@ -5,20 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Equalizeher — Baby V.O.X</title>
 
+<!-- ---------------- STYLES ---------------- -->
 <style>
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Verdana", "Tahoma", sans-serif;
-  background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
+  padding: 20px;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  background: url('retro-pattern.png') repeat;
   color: #3b0066;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-/* Spinning logo */
+/* Spinning Logo */
 .logo-spin {
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
   width: 80px;
   animation: spin 10s linear infinite;
   z-index: 100;
@@ -28,15 +31,35 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* Sparkle GIF effects */
+.sparkle {
+  position: absolute;
+  font-size: 20px;
+  animation: sparkleMove 4s infinite alternate;
+}
+@keyframes sparkleMove {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+  50% { transform: translateY(-10px) rotate(15deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(-15deg); opacity: 0.5; }
+}
+
+/* Container */
 .container {
   max-width: 1000px;
   margin: 60px auto 40px;
-  padding: 0 20px;
+  padding: 20px;
+  border: 5px double #ff66cc;
+  border-radius: 15px;
+  background: rgba(255, 230, 255, 0.95);
+  box-shadow: 0 0 25px #ff99ff, 0 0 50px #cc66ff;
+  position: relative;
 }
 
+/* Album Header */
 .album-header {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 20px;
 }
 
@@ -47,50 +70,81 @@ body {
 }
 
 .album-info {
+  flex: 1;
   font-size: 14px;
   line-height: 1.6;
+  text-align: left;
 }
 
 .album-info h1 {
   font-size: 32px;
-  margin: 0;
+  margin: 0 0 10px;
+  color: #9900cc;
   text-shadow: 2px 2px #ff99ff;
 }
 
+/* Section Titles */
 .section-title {
   font-size: 18px;
   margin-top: 22px;
+  margin-bottom: 6px;
   text-decoration: underline dotted #ff66cc;
+  color: #aa00ff;
 }
 
+/* Tracklist Box */
 .tracklist-box {
   background: #ffe6f5;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: inset 0 0 8px #ff99cc;
-  font-size: 13px;
-  margin-top: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 3px dashed #ff66cc;
+  box-shadow: inset 0 0 10px #ff99cc;
+  font-size: 14px;
+  margin-top: 10px;
+  position: relative;
 }
 
+/* Sparkle corners for tracklist */
+.tracklist-box::before, .tracklist-box::after {
+  content: "✨";
+  position: absolute;
+  font-size: 18px;
+}
+.tracklist-box::before { top: 5px; left: 5px; animation: sparkleMove 1.5s infinite alternate; }
+.tracklist-box::after { bottom: 5px; right: 5px; animation: sparkleMove 2s infinite alternate; }
+
+/* Back Link Button */
 .back-link {
   display: inline-block;
   margin-top: 30px;
-  padding: 10px 18px;
+  padding: 12px 20px;
   background: #ff33aa;
   color: white;
-  text-decoration: none;
-  border-radius: 8px;
   font-weight: bold;
-  box-shadow: 0 0 12px #ff66cc;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ff66cc;
+  transition: all 0.3s ease;
 }
 .back-link:hover {
   background: #ff66cc;
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 0 25px #ff33aa;
+}
+
+/* Footer */
+.footer {
+  font-size: 13px;
+  margin-top: 40px;
+  color: #9900cc;
+  text-shadow: 1px 1px #ff99ff;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Spinning Logo -->
 <img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
 
 <div class="container">
@@ -102,19 +156,14 @@ body {
       <p><strong>Release Date:</strong> July 3, 1997</p>
       <p><strong>Members at the time:</strong><br>
         Jeong Hyeonjeon, Jung Shiwoon, Cha Yumi,<br>
-        Kim EZ, Lee Heejin</p>
+        Kim EZ, Lee Heejin
+      </p>
       <p><strong>Label:</strong> DR Music / Cream Records</p>
       <p><strong>Genre:</strong> Dance, Ballad / 90s K‑Pop</p>
       <p><strong>Bio / Fun Facts:</strong><br>
-        Equalizeher (also stylized as “Voice of Xpression”) is the
-        debut full‑length album by Baby V.O.X. It was released
-        in early July 1997 with “Haircut” as the final title track.
-        <br><br>
-        Originally, the song “To Men (Democracy)” was meant to be the
-        lead track but was banned from broadcast due to controversial
-        lyrics, and was replaced by “Haircut.” During promotions,
-        Cha Yumi was replaced by Kan Miyoun and later
-        Shim Eun Jin joined after further lineup changes. 
+        Equalizeher (also stylized as “Voice of Xpression”) is the debut full-length album by Baby V.O.X. 
+        Originally, "To Men (Democracy)" was planned as lead track but banned from broadcast, replaced by "Haircut." 
+        Cha Yumi was replaced by Kan Miyoun; Shim Eun Jin joined after lineup changes.
       </p>
     </div>
   </div>
@@ -135,6 +184,10 @@ body {
   </div>
 
   <a href="discography.html" class="back-link">← Back to Discography</a>
+
+  <div class="footer">
+    © 2026 Baby V.O.X Fansite — Geocities & Daum Vibes
+  </div>
 
 </div>
 
