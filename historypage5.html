@@ -43,6 +43,7 @@ p.instructions {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px #f48fb1;
+  position: relative;
 }
 
 .history-timeline ul {
@@ -51,8 +52,19 @@ p.instructions {
 }
 
 .history-timeline li {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-size: 16px;
+  position: relative;
+  padding-left: 25px;
+}
+
+/* Red pin circle before each date */
+.history-timeline li span.date::before {
+  content: "📌";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 18px;
 }
 
 .history-timeline li span.date {
