@@ -192,10 +192,30 @@ h1 {
   50% { transform: translateY(-10px) rotate(180deg); opacity:1; }
   100% { transform: translateY(0) rotate(360deg); opacity:0.6; }
 }
+
+/* Spinning Disc */
+.spinning-disc {
+  position: fixed;
+  top: 20px;
+  left: 20px; /* change to right: 20px; if you want other side */
+  width: 90px;
+  z-index: 999;
+  animation: spinDisc 8s linear infinite;
+}
+
+@keyframes spinDisc {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 </style>
 </head>
 
 <body>
+
+<img src="338A7306-02B9-429D-947D-DD513EF1A958.png" 
+     alt="Baby V.O.X Spinning Disc" 
+     class="spinning-disc">
 
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo-spin">
 
