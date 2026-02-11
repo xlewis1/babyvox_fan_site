@@ -6,15 +6,17 @@
 <title>Devotion — Baby V.O.X</title>
 
 <style>
+/* ---------------- BODY ---------------- */
 body {
   margin: 0;
   padding: 0;
   font-family: "Verdana", "Tahoma", sans-serif;
   background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
   color: #3b0066;
+  text-align: center;
 }
 
-/* Spinning logo */
+/* ---------------- SPINNING LOGO ---------------- */
 .logo-spin {
   position: fixed;
   top: 15px;
@@ -28,12 +30,14 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* ---------------- CONTAINER ---------------- */
 .container {
   max-width: 1000px;
   margin: 60px auto 40px;
   padding: 0 20px;
 }
 
+/* ---------------- ALBUM HEADER ---------------- */
 .album-header {
   display: flex;
   align-items: flex-start;
@@ -49,6 +53,7 @@ body {
 .album-info {
   font-size: 14px;
   line-height: 1.6;
+  text-align: left;
 }
 
 .album-info h1 {
@@ -57,12 +62,15 @@ body {
   text-shadow: 2px 2px #ff99ff;
 }
 
+/* ---------------- SECTION TITLE ---------------- */
 .section-title {
   font-size: 18px;
   margin-top: 22px;
   text-decoration: underline dotted #ff66cc;
+  text-align: center;
 }
 
+/* ---------------- TRACKLIST BOX ---------------- */
 .tracklist-box {
   background: #ffe6f5;
   padding: 12px;
@@ -70,8 +78,26 @@ body {
   box-shadow: inset 0 0 8px #ff99cc;
   font-size: 13px;
   margin-top: 8px;
+  text-align: left;
 }
 
+/* ---------------- CD HEADINGS WITH SPARKLES ---------------- */
+.cd-sparkle::before {
+  content: "✨";
+  margin-right: 6px;
+  animation: blink 1.5s infinite alternate;
+}
+.cd-sparkle::after {
+  content: "✨";
+  margin-left: 6px;
+  animation: blink 2s infinite alternate;
+}
+@keyframes blink {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+/* ---------------- BACK LINK ---------------- */
 .back-link {
   display: inline-block;
   margin-top: 30px;
@@ -82,9 +108,26 @@ body {
   border-radius: 8px;
   font-weight: bold;
   box-shadow: 0 0 12px #ff66cc;
+  transition: all 0.3s ease;
 }
 .back-link:hover {
   background: #ff66cc;
+  transform: scale(1.05);
+}
+
+/* ---------------- BLINKIES IN BODY ---------------- */
+body::after {
+  content: "✨💖🌟";
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  font-size: 24px;
+  opacity: 0.5;
+  animation: sparkleMove 5s infinite alternate;
+}
+@keyframes sparkleMove {
+  0% { transform: translateX(-30px); }
+  100% { transform: translateX(30px); }
 }
 </style>
 </head>
@@ -106,19 +149,18 @@ body {
          Yoon Eun‑hye, Lee Hee‑jin</p>
       <p><strong>Genre:</strong> K‑Pop, Eurotrance, R&B, Dance‑Pop</p>
       <p><strong>Bio / Fun Facts:</strong><br>
-        Devotion is the sixth Korean‑language studio album by
-        Baby V.O.X, released
-        in spring 2003. It marked a continued evolution in sound with
-        Eurotrance and modern dance influences under producer Kim
-        Chang‑hwan’s direction. 
+        <em>Devotion</em> is the sixth Korean‑language studio album by
+        Baby V.O.X, marking their biggest genre shift into Eurotrance
+        and modern dance sounds.  
         <br><br>
-        The album’s lead track “What Should I Do” became one of the
-        group’s standout singles of the era. The album also included
-        multiple styles from emotional ballads to energetic dance
-        numbers, helping expand their popularity across Asia.  
+        The lead track “What Should I Do” was widely promoted and became
+        a defining song for the group’s 2003 era. The album blends
+        high-energy dance tracks with emotional ballads, expanding
+        Baby V.O.X’s reach across Asia.
         <br><br>
-        *Devotion* sold strongly in several markets and saw Baby V.O.X
-        charting in China, Thailand, and other regions during this era. 
+        This era is remembered for both musical experimentation and
+        strong international performance, including charting in China
+        and Thailand.  
       </p>
     </div>
   </div>
