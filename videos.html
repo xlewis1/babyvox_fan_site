@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle moving background */
+/* Sparkle */
 body::after {
   content: "✨";
   position: fixed;
@@ -61,10 +61,10 @@ h1 {
 
 .subtitle {
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* ---------------- MAIN VIDEO CONTAINER ---------------- */
+/* ---------------- MAIN CONTAINER ---------------- */
 .video-container {
   width: 90%;
   max-width: 900px;
@@ -74,13 +74,11 @@ h1 {
   border: 5px double #ff3399;
   border-radius: 20px;
   box-shadow: 0 0 40px #ff66b2;
-  position: relative;
 }
 
-/* Animated header strip */
-.video-header {
+.video-section-title {
   font-weight: bold;
-  margin-bottom: 15px;
+  margin: 30px 0 15px 0;
   animation: blinkText 2s infinite alternate;
 }
 
@@ -89,10 +87,10 @@ h1 {
   100% { color: #ff3399; }
 }
 
-/* ---------------- LOCKED 2 COLUMN GRID ---------------- */
+/* ---------------- LOCKED GRID ---------------- */
 .video-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* ALWAYS 2 */
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
@@ -104,6 +102,7 @@ h1 {
   padding: 8px;
   background: white;
   box-shadow: 0 0 15px #ff99cc;
+  cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -117,7 +116,6 @@ h1 {
   height: 160px;
   object-fit: cover;
   border-radius: 8px;
-  cursor: pointer;
 }
 
 /* ---------------- MUTE BUTTON ---------------- */
@@ -135,7 +133,7 @@ h1 {
 
 /* ---------------- NOW WATCHING ---------------- */
 #now-watching {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 14px;
   font-weight: bold;
   color: #ff3399;
@@ -154,7 +152,8 @@ h1 {
   flex-direction: column;
 }
 
-#video-lightbox video {
+#video-lightbox video,
+#video-lightbox iframe {
   max-width: 90%;
   max-height: 80%;
   border: 4px solid #ff3399;
@@ -162,22 +161,15 @@ h1 {
   box-shadow: 0 0 30px #ff66b2;
 }
 
-#video-lightbox button, #video-lightbox span {
+#close-btn {
   position: absolute;
   top: 20px;
+  right: 30px;
   font-size: 28px;
   color: white;
   cursor: pointer;
-  background: rgba(0,0,0,0.5);
-  border: none;
-  border-radius: 50%;
-  padding: 5px 10px;
 }
 
-#close-btn { right: 30px; }
-#max-btn { right: 80px; }
-
-/* ---------------- BACK BUTTON ---------------- */
 .back-home {
   display: block;
   margin: 20px auto 40px auto;
@@ -187,7 +179,6 @@ h1 {
   border-radius: 8px;
   text-decoration: none;
   font-size: 18px;
-  box-shadow: 0 0 10px #ff66b2;
 }
 
 </style>
@@ -197,40 +188,52 @@ h1 {
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Baby V.O.X Videos</h1>
-<p class="subtitle">Mini previews autoplay · Click to enlarge</p>
+<p class="subtitle">Hosted Clips + YouTube Archive</p>
 
 <div class="video-container">
-  <div class="video-header">★ OFFICIAL MV ARCHIVE ★</div>
-  <div class="video-grid" id="video-grid"></div>
+
+  <div class="video-section-title">★ Hosted Videos ★</div>
+  <div class="video-grid" id="mp4-grid"></div>
+
+  <div class="video-section-title">★ YouTube Archive ★</div>
+  <div class="video-grid" id="youtube-grid"></div>
+
   <div id="now-watching">Now Watching: None</div>
+
 </div>
 
 <!-- LIGHTBOX -->
 <div id="video-lightbox">
   <span id="close-btn" onclick="closeLightbox()">&times;</span>
-  <button id="max-btn" onclick="toggleMaximize()">⛶</button>
-  <video id="lightbox-video" controls></video>
+  <div id="lightbox-content"></div>
 </div>
 
 <a href="index.html" class="back-home">Back to Home</a>
 
 <script>
 
-const videos = [
+/* ---------------- HOSTED MP4 VIDEOS ---------------- */
+const mp4Videos = [
   {src: "BV1.mp4", title: "Video 1"},
   {src: "BV3.mp4", title: "Video 2"},
   {src: "BV4.mp4", title: "Video 3"},
   {src: "BV5.mp4", title: "Video 4"}
 ];
 
-const grid = document.getElementById('video-grid');
+/* ---------------- YOUTUBE VIDEOS ---------------- */
+/* Replace IDs later */
+const youtubeVideos = [
+  {id: "auIFIvpXdac", title: "what should i do MV"},
+];
+
+const mp4Grid = document.getElementById('mp4-grid');
+const ytGrid = document.getElementById('youtube-grid');
 const lightbox = document.getElementById('video-lightbox');
-const lightboxVideo = document.getElementById('lightbox-video');
+const content = document.getElementById('lightbox-content');
 const nowWatching = document.getElementById('now-watching');
 
-let isMaximized = false;
-
-videos.forEach(video => {
+/* Render MP4 */
+mp4Videos.forEach(video => {
 
   const box = document.createElement('div');
   box.className = "video-box";
@@ -252,37 +255,50 @@ videos.forEach(video => {
     btn.textContent = vid.muted ? "🔇" : "🔊";
   };
 
-  box.onclick = () => {
-    lightboxVideo.src = video.src;
-    lightbox.style.display = "flex";
-    lightboxVideo.play();
-    nowWatching.textContent = "Now Watching: " + video.title;
-    isMaximized = false;
-    lightboxVideo.style.width = "90%";
-    lightboxVideo.style.height = "80%";
-  };
+  box.onclick = () => openMP4(video);
 
   box.appendChild(vid);
   box.appendChild(btn);
-  grid.appendChild(box);
+  mp4Grid.appendChild(box);
 });
 
-function closeLightbox() {
-  lightboxVideo.pause();
-  lightbox.style.display = "none";
-  lightboxVideo.src = "";
+/* Render YouTube */
+youtubeVideos.forEach(video => {
+
+  const box = document.createElement('div');
+  box.className = "video-box";
+
+  const thumb = document.createElement('img');
+  thumb.className = "video-thumb";
+  thumb.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+
+  box.onclick = () => openYouTube(video);
+
+  box.appendChild(thumb);
+  ytGrid.appendChild(box);
+});
+
+/* Open MP4 */
+function openMP4(video) {
+  content.innerHTML = `<video src="${video.src}" controls autoplay></video>`;
+  lightbox.style.display = "flex";
+  nowWatching.textContent = "Now Watching: " + video.title;
 }
 
-function toggleMaximize() {
-  if(!isMaximized) {
-    lightboxVideo.style.width = "98%";
-    lightboxVideo.style.height = "95%";
-    isMaximized = true;
-  } else {
-    lightboxVideo.style.width = "90%";
-    lightboxVideo.style.height = "80%";
-    isMaximized = false;
-  }
+/* Open YouTube */
+function openYouTube(video) {
+  content.innerHTML = `<iframe src="https://www.youtube.com/embed/${video.id}?autoplay=1"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>`;
+  lightbox.style.display = "flex";
+  nowWatching.textContent = "Now Watching: " + video.title;
+}
+
+/* Close */
+function closeLightbox() {
+  lightbox.style.display = "none";
+  content.innerHTML = "";
 }
 
 </script>
