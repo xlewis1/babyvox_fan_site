@@ -6,15 +6,33 @@
 <title>Come Come Come Baby — Baby V.O.X</title>
 
 <style>
+/* ---------------- BODY ---------------- */
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Verdana", "Tahoma", sans-serif;
-  background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
-  color: #3b0066;
+  padding: 20px;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  background: url('retro-pattern.png') repeat;
+  color: #4B0082;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-/* Spinning logo */
+/* ---------------- SPARKLE ACCENTS ---------------- */
+body::after {
+  content: "✨";
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  font-size: 24px;
+  opacity: 0.5;
+  animation: sparkleMove 6s infinite alternate;
+}
+@keyframes sparkleMove {
+  0% { transform: translateX(-30px) rotate(0deg); }
+  100% { transform: translateX(30px) rotate(360deg); }
+}
+
+/* ---------------- SPINNING LOGO ---------------- */
 .logo-spin {
   position: fixed;
   top: 15px;
@@ -23,29 +41,51 @@ body {
   animation: spin 10s linear infinite;
   z-index: 100;
 }
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+/* ---------------- CONTAINER ---------------- */
 .container {
   max-width: 1000px;
   margin: 60px auto 40px;
   padding: 0 20px;
+  border: 5px double #ff3399;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
+  background: rgba(255,255,255,0.9);
+  position: relative;
 }
 
+/* ---------------- ALBUM HEADER ---------------- */
 .album-header {
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  position: relative;
 }
 
 .album-header img {
   width: 280px;
   border-radius: 12px;
   box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff;
+  animation: pulse 3s infinite alternate;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff; }
+  100% { box-shadow: 0 0 25px #ff99ff, 0 0 40px #ff66ff; }
 }
 
+/* Mini animated sparkle GIFs on album corners */
+.album-header::before, .album-header::after {
+  content: "✨";
+  position: absolute;
+  font-size: 20px;
+  animation: blink 1.5s infinite alternate;
+}
+.album-header::before { top: 0; left: 0; }
+.album-header::after { bottom: 0; right: 0; }
+@keyframes blink { 0% { opacity: 0.2; } 100% { opacity: 1; } }
+
+/* ---------------- ALBUM INFO ---------------- */
 .album-info {
   font-size: 14px;
   line-height: 1.6;
@@ -57,14 +97,17 @@ body {
   text-shadow: 2px 2px #ff99ff;
 }
 
+/* ---------------- SECTION TITLES ---------------- */
 .section-title {
   font-size: 18px;
   margin-top: 22px;
   text-decoration: underline dotted #ff66cc;
+  position: relative;
 }
 
+/* ---------------- TRACKLIST ---------------- */
 .tracklist-box {
-  background: #ffe6f5;
+  background: url('tracklist-bg.png') repeat;
   padding: 12px;
   border-radius: 8px;
   box-shadow: inset 0 0 8px #ff99cc;
@@ -72,6 +115,19 @@ body {
   margin-top: 8px;
 }
 
+/* Highlight key tracks */
+.tracklist-box li:nth-child(2),
+.tracklist-box li:nth-child(11) {
+  font-weight: bold;
+  color: #ff3399;
+  position: relative;
+}
+.tracklist-box li:nth-child(2)::after,
+.tracklist-box li:nth-child(11)::after {
+  content: " ✨";
+}
+
+/* ---------------- BACK LINK ---------------- */
 .back-link {
   display: inline-block;
   margin-top: 30px;
@@ -82,22 +138,42 @@ body {
   border-radius: 8px;
   font-weight: bold;
   box-shadow: 0 0 12px #ff66cc;
+  transition: all 0.3s ease;
 }
 .back-link:hover {
   background: #ff66cc;
+  transform: scale(1.05) rotate(-1deg);
 }
+
+/* ---------------- MINI “MEMBER ERA” BADGE ---------------- */
+.era-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ffccff;
+  color: #880e4f;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #ff99cc;
+  animation: blink 1.5s infinite alternate;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- Spinning logo -->
 <img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
 
 <div class="container">
 
   <div class="album-header">
+    <span class="era-badge">Yoon Eun Hye Debut Era</span>
     <img src="Unknown-4.jpeg" alt="Come Come Come Baby Album Cover">
-
+    
     <div class="album-info">
       <h1>Come Come Come Baby</h1>
       <p><strong>Release Date:</strong> July 21, 1999</p>
