@@ -8,7 +8,8 @@
 /* RESET & BODY */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
   color: #4B0082;
   display: flex;
@@ -51,19 +52,48 @@ body {
   transform: scale(1.05);
 }
 
+/* ---------- TOP SCROLLING BANGER ---------- */
+.top-banger {
+  width: 100%;
+  height: 120px; 
+  overflow: hidden;
+  margin-bottom: 15px;
+  border: 2px dashed #ff66cc;
+  border-radius: 12px;
+  background: #ffe6f0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.scrolling-banger-wrapper {
+  display: flex;
+  width: max-content;
+  animation: scrollBanger 15s linear infinite;
+}
+
+.scrolling-banger-wrapper img {
+  height: 100%;
+  margin-right: 20px; 
+  flex-shrink: 0;
+}
+
+@keyframes scrollBanger {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* move half width so images repeat */
+}
+
 /* MAIN FLEX CONTAINER */
 .main-container {
-  flex: 1;                /* keeps footer pushed down */
+  flex: 1;
   display: flex;
   gap: 20px;
   max-width: 1400px;
-  margin: 20px auto;
+  margin: 0 auto 20px auto;
+  align-items: flex-start;
+}
 
-  min-height: 100vh;      /* makes columns reach bottom */
-  align-items: stretch;  
-} 
-  
-/* forces sidebar + right panel to SIDEBAR NAVIGATION (LEFT) */
+/* SIDEBAR */
 .sidebar {
   width: 220px;
   background: #ffe6f0;
@@ -71,21 +101,18 @@ body {
   border-radius: 12px;
   box-shadow: 0 0 15px #ff99cc;
   text-align: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* NEW: stretch sidebar to full height of main container */
-  flex: 1;               /* fills available height inside main container */
-  justify-content: flex-start; /* keeps buttons from stretching weirdly */
+  flex: 1;
+  justify-content: flex-start;
 }
 
 .sidebar::after {
   content: "";
-  flex-grow: 1;  /* pushes bottom empty space so sidebar looks full height */
+  flex-grow: 1;
 }
-  
+
 .sidebar img {
   width: 120px;
   margin-bottom: 20px;
@@ -117,9 +144,9 @@ body {
 
 /* CENTER CONTENT */
 .center-content {
-  flex: 1;
+  flex: 2;
   text-align: center;
-  padding: 20px;
+  padding: 0 20px;
 }
 .center-content img#center-img {
   width: 600px;
@@ -148,19 +175,16 @@ body {
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 0 15px #ff99cc;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* NEW: stretch right panel to full height */
-  flex: 1;                 /* fills available height inside main container */
-  justify-content: flex-start; /* keeps buttons from stretching weirdly */
+  flex: 1;
+  justify-content: flex-start;
 }
 
 .right-panel::after {
   content: "";
-  flex-grow: 1;            /* pushes bottom empty space so panel looks full height */
+  flex-grow: 1;
 }
 
 .right-panel p { margin: 5px 0; text-align: center; }
@@ -178,46 +202,11 @@ body {
   opacity: 0.75;
 }
 
+/* TICKER */
 @keyframes tickerMove {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
-
-.bottom-image {
-  text-align: center;
-  margin: 30px 0 15px 0;
-}
-
-.bottom-image img {
-  max-width: 45%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 12px #ff99cc;
-}
-
-
-/* ---------- TOP SCROLLING BANGER ---------- */
-.top-banger {
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 15px;
-  border: 2px dashed #ff66cc; /* optional Geocities flair */
-  border-radius: 12px;
-  background: #ffe6f0;
-}
-
-.scrolling-banger {
-  display: inline-block;
-  height: 120px; /* adjust size so it's big but not overwhelming */
-  animation: scrollLeft 15s linear infinite;
-  white-space: nowrap; /* ensures no line breaks inside the img */
-}
-
-@keyframes scrollLeft {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
- 
 </style>
 </head>
 <body>
@@ -228,9 +217,19 @@ body {
   <button id="enter-site">Enter Site</button>
 </div>
 
+<!-- TOP SCROLLING BANGER -->
+<div class="top-banger">
+  <div class="scrolling-banger-wrapper">
+    <img src="vox83.gif" alt="Baby V.O.X Banger">
+    <img src="vox83.gif" alt="Baby V.O.X Banger">
+    <img src="vox83.gif" alt="Baby V.O.X Banger">
+    <img src="vox83.gif" alt="Baby V.O.X Banger">
+  </div>
+</div>
+
 <!-- MAIN CONTAINER -->
 <div class="main-container">
-  <!-- LEFT SIDEBAR NAVIGATION -->
+  <!-- LEFT SIDEBAR -->
   <div class="sidebar">
     <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
     <a href="index.html">Home</a>
@@ -247,21 +246,17 @@ body {
 
   <!-- CENTER CONTENT -->
   <div class="center-content">
-    
-  <!-- TOP SCROLLING BANGER -->
-  <div class="top-banger">
-    <img src="vox83.gif" alt="Baby V.O.X Banger" class="scrolling-banger">
-  </div>
     <!-- TICKER WITH SIDE GIFS -->
- <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-   <img src="IMG_2504.gif" alt="Left GIF" style="width:60px; height:60px; margin-right:10px;">
-   <div style="overflow: hidden; white-space: nowrap; flex: 1;">
-    <p id="ticker-text" style="display:inline-block; color:#ff3399; font-weight:bold; font-size:1.2rem; animation:tickerMove 15s linear infinite;">
-       🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀
-    </p>
- </div>
-   <img src="IMG_2505.gif" alt="Right GIF" style="width:60px; height:60px; margin-left:10px;">
- </div>
+    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+      <img src="IMG_2504.gif" alt="Left GIF" style="width:60px; height:60px; margin-right:10px;">
+      <div style="overflow: hidden; white-space: nowrap; flex: 1;">
+        <p id="ticker-text" style="display:inline-block; color:#ff3399; font-weight:bold; font-size:1.2rem; animation:tickerMove 15s linear infinite;">
+           🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀
+        </p>
+      </div>
+      <img src="IMG_2505.gif" alt="Right GIF" style="width:60px; height:60px; margin-left:10px;">
+    </div>
+
     <img id="center-img" src="IMG_2391.jpeg" alt="Baby VOX Center">
     <div class="welcome-box">
       <img src="BV.gif" alt="BV GIF">
@@ -285,9 +280,7 @@ body {
     <div id="mini-gallery"></div>
     <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
     <button onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
-    <button class="gallery-btn" onclick="window.location.href='index-mobile.html'">
-       Mobile / Tablet Version
-    </button>
+    <button class="gallery-btn" onclick="window.location.href='index-mobile.html'">Mobile / Tablet Version</button>
   </div>
 </div>
 
@@ -295,21 +288,10 @@ body {
 // ----- SPLASH -----
 const splash = document.getElementById('splash');
 const enterButton = document.getElementById('enter-site');
-
-function hideSplash() {
-  splash.style.display = 'none';
-}
-
-if (!sessionStorage.getItem('splashShown')) {
-  splash.style.display = 'flex';
-} else {
-  splash.style.display = 'none';
-}
-
-enterButton.addEventListener('click', () => {
-  hideSplash();
-  sessionStorage.setItem('splashShown', 'true');
-});
+function hideSplash() { splash.style.display = 'none'; }
+if (!sessionStorage.getItem('splashShown')) { splash.style.display = 'flex'; } 
+else { splash.style.display = 'none'; }
+enterButton.addEventListener('click', () => { hideSplash(); sessionStorage.setItem('splashShown','true'); });
 
 // ----- VISITOR COUNTER -----
 const visitorCountEl = document.getElementById('visitor-count');
@@ -335,10 +317,7 @@ const facts = [
   "All five final members reunited at the 2024 KBS Song Festival.",
   "First solo concert in 23 years: September 26–27, 2025."
 ];
-function showRandomFact() {
-  const randomIndex = Math.floor(Math.random()*facts.length);
-  alert(facts[randomIndex]);
-}
+function showRandomFact() { const randomIndex = Math.floor(Math.random()*facts.length); alert(facts[randomIndex]); }
 
 // ----- LANGUAGE SELECTOR -----
 const welcomeMessages = {
@@ -353,11 +332,6 @@ langSelector.addEventListener('change', e => {
 });
 document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
 </script>
-
-<!-- BOTTOM FEATURE IMAGE -->
-<div class="bottom-image">
-  <img src="vox1125.jpeg" alt="Baby V.O.X Feature">
-</div>
 
 <footer class="site-footer">
   <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
