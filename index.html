@@ -58,34 +58,33 @@ body {
   width: 100%;
   height: 120px; 
   overflow: hidden;
-  border: 2px dashed #ff66cc;   /* optional Geocities flair */
+  border: 2px dashed #ff66cc;
   border-radius: 12px;
   background: #ffe6f0;
   position: relative;
 
   display: flex;
-  align-items: center;          /* vertically centers the scrolling wrapper */
-  justify-content: flex-start;  /* ensures animation starts from left */
-
-  margin-bottom: 20px;          /* space below banger */
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
   
 .scrolling-banger-wrapper {
   display: flex;
-  width: max-content; /* keeps images inline */
+  width: max-content;
   animation: scrollBanger 15s linear infinite;
 }
 
 .scrolling-banger-wrapper img {
   height: 100%;
-  flex-shrink: 0;      /* prevents shrinking */
-  object-fit: cover;   /* ensures the image fills the container without stretching */
-  margin: 0;           /* remove extra spacing */
+  flex-shrink: 0;
+  object-fit: cover;
+  margin: 0;
 }
 
 @keyframes scrollBanger {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* ensure total image width is duplicated in HTML */
+  100% { transform: translateX(-50%); }
 }
 
 /* MAIN FLEX CONTAINER */
@@ -264,7 +263,6 @@ body {
 
   <!-- CENTER CONTENT -->
   <div class="center-content">
-    <!-- TICKER WITH SIDE GIFS -->
     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
       <img src="IMG_2504.gif" alt="Left GIF" style="width:80px; height:80px; margin-right:10px;">
       <div style="overflow: hidden; white-space: nowrap; flex: 1;">
@@ -300,15 +298,24 @@ body {
     <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
     <button onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
     <button class="gallery-btn" onclick="window.location.href='index-mobile.html'">Mobile / Tablet Version</button>
-    <!-- RIGHT PANEL BLINKIE (move inside here) -->
-  <div class="right-panel-blinkie" style="margin-top: 15px; text-align: center; width: 100%;">
-    <a href="#">
-      <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie GIF" style="width:120px; height:auto;">
-    </a>
   </div>
+</div> <!-- end of main-container -->
+
+<!-- RIGHT PANEL BLINKIE -->
+<div class="right-panel-blinkie" style="margin: 15px auto 0 auto; text-align: center; width: 220px;">
+  <a href="#">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie GIF" style="width:120px; height:auto;">
+  </a>
 </div>
 
+<!-- BOTTOM FEATURE IMAGE -->
+<div class="bottom-image">
+  <img src="vox1125.jpeg" alt="Baby V.O.X Feature">
+</div>
 
+<footer class="site-footer">
+  <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
+</footer>
 
 <script>
 // ----- SPLASH -----
@@ -363,7 +370,6 @@ function updateClock() {
   const clockEl = document.getElementById('local-clock');
   const now = new Date();
 
-  // Format: HH:MM:SS
   const hours = String(now.getHours()).padStart(2,'0');
   const minutes = String(now.getMinutes()).padStart(2,'0');
   const seconds = String(now.getSeconds()).padStart(2,'0');
@@ -371,19 +377,9 @@ function updateClock() {
   clockEl.textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-// Update every second
 setInterval(updateClock, 1000);
-updateClock(); // initialize immediately
+updateClock();
 </script>
-
-<!-- BOTTOM FEATURE IMAGE -->
-<div class="bottom-image">
-  <img src="vox1125.jpeg" alt="Baby V.O.X Feature">
-</div>
-
-<footer class="site-footer">
-  <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
-</footer>
 
 </body>
 </html>
