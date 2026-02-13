@@ -2,83 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Baby V.O.X Guestbook</title>
+<title>Baby V.O.X Newsletter</title>
 <style>
 body {
   font-family: "Comic Sans MS", cursive, sans-serif;
-  background: #ffb6c1;
+  background-color: #ffb6c1; /* classic Geocities pink */
   margin: 0;
   padding: 0;
-  color: #000;
-}
-
-.container {
-  width: 960px;
-  margin: auto;
-  background: #222;
-  border: 5px solid #ff69b4;
-  padding: 20px;
-}
-
-.header {
   text-align: center;
-  font-size: 36px;
+}
+
+/* Main container */
+.container {
+  width: 900px;
+  margin: 30px auto;
+}
+
+/* Header */
+h1 {
   color: #ff69b4;
   text-shadow: 2px 2px #000;
+  font-size: 48px;
   margin-bottom: 20px;
 }
 
+/* Retro text boxes */
+.text-box {
+  background-color: #fff;
+  border: 4px solid #ff69b4;
+  padding: 15px;
+  margin: 15px auto;
+  width: 80%;
+  border-radius: 10px;
+  color: #000;
+  font-size: 18px;
+  text-shadow: 1px 1px #aaa;
+}
+
+/* Newsletter icon */
+.newsletter-icon {
+  width: 400px;
+  border: 5px dashed #ff69b4;
+  border-radius: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.newsletter-icon:hover {
+  border-color: #ff85c1;
+}
+
+/* Optional: blinkie style */
 .blinkie {
-  display: block;
-  margin: 10px auto;
   width: 50px;
   height: 50px;
+  margin: 10px;
+  vertical-align: middle;
+  animation: blink 1s infinite;
 }
 
-.main {
-  background: #444;
-  padding: 20px;
-  border-radius: 6px;
-  text-align: center;
-}
-
-h2 {
-  color: #ff69b4;
-  text-shadow: 1px 1px #000;
-}
-
-p {
-  color: #fff;
-}
-
-.cbox-container {
-  margin-top: 20px;
-}
-iframe {
-  width: 100%;
-  height: 500px;
-  border: none;
-  border-radius: 6px;
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="header">Baby V.O.X Guestbook</div>
+  <!-- Header -->
+  <h1>Baby V.O.X Newsletter!</h1>
 
-  <!-- Blinkie -->
-  <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie" class="blinkie">
+  <!-- Greeting text boxes -->
+  <div class="text-box">
+    Hello fans! Welcome to this month’s newsletter page!
+  </div>
 
-  <!-- Main panel -->
-  <div class="main">
-    <h2>Welcome to the V.O.X Guestbook!</h2>
-    <p>Leave your message below and join fellow fans!</p>
+  <div class="text-box">
+    Click on the icon below to view this month’s letter and see all the latest Baby V.O.X updates!
+  </div>
 
-    <div class="cbox-container">
-      <!-- Replace this iframe src with your CBox embed URL -->
-      <iframe src="https://www.cbox.ws/box/?boxid=YOUR_BOX_ID&boxtag=YOUR_BOXTAG&sec=main" allowtransparency="true"></iframe>
-    </div>
+  <div class="text-box">
+    Don’t forget to check out our gallery, videos, and guestbook while you’re here! 💖
+  </div>
+
+  <!-- Newsletter icon -->
+  <a href="letter.html">
+    <img src="IMG_2570.jpeg" alt="Newsletter Issue" class="newsletter-icon">
+  </a>
+
+  <!-- Optional blinkie for extra retro feel -->
+  <div>
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie" class="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie" class="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie" class="blinkie">
   </div>
 </div>
 
