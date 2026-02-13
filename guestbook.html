@@ -93,14 +93,36 @@ button:active {
   box-shadow: 0 0 40px #ff66cc, 0 0 60px #ff99cc;
 }
 
-/* Result message */
-#result {
-  font-weight: bold;
-  margin-top: 15px;
+/* Messages container */
+#messages {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-box {
+  background-color: #fff0f8;
+  border: 3px dashed #ff66cc;
+  border-radius: 10px;
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.message-box h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
   color: #ff3399;
 }
 
-/* Optional blinkies below form */
+.message-box p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Retro blinkies */
 .blinkie-container img {
   width: 50px;
   height: 50px;
@@ -122,14 +144,9 @@ button:active {
 <!-- Container -->
 <div class="container">
   <h1>Guestbook</h1>
-
-  <!-- Forminit form -->
   <form id="guestbook-form">
-    <label>First Name:</label>
-    <input type="text" name="fi-sender-firstName" placeholder="Type your first name" required>
-
-    <label>Last Name:</label>
-    <input type="text" name="fi-sender-lastName" placeholder="Type your last name" required>
+    <label>Your Name:</label>
+    <input type="text" name="fi-sender-firstName" placeholder="Type your name here" required>
 
     <label>Email (optional):</label>
     <input type="email" name="fi-sender-email" placeholder="Type your email">
@@ -142,7 +159,10 @@ button:active {
 
   <a href="index.html" class="back-home">← Back to Home</a>
 
-  <div id="result"></div>
+  <!-- Messages -->
+  <div id="messages">
+    <h2>Messages from fans:</h2>
+  </div>
 
   <!-- Retro blinkies -->
   <div class="blinkie-container">
@@ -155,24 +175,54 @@ button:active {
 <!-- Include Forminit SDK -->
 <script src="https://forminit.com/sdk/v1/forminit.js"></script>
 <script>
-  const form = document.getElementById('guestbook-form');
-  const result = document.getElementById('result');
-  const FORM_ID = "hhhskibxeqc"; // your form ID
+  const forminit = new Forminit();
+  const FORM_ID = "hhhskibxeqc";
 
-  form.addEventListener('submit', async (e) => {
+  const form = document.getElementById("guestbook-form");
+  const messagesContainer = document.getElementById("messages");
+
+  // Submit new message
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const formData = new FormData(form);
-    const { data, error } = await new Forminit().submit(FORM_ID, formData);
+    const { data, error } = await forminit.submit(FORM_ID, formData);
 
     if (error) {
-      result.textContent = "Error: " + error.message;
+      alert(error.message);
       return;
     }
 
-    result.textContent = "Message sent successfully!";
+    alert("Message sent successfully!");
     form.reset();
+    loadMessages(); // Refresh messages after submitting
   });
+
+  // Load messages from Forminit
+  async function loadMessages() {
+    messagesContainer.innerHTML = "<h2>Messages from fans:</h2>";
+    try {
+      const { data, error } = await forminit.getSubmissions(FORM_ID, { limit: 50 });
+      if (error) throw new Error(error.message);
+
+      data.forEach(msg => {
+        const box = document.createElement("div");
+        box.className = "message-box";
+
+        const name = msg["fi-sender-firstName"] || "Anonymous";
+        const email = msg["fi-sender-email"] || "";
+        const message = msg["fi-text-message"] || "";
+
+        box.innerHTML = `<h3>${name}${email ? " ("+email+")" : ""}</h3><p>${message}</p>`;
+        messagesContainer.appendChild(box);
+      });
+    } catch (err) {
+      console.error(err);
+      messagesContainer.innerHTML += "<p>Unable to load messages at this time.</p>";
+    }
+  }
+
+  // Load messages on page load
+  loadMessages();
 </script>
 
 </body>
