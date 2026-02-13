@@ -1,132 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby VOX Fan Newsletter</title>
+<title>Baby V.O.X Guestbook</title>
 <style>
-/* ---------------- BODY ---------------- */
 body {
-  font-family: 'Comic Sans MS', Arial, sans-serif;
-  background: url('retro-bg.gif') repeat;
-  color: #ff3399;
-  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: #ffb6c1;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  color: #000;
 }
 
-/* ---------------- FLOATING DECORATIONS ---------------- */
-.decoration {
-  position: fixed;
-  font-size: 24px;
-  color: #fff;
-  animation: float 5s infinite alternate;
-}
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(20px) rotate(180deg); }
-  100% { transform: translateY(0) rotate(360deg); }
+.container {
+  width: 960px;
+  margin: auto;
+  background: #222;
+  border: 5px solid #ff69b4;
+  padding: 20px;
 }
 
-/* ---------------- HEADER ---------------- */
-h1 {
-  font-size: 3em;
-  margin: 20px 0;
-  color: #ff66b2;
-  text-shadow: 2px 2px #ff99cc, -2px -2px #ff33aa;
-  animation: glowHeader 1.5s infinite alternate;
-}
-@keyframes glowHeader {
-  0% { color: #ff66b2; text-shadow: 2px 2px #ff99cc; }
-  100% { color: #ff33aa; text-shadow: 2px 2px #ff66ff; }
-}
-
-/* ---------------- MARQUEE ---------------- */
-marquee {
-  font-size: 18px;
-  font-weight: bold;
-  color: #880e4f;
-  text-shadow: 1px 1px #ff99cc;
+.header {
+  text-align: center;
+  font-size: 36px;
+  color: #ff69b4;
+  text-shadow: 2px 2px #000;
   margin-bottom: 20px;
 }
 
-/* ---------------- NEWSLETTER BUTTON ---------------- */
-.newsletter-btn img {
-  width: 140px;
-  height: 140px;
-  border: 4px dashed #ff3399;
-  border-radius: 12px;
-  box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.5s;
-}
-.newsletter-btn img:hover {
-  transform: rotate(-10deg) scale(1.1);
-  box-shadow: 0 0 40px #ff33aa, 0 0 70px #ff66b2;
+.blinkie {
+  display: block;
+  margin: 10px auto;
+  width: 50px;
+  height: 50px;
 }
 
-/* ---------------- TEXT BOXES ---------------- */
-.text-box {
-  background: rgba(255, 255, 255, 0.9);
-  border: 3px double #ff3399;
-  border-radius: 12px;
+.main {
+  background: #444;
   padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  box-shadow: 0 0 30px #ff66b2;
-  text-align: left;
-  font-size: 16px;
-  line-height: 1.5em;
+  border-radius: 6px;
+  text-align: center;
 }
 
-/* ---------------- BACK BUTTON ---------------- */
-.back-btn {
-  margin-top: 30px;
-  padding: 12px 24px;
-  font-size: 18px;
-  border: 3px solid #ff3399;
-  border-radius: 12px;
-  background: #ff66b2;
-  color: white;
-  cursor: pointer;
-  text-shadow: 1px 1px #ff99cc;
-  transition: transform 0.3s, background 0.3s;
+h2 {
+  color: #ff69b4;
+  text-shadow: 1px 1px #000;
 }
-.back-btn:hover {
-  transform: scale(1.05) rotate(-1deg);
-  background: #ff33aa;
+
+p {
+  color: #fff;
+}
+
+.cbox-container {
+  margin-top: 20px;
+}
+iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 6px;
 }
 </style>
 </head>
 <body>
 
-<!-- Floating decorations -->
-<div class="decoration" style="top:50px; left:10%;">✨</div>
-<div class="decoration" style="top:150px; left:80%;">💖</div>
-<div class="decoration" style="top:300px; left:30%;">🌟</div>
-<div class="decoration" style="top:400px; left:60%;">🎶</div>
+<div class="container">
+  <div class="header">Baby V.O.X Guestbook</div>
 
-<h1>Baby VOX Fan Newsletter</h1>
+  <!-- Blinkie -->
+  <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie" class="blinkie">
 
-<marquee behavior="scroll" direction="left" scrollamount="8">💗 Get the latest news, updates & fan content from Baby VOX! 💗</marquee>
+  <!-- Main panel -->
+  <div class="main">
+    <h2>Welcome to the V.O.X Guestbook!</h2>
+    <p>Leave your message below and join fellow fans!</p>
 
-<div class="text-box">
-  <p>Welcome to the ultimate Baby VOX fan newsletter! Click the icon below to open the latest edition, filled with member updates, videos, fanart, and special behind-the-scenes content!</p>
+    <div class="cbox-container">
+      <!-- Replace this iframe src with your CBox embed URL -->
+      <iframe src="https://www.cbox.ws/box/?boxid=YOUR_BOX_ID&boxtag=YOUR_BOXTAG&sec=main" allowtransparency="true"></iframe>
+    </div>
+  </div>
 </div>
-
-<div class="newsletter-btn">
-  <a href="letter.html">
-    <img src="IMG_2570.jpeg" alt="Newsletter Icon">
-  </a>
-</div>
-
-<div class="text-box">
-  <p>Don't miss out! New issues every month! 💖 Keep your eyes on our fan community for exclusive content and surprises.</p>
-</div>
-
-<button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 
 </body>
 </html>
