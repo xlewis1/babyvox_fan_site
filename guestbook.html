@@ -2,83 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Guestbook</title>
 <style>
+/* Geocities-style body */
 body {
   font-family: "Comic Sans MS", cursive, sans-serif;
-  background: #ffb6c1;
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  color: #4B0082;
   margin: 0;
   padding: 0;
-  color: #000;
+  text-align: center;
 }
 
+/* Spinning logo */
+.spinning-logo {
+  width: 150px;
+  margin: 20px auto;
+  animation: spin 6s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Container */
 .container {
-  width: 960px;
-  margin: auto;
-  background: #222;
-  border: 5px solid #ff69b4;
+  width: 800px;
+  margin: 0 auto 50px auto;
+  background-color: #ffe6f0;
+  border: 5px dashed #ff66cc;
+  border-radius: 15px;
   padding: 20px;
 }
 
-.header {
-  text-align: center;
-  font-size: 36px;
-  color: #ff69b4;
-  text-shadow: 2px 2px #000;
-  margin-bottom: 20px;
+/* Header */
+h1 {
+  color: #ff3399;
+  text-shadow: 2px 2px #fff;
+  font-size: 48px;
+  margin-bottom: 25px;
 }
 
-.blinkie {
-  display: block;
-  margin: 10px auto;
+/* Guestbook form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+}
+
+/* Input fields */
+input, textarea {
+  width: 90%;
+  padding: 8px;
+  border: 3px dashed #ff66cc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 16px;
+}
+
+/* Submit button */
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  background: #ff66cc;
+  color: white;
+  border: 3px dashed #ff3399;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 10px #ff99cc;
+  transition: 0.2s;
+}
+
+button:hover {
+  box-shadow: 0 0 25px #ff99cc, 0 0 40px #ff66cc;
+  transform: scale(1.05) rotate(-2deg);
+}
+
+button:active {
+  transform: scale(0.95) rotate(5deg);
+  box-shadow: 0 0 40px #ff66cc, 0 0 60px #ff99cc;
+}
+
+/* Optional blinkies below form */
+.blinkie-container img {
   width: 50px;
   height: 50px;
+  margin: 5px;
+  animation: blink 1s infinite;
 }
 
-.main {
-  background: #444;
-  padding: 20px;
-  border-radius: 6px;
-  text-align: center;
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
 }
 
-h2 {
-  color: #ff69b4;
-  text-shadow: 1px 1px #000;
-}
-
-p {
-  color: #fff;
-}
-
-.cbox-container {
-  margin-top: 20px;
-}
-iframe {
-  width: 100%;
-  height: 500px;
-  border: none;
-  border-radius: 6px;
-}
 </style>
 </head>
 <body>
 
+<!-- Spinning Baby V.O.X Logo -->
+<img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="spinning-logo">
+
+<!-- Container -->
 <div class="container">
-  <div class="header">Baby V.O.X Guestbook</div>
+  <h1>Guestbook</h1>
+  <form action="https://xlewis1.github.io/babyvox_fan_site/" method="POST">
+    <label>Your Name:</label>
+    <input type="text" name="name" placeholder="Type your name here" required>
 
-  <!-- Blinkie -->
-  <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie" class="blinkie">
+    <label>Email (optional):</label>
+    <input type="email" name="email" placeholder="Type your email">
 
-  <!-- Main panel -->
-  <div class="main">
-    <h2>Welcome to the V.O.X Guestbook!</h2>
-    <p>Leave your message below and join fellow fans!</p>
+    <label>Message:</label>
+    <textarea name="message" rows="6" placeholder="Write your message here..." required></textarea>
 
-    <div class="cbox-container">
-      <!-- Replace this iframe src with your CBox embed URL -->
-      <iframe src="https://www.cbox.ws/box/?boxid=YOUR_BOX_ID&boxtag=YOUR_BOXTAG&sec=main" allowtransparency="true"></iframe>
-    </div>
+    <button type="submit">Sign Guestbook!</button>
+  </form>
+
+  <!-- Retro blinkies -->
+  <div class="blinkie-container">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie">
   </div>
 </div>
 
