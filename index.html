@@ -62,26 +62,22 @@ body {
   border-radius: 12px;
   background: #ffe6f0;
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 20px;
 }
-  
 .scrolling-banger-wrapper {
   display: flex;
   width: max-content;
   animation: scrollBanger 15s linear infinite;
 }
-
 .scrolling-banger-wrapper img {
   height: 100%;
   flex-shrink: 0;
   object-fit: cover;
   margin: 0;
 }
-
 @keyframes scrollBanger {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -111,12 +107,10 @@ body {
   flex: 1;
   justify-content: flex-start;
 }
-
 .sidebar::after {
   content: "";
   flex-grow: 1;
 }
-
 .sidebar img {
   width: 120px;
   margin-bottom: 20px;
@@ -185,12 +179,10 @@ body {
   flex: 1;
   justify-content: flex-start;
 }
-
 .right-panel::after {
   content: "";
   flex-grow: 1;
 }
-
 .right-panel p { margin: 5px 0; text-align: center; }
 .right-panel #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
 .right-panel #mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; }
@@ -223,7 +215,6 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 12px #ff99cc;
 }
-  
 </style>
 </head>
 <body>
@@ -293,7 +284,14 @@ body {
       <option value="zh">Chinese</option>
       <option value="ja">Japanese</option>
     </select>
-    <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
+    <p><strong>Visitor Count:</strong></p>
+    <!-- Free Visitor Counter Code -->
+    <div id="visitor-count">
+      <a href='https://www.counters-free.net/'>COUNTER-free</a>
+      <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
+      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
+    </div>
+
     <p><strong>Mini Gallery:</strong></p>
     <div id="mini-gallery"></div>
     <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
@@ -319,13 +317,6 @@ function hideSplash() { splash.style.display = 'none'; }
 if (!sessionStorage.getItem('splashShown')) { splash.style.display = 'flex'; } 
 else { splash.style.display = 'none'; }
 enterButton.addEventListener('click', () => { hideSplash(); sessionStorage.setItem('splashShown','true'); });
-
-// ----- VISITOR COUNTER -----
-const visitorCountEl = document.getElementById('visitor-count');
-let count = parseInt(localStorage.getItem('visitorCount')) || 0;
-count++;
-localStorage.setItem('visitorCount', count);
-visitorCountEl.textContent = count;
 
 // ----- MINI GALLERY -----
 const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
@@ -363,14 +354,11 @@ document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
 function updateClock() {
   const clockEl = document.getElementById('local-clock');
   const now = new Date();
-
   const hours = String(now.getHours()).padStart(2,'0');
   const minutes = String(now.getMinutes()).padStart(2,'0');
   const seconds = String(now.getSeconds()).padStart(2,'0');
-
   clockEl.textContent = `${hours}:${minutes}:${seconds}`;
 }
-
 setInterval(updateClock, 1000);
 updateClock();
 </script>
