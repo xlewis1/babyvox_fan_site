@@ -48,8 +48,27 @@ h1 {
   cursor: pointer;
 }
 
+/* Glow on hover */
 .newsletter-icon:hover {
   border-color: #ff85c1;
+  box-shadow: 0 0 25px #ff85c1, 0 0 50px #ff69b4;
+  transform: scale(1.05) rotate(-2deg);
+  animation: bounce 0.4s ease;
+}
+
+/* Tilt and glow on click */
+.newsletter-icon:active {
+  transform: scale(0.95) rotate(5deg);
+  box-shadow: 0 0 40px #ff69b4, 0 0 60px #ff85c1;
+}
+
+/* Bounce keyframes */
+@keyframes bounce {
+  0% { transform: scale(1.05) rotate(-2deg); }
+  25% { transform: scale(1.10) rotate(-3deg); }
+  50% { transform: scale(1.05) rotate(-2deg); }
+  75% { transform: scale(1.08) rotate(-1deg); }
+  100% { transform: scale(1.05) rotate(-2deg); }
 }
 
 /* Optional: blinkie style */
@@ -58,13 +77,8 @@ h1 {
   height: 50px;
   margin: 10px;
   vertical-align: middle;
-  animation: blink 1s infinite;
 }
 
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
 </style>
 </head>
 <body>
