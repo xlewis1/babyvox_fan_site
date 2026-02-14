@@ -6,53 +6,70 @@
 <title>Baby VOX Group Gallery</title>
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <style>
-/* Body & Gradient Background */
+/* Animate Gradient Background */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 body {
   font-family: 'Courier New', Courier, monospace;
-  text-align: center;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff); /* Soft pastel gradient */
-  color: #4B0082;
   margin: 0;
   padding: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff, #ffd1e8, #f0c0ff);
+  background-size: 400% 400%;
+  animation: gradientMove 20s ease infinite;
+  color: #4B0082;
+}
+
+/* Main panel container */
+.panel {
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  padding: 20px;
+  background: #fff0f8;
+  border: 4px double #ff66cc;
+  box-shadow: 0 0 15px #ff99cc;
+  border-radius: 12px;
 }
 
 /* Title & instructions */
 h1 {
-  color: #4B0082;
   font-size: 2rem;
   margin-bottom: 10px;
   text-shadow: 1px 1px #ff99cc;
 }
 .instructions {
-  color: #4B0082;
-  margin-bottom: 30px;
   font-size: 16px;
+  margin-bottom: 30px;
   font-weight: bold;
+  color: #4B0082;
 }
 
-/* Gallery grid */
+/* Gallery grid - 3 per row always */
 .member-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-items: center;
-  margin-bottom: 40px;
 }
 .member-gallery img {
-  width: 100px;
-  height: 150px;
+  width: 150px;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
   border: 3px double #ff66cc;
-  padding: 3px;
+  padding: 4px;
   background: #fff0f8;
   border-radius: 8px;
-  box-shadow: 0 0 8px #ff99cc;
+  box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .member-gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px #ff66b2;
+  box-shadow: 0 0 25px #ff66b2;
   animation: pulse 1s infinite alternate;
 }
 @keyframes pulse {
@@ -92,7 +109,7 @@ h1 {
 /* Back buttons */
 .back-btn {
   margin: 10px;
-  padding: 8px 12px;
+  padding: 10px 16px;
   border-radius: 6px;
   background: #ff66b2;
   color: white;
@@ -102,43 +119,55 @@ h1 {
 .back-btn:hover {
   background: #ff33aa;
 }
+
+/* Responsive adjustments - grid stays 3 columns on all devices */
+@media (max-width: 1200px) { .member-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 1024px) { .member-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px)  { .member-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 480px)  { .member-gallery { grid-template-columns: repeat(3, 1fr); } }
 </style>
 </head>
 <body>
 
-<h1>Baby VOX Group Gallery</h1>
-<p class="instructions">
-Click an image to open the lightbox. Navigate with arrows or click X to close. Click the lightbox image for full resolution.
-</p>
+<div class="panel">
+  <h1>Baby VOX Group Gallery</h1>
+  <p class="instructions">
+    Click an image to open the lightbox. Navigate with arrows or click X to close. Click the lightbox image for full resolution.
+  </p>
 
-<div id="group-gallery" class="member-gallery">
-  <!-- Group images -->
-  <a href="Baby_Vox.jpg"><img src="Baby_Vox.jpg" alt="Baby Vox"></a>
-  <a href="baby_vox copy.jpg"><img src="baby_vox copy.jpg" alt="Baby Vox Copy"></a>
-  <a href="Babyvox.jpg"><img src="Babyvox.jpg" alt="Baby Vox Home"></a>
-  <a href="BABYVOX2.jpg"><img src="BABYVOX2.jpg" alt="Baby Vox 2"></a>
-  <a href="BABYVOX4.jpg"><img src="BABYVOX4.jpg" alt="Baby Vox 4"></a>
-  <a href="BABYVOX5.jpg"><img src="BABYVOX5.jpg" alt="Baby Vox 5"></a>
-  <a href="BABYVOX6.jpg"><img src="BABYVOX6.jpg" alt="Baby Vox 6"></a>
-  <a href="BABYVOX7.jpeg"><img src="BABYVOX7.jpeg" alt="Baby Vox 7"></a>
-  <a href="BABYVOX8.jpeg"><img src="BABYVOX8.jpeg" alt="Baby Vox 8"></a>
-  <a href="Babyvox9.jpg"><img src="Babyvox9.jpg" alt="Baby Vox 9"></a>
-  <a href="vox_4th57.jpg"><img src="vox_4th57.jpg" alt="Baby Vox 10"></a>
-  <a href="vox_4th56.jpg"><img src="vox_4th56.jpg" alt="Baby Vox 11"></a>
-  <a href="Babyvox12.jpg"><img src="Babyvox12.jpg" alt="Baby Vox 12"></a>
-  <a href="Babyvox13.jpg"><img src="Babyvox13.jpg" alt="Baby Vox 13"></a>
-  <a href="babyvox1997.jpg"><img src="babyvox1997.jpg" alt="Baby Vox 1997"></a>
-  <a href="1997vox.jpg"><img src="1997vox.jpg" alt="Baby Vox 1997 2"></a>
-  <a href="BABYVOX14.jpg"><img src="BABYVOX14.jpg" alt="Baby Vox 14"></a>
-  <a href="BABYVOX15.jpg"><img src="BABYVOX15.jpg" alt="Baby Vox 15"></a>
-  <a href="images.jpeg"><img src="images.jpeg" alt="Baby Vox 16"></a>
-  <a href="babyvox30.jpg"><img src="babyvox30.jpg" alt="Baby Vox 30"></a>
-  <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Baby Vox 31"></a>
-  <a href="VoxXmas.JPG"><img src="VoxXmas.JPG" alt="Baby Vox 32"></a>
-  <a href="daum_825.jpg"><img src="daum_825.jpg" alt="Baby Vox 33"></a>
-  <a href="IMG_1985.jpeg"><img src="IMG_1985.jpeg" alt="Baby Vox 34"></a>
-  <a href="IMG_1986.jpeg"><img src="IMG_1986.jpeg" alt="Baby Vox 35"></a>
-  <a href="IMG_2059.jpeg"><img src="IMG_2059.jpeg" alt="Baby Vox 36"></a>
+  <div id="group-gallery" class="member-gallery">
+    <!-- All 36 images -->
+    <a href="Baby_Vox.jpg"><img src="Baby_Vox.jpg" alt="Baby Vox"></a>
+    <a href="baby_vox copy.jpg"><img src="baby_vox copy.jpg" alt="Baby Vox Copy"></a>
+    <a href="Babyvox.jpg"><img src="Babyvox.jpg" alt="Baby Vox Home"></a>
+    <a href="BABYVOX2.jpg"><img src="BABYVOX2.jpg" alt="Baby Vox 2"></a>
+    <a href="BABYVOX4.jpg"><img src="BABYVOX4.jpg" alt="Baby Vox 4"></a>
+    <a href="BABYVOX5.jpg"><img src="BABYVOX5.jpg" alt="Baby Vox 5"></a>
+    <a href="BABYVOX6.jpg"><img src="BABYVOX6.jpg" alt="Baby Vox 6"></a>
+    <a href="BABYVOX7.jpeg"><img src="BABYVOX7.jpeg" alt="Baby Vox 7"></a>
+    <a href="BABYVOX8.jpeg"><img src="BABYVOX8.jpeg" alt="Baby Vox 8"></a>
+    <a href="Babyvox9.jpg"><img src="Babyvox9.jpg" alt="Baby Vox 9"></a>
+    <a href="vox_4th57.jpg"><img src="vox_4th57.jpg" alt="Baby Vox 10"></a>
+    <a href="vox_4th56.jpg"><img src="vox_4th56.jpg" alt="Baby Vox 11"></a>
+    <a href="Babyvox12.jpg"><img src="Babyvox12.jpg" alt="Baby Vox 12"></a>
+    <a href="Babyvox13.jpg"><img src="Babyvox13.jpg" alt="Baby Vox 13"></a>
+    <a href="babyvox1997.jpg"><img src="babyvox1997.jpg" alt="Baby Vox 1997"></a>
+    <a href="1997vox.jpg"><img src="1997vox.jpg" alt="Baby Vox 1997 2"></a>
+    <a href="BABYVOX14.jpg"><img src="BABYVOX14.jpg" alt="Baby Vox 14"></a>
+    <a href="BABYVOX15.jpg"><img src="BABYVOX15.jpg" alt="Baby Vox 15"></a>
+    <a href="images.jpeg"><img src="images.jpeg" alt="Baby Vox 16"></a>
+    <a href="babyvox30.jpg"><img src="babyvox30.jpg" alt="Baby Vox 30"></a>
+    <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Baby Vox 31"></a>
+    <a href="VoxXmas.JPG"><img src="VoxXmas.JPG" alt="Baby Vox 32"></a>
+    <a href="daum_825.jpg"><img src="daum_825.jpg" alt="Baby Vox 33"></a>
+    <a href="IMG_1985.jpeg"><img src="IMG_1985.jpeg" alt="Baby Vox 34"></a>
+    <a href="IMG_1986.jpeg"><img src="IMG_1986.jpeg" alt="Baby Vox 35"></a>
+    <a href="IMG_2059.jpeg"><img src="IMG_2059.jpeg" alt="Baby Vox 36"></a>
+  </div>
+
+  <!-- Navigation buttons -->
+  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 </div>
 
 <!-- Lightbox -->
@@ -149,12 +178,6 @@ Click an image to open the lightbox. Navigate with arrows or click X to close. C
     <button id="next">&#8594;</button>
     <button id="close">X</button>
   </div>
-</div>
-
-<!-- Navigation buttons -->
-<div>
-  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
-  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 </div>
 
 <script>
