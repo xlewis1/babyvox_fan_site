@@ -4,35 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby VOX Group Gallery</title>
-
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <style>
+/* Body & Gradient Background */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   text-align: center;
-  background-color: rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff); /* Soft pastel gradient */
+  color: #4B0082;
   margin: 0;
   padding: 20px;
-}
-
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
 }
 
 /* Title & instructions */
 h1 {
   color: #4B0082;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #ff99cc;
 }
 .instructions {
   color: #4B0082;
   margin-bottom: 30px;
   font-size: 16px;
+  font-weight: bold;
 }
 
 /* Gallery grid */
@@ -48,7 +43,10 @@ h1 {
   height: 150px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 6px;
+  border: 3px double #ff66cc;
+  padding: 3px;
+  background: #fff0f8;
+  border-radius: 8px;
   box-shadow: 0 0 8px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -107,8 +105,6 @@ h1 {
 </style>
 </head>
 <body>
-
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Baby VOX Group Gallery</h1>
 <p class="instructions">
