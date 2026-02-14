@@ -4,45 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kan Mi Youn Gallery - Page 2 | Baby VOX Fansite</title>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 
 <style>
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: rgba(0,0,0,0.1);
   margin: 0;
-  padding: 20px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffe6f0, #f8e1ff);
 }
 
-/* Title & instructions */
+/* Framed container */
+.page-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border: 6px double hotpink;
+  box-shadow: 0 0 25px #ff66cc;
+  text-align: center;
+}
+
 h1 {
   color: #4B0082;
+  margin-bottom: 10px;
 }
+
 .instructions {
   color: #4B0082;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 
-/* Gallery grid */
+/* Fixed 3-column gallery */
 .member-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 20px;
   justify-items: center;
-  margin-bottom: 40px;
 }
+
+/* Thumbnails */
 .member-gallery img {
   width: 150px;
   height: 200px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 8px;
   border: 3px double #ff66cc;
-  background: #fff0f8;
   padding: 3px;
+  background: #fff0f8;
+  border-radius: 8px;
   box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .member-gallery img:hover {
   transform: scale(1.06);
   box-shadow: 0 0 25px #ff66b2;
@@ -53,22 +68,24 @@ h1 {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 1000;
 }
+
 .lightbox img {
-  max-width: 80%;
+  max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.lightbox .controls button {
+
+.controls button {
   font-size: 20px;
   margin: 5px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   cursor: pointer;
   border-radius: 6px;
   border: none;
@@ -76,48 +93,44 @@ h1 {
   color: white;
 }
 
+.controls button:hover {
+  background: #cc0077;
+}
+
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 10px 18px;
+  border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
-}
-.back-btn:hover {
-  background: #ff33aa;
+  font-weight: bold;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .member-gallery { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .member-gallery { grid-template-columns: 1fr; }
-  .member-gallery img { width: 70%; height: auto; }
+.back-btn:hover {
+  background: #ff33aa;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Kan Mi Youn Gallery – Page 2</h1>
-<p class="instructions">
-Click any image to open the lightbox.  
-Use arrows to navigate, X to close.  
-Click the image for full resolution in a new tab.
-</p>
+<div class="page-wrapper">
 
-<!-- Miyoun Gallery Page 2 -->
+<h1>Kan Mi Youn Gallery – Page 2</h1>
+<p class="instructions">Click an image to open the lightbox. Use arrow keys or X to close. Click image for full resolution.</p>
+
 <div id="miyoun-gallery" class="member-gallery">
+  <!-- New batch of images -->
   <a href="IMG_2418.jpeg"><img src="IMG_2418.jpeg" alt="Kan Mi Youn 2418"></a>
+  <!-- Add more images for page 2 here -->
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="" alt="">
+  <img src="" id="lightbox-img">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -127,9 +140,12 @@ Click the image for full resolution in a new tab.
 
 <!-- Navigation -->
 <div>
-  <button class="back-btn" onclick="window.location.href='miyoun.html'">Back to Page 1</button>
+  <button class="back-btn" onclick="window.location.href='miyoun.html'">← Previous Page</button>
+  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
   <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
   <button class="back-btn" onclick="window.location.href='miyoun3.html'">Next Page →</button>
+</div>
+
 </div>
 
 <script>
