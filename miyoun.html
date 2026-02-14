@@ -14,22 +14,22 @@ body {
   background: linear-gradient(to bottom, #ffe6f0, #f8e1ff);
 }
 
-/* Page wrapper container */
+/* Framed container */
 .page-wrapper {
   max-width: 1100px;
   margin: auto;
-  background: #fff0f8;
+  background: white;
   padding: 30px;
-  border: 6px double #ff66cc;
-  box-shadow: 0 0 25px #ff99cc;
+  border: 6px double hotpink;
+  box-shadow: 0 0 25px #ff66cc;
   text-align: center;
 }
 
-/* Title & instructions */
 h1 {
   color: #4B0082;
   margin-bottom: 10px;
 }
+
 .instructions {
   color: #4B0082;
   margin-bottom: 30px;
@@ -40,9 +40,11 @@ h1 {
 .member-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 20px;
   justify-items: center;
 }
+
+/* Thumbnails */
 .member-gallery img {
   width: 150px;
   height: 200px;
@@ -55,6 +57,7 @@ h1 {
   box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .member-gallery img:hover {
   transform: scale(1.06);
   box-shadow: 0 0 25px #ff66b2;
@@ -71,12 +74,14 @@ h1 {
   flex-direction: column;
   z-index: 1000;
 }
+
 .lightbox img {
   max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
 }
+
 .controls button {
   font-size: 20px;
   margin: 5px;
@@ -87,6 +92,7 @@ h1 {
   background: #ff3399;
   color: white;
 }
+
 .controls button:hover {
   background: #cc0077;
 }
@@ -102,26 +108,21 @@ h1 {
   cursor: pointer;
   font-weight: bold;
 }
+
 .back-btn:hover {
   background: #ff33aa;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .member-gallery { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .member-gallery { grid-template-columns: 1fr; }
-  .member-gallery img { width: 70%; height: auto; }
-}
+/* Keep 3-column layout even on small screens */
 </style>
 </head>
 
 <body>
+
 <div class="page-wrapper">
 
 <h1>Kan Mi Youn Gallery</h1>
-<p class="instructions">Click an image to open the lightbox. Use arrows or X to close. Click image for full resolution.</p>
+<p class="instructions">Click an image to open the lightbox. Use arrow keys or X to close. Click image for full resolution.</p>
 
 <div id="miyoun-gallery" class="member-gallery">
   <a href="MIYOUN2.webp"><img src="MIYOUN2.webp" alt="Kan Mi Youn 2"></a>
