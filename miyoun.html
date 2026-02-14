@@ -8,10 +8,10 @@
 <style>
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: rgba(0,0,0,0.1);
   margin: 0;
-  padding: 20px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffe6f0, #f8e1ff);
+  text-align: center;
 }
 
 /* Spinning logo */
@@ -25,9 +25,22 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* Panel wrapper */
+.page-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  background: #fff0f8;
+  border: 6px double #ff66cc;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px #ff99cc;
+  text-align: center;
+}
+
 /* Title & instructions */
 h1 {
   color: #4B0082;
+  margin-bottom: 10px;
 }
 .instructions {
   color: #4B0082;
@@ -37,23 +50,25 @@ h1 {
 /* Gallery grid */
 .member-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   justify-items: center;
-  margin-bottom: 40px;
 }
 .member-gallery img {
-  width: 120px;
-  height: 180px;
+  width: 150px;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
   border-radius: 8px;
-  box-shadow: 0 0 8px #ff99cc;
+  border: 3px double #ff66cc;
+  background: #fff0f8;
+  padding: 3px;
+  box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .member-gallery img:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 18px #ff66b2;
+  box-shadow: 0 0 25px #ff66b2;
 }
 
 /* Lightbox */
@@ -64,8 +79,8 @@ h1 {
   background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
   flex-direction: column;
+  z-index: 1000;
 }
 .lightbox img {
   max-width: 80%;
@@ -97,21 +112,30 @@ h1 {
 .back-btn:hover {
   background: #ff33aa;
 }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .member-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .member-gallery { grid-template-columns: 1fr; }
+  .member-gallery img { width: 70%; height: auto; }
+}
 </style>
 </head>
 
 <body>
 
+<div class="page-wrapper">
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Kan Mi Youn Gallery</h1>
 <p class="instructions">
 Click any image to open the lightbox.  
 Use arrows to navigate, X to close.  
-Click the image for full resolution in a new tab.
+Click the image for full resolution.
 </p>
 
-<!-- Miyoun Gallery -->
 <div id="miyoun-gallery" class="member-gallery">
   <a href="MIYOUN2.webp"><img src="MIYOUN2.webp" alt="Kan Mi Youn 2"></a>
   <a href="MIYOUN3.webp"><img src="MIYOUN3.webp" alt="Kan Mi Youn 3"></a>
@@ -136,10 +160,10 @@ Click the image for full resolution in a new tab.
   <a href="MIYOUN51.jpg"><img src="MIYOUN51.jpg" alt="Kan Mi Youn 51"></a>
   <a href="MIYOUN52.jpg"><img src="MIYOUN52.jpg" alt="Kan Mi Youn 52"></a>
   <a href="MIYOUN53.jpg"><img src="MIYOUN53.jpg" alt="Kan Mi Youn 53"></a>
-  <a href="Heejin&Miyoun1.jpg"><img src="Heejin&Miyoun1.jpg" alt="Kan Mi Youn and Lee Heejin"></a>
-  <a href="MIYOUN56.jpg"><img src="MIYOUN56.jpg" alt="Kan Mi Youn 53"></a>
-  <a href="IMG_1483.jpeg"><img src="IMG_1483.jpeg" alt="Kan Mi Youn 54"></a>
-  <a href="IMG_2417.jpeg"><img src="IMG_2417.jpeg" alt="Kan Mi Youn 55"></a>
+  <a href="Heejin&Miyoun1.jpg"><img src="Heejin&Miyoun1.jpg" alt="Kan Mi Youn & Lee Heejin"></a>
+  <a href="MIYOUN56.jpg"><img src="MIYOUN56.jpg" alt="Kan Mi Youn 56"></a>
+  <a href="IMG_1483.jpeg"><img src="IMG_1483.jpeg" alt="Kan Mi Youn 57"></a>
+  <a href="IMG_2417.jpeg"><img src="IMG_2417.jpeg" alt="Kan Mi Youn 58"></a>
 </div>
 
 <!-- Lightbox -->
@@ -169,30 +193,21 @@ gallery.forEach((item, index) => {
   item.addEventListener('click', e => {
     e.preventDefault();
     currentIndex = index;
-    openLightbox();
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
   });
 });
 
-function openLightbox() {
-  lightbox.style.display = 'flex';
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
-function closeLightbox() {
-  lightbox.style.display = 'none';
-}
-
+function closeLightbox() { lightbox.style.display = 'none'; }
 function nextImage() {
   currentIndex = (currentIndex + 1) % gallery.length;
   lightboxImg.src = gallery[currentIndex].href;
 }
-
 function prevImage() {
   currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
   lightboxImg.src = gallery[currentIndex].href;
 }
 
-// Full-res click
 lightboxImg.addEventListener('click', () => {
   window.open(lightboxImg.src, '_blank');
 });
