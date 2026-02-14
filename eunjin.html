@@ -8,36 +8,36 @@
 <style>
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: rgba(0,0,0,0.1);
   margin: 0;
-  padding: 20px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffd6f5, #ff9edc);
 }
 
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Title */
-h1 {
-  color: #4B0082;
-}
-.instructions {
-  color: #4B0082;
-  margin-bottom: 30px;
+/* Framed container */
+.page-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border: 6px double hotpink;
+  box-shadow: 0 0 25px #ff66cc;
+  text-align: center;
 }
 
-/* Gallery grid */
+h1 { 
+  color: #4B0082; 
+  margin-bottom: 10px;
+}
+
+.instructions { 
+  color: #4B0082; 
+  margin-bottom: 30px; 
+}
+
+/* Gallery grid: always 3 per row */
 .member-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   justify-items: center;
   margin-bottom: 40px;
@@ -53,33 +53,35 @@ h1 {
   box-shadow: 0 0 8px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .member-gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #ff66b2;
+  box-shadow: 0 0 18px #ff33aa;
 }
 
 /* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.85);
+  inset: 0;
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 1000;
 }
+
 .lightbox img {
-  max-width: 85%;
+  max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.lightbox .controls button {
+
+.controls button {
   font-size: 20px;
   margin: 5px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   cursor: pointer;
   border-radius: 4px;
   border: none;
@@ -87,60 +89,77 @@ h1 {
   color: white;
 }
 
+.controls button:hover {
+  background: #cc0077;
+}
+
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
-.back-btn:hover {
-  background: #ff33aa;
+
+.back-btn:hover { 
+  background: #ff33aa; 
+}
+
+/* Spinning logo */
+.logo {
+  height: 80px;
+  animation: spin 5s linear infinite;
+  margin-bottom: 20px;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 </style>
 </head>
-
 <body>
+
+<div class="page-wrapper">
 
 <img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Shim Eun Jin Gallery</h1>
 <p class="instructions">
-Click an image to view it in the lightbox.  
-Use arrows to navigate. Click the image for full resolution.
+Click an image to open the lightbox. Use arrow keys to navigate. Click image for full resolution.
 </p>
 
 <!-- Eun Jin Gallery -->
 <div id="eunjin-gallery" class="member-gallery">
-  <a href="EUNJIN.jpg"><img src="EUNJIN.jpg" alt="Shim Eun Jin 1"></a>
-  <a href="shim_3rd13.jpg"><img src="shim_3rd13.jpg" alt="Shim Eun Jin 3"></a>
-  <a href="shim_3rd14.jpg"><img src="shim_3rd14.jpg" alt="Shim Eun Jin 4"></a>
-  <a href="eunjin5.jpg"><img src="eunjin5.jpg" alt="Shim Eun Jin 5"></a>
-  <a href="eunjin6.jpg"><img src="eunjin6.jpg" alt="Shim Eun Jin 6"></a>
-  <a href="shimeunjin7.jpg"><img src="shimeunjin7.jpg" alt="Shim Eun Jin 7"></a>
-  <a href="eunjin11_upscaled.jpg"><img src="eunjin11_upscaled.jpg" alt="Shim Eun Jin 11"></a>
-  <a href="eunjin14.jpg"><img src="eunjin14.jpg" alt="Shim Eun Jin 14"></a>
-  <a href="Eunjin12_upscaled.jpg"><img src="Eunjin12_upscaled.jpg" alt="Shim Eun Jin 12"></a>
-  <a href="Eunjin45.jpg"><img src="Eunjin45.jpg" alt="Shim Eun Jin 45"></a>
-  <a href="Eunjin46.png"><img src="Eunjin46.png" alt="Shim Eun Jin 46"></a>
-  <a href="IMG_4656.jpg"><img src="IMG_4656.jpg" alt="Shim Eun Jin 47"></a>
-  <a href="IMG_4657.jpg"><img src="IMG_4657.jpg" alt="Shim Eun Jin 48"></a>
-  <a href="IMG_4658.jpg"><img src="IMG_4658.jpg" alt="Shim Eun Jin 49"></a>  
-  <a href="IMG_2062.jpeg"><img src="IMG_2062.jpeg" alt="Shim Eun Jin 50"></a>
-  <a href="IMG_2274.jpeg"><img src="IMG_2274.jpeg" alt="Shim Eun Jin 51"></a>
-  <a href="IMG_2245.jpeg"><img src="IMG_2245.jpeg" alt="Shim Eun Jin 52"></a>
-  <a href="IMG_2254.jpeg"><img src="IMG_2254.jpeg" alt="Shim Eun Jin 53"></a>
-  <a href="Untitled856.png"><img src="Untitled856.png" alt="Shim Eun Jin 54"></a>
-  <a href="FB_IMG_1766678581286.jpeg"><img src="FB_IMG_1766678581286.jpeg" alt="Shim Eun Jin 55"></a>
-  <a href="FB_IMG_1766678631506.jpeg"><img src="FB_IMG_1766678631506.jpeg" alt="Shim Eun Jin 56"></a>
+  <a href="EUNJIN.jpg"><img src="EUNJIN.jpg" alt=""></a>
+  <a href="shim_3rd13.jpg"><img src="shim_3rd13.jpg" alt=""></a>
+  <a href="shim_3rd14.jpg"><img src="shim_3rd14.jpg" alt=""></a>
+  <a href="eunjin5.jpg"><img src="eunjin5.jpg" alt=""></a>
+  <a href="eunjin6.jpg"><img src="eunjin6.jpg" alt=""></a>
+  <a href="shimeunjin7.jpg"><img src="shimeunjin7.jpg" alt=""></a>
+  <a href="eunjin11_upscaled.jpg"><img src="eunjin11_upscaled.jpg" alt=""></a>
+  <a href="eunjin14.jpg"><img src="eunjin14.jpg" alt=""></a>
+  <a href="Eunjin12_upscaled.jpg"><img src="Eunjin12_upscaled.jpg" alt=""></a>
+  <a href="Eunjin45.jpg"><img src="Eunjin45.jpg" alt=""></a>
+  <a href="Eunjin46.png"><img src="Eunjin46.png" alt=""></a>
+  <a href="IMG_4656.jpg"><img src="IMG_4656.jpg" alt=""></a>
+  <a href="IMG_4657.jpg"><img src="IMG_4657.jpg" alt=""></a>
+  <a href="IMG_4658.jpg"><img src="IMG_4658.jpg" alt=""></a>  
+  <a href="IMG_2062.jpeg"><img src="IMG_2062.jpeg" alt=""></a>
+  <a href="IMG_2274.jpeg"><img src="IMG_2274.jpeg" alt=""></a>
+  <a href="IMG_2245.jpeg"><img src="IMG_2245.jpeg" alt=""></a>
+  <a href="IMG_2254.jpeg"><img src="IMG_2254.jpeg" alt=""></a>
+  <a href="Untitled856.png"><img src="Untitled856.png" alt=""></a>
+  <a href="FB_IMG_1766678581286.jpeg"><img src="FB_IMG_1766678581286.jpeg" alt=""></a>
+  <a href="FB_IMG_1766678631506.jpeg"><img src="FB_IMG_1766678631506.jpeg" alt=""></a>
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img" alt="">
+  <img src="" id="lightbox-img">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -154,46 +173,64 @@ Use arrows to navigate. Click the image for full resolution.
   <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 </div>
 
-<script>
-const gallery = document.querySelectorAll('#eunjin-gallery a');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-let currentIndex = 0;
+</div>
 
-gallery.forEach((item, index) => {
-  item.addEventListener('click', e => {
-    e.preventDefault();
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelectorAll('#eunjin-gallery a');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  function openLightbox(index){
     currentIndex = index;
-    openLightbox();
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function nextImage(){
+    currentIndex = (currentIndex + 1) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  function prevImage(){
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  gallery.forEach((item, index) => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  document.getElementById('close').onclick = closeLightbox;
+  document.getElementById('next').onclick = nextImage;
+  document.getElementById('prev').onclick = prevImage;
+
+  lightbox.addEventListener('click', e => {
+    if(e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if(lightbox.style.display === 'flex'){
+      if(e.key === 'ArrowRight') nextImage();
+      if(e.key === 'ArrowLeft') prevImage();
+      if(e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  lightboxImg.addEventListener('click', () => {
+    window.open(lightboxImg.src, '_blank');
   });
 });
-
-function openLightbox() {
-  lightbox.style.display = 'flex';
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
-function closeLightbox() {
-  lightbox.style.display = 'none';
-}
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % gallery.length;
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
-function prevImage() {
-  currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
-lightboxImg.addEventListener('click', () => {
-  window.open(lightboxImg.src, '_blank');
-});
-
-document.getElementById('close').onclick = closeLightbox;
-document.getElementById('next').onclick = nextImage;
-document.getElementById('prev').onclick = prevImage;
 </script>
 
 </body>
