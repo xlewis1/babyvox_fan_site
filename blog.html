@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby V.O.X Fansite Blog</title>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
+<style>
+/* Body & Background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background: url('BABYVOX15.jpg') repeat;
+  color: #4B0082;
+}
+
+/* Container for the blog (framed page) */
+.blog-frame {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff0f8;
+  border: 5px double #ff66cc;
+  padding: 20px;
+  box-shadow: 0 0 15px #ff99cc;
+  border-radius: 12px;
+}
+
+/* Spinning logo at the top */
+.logo-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.logo-container img {
+  width: 120px;
+  animation: spin 6s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Blog Title */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px #ff99cc;
+}
+
+/* Individual Posts */
+.post {
+  background: #ffe6f0;
+  padding: 15px;
+  border: 2px dashed #ff66cc;
+  margin-bottom: 25px;
+  border-radius: 12px;
+}
+.post h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.post p, .post ul {
+  line-height: 1.5;
+}
+.post ul li {
+  margin-left: 20px;
+}
+
+/* Back to Home Button */
+.back-home {
+  display: block;
+  margin: 20px auto 10px auto;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  background: #ff66b2;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px #ff99cc;
+  transition: 0.2s;
+}
+.back-home:hover {
+  background: #ff33aa;
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="blog-frame">
+
+  <!-- Spinning logo -->
+  <div class="logo-container">
+    <img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo">
+  </div>
+
+  <h1>Baby V.O.X Fansite Blog</h1>
+
+  <!-- First Post -->
+  <div class="post">
+    <h2>Major Site Update!</h2>
+    <p>Hello Baby Angels! 🎀</p>
+    <p>Welcome to the brand-new version of the Baby V.O.X Fansite! Inspired by classic Daum blogs and Geocities-style layouts, this new page brings back that nostalgic early internet feel while keeping everything clean and modern.</p>
+    <p>Expect new updates, stories, and behind-the-scenes insights from me, Lewis, the creator of this fansite. Posts will be coming soon, so keep checking back for more content!</p>
+  </div>
+
+  <!-- Second Post -->
+  <div class="post">
+    <h2>What's Next?</h2>
+    <p>We’ll be posting:</p>
+    <ul>
+      <li>Stories about Baby V.O.X members</li>
+      <li>Rare images and media from their history</li>
+      <li>New updates on the fansite itself</li>
+    </ul>
+    <p>Stay tuned and enjoy the classic internet vibes mixed with modern features!</p>
+  </div>
+
+  <!-- Back to Home -->
+  <a href="index.html" class="back-home">⬅ Back to Home</a>
+
+</div>
+
+</body>
+</html>
