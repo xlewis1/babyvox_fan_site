@@ -8,40 +8,45 @@
 <style>
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: rgba(0,0,0,0.1);
   margin: 0;
-  padding: 20px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffd6f5, #ff9edc);
 }
 
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Framed Geocities-style container */
+.page-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border: 6px double hotpink;
+  box-shadow: 0 0 25px #ff66cc;
+  text-align: center;
 }
 
-/* Title & instructions */
-h1 { color: #4B0082; }
-.instructions { color: #4B0082; margin-bottom: 30px; }
+h1 {
+  color: #4B0082;
+  margin-bottom: 10px;
+}
 
-/* Gallery grid */
+.instructions {
+  color: #4B0082;
+  margin-bottom: 30px;
+}
+
+/* Gallery grid: 3 fixed columns */
 .member-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   justify-items: center;
   margin-bottom: 40px;
 }
 
-/* Portrait thumbnails */
+/* Portrait thumbnails: 150x200px */
 .member-gallery img {
-  width: 120px;
-  height: 180px;
+  width: 150px;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
   border-radius: 6px;
@@ -50,7 +55,7 @@ h1 { color: #4B0082; }
 }
 .member-gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #ff66b2;
+  box-shadow: 0 0 18px #ff33aa;
 }
 
 /* Lightbox */
@@ -58,22 +63,24 @@ h1 { color: #4B0082; }
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 1000;
 }
+
 .lightbox img {
-  max-width: 85%;
+  max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.lightbox .controls button {
+
+.controls button {
   font-size: 20px;
   margin: 5px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   cursor: pointer;
   border-radius: 6px;
   border: none;
@@ -81,28 +88,35 @@ h1 { color: #4B0082; }
   color: white;
 }
 
+.controls button:hover {
+  background: #cc0077;
+}
+
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
-.back-btn:hover { background: #ff33aa; }
+
+.back-btn:hover {
+  background: #ff33aa;
+}
 </style>
 </head>
 
 <body>
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+<div class="page-wrapper">
 
 <h1>Yoon Eun Hye Gallery</h1>
 <p class="instructions">
-Click an image to view it in the lightbox.  
-Use arrows to navigate. Click the image for full resolution.
+Click an image to open the lightbox. Use arrow keys to navigate. Click image to view full resolution.
 </p>
 
 <!-- Eunhye Gallery -->
@@ -121,21 +135,21 @@ Use arrows to navigate. Click the image for full resolution.
   <a href="Miyoun&Eunhye2.jpg"><img src="Miyoun&Eunhye2.jpg" alt="Miyoun & Eunhye 2"></a>
   <a href="Eunhye&EZ.jpg"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
   <a href="EZ&Eunhye2.jpg"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
-  <a href="IMG_3172.jpg"><img src="IMG_3172.jpg" alt="yoon eun hye 10"></a>
-  <a href="IMG_3167.jpg"><img src="IMG_3167.jpg" alt="yoon eun hye 11"></a>
-  <a href="IMG_3168 2.jpg"><img src="IMG_3168 2.jpg" alt="yoon eun hye 12"></a>
-  <a href="Eunhye11.jpeg"><img src="Eunhye11.jpeg" alt="yooneun hye 11"></a>
-  <a href="Eunhye12.jpeg"><img src="Eunhye12.jpeg" alt="yooneun hye 12"></a>
-  <a href="BF041E23-A777-44DE-9549-C2FB459F89B3.jpeg"><img src="BF041E23-A777-44DE-9549-C2FB459F89B3.jpeg" alt="yooneun hye 13"></a>
-  <a href="38F9082D-5F2C-413B-8166-88B5DABE710D.jpeg"><img src="38F9082D-5F2C-413B-8166-88B5DABE710D.jpeg" alt="yooneun hye 14"></a>
-  <a href="A3C0202A-E799-495D-98FF-36A992FA0B87.jpeg"><img src="A3C0202A-E799-495D-98FF-36A992FA0B87.jpeg" alt="yooneun hye 15"></a>
-  <a href="eh2820.jpeg"><img src="eh2820.jpeg" alt="yooneun hye 16"></a>
-  <a href="eh3012.jpeg"><img src="eh3012.jpeg" alt="yooneun hye 17"></a>
+  <a href="IMG_3172.jpg"><img src="IMG_3172.jpg" alt="Yoon Eun Hye 11"></a>
+  <a href="IMG_3167.jpg"><img src="IMG_3167.jpg" alt="Yoon Eun Hye 12"></a>
+  <a href="IMG_3168 2.jpg"><img src="IMG_3168 2.jpg" alt="Yoon Eun Hye 13"></a>
+  <a href="Eunhye11.jpeg"><img src="Eunhye11.jpeg" alt="Yoon Eun Hye 14"></a>
+  <a href="Eunhye12.jpeg"><img src="Eunhye12.jpeg" alt="Yoon Eun Hye 15"></a>
+  <a href="BF041E23-A777-44DE-9549-C2FB459F89B3.jpeg"><img src="BF041E23-A777-44DE-9549-C2FB459F89B3.jpeg" alt="Yoon Eun Hye 16"></a>
+  <a href="38F9082D-5F2C-413B-8166-88B5DABE710D.jpeg"><img src="38F9082D-5F2C-413B-8166-88B5DABE710D.jpeg" alt="Yoon Eun Hye 17"></a>
+  <a href="A3C0202A-E799-495D-98FF-36A992FA0B87.jpeg"><img src="A3C0202A-E799-495D-98FF-36A992FA0B87.jpeg" alt="Yoon Eun Hye 18"></a>
+  <a href="eh2820.jpeg"><img src="eh2820.jpeg" alt="Yoon Eun Hye 19"></a>
+  <a href="eh3012.jpeg"><img src="eh3012.jpeg" alt="Yoon Eun Hye 20"></a>
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img" alt="">
+  <img src="" id="lightbox-img">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -149,44 +163,64 @@ Use arrows to navigate. Click the image for full resolution.
   <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 </div>
 
-<script>
-const links = document.querySelectorAll('#eunhye-gallery a');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-let index = 0;
+</div>
 
-links.forEach((link, i) => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    index = i;
-    openLightbox();
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelectorAll('#eunhye-gallery a');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = "auto";
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  gallery.forEach((item, index) => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  document.getElementById('close').onclick = closeLightbox;
+  document.getElementById('next').onclick = nextImage;
+  document.getElementById('prev').onclick = prevImage;
+
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  lightboxImg.addEventListener('click', () => {
+    window.open(lightboxImg.src, '_blank');
   });
 });
-
-function openLightbox() {
-  lightbox.style.display = 'flex';
-  lightboxImg.src = links[index].href;
-}
-
-function closeLightbox() { lightbox.style.display = 'none'; }
-
-function nextImage() {
-  index = (index + 1) % links.length;
-  lightboxImg.src = links[index].href;
-}
-
-function prevImage() {
-  index = (index - 1 + links.length) % links.length;
-  lightboxImg.src = links[index].href;
-}
-
-lightboxImg.addEventListener('click', () => {
-  window.open(lightboxImg.src, '_blank');
-});
-
-document.getElementById('close').onclick = closeLightbox;
-document.getElementById('next').onclick = nextImage;
-document.getElementById('prev').onclick = prevImage;
 </script>
 
 </body>
