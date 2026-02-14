@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kan Mi Youn Gallery - Baby VOX Fansite</title>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 
 <style>
 body {
@@ -11,28 +12,15 @@ body {
   margin: 0;
   padding: 40px 20px;
   background: linear-gradient(to bottom, #ffe6f0, #f8e1ff);
-  text-align: center;
 }
 
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Panel wrapper */
+/* Page wrapper container */
 .page-wrapper {
   max-width: 1100px;
   margin: auto;
   background: #fff0f8;
-  border: 6px double #ff66cc;
   padding: 30px;
-  border-radius: 12px;
+  border: 6px double #ff66cc;
   box-shadow: 0 0 25px #ff99cc;
   text-align: center;
 }
@@ -45,9 +33,10 @@ h1 {
 .instructions {
   color: #4B0082;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 
-/* Gallery grid */
+/* Fixed 3-column gallery */
 .member-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -59,10 +48,10 @@ h1 {
   height: 200px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 8px;
   border: 3px double #ff66cc;
-  background: #fff0f8;
   padding: 3px;
+  background: #fff0f8;
+  border-radius: 8px;
   box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -76,38 +65,42 @@ h1 {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 1000;
 }
 .lightbox img {
-  max-width: 80%;
+  max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.lightbox .controls button {
+.controls button {
   font-size: 20px;
   margin: 5px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   cursor: pointer;
   border-radius: 6px;
   border: none;
   background: #ff3399;
   color: white;
 }
+.controls button:hover {
+  background: #cc0077;
+}
 
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 10px 18px;
+  border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
 .back-btn:hover {
   background: #ff33aa;
@@ -125,16 +118,10 @@ h1 {
 </head>
 
 <body>
-
 <div class="page-wrapper">
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Kan Mi Youn Gallery</h1>
-<p class="instructions">
-Click any image to open the lightbox.  
-Use arrows to navigate, X to close.  
-Click the image for full resolution.
-</p>
+<p class="instructions">Click an image to open the lightbox. Use arrows or X to close. Click image for full resolution.</p>
 
 <div id="miyoun-gallery" class="member-gallery">
   <a href="MIYOUN2.webp"><img src="MIYOUN2.webp" alt="Kan Mi Youn 2"></a>
@@ -168,7 +155,7 @@ Click the image for full resolution.
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <img id="lightbox-img" src="" alt="">
+  <img src="" id="lightbox-img">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -183,6 +170,8 @@ Click the image for full resolution.
   <button class="back-btn" onclick="window.location.href='miyoun2.html'">Next Page →</button>
 </div>
 
+</div>
+
 <script>
 const gallery = document.querySelectorAll('#miyoun-gallery a');
 const lightbox = document.getElementById('lightbox');
@@ -195,14 +184,20 @@ gallery.forEach((item, index) => {
     currentIndex = index;
     lightbox.style.display = 'flex';
     lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = "hidden";
   });
 });
 
-function closeLightbox() { lightbox.style.display = 'none'; }
+function closeLightbox() {
+  lightbox.style.display = 'none';
+  document.body.style.overflow = "auto";
+}
+
 function nextImage() {
   currentIndex = (currentIndex + 1) % gallery.length;
   lightboxImg.src = gallery[currentIndex].href;
 }
+
 function prevImage() {
   currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
   lightboxImg.src = gallery[currentIndex].href;
@@ -215,6 +210,18 @@ lightboxImg.addEventListener('click', () => {
 document.getElementById('close').onclick = closeLightbox;
 document.getElementById('next').onclick = nextImage;
 document.getElementById('prev').onclick = prevImage;
+
+lightbox.addEventListener('click', e => {
+  if(e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if(lightbox.style.display === 'flex'){
+    if(e.key === 'ArrowRight') nextImage();
+    if(e.key === 'ArrowLeft') prevImage();
+    if(e.key === 'Escape') closeLightbox();
+  }
+});
 </script>
 
 </body>
