@@ -200,6 +200,20 @@ button:active {
   // Load messages from Forminit
   async function loadMessages() {
     messagesContainer.innerHTML = "<h2>Messages from fans:</h2>";
+
+    // Pinned message
+   const pinned = document.createElement("div");
+   pinned.className = "message-box";
+   pinned.innerHTML = `<h3>BabyVoxi ⭐</h3>
+   <p>thank you for being such a lovely person and a great baby angel~~ the site looks awesome! keep up the good work!!</p>`;
+   messagesContainer.appendChild(pinned);
+
+   const pinned2 = document.createElement("div");
+   pinned2.className = "message-box";
+   pinned2.innerHTML = `<h3>Arthur</h3>
+   <p>Idk this is a test</p>`;
+   messagesContainer.appendChild(pinned2);  
+    
     try {
       const { data, error } = await forminit.getSubmissions(FORM_ID, { limit: 50 });
       if (error) throw new Error(error.message);
