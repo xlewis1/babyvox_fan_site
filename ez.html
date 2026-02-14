@@ -5,56 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kim EZ Gallery - Baby VOX Fansite</title>
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
+
 <style>
-/* Body & Animated Gradient Background */
 body {
-  font-family: 'Courier New', Courier, monospace;
-  text-align: center;
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
-  background: linear-gradient(270deg, #ffe6f0, #f8e1ff, #ffe6f0, #f8e1ff);
-  background-size: 800% 800%;
-  animation: gradientMove 20s ease infinite;
-  color: #4B0082;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffe6f0, #f8e1ff);
 }
 
-/* Gradient animation */
-@keyframes gradientMove {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* Panel wrapper */
-.panel {
-  max-width: 1000px;
+/* Framed Geocities-style container */
+.page-wrapper {
+  max-width: 1100px;
   margin: auto;
-  background: #fff0f8;
-  border: 5px double #ff66cc;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #ff99cc;
+  background: white;
+  padding: 30px;
+  border: 6px double hotpink;
+  box-shadow: 0 0 25px #ff66cc;
+  text-align: center;
 }
 
-/* Title & instructions */
 h1 {
   color: #4B0082;
-  font-size: 2rem;
   margin-bottom: 10px;
-  text-shadow: 1px 1px #ff99cc;
-}
-.instructions {
-  font-weight: bold;
-  margin-bottom: 30px;
 }
 
-/* Portrait gallery grid */
+.instructions {
+  color: #4B0082;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Fixed 3-column gallery */
 .member-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-items: center;
 }
+
+/* Thumbnails: fixed 150x200 */
 .member-gallery img {
   width: 150px;
   height: 200px;
@@ -67,6 +57,7 @@ h1 {
   box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .member-gallery img:hover {
   transform: scale(1.06);
   box-shadow: 0 0 25px #ff66b2;
@@ -76,35 +67,40 @@ h1 {
 .lightbox {
   display: none;
   position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.85);
+  inset: 0;
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
   flex-direction: column;
+  z-index: 1000;
 }
+
 .lightbox img {
-  max-width: 80%;
+  max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.lightbox .controls button {
+
+.controls button {
   font-size: 20px;
   margin: 5px;
-  padding: 5px 12px;
+  padding: 8px 16px;
   cursor: pointer;
-  border-radius: 4px;
-  border:none;
+  border-radius: 6px;
+  border: none;
   background: #ff3399;
   color: white;
+}
+
+.controls button:hover {
+  background: #cc0077;
 }
 
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 10px 15px;
+  padding: 10px 18px;
   border-radius: 6px;
   background: #ff66b2;
   color: white;
@@ -112,102 +108,92 @@ h1 {
   cursor: pointer;
   font-weight: bold;
 }
+
 .back-btn:hover {
   background: #ff33aa;
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
-  .member-gallery { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .member-gallery { grid-template-columns: 1fr; }
-  .member-gallery img { width: 70%; height: auto; }
 }
 </style>
 </head>
 <body>
 
-<div class="panel">
-  <h1>Kim EZ Gallery</h1>
-  <p class="instructions">Click on an image to open the lightbox. Use arrows or X to close. Click image in lightbox for full resolution.</p>
+<div class="page-wrapper">
 
-  <div id="ez-gallery" class="member-gallery">
-    <!-- All EZ images -->
-    <a href="EZ2.jpg"><img src="EZ2.jpg" alt="Kim EZ 2"></a>
-    <a href="EZ3.JPG"><img src="EZ3.JPG" alt="Kim EZ 3"></a>
-    <a href="EZ4.JPG"><img src="EZ4.JPG" alt="Kim EZ 4"></a>
-    <a href="EZ5.jpg"><img src="EZ5.jpg" alt="Kim EZ 5"></a>
-    <a href="EZ6.png"><img src="EZ6.png" alt="Kim EZ 6"></a>
-    <a href="EZ7.png"><img src="EZ7.png" alt="Kim EZ 7"></a>
-    <a href="Eunhye&EZ.jpg"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
-    <a href="EZ8.jpg"><img src="EZ8.jpg" alt="Kim EZ 8"></a>
-    <a href="KimEZ15.jpg"><img src="KimEZ15.jpg" alt="Kim EZ 15"></a>
-    <a href="EZ20.jpg"><img src="EZ20.jpg" alt="Kim EZ 20"></a>
-    <a href="EZ&Eunhye2.jpg"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
-    <a href="EZ22.jpg"><img src="EZ22.jpg" alt="Kim EZ 22"></a>
-    <a href="EZ23.jpg"><img src="EZ23.jpg" alt="Kim EZ 23"></a>
-    <a href="EZ24.jpg"><img src="EZ24.jpg" alt="Kim EZ 24"></a>
-    <a href="KimEZ45.jpg"><img src="KimEZ45.jpg" alt="Kim EZ 45"></a>
-    <a href="EZ56.jpg"><img src="EZ56.jpg" alt="Kim EZ 56"></a>
-    <a href="EZ57.jpg"><img src="EZ57.jpg" alt="Kim EZ 57"></a>
-    <a href="EZ58.jpg"><img src="EZ58.jpg" alt="Kim EZ 58"></a>
-    <a href="EZ59.jpg"><img src="EZ59.jpg" alt="Kim EZ 59"></a>
-    <a href="EZ60.jpg"><img src="EZ60.jpg" alt="Kim EZ 60"></a>
-    <a href="EZ61.jpg"><img src="EZ61.jpg" alt="Kim EZ 61"></a>
-    <a href="0-1.jpeg"><img src="0-1.jpeg" alt="Kim EZ 62"></a>
-    <a href="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg"><img src="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg" alt="Kim EZ 63"></a>
-    <a href="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg"><img src="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg" alt="Kim EZ 64"></a>
-    <a href="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg"><img src="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg" alt="Kim EZ 65"></a>
-    <a href="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg"><img src="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg" alt="Kim EZ 66"></a>
-    <a href="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg"><img src="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg" alt="Kim EZ 67"></a>
-    <a href="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg"><img src="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg" alt="Kim EZ 68"></a>
-    <a href="IMG_2022.jpeg"><img src="IMG_2022.jpeg" alt="Kim EZ 69"></a>
-    <a href="IMG_2023.jpeg"><img src="IMG_2023.jpeg" alt="Kim EZ 70"></a>
-    <a href="IMG_2024.jpeg"><img src="IMG_2024.jpeg" alt="Kim EZ 71"></a>
-    <a href="ez111.jpeg"><img src="ez111.jpeg" alt="Kim EZ 72"></a>
-  </div>
+<h1>Kim EZ Gallery</h1>
+<p class="instructions">Click an image to open the lightbox. Use arrow keys or X to close. Click image for full resolution.</p>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <img src="" alt="" id="lightbox-img">
-    <div class="controls">
-      <button id="prev">&#8592;</button>
-      <button id="next">&#8594;</button>
-      <button id="close">X</button>
-    </div>
-  </div>
+<div id="ez-gallery" class="member-gallery">
+  <a href="EZ2.jpg"><img src="EZ2.jpg" alt="Kim EZ 2"></a>
+  <a href="EZ3.JPG"><img src="EZ3.JPG" alt="Kim EZ 3"></a>
+  <a href="EZ4.JPG"><img src="EZ4.JPG" alt="Kim EZ 4"></a>
+  <a href="EZ5.jpg"><img src="EZ5.jpg" alt="Kim EZ 5"></a>
+  <a href="EZ6.png"><img src="EZ6.png" alt="Kim EZ 6"></a>
+  <a href="EZ7.png"><img src="EZ7.png" alt="Kim EZ 7"></a>
+  <a href="Eunhye&EZ.jpg"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
+  <a href="EZ8.jpg"><img src="EZ8.jpg" alt="Kim EZ 8"></a>
+  <a href="KimEZ15.jpg"><img src="KimEZ15.jpg" alt="Kim EZ 15"></a>
+  <a href="EZ20.jpg"><img src="EZ20.jpg" alt="Kim EZ 20"></a>
+  <a href="EZ&Eunhye2.jpg"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
+  <a href="EZ22.jpg"><img src="EZ22.jpg" alt="Kim EZ 22"></a>
+  <a href="EZ23.jpg"><img src="EZ23.jpg" alt="Kim EZ 23"></a>
+  <a href="EZ24.jpg"><img src="EZ24.jpg" alt="Kim EZ 24"></a>
+  <a href="KimEZ45.jpg"><img src="KimEZ45.jpg" alt="Kim EZ 45"></a>
+  <a href="EZ56.jpg"><img src="EZ56.jpg" alt="Kim EZ 56"></a>
+  <a href="EZ57.jpg"><img src="EZ57.jpg" alt="Kim EZ 57"></a>
+  <a href="EZ58.jpg"><img src="EZ58.jpg" alt="Kim EZ 58"></a>
+  <a href="EZ59.jpg"><img src="EZ59.jpg" alt="Kim EZ 59"></a>
+  <a href="EZ60.jpg"><img src="EZ60.jpg" alt="Kim EZ 60"></a>
+  <a href="EZ61.jpg"><img src="EZ61.jpg" alt="Kim EZ 61"></a>
+  <a href="0-1.jpeg"><img src="0-1.jpeg" alt="Kim EZ 62"></a>
+  <a href="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg"><img src="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg" alt="Kim EZ 63"></a>
+  <a href="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg"><img src="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg" alt="Kim EZ 64"></a>
+  <a href="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg"><img src="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg" alt="Kim EZ 65"></a>
+  <a href="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg"><img src="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg" alt="Kim EZ 66"></a>
+  <a href="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg"><img src="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg" alt="Kim EZ 67"></a>
+  <a href="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg"><img src="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg" alt="Kim EZ 68"></a>
+  <a href="IMG_2022.jpeg"><img src="IMG_2022.jpeg" alt="Kim EZ 69"></a>
+  <a href="IMG_2023.jpeg"><img src="IMG_2023.jpeg" alt="Kim EZ 70"></a>
+  <a href="IMG_2024.jpeg"><img src="IMG_2024.jpeg" alt="Kim EZ 71"></a>
+  <a href="ez111.jpeg"><img src="ez111.jpeg" alt="Kim EZ 72"></a>
+</div>
 
-  <!-- Navigation buttons -->
-  <div>
-    <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
-    <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
-    <button class="back-btn" onclick="window.location.href='ez2.html'">Next Page →</button>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
+  <div class="controls">
+    <button id="prev">&#8592;</button>
+    <button id="next">&#8594;</button>
+    <button id="close">X</button>
   </div>
 </div>
 
+<!-- Navigation -->
+<div>
+  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+  <button class="back-btn" onclick="window.location.href='ez2.html'">Next Page →</button>
+</div>
+
+</div>
+
 <script>
-// Lightbox logic
 const gallery = document.querySelectorAll('#ez-gallery a');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 let currentIndex = 0;
 
 gallery.forEach((item, index) => {
-  item.addEventListener('click', (e) => {
+  item.addEventListener('click', e => {
     e.preventDefault();
     currentIndex = index;
-    openLightbox();
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = "hidden";
   });
 });
 
-function openLightbox() {
-  lightbox.style.display = 'flex';
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
 function closeLightbox() {
   lightbox.style.display = 'none';
+  document.body.style.overflow = "auto";
 }
 
 function nextImage() {
@@ -220,14 +206,25 @@ function prevImage() {
   lightboxImg.src = gallery[currentIndex].href;
 }
 
-// Lightbox image click opens full-res in new tab
 lightboxImg.addEventListener('click', () => {
   window.open(lightboxImg.src, '_blank');
 });
 
-document.getElementById('close').addEventListener('click', closeLightbox);
-document.getElementById('next').addEventListener('click', nextImage);
-document.getElementById('prev').addEventListener('click', prevImage);
+document.getElementById('close').onclick = closeLightbox;
+document.getElementById('next').onclick = nextImage;
+document.getElementById('prev').onclick = prevImage;
+
+lightbox.addEventListener('click', e => {
+  if(e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if(lightbox.style.display === 'flex'){
+    if(e.key === 'ArrowRight') nextImage();
+    if(e.key === 'ArrowLeft') prevImage();
+    if(e.key === 'Escape') closeLightbox();
+  }
+});
 </script>
 
 </body>
