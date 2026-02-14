@@ -14,17 +14,6 @@ body {
   padding: 20px;
 }
 
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 /* Title & instructions */
 h1 {
   color: #4B0082;
@@ -37,23 +26,26 @@ h1 {
 /* Gallery grid */
 .member-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
   justify-items: center;
   margin-bottom: 40px;
 }
 .member-gallery img {
-  width: 120px;
-  height: 180px;
+  width: 150px;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
   border-radius: 8px;
-  box-shadow: 0 0 8px #ff99cc;
+  border: 3px double #ff66cc;
+  background: #fff0f8;
+  padding: 3px;
+  box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .member-gallery img:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 18px #ff66b2;
+  box-shadow: 0 0 25px #ff66b2;
 }
 
 /* Lightbox */
@@ -64,8 +56,8 @@ h1 {
   background: rgba(0,0,0,0.85);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
   flex-direction: column;
+  z-index: 1000;
 }
 .lightbox img {
   max-width: 80%;
@@ -97,12 +89,19 @@ h1 {
 .back-btn:hover {
   background: #ff33aa;
 }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .member-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .member-gallery { grid-template-columns: 1fr; }
+  .member-gallery img { width: 70%; height: auto; }
+}
 </style>
 </head>
 
 <body>
-
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
 
 <h1>Kan Mi Youn Gallery – Page 2</h1>
 <p class="instructions">
@@ -113,7 +112,7 @@ Click the image for full resolution in a new tab.
 
 <!-- Miyoun Gallery Page 2 -->
 <div id="miyoun-gallery" class="member-gallery">
-  <!-- ADD NEXT BATCH OF IMAGES HERE -->
+  <a href="IMG_2418.jpeg"><img src="IMG_2418.jpeg" alt="Kan Mi Youn 2418"></a>
 </div>
 
 <!-- Lightbox -->
@@ -143,17 +142,15 @@ gallery.forEach((item, index) => {
   item.addEventListener('click', e => {
     e.preventDefault();
     currentIndex = index;
-    openLightbox();
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = "hidden";
   });
 });
 
-function openLightbox() {
-  lightbox.style.display = 'flex';
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
 function closeLightbox() {
   lightbox.style.display = 'none';
+  document.body.style.overflow = "auto";
 }
 
 function nextImage() {
@@ -166,7 +163,6 @@ function prevImage() {
   lightboxImg.src = gallery[currentIndex].href;
 }
 
-// Full-res click
 lightboxImg.addEventListener('click', () => {
   window.open(lightboxImg.src, '_blank');
 });
@@ -174,6 +170,18 @@ lightboxImg.addEventListener('click', () => {
 document.getElementById('close').onclick = closeLightbox;
 document.getElementById('next').onclick = nextImage;
 document.getElementById('prev').onclick = prevImage;
+
+lightbox.addEventListener('click', e => {
+  if(e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if(lightbox.style.display === 'flex'){
+    if(e.key === 'ArrowRight') nextImage();
+    if(e.key === 'ArrowLeft') prevImage();
+    if(e.key === 'Escape') closeLightbox();
+  }
+});
 </script>
 
 </body>
