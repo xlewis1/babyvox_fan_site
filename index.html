@@ -215,6 +215,14 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 12px #ff99cc;
 }
+
+  
+.sidebar img[alt="Baby V.O.X Blog Button"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #ff99cc;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
 </style>
 </head>
 <body>
@@ -251,7 +259,12 @@ body {
     <a href="guestbook.html">Guestbook</a>
     <a href="bias.html">My Bias</a>
     <button onclick="showRandomFact()">Random Fact</button>
-  </div>
+      <!-- Your custom image button -->
+    <img src="14065FB7-1B91-4A37-A754-A9E5D51FD0FD.jpeg" 
+       alt="Baby V.O.X Blog Button" 
+       style="cursor:pointer;" 
+       onclick="window.location.href='blog.html'">
+   </div>
 
   <!-- CENTER CONTENT -->
   <div class="center-content">
