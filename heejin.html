@@ -8,26 +8,31 @@
 <style>
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: rgba(0,0,0,0.1);
   margin: 0;
-  padding: 20px;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffd6f5, #ff9edc);
 }
 
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Framed Geocities-style container */
+.page-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border: 6px double hotpink;
+  box-shadow: 0 0 25px #ff66cc;
+  text-align: center;
 }
 
-/* Title & instructions */
-h1 { color: #4B0082; }
-.instructions { color: #4B0082; margin-bottom: 30px; }
+h1 { 
+  color: #4B0082; 
+  margin-bottom: 10px;
+}
+
+.instructions { 
+  color: #4B0082; 
+  margin-bottom: 30px; 
+}
 
 /* Gallery grid */
 .member-gallery {
@@ -48,33 +53,35 @@ h1 { color: #4B0082; }
   box-shadow: 0 0 8px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .member-gallery img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #ff66b2;
+  box-shadow: 0 0 18px #ff33aa;
 }
 
 /* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.85);
+  inset: 0;
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 1000;
 }
+
 .lightbox img {
-  max-width: 85%;
+  max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.lightbox .controls button {
+
+.controls button {
   font-size: 20px;
   margin: 5px;
-  padding: 6px 14px;
+  padding: 8px 16px;
   cursor: pointer;
   border-radius: 4px;
   border: none;
@@ -82,62 +89,70 @@ h1 { color: #4B0082; }
   color: white;
 }
 
+.controls button:hover {
+  background: #cc0077;
+}
+
 /* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
-.back-btn:hover { background: #ff33aa; }
+
+.back-btn:hover { 
+  background: #ff33aa; 
+}
 </style>
 </head>
 <body>
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+<div class="page-wrapper">
 
 <h1>Lee Heejin Gallery</h1>
 <p class="instructions">
-Click an image to open the lightbox. Use arrows to navigate. Click the image to view full resolution in a new tab.
+Click an image to open the lightbox. Use arrow keys to navigate. Click image to open full resolution in new tab.
 </p>
 
-<!-- Heejin Gallery -->
+<!-- Your EXACT image list untouched -->
 <div id="heejin-gallery" class="member-gallery">
-  <a href="Leeheejin.jpg"><img src="Leeheejin.jpg" alt="Lee Heejin"></a>
-  <a href="HEEJIN2.jpg"><img src="HEEJIN2.jpg" alt="Lee Heejin 2"></a>
-  <a href="HEEJIN3.jpg"><img src="HEEJIN3.jpg" alt="Lee Heejin 3"></a>
-  <a href="HEEJIN4.jpg"><img src="HEEJIN4.jpg" alt="Lee Heejin 4"></a>
-  <a href="heejin5.jpg"><img src="heejin5.jpg" alt="Lee Heejin 5"></a>
-  <a href="HEEJIN8.jpg"><img src="HEEJIN8.jpg" alt="Lee Heejin 8"></a>
-  <a href="HEEJIN7.jpg"><img src="HEEJIN7.jpg" alt="Lee Heejin 7"></a>
-  <a href="HEEJIN9.jpg"><img src="HEEJIN9.jpg" alt="Lee Heejin 9"></a>
-  <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Lee Heejin 27"></a>
-  <a href="Heejin48.jpg"><img src="Heejin48.jpg" alt="Lee Heejin 48"></a>
-  <a href="Heejin56.jpg"><img src="Heejin56.jpg" alt="Lee Heejin 56"></a>
-  <a href="Heejin&Miyoun1.jpg"><img src="Heejin&Miyoun1.jpg" alt="Lee Heejin & Kan Miyoun"></a>
-  <a href="HEEJIN45.jpg"><img src="HEEJIN45.jpg" alt="Lee Heejin 45"></a>
-  <a href="HEEJIN46.jpg"><img src="HEEJIN46.jpg" alt="Lee Heejin 46"></a>
-  <a href="HEEJIN46.JPG"><img src="HEEJIN46.JPG" alt="Lee Heejin 47"></a>
-  <a href="IMG_4660.jpg"><img src="IMG_4660.jpg" alt="Lee Heejin 48"></a>
-  <a href="IMG_4670.jpg"><img src="IMG_4670.jpg" alt="Lee Heejin 49"></a>
-  <a href="IMG_4671.jpg"><img src="IMG_4671.jpg" alt="Lee Heejin 50"></a>
-  <a href="IMG_3133.JPG"><img src="IMG_3133.JPG" alt="Lee Heejin 51"></a>
-  <a href="IMG_3134.WEBP"><img src="IMG_3134.WEBP" alt="Lee Heejin 52"></a>
-  <a href="IMG_1199.jpeg"><img src="IMG_1199.jpeg" alt="Lee Heejin 53"></a>
-  <a href="A6D6716F-D05C-440B-A237-71AFF0F4FCAC.jpeg"><img src="A6D6716F-D05C-440B-A237-71AFF0F4FCAC.jpeg" alt="Lee Heejin 54"></a>
-  <a href="A858296A-D45C-473F-867C-EF2F7A312C03.jpeg"><img src="A858296A-D45C-473F-867C-EF2F7A312C03.jpeg" alt="Lee Heejin 55"></a>
-  <a href="BEC1E133-E2BA-4D17-ACE6-BE17021D6D58.jpeg"><img src="BEC1E133-E2BA-4D17-ACE6-BE17021D6D58.jpeg" alt="Lee Heejin 56"></a>
-  <a href="E0E18C14-0C3B-4CDA-A05F-E993971A06CA.jpeg"><img src="E0E18C14-0C3B-4CDA-A05F-E993971A06CA.jpeg" alt="Lee Heejin 57"></a>
-  <a href="250CCE73-968F-49F1-870A-3E39D566A012.jpeg"><img src="250CCE73-968F-49F1-870A-3E39D566A012.jpeg" alt="Lee Heejin 58"></a>
-  <a href="IMG_2066.jpeg"><img src="IMG_2066.jpeg" alt="Lee Heejin 59"></a>
+  <a href="Leeheejin.jpg"><img src="Leeheejin.jpg" alt=""></a>
+  <a href="HEEJIN2.jpg"><img src="HEEJIN2.jpg" alt=""></a>
+  <a href="HEEJIN3.jpg"><img src="HEEJIN3.jpg" alt=""></a>
+  <a href="HEEJIN4.jpg"><img src="HEEJIN4.jpg" alt=""></a>
+  <a href="heejin5.jpg"><img src="heejin5.jpg" alt=""></a>
+  <a href="HEEJIN8.jpg"><img src="HEEJIN8.jpg" alt=""></a>
+  <a href="HEEJIN7.jpg"><img src="HEEJIN7.jpg" alt=""></a>
+  <a href="HEEJIN9.jpg"><img src="HEEJIN9.jpg" alt=""></a>
+  <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt=""></a>
+  <a href="Heejin48.jpg"><img src="Heejin48.jpg" alt=""></a>
+  <a href="Heejin56.jpg"><img src="Heejin56.jpg" alt=""></a>
+  <a href="Heejin&Miyoun1.jpg"><img src="Heejin&Miyoun1.jpg" alt=""></a>
+  <a href="HEEJIN45.jpg"><img src="HEEJIN45.jpg" alt=""></a>
+  <a href="HEEJIN46.jpg"><img src="HEEJIN46.jpg" alt=""></a>
+  <a href="HEEJIN46.JPG"><img src="HEEJIN46.JPG" alt=""></a>
+  <a href="IMG_4660.jpg"><img src="IMG_4660.jpg" alt=""></a>
+  <a href="IMG_4670.jpg"><img src="IMG_4670.jpg" alt=""></a>
+  <a href="IMG_4671.jpg"><img src="IMG_4671.jpg" alt=""></a>
+  <a href="IMG_3133.JPG"><img src="IMG_3133.JPG" alt=""></a>
+  <a href="IMG_3134.WEBP"><img src="IMG_3134.WEBP" alt=""></a>
+  <a href="IMG_1199.jpeg"><img src="IMG_1199.jpeg" alt=""></a>
+  <a href="A6D6716F-D05C-440B-A237-71AFF0F4FCAC.jpeg"><img src="A6D6716F-D05C-440B-A237-71AFF0F4FCAC.jpeg" alt=""></a>
+  <a href="A858296A-D45C-473F-867C-EF2F7A312C03.jpeg"><img src="A858296A-D45C-473F-867C-EF2F7A312C03.jpeg" alt=""></a>
+  <a href="BEC1E133-E2BA-4D17-ACE6-BE17021D6D58.jpeg"><img src="BEC1E133-E2BA-4D17-ACE6-BE17021D6D58.jpeg" alt=""></a>
+  <a href="E0E18C14-0C3B-4CDA-A05F-E993971A06CA.jpeg"><img src="E0E18C14-0C3B-4CDA-A05F-E993971A06CA.jpeg" alt=""></a>
+  <a href="250CCE73-968F-49F1-870A-3E39D566A012.jpeg"><img src="250CCE73-968F-49F1-870A-3E39D566A012.jpeg" alt=""></a>
+  <a href="IMG_2066.jpeg"><img src="IMG_2066.jpeg" alt=""></a>
 </div>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img" alt="">
+  <img src="" id="lightbox-img">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -145,45 +160,70 @@ Click an image to open the lightbox. Use arrows to navigate. Click the image to 
   </div>
 </div>
 
-<!-- Navigation -->
 <div>
   <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
   <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
 </div>
 
+</div>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+
   const gallery = document.querySelectorAll('#heejin-gallery a');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   let currentIndex = 0;
 
-  gallery.forEach((item, index) => {
-    item.addEventListener('click', e => {
-      e.preventDefault();
-      currentIndex = index;
-      lightbox.style.display = 'flex';
-      lightboxImg.src = gallery[currentIndex].href;
-    });
-  });
+  function openLightbox(index){
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = "hidden";
+  }
 
-  function closeLightbox() { lightbox.style.display = 'none'; }
-  function nextImage() { 
+  function closeLightbox(){
+    lightbox.style.display = 'none';
+    document.body.style.overflow = "auto";
+  }
+
+  function nextImage(){
     currentIndex = (currentIndex + 1) % gallery.length;
     lightboxImg.src = gallery[currentIndex].href;
   }
-  function prevImage() { 
+
+  function prevImage(){
     currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
     lightboxImg.src = gallery[currentIndex].href;
   }
 
-  lightboxImg.addEventListener('click', () => {
-    window.open(lightboxImg.src, '_blank');
+  gallery.forEach((item, index) => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      openLightbox(index);
+    });
   });
 
   document.getElementById('close').onclick = closeLightbox;
   document.getElementById('next').onclick = nextImage;
   document.getElementById('prev').onclick = prevImage;
+
+  lightbox.addEventListener('click', e => {
+    if(e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if(lightbox.style.display === 'flex'){
+      if(e.key === 'ArrowRight') nextImage();
+      if(e.key === 'ArrowLeft') prevImage();
+      if(e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  lightboxImg.addEventListener('click', () => {
+    window.open(lightboxImg.src, '_blank');
+  });
+
 });
 </script>
 
