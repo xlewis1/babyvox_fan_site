@@ -4,57 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kim EZ Gallery - Baby VOX Fansite</title>
-
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <style>
+/* Body & Animated Gradient Background */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   text-align: center;
-  background-color: rgba(0,0,0,0.1);
   margin: 0;
   padding: 20px;
+  background: linear-gradient(270deg, #ffe6f0, #f8e1ff, #ffe6f0, #f8e1ff);
+  background-size: 800% 800%;
+  animation: gradientMove 20s ease infinite;
+  color: #4B0082;
 }
 
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
+/* Gradient animation */
+@keyframes gradientMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
-@keyframes spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
+
+/* Panel wrapper */
+.panel {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff0f8;
+  border: 5px double #ff66cc;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff99cc;
 }
 
 /* Title & instructions */
 h1 {
   color: #4B0082;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #ff99cc;
 }
 .instructions {
-  color: #4B0082;
+  font-weight: bold;
   margin-bottom: 30px;
-  font-size: 16px;
 }
 
-/* Portrait gallery grid - updated sizes */
+/* Portrait gallery grid */
 .member-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   justify-items: center;
-  margin-bottom: 40px;
 }
 .member-gallery img {
-  width: 120px;
-  height: 180px;
+  width: 150px;
+  height: 200px;
   object-fit: cover;
   cursor: pointer;
-  border-radius: 6px;
-  box-shadow: 0 0 8px #ff99cc;
+  border: 3px double #ff66cc;
+  padding: 3px;
+  background: #fff0f8;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff99cc;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .member-gallery img:hover {
   transform: scale(1.06);
-  box-shadow: 0 0 18px #ff66b2;
+  box-shadow: 0 0 25px #ff66b2;
 }
 
 /* Lightbox */
@@ -86,79 +101,89 @@ h1 {
   color: white;
 }
 
-/* Back buttons */
+/* Navigation buttons */
 .back-btn {
   margin: 10px;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 6px;
   background: #ff66b2;
   color: white;
   border: none;
   cursor: pointer;
+  font-weight: bold;
 }
 .back-btn:hover {
   background: #ff33aa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .member-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .member-gallery { grid-template-columns: 1fr; }
+  .member-gallery img { width: 70%; height: auto; }
 }
 </style>
 </head>
 <body>
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+<div class="panel">
+  <h1>Kim EZ Gallery</h1>
+  <p class="instructions">Click on an image to open the lightbox. Use arrows or X to close. Click image in lightbox for full resolution.</p>
 
-<h1>Kim EZ Gallery</h1>
-<p class="instructions">Click on one of the images to open the lightbox. Navigate using arrows or click X to close. Click the image in the lightbox for full resolution.</p>
-
-<div id="ez-gallery" class="member-gallery">
-  <!-- Portrait gallery images -->
-  <a href="EZ2.jpg" target="_blank"><img src="EZ2.jpg" alt="Kim EZ 2"></a>
-  <a href="EZ3.JPG" target="_blank"><img src="EZ3.JPG" alt="Kim EZ 3"></a>
-  <a href="EZ4.JPG" target="_blank"><img src="EZ4.JPG" alt="Kim EZ 4"></a>
-  <a href="EZ5.jpg" target="_blank"><img src="EZ5.jpg" alt="Kim EZ 5"></a>
-  <a href="EZ6.png" target="_blank"><img src="EZ6.png" alt="Kim EZ 6"></a>
-  <a href="EZ7.png" target="_blank"><img src="EZ7.png" alt="Kim EZ 7"></a>
-  <a href="Eunhye&EZ.jpg" target="_blank"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
-  <a href="EZ8.jpg" target="_blank"><img src="EZ8.jpg" alt="Kim EZ 8"></a>
-  <a href="KimEZ15.jpg" target="_blank"><img src="KimEZ15.jpg" alt="Kim EZ 15"></a>
-  <a href="EZ20.jpg" target="_blank"><img src="EZ20.jpg" alt="Kim EZ 20"></a>
-  <a href="EZ&Eunhye2.jpg" target="_blank"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
-  <a href="EZ22.jpg" target="_blank"><img src="EZ22.jpg" alt="Kim EZ 22"></a>
-  <a href="EZ23.jpg" target="_blank"><img src="EZ23.jpg" alt="Kim EZ 23"></a>
-  <a href="EZ24.jpg" target="_blank"><img src="EZ24.jpg" alt="Kim EZ 24"></a>
-  <a href="KimEZ45.jpg" target="_blank"><img src="KimEZ45.jpg" alt="Kim EZ 45"></a>
-  <a href="EZ56.jpg" target="_blank"><img src="EZ56.jpg" alt="Kim EZ 56"></a>
-  <a href="EZ57.jpg" target="_blank"><img src="EZ57.jpg" alt="Kim EZ 57"></a>
-  <a href="EZ58.jpg" target="_blank"><img src="EZ58.jpg" alt="Kim EZ 58"></a>
-  <a href="EZ59.jpg" target="_blank"><img src="EZ59.jpg" alt="Kim EZ 59"></a>
-  <a href="EZ60.jpg" target="_blank"><img src="EZ60.jpg" alt="Kim EZ 60"></a>
-  <a href="EZ61.jpg" target="_blank"><img src="EZ61.jpg" alt="Kim EZ 61"></a>
-  <a href="0-1.jpeg" target="_blank"><img src="0-1.jpeg" alt="Kim EZ 62"></a>
-  <a href="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg" target="_blank"><img src="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg" alt="Kim EZ 63"></a>
-  <a href="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg" target="_blank"><img src="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg" alt="Kim EZ 64"></a>
-  <a href="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg" target="_blank"><img src="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg" alt="Kim EZ 65"></a>
-  <a href="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg" target="_blank"><img src="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg" alt="Kim EZ 66"></a>
-  <a href="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg" target="_blank"><img src="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg" alt="Kim EZ 67"></a>
-  <a href="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg" target="_blank"><img src="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg" alt="Kim EZ 68"></a>
-  <a href="IMG_2022.jpeg" target="_blank"><img src="IMG_2022.jpeg" alt="Kim EZ 69"></a>
-  <a href="IMG_2023.jpeg" target="_blank"><img src="IMG_2023.jpeg" alt="Kim EZ 70"></a>
-  <a href="IMG_2024.jpeg" target="_blank"><img src="IMG_2024.jpeg" alt="Kim EZ 71"></a>
-  <a href="ez111.jpeg" target="_blank"><img src="ez111.jpeg" alt="Kim EZ 72"></a>
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <img src="" alt="" id="lightbox-img">
-  <div class="controls">
-    <button id="prev">&#8592;</button>
-    <button id="next">&#8594;</button>
-    <button id="close">X</button>
+  <div id="ez-gallery" class="member-gallery">
+    <!-- All EZ images -->
+    <a href="EZ2.jpg"><img src="EZ2.jpg" alt="Kim EZ 2"></a>
+    <a href="EZ3.JPG"><img src="EZ3.JPG" alt="Kim EZ 3"></a>
+    <a href="EZ4.JPG"><img src="EZ4.JPG" alt="Kim EZ 4"></a>
+    <a href="EZ5.jpg"><img src="EZ5.jpg" alt="Kim EZ 5"></a>
+    <a href="EZ6.png"><img src="EZ6.png" alt="Kim EZ 6"></a>
+    <a href="EZ7.png"><img src="EZ7.png" alt="Kim EZ 7"></a>
+    <a href="Eunhye&EZ.jpg"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
+    <a href="EZ8.jpg"><img src="EZ8.jpg" alt="Kim EZ 8"></a>
+    <a href="KimEZ15.jpg"><img src="KimEZ15.jpg" alt="Kim EZ 15"></a>
+    <a href="EZ20.jpg"><img src="EZ20.jpg" alt="Kim EZ 20"></a>
+    <a href="EZ&Eunhye2.jpg"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
+    <a href="EZ22.jpg"><img src="EZ22.jpg" alt="Kim EZ 22"></a>
+    <a href="EZ23.jpg"><img src="EZ23.jpg" alt="Kim EZ 23"></a>
+    <a href="EZ24.jpg"><img src="EZ24.jpg" alt="Kim EZ 24"></a>
+    <a href="KimEZ45.jpg"><img src="KimEZ45.jpg" alt="Kim EZ 45"></a>
+    <a href="EZ56.jpg"><img src="EZ56.jpg" alt="Kim EZ 56"></a>
+    <a href="EZ57.jpg"><img src="EZ57.jpg" alt="Kim EZ 57"></a>
+    <a href="EZ58.jpg"><img src="EZ58.jpg" alt="Kim EZ 58"></a>
+    <a href="EZ59.jpg"><img src="EZ59.jpg" alt="Kim EZ 59"></a>
+    <a href="EZ60.jpg"><img src="EZ60.jpg" alt="Kim EZ 60"></a>
+    <a href="EZ61.jpg"><img src="EZ61.jpg" alt="Kim EZ 61"></a>
+    <a href="0-1.jpeg"><img src="0-1.jpeg" alt="Kim EZ 62"></a>
+    <a href="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg"><img src="CD40D4E5-EDF4-4BD7-89B4-A80247E85888.jpeg" alt="Kim EZ 63"></a>
+    <a href="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg"><img src="DA1A264A-052A-4A8E-BB43-D574A79FD17C.jpeg" alt="Kim EZ 64"></a>
+    <a href="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg"><img src="239AE517-CDFC-49B4-A7B2-67D053A7E545.jpeg" alt="Kim EZ 65"></a>
+    <a href="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg"><img src="430721A1-2E0C-4694-9478-B8BA232DFFFC.jpeg" alt="Kim EZ 66"></a>
+    <a href="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg"><img src="2DEB9774-8C0D-4DFA-80C2-669562C906AA.jpeg" alt="Kim EZ 67"></a>
+    <a href="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg"><img src="A59A5840-3CA4-4DA9-B130-0454D5A348B4.jpeg" alt="Kim EZ 68"></a>
+    <a href="IMG_2022.jpeg"><img src="IMG_2022.jpeg" alt="Kim EZ 69"></a>
+    <a href="IMG_2023.jpeg"><img src="IMG_2023.jpeg" alt="Kim EZ 70"></a>
+    <a href="IMG_2024.jpeg"><img src="IMG_2024.jpeg" alt="Kim EZ 71"></a>
+    <a href="ez111.jpeg"><img src="ez111.jpeg" alt="Kim EZ 72"></a>
   </div>
-</div>
 
-<!-- Navigation buttons -->
-<div>
-  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
-  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
-  <button class="back-btn" onclick="window.location.href='ez2.html'">Next Page →</button>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="" id="lightbox-img">
+    <div class="controls">
+      <button id="prev">&#8592;</button>
+      <button id="next">&#8594;</button>
+      <button id="close">X</button>
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <div>
+    <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+    <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+    <button class="back-btn" onclick="window.location.href='ez2.html'">Next Page →</button>
+  </div>
 </div>
 
 <script>
