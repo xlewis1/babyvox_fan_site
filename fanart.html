@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Fanart</title>
 <style>
-/* Page style */
+/* Geocities-style body */
 body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
@@ -15,110 +15,131 @@ body {
   text-align: center;
 }
 
-/* Header banner */
-.fanart-header {
-  margin-top: 25px;
+/* Container */
+.container {
+  width: 900px;
+  max-width: 95%;
+  margin: 0 auto 50px auto;
+  background-color: #ffe6f0;
+  border: 5px dashed #ff66cc;
+  border-radius: 15px;
+  padding: 20px;
 }
 
-.fanart-header img {
-  width: 700px;
-  max-width: 95%;
-  border: 5px double hotpink;
-  box-shadow: 0 0 20px #ff99cc;
+/* Header */
+h1 {
+  color: #ff3399;
+  text-shadow: 2px 2px #fff;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+h2.subtitle {
+  font-size: 20px;
+  color: #ff66cc;
+  text-shadow: 1px 1px white;
+  margin-bottom: 20px;
+}
+
+/* Banner image */
+.banner {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border: 4px double hotpink;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
 /* Ticker */
-.fanart-ticker {
-  margin-top: 10px;
-  font-weight: bold;
+.marquee {
   color: hotpink;
+  font-weight: bold;
+  font-size: 1.2rem;
   text-shadow: 1px 1px white;
+  margin-bottom: 25px;
 }
 
 /* Instructions box */
-.submit-box {
-  width: 700px;
-  max-width: 95%;
-  margin: 30px auto;
-  background: #fff0f8;
-  border: 4px dashed #ff66cc;
-  padding: 20px;
+.instructions {
+  background-color: #fff0f8;
+  border: 3px dashed #ff66cc;
   border-radius: 12px;
-}
-
-.submit-box h2 {
-  color: #ff3399;
-  text-shadow: 1px 1px white;
-}
-
-.submit-box ul {
+  padding: 15px;
+  margin-bottom: 30px;
   text-align: left;
-  display: inline-block;
-  padding-left: 20px;
 }
 
-.submit-box li {
-  margin-bottom: 8px;
-  font-size: 16px;
+.instructions a {
+  color: #ff3399;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.note {
-  font-size: 14px;
-  color: #cc3399;
-  margin-top: 10px;
+.instructions a:hover {
+  text-decoration: underline;
 }
 
-/* Gallery */
-.fanart-gallery {
-  width: 900px;
-  max-width: 95%;
-  margin: auto;
-  margin-bottom: 50px;
-}
-
-.art-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* Gallery grid */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
 }
 
-.art-grid img {
-  width: 100%;
+.gallery img {
+  width: 250px;
+  max-width: 100%;
   border: 3px dashed #ff66cc;
   border-radius: 10px;
-  box-shadow: 0 0 10px #ff99cc;
+}
+
+/* Sidebar style */
+.sidebar a {
+  display: block;
+  margin: 10px 0;
+  color: #ff3399;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
 }
 </style>
 </head>
 <body>
 
-<!-- Header Banner -->
-<div class="fanart-header">
-  <img src="윤은혜-과거_005.jpeg" alt="Fanart Banger">
-  <marquee class="fanart-ticker" behavior="scroll" direction="left" scrollamount="10">
-    🎨 Welcome to the Baby V.O.X Fanart Page! Send your fanart via Instagram @babyvoxfan23 or TikTok lewislovesmiyoun 🎨
+<!-- Container -->
+<div class="container">
+  <h1>Baby V.O.X Fanart</h1>
+  <h2 class="subtitle">Leave your fanart here! Please be nice :)</h2>
+
+  <!-- Banner -->
+  <img src="Eunhye005.jpeg" alt="Fanart Banner" class="banner">
+
+  <!-- Ticker -->
+  <marquee class="marquee" behavior="scroll" direction="left" scrollamount="10">
+    💖 Want your fanart featured? Message me on Instagram or TikTok! 💖
   </marquee>
-</div>
 
-<!-- Submission Instructions -->
-<div class="submit-box">
-  <h2>How to Add Your Fanart</h2>
-  <ul>
-    <li>Contact me via Instagram: <a href="https://www.instagram.com/babyvoxfan23?igsh=bmh6OWhveDVlZmVt&utm_source=qr" target="_blank">@babyvoxfan23</a></li>
-    <li>Or via TikTok: <a href="https://www.tiktok.com/@lewislovesmiyoun" target="_blank">@lewislovesmiyoun</a></li>
-    <li>Include the image you want to see on the gallery.</li>
-    <li>Make sure the image is fanart-friendly and safe for all visitors.</li>
-  </ul>
-  <p class="note">All fanart will be manually added to this page by me :)</p>
-</div>
+  <!-- Instructions -->
+  <div class="instructions">
+    <p>To add your fanart, contact me on my social fanpages and I’ll see if I can post it here:</p>
+    <ul>
+      <li>Instagram: <a href="https://www.instagram.com/babyvoxfan23?igsh=bmh6OWhveDVlZmVt&utm_source=qr" target="_blank">@babyvoxfan23</a></li>
+      <li>TikTok: <a href="https://www.tiktok.com/@lewislovesmiyoun" target="_blank">@lewislovesmiyoun</a></li>
+    </ul>
+  </div>
 
-<!-- Fanart Gallery -->
-<div class="fanart-gallery">
-  <div class="art-grid">
-    <!-- Add your images here manually -->
-    <img src="example1.jpg" alt="Fanart 1">
-    <img src="example2.jpg" alt="Fanart 2">
-    <img src="example3.jpg" alt="Fanart 3">
+  <!-- Gallery -->
+  <div class="gallery">
+    <!-- Example images; add manually -->
+    <img src="fanart1.jpeg" alt="Fanart 1">
+    <img src="fanart2.jpeg" alt="Fanart 2">
+    <img src="fanart3.jpeg" alt="Fanart 3">
   </div>
 </div>
 
