@@ -18,39 +18,79 @@ body {
   min-height: 100vh;
 }
 
-/* SPLASH OVERLAY */
+/* SPLASH */
 #splash {
   position: fixed;
   inset: 0;
-  background: 
-    linear-gradient(rgba(255,105,180,0.35), rgba(255,105,180,0.35)),
-    url("babyvox30.jpg") center / cover no-repeat;
+  background-color: #ffccff;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  z-index: 9999;
   text-align: center;
+  z-index: 9999;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
+
+#splash .splash-bg {
+  border: 4px double hotpink;
+  background: #fff0f8;
+  padding: 30px 40px;
+  box-shadow: 0 0 25px #ff66cc;
+  border-radius: 12px;
+}
+
 #splash h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
+  color: #ff3399;
+  text-shadow: 2px 2px #ffffff, 0 0 6px #ff66cc;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff33aa;
+  animation: colorCycle 3s infinite alternate;
 }
+
+/* Flashing heading color animation */
+@keyframes colorCycle {
+  0% { color: #ff3399; }
+  25% { color: #ff66b2; }
+  50% { color: #ff99cc; }
+  75% { color: #ff3399; }
+  100% { color: #ff66b2; }
+}
+
+.splash-stars {
+  margin: 15px 0;
+  font-size: 1.5rem;
+  color: gold;
+  animation: starsTwinkle 1.2s infinite alternate;
+}
+
+.splash-stars span:nth-child(even) {
+  color: hotpink;
+}
+
+@keyframes starsTwinkle {
+  0% { opacity: 0.6; transform: rotate(0deg) scale(1); }
+  50% { opacity: 1; transform: rotate(15deg) scale(1.2); }
+  100% { opacity: 0.6; transform: rotate(-15deg) scale(1); }
+}
+
 #splash button {
   padding: 14px 28px;
   font-size: 1.2rem;
   border-radius: 12px;
-  border: none;
-  background: white;
-  color: #ff3399;
+  border: 3px double hotpink;
+  background: #ff99cc;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 15px #ff66cc, 0 0 25px #ff3399;
-  transition: transform 0.2s ease;
+  box-shadow: 0 0 12px #ff66cc, 0 0 20px #ff3399;
+  transition: all 0.2s ease;
 }
+
 #splash button:hover {
-  transform: scale(1.05);
+  background: #ff66b2;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 18px #ff66cc, 0 0 25px #ff3399;
 }
 
 /* ---------- TOP SCROLLING BANGER ---------- */
@@ -229,8 +269,17 @@ body {
 
 <!-- SPLASH -->
 <div id="splash">
-  <h1>Welcome to Baby V.O.X Fansite!</h1>
-  <button id="enter-site">Enter Site</button>
+  <div class="splash-bg">
+    <h1>💖 Welcome to the Baby V.O.X Fansite! 💖</h1>
+    <marquee behavior="scroll" direction="left" scrollamount="10" style="color: hotpink; font-weight:bold; font-size:1.2rem; text-shadow: 1px 1px 2px white;">✨ New Updates, Gallery Pics & Fun Facts! ✨</marquee>
+    
+    <!-- Animated stars -->
+    <div class="splash-stars">
+      <span>★</span><span>☆</span><span>★</span><span>☆</span><span>★</span>
+    </div>
+
+    <button id="enter-site">Enter Site</button>
+  </div>
 </div>
 
 <!-- TOP SCROLLING BANGER -->
