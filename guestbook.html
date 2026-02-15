@@ -206,6 +206,12 @@ button:active {
    pinned2.innerHTML = `<h3>Arthur ⭐</h3>
    <p>Idk this is a test</p>`;
    messagesContainer.appendChild(pinned2);  
+
+   const pinned3 = document.createElement("div");
+   pinned2.className = "message-box";
+   pinned2.innerHTML = `<h3>Arthur ⭐</h3>
+   <p>we feeling very Ride west</p>`;
+   messagesContainer.appendChild(pinned3);
     
     try {
       const { data, error } = await forminit.getSubmissions(FORM_ID, { limit: 50 });
