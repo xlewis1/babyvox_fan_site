@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shim Eun Jin Gallery - Page 2 | Baby VOX Fansite</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #ffd6f5, #ff9edc);
+}
+
+/* Framed container */
+.page-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border: 6px double hotpink;
+  box-shadow: 0 0 25px #ff66cc;
+  text-align: center;
+}
+
+h1 { 
+  color: #4B0082; 
+  margin-bottom: 10px;
+}
+
+.instructions { 
+  color: #4B0082; 
+  margin-bottom: 30px; 
+}
+
+/* Gallery grid: always 3 per row */
+.member-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  justify-items: center;
+  margin-bottom: 40px;
+}
+
+/* Portrait thumbnails */
+.member-gallery img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #ff99cc;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #ff33aa;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.controls button {
+  font-size: 20px;
+  margin: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  background: #ff3399;
+  color: white;
+}
+
+.controls button:hover {
+  background: #cc0077;
+}
+
+/* Navigation buttons */
+.back-btn {
+  margin: 10px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  background: #ff66b2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-btn:hover { 
+  background: #ff33aa; 
+}
+
+/* Spinning logo */
+.logo {
+  height: 80px;
+  animation: spin 5s linear infinite;
+  margin-bottom: 20px;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+
+<h1>Shim Eun Jin Gallery – Page 2</h1>
+<p class="instructions">
+Click an image to open the lightbox. Use arrow keys to navigate. Click image for full resolution.
+</p>
+
+<!-- Eun Jin Gallery Page 2 -->
+<div id="eunjin-gallery" class="member-gallery">
+  <a href="IMG_2691.png"><img src="IMG_2691.png" alt="Shim Eun Jin 2691"></a>
+  <a href="IMG_2692.png"><img src="IMG_2692.png" alt="Shim Eun Jin 2692"></a>
+  <a href="IMG_2693.png"><img src="IMG_2693.png" alt="Shim Eun Jin 2693"></a>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
+  <div class="controls">
+    <button id="prev">&#8592;</button>
+    <button id="next">&#8594;</button>
+    <button id="close">X</button>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div>
+  <button class="back-btn" onclick="window.location.href='eunjin.html'">Back to Page 1</button>
+  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+</div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelectorAll('#eunjin-gallery a');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  function openLightbox(index){
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    lightbox.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function nextImage(){
+    currentIndex = (currentIndex + 1) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  function prevImage(){
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  gallery.forEach((item, index) => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  document.getElementById('close').onclick = closeLightbox;
+  document.getElementById('next').onclick = nextImage;
+  document.getElementById('prev').onclick = prevImage;
+
+  lightbox.addEventListener('click', e => {
+    if(e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if(lightbox.style.display === 'flex'){
+      if(e.key === 'ArrowRight') nextImage();
+      if(e.key === 'ArrowLeft') prevImage();
+      if(e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  lightboxImg.addEventListener('click', () => {
+    window.open(lightboxImg.src, '_blank');
+  });
+});
+</script>
+
+</body>
+</html>
