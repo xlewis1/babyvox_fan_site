@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Fanart</title>
 <style>
-/* Geocities-style body */
+/* Body & container */
 body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
@@ -15,7 +15,6 @@ body {
   text-align: center;
 }
 
-/* Container */
 .container {
   width: 900px;
   max-width: 95%;
@@ -26,7 +25,7 @@ body {
   padding: 20px;
 }
 
-/* Header */
+/* Headers */
 h1 {
   color: #ff3399;
   text-shadow: 2px 2px #fff;
@@ -34,7 +33,6 @@ h1 {
   margin-bottom: 10px;
 }
 
-/* Subtitle */
 h2.subtitle {
   font-size: 20px;
   color: #ff66cc;
@@ -42,7 +40,7 @@ h2.subtitle {
   margin-bottom: 20px;
 }
 
-/* Banner image */
+/* Banner */
 .banner {
   width: auto;
   max-height: 400px;
@@ -52,7 +50,7 @@ h2.subtitle {
   margin-bottom: 15px;
 }
 
-/* Ticker */
+/* Marquee */
 .marquee {
   color: hotpink;
   font-weight: bold;
@@ -73,8 +71,8 @@ h2.subtitle {
 
 .instructions a {
   color: #ff3399;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .instructions a:hover {
@@ -94,22 +92,49 @@ h2.subtitle {
   max-width: 100%;
   border: 3px dashed #ff66cc;
   border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-/* Sidebar style */
-.sidebar a {
-  display: block;
-  margin: 10px 0;
-  color: #ff3399;
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.button-group {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button-group button {
+  font-family: "Comic Sans MS", cursive, sans-serif;
   font-weight: bold;
-  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  background: #ff66cc;
+  padding: 12px 28px;
+  border: 3px solid #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255,102,204,0.4);
+  transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+  position: relative;
+  overflow: hidden;
 }
 
-.sidebar a:hover {
-  text-decoration: underline;
+.button-group button:hover {
+  transform: scale(1.1) rotate(-2deg);
+  background: #ff3399;
+  box-shadow: 0 0 20px #ff66cc, 0 0 40px #ffccff;
 }
 
-/* Lightbox overlay */
+.button-group button:active {
+  transform: scale(0.9);
+}
+
+/* Lightbox */
 #lightbox {
   position: fixed;
   inset: 0;
@@ -120,16 +145,15 @@ h2.subtitle {
   z-index: 9999;
 }
 
-/* Image inside lightbox */
 #lightbox-img {
   max-width: 90%;
   max-height: 90%;
   border: 5px double hotpink;
   border-radius: 12px;
   box-shadow: 0 0 40px #ff66cc;
+  transition: transform 0.3s;
 }
 
-/* Close button */
 #lightbox-close {
   position: absolute;
   top: 20px;
@@ -139,101 +163,52 @@ h2.subtitle {
   cursor: pointer;
   text-shadow: 0 0 15px hotpink;
 }
-
-/* Container for the buttons */
-.button-group {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-/* The Base Button - Round & Pink */
-.button-group button {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  color: white; /* White letters */
-  background: #ff66cc; /* Bright Pink */
-  padding: 12px 28px;
-  border: 3px solid #ffffff; /* White border for that pop */
-  border-radius: 50px; /* Makes them perfectly round/pill-shaped */
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(255, 102, 204, 0.4);
-  
-  /* Animation Setup */
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Hover Animations */
-.button-group button:hover {
-  transform: scale(1.1) rotate(-2deg); /* Bouncy scale and slight tilt */
-  background: #ff3399; /* Deeper pink on hover */
-  box-shadow: 0 0 20px #ff66cc, 0 0 40px #ffccff;
-}
-
-/* Click Animation */
-.button-group button:active {
-  transform: scale(0.9);
-}
-
 </style>
 </head>
 <body>
 
-<!-- Container -->
 <div class="container">
   <h1>Baby V.O.X Fanart</h1>
   <h2 class="subtitle">Leave your fanart here! Please be nice :)</h2>
 
-  <!-- Banner -->
   <img src="Eunhye005.jpeg" alt="Fanart Banner" class="banner">
 
-  <!-- Ticker -->
   <marquee class="marquee" behavior="scroll" direction="left" scrollamount="10">
     💖 Want your fanart featured? Message me on Instagram or TikTok! 💖
   </marquee>
- 
- <div class="button-group" style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
-  
-  <a href="fanart_ofthe_day.html" style="text-decoration: none;">
-  <button type="button" style="color: #ff00ff; font-weight: bold; border: 3px outset #ffccff; background: #ffffff; padding: 8px 15px; cursor: pointer;">
-    ✨ Fanart of the Day ✨
-  </button>
-</a>
 
-  <a href="index.html" style="text-decoration: none;">
-  <button type="button" style="color: #0000ff; font-weight: bold; border: 3px outset #ccccff; background: #ffffff; padding: 8px 15px; cursor: pointer;">
-    🏠 Back to Home
-  </button>
-</a>
-</div>
+  <div class="button-group">
+    <a href="fanart_ofthe_day.html" style="text-decoration:none;">
+      <button type="button" style="color:#ff00ff; font-weight:bold; border:3px outset #ffccff; background:#ffffff;">
+        ✨ Fanart of the Day ✨
+      </button>
+    </a>
+    <a href="index.html" style="text-decoration:none;">
+      <button type="button" style="color:#0000ff; font-weight:bold; border:3px outset #ccccff; background:#ffffff;">
+        🏠 Back to Home
+      </button>
+    </a>
+  </div>
 
-  <!-- Instructions -->
   <div class="instructions">
     <p>To add your fanart, contact me on my social fanpages and I’ll see if I can post it here:</p>
     <ul>
-      <li>Instagram: <a href="https://www.instagram.com/babyvoxfan23?igsh=bmh6OWhveDVlZmVt&utm_source=qr" target="_blank">@babyvoxfan23</a></li>
+      <li>Instagram: <a href="https://www.instagram.com/babyvoxfan23" target="_blank">@babyvoxfan23</a></li>
       <li>TikTok: <a href="https://www.tiktok.com/@lewislovesmiyoun" target="_blank">@lewislovesmiyoun</a></li>
     </ul>
   </div>
 
   <!-- Gallery -->
   <div class="gallery">
-    <!-- Example images; add manually -->
-    <img src="IMG_2765.jpeg" alt="Fanart 1">
-    <img src="IMG_2766.jpeg" alt="Fanart 2">
-    <img src="IMG_2767.jpeg" alt="Fanart 3">
-    <img src="97EF46EF-856D-4EAB-8A55-489041B3A715.jpeg" alt="Fanart 4">
-    <img src="F98B7C22-7D8A-4DD0-9F0C-CCAE88591228.jpeg" alt="Fanart 5">
-    <img src="3CFE1A7F-E17C-498E-8A40-A399FFF6F634.jpeg" alt="Fanart 6">
-    <img src="C48FDF6A-6023-4F24-819A-F6B96A74597A.jpeg" alt="Fanart 7">
+    <img src="IMG_2765.jpeg" data-full="full/IMG_2765_full.jpeg" alt="Fanart 1">
+    <img src="IMG_2766.jpeg" data-full="full/IMG_2766_full.jpeg" alt="Fanart 2">
+    <img src="IMG_2767.jpeg" data-full="full/IMG_2767_full.jpeg" alt="Fanart 3">
+    <img src="97EF46EF-856D-4EAB-8A55-489041B3A715.jpeg" data-full="full/97EF46EF-856D-4EAB-8A55-489041B3A715_full.jpeg" alt="Fanart 4">
+    <img src="F98B7C22-7D8A-4DD0-9F0C-CCAE88591228.jpeg" data-full="full/F98B7C22-7D8A-4DD0-9F0C-CCAE88591228_full.jpeg" alt="Fanart 5">
+    <img src="3CFE1A7F-E17C-498E-8A40-A399FFF6F634.jpeg" data-full="full/3CFE1A7F-E17C-498E-8A40-A399FFF6F634_full.jpeg" alt="Fanart 6">
+    <img src="C48FDF6A-6023-4F24-819A-F6B96A74597A.jpeg" data-full="full/C48FDF6A-6023-4F24-819A-F6B96A74597A_full.jpeg" alt="Fanart 7">
   </div>
 </div>
-
-  </div> <!-- end of container -->
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
@@ -242,32 +217,31 @@ h2.subtitle {
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.getElementById("lightbox-close");
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const closeBtn = document.getElementById("lightbox-close");
-
-// Open when clicking gallery images
-document.querySelectorAll(".gallery img").forEach(img => {
-  img.addEventListener("click", () => {
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
+  // Show full-resolution image in lightbox
+  document.querySelectorAll(".gallery img").forEach(img => {
+    img.addEventListener("click", () => {
+      const fullSrc = img.dataset.full || img.src;
+      lightboxImg.src = fullSrc;
+      lightbox.style.display = "flex";
+    });
   });
-});
 
-// Close button
-closeBtn.addEventListener("click", () => {
-  lightbox.style.display = "none";
-});
-
-// Click outside image closes too
-lightbox.addEventListener("click", e => {
-  if (e.target === lightbox) {
+  // Close lightbox
+  closeBtn.addEventListener("click", () => {
     lightbox.style.display = "none";
-  }
-});
+  });
 
+  // Click outside image closes
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
 });
 </script>
 
