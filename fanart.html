@@ -140,6 +140,31 @@ h2.subtitle {
   text-shadow: 0 0 15px hotpink;
 }
 
+/* Fanart of the Day Button */
+.fotd-button {
+  display: inline-block;
+  background-color: #ff3399; /* Hot Pink */
+  color: white !important; /* White Text */
+  padding: 12px 25px;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 3px solid #ffffff;
+  border-radius: 50px; /* Pill Shape */
+  box-shadow: 0 0 10px #ff66cc;
+  transition: 0.3s;
+}
+
+.fotd-button:hover {
+  background-color: white;
+  color: #ff3399 !important;
+  border: 3px solid #ff3399;
+  box-shadow: 0 0 20px #ff3399;
+  transform: scale(1.05);
+}
+
+
 </style>
 </head>
 <body>
@@ -156,6 +181,13 @@ h2.subtitle {
   <marquee class="marquee" behavior="scroll" direction="left" scrollamount="10">
     💖 Want your fanart featured? Message me on Instagram or TikTok! 💖
   </marquee>
+
+  <div style="text-align: center;">
+  <a href="fanart_ofthe_day.html" class="fotd-button">
+    ✨ View Fanart of the Day! ✨
+  </a>
+</div>
+
 
   <!-- Instructions -->
   <div class="instructions">
