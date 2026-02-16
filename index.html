@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Fansite</title>
 <style>
-/* RESET & BODY */
+/* ----- RESET & BODY ----- */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   margin: 0;
   padding: 0;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
@@ -18,7 +18,7 @@ body {
   min-height: 100vh;
 }
 
-/* SPLASH */
+/* ----- SPLASH ----- */
 #splash {
   position: fixed;
   inset: 0;
@@ -28,7 +28,6 @@ body {
   align-items: center;
   text-align: center;
   z-index: 9999;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 #splash .splash-bg {
@@ -47,7 +46,6 @@ body {
   animation: colorCycle 3s infinite alternate;
 }
 
-/* Flashing heading color animation */
 @keyframes colorCycle {
   0% { color: #ff3399; }
   25% { color: #ff66b2; }
@@ -63,9 +61,7 @@ body {
   animation: starsTwinkle 1.2s infinite alternate;
 }
 
-.splash-stars span:nth-child(even) {
-  color: hotpink;
-}
+.splash-stars span:nth-child(even) { color: hotpink; }
 
 @keyframes starsTwinkle {
   0% { opacity: 0.6; transform: rotate(0deg) scale(1); }
@@ -93,7 +89,7 @@ body {
   box-shadow: 0 0 18px #ff66cc, 0 0 25px #ff3399;
 }
 
-/* ---------- TOP SCROLLING BANGER ---------- */
+/* ----- TOP SCROLLING BANGER ----- */
 .top-banger {
   width: 100%;
   height: 120px; 
@@ -104,7 +100,6 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   margin-bottom: 20px;
 }
 .scrolling-banger-wrapper {
@@ -123,7 +118,7 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* MAIN FLEX CONTAINER */
+/* ----- MAIN FLEX CONTAINER ----- */
 .main-container {
   flex: 1;
   display: flex;
@@ -133,7 +128,7 @@ body {
   align-items: flex-start;
 }
 
-/* SIDEBAR */
+/* ----- SIDEBAR ----- */
 .sidebar {
   width: 220px;
   background: #ffe6f0;
@@ -147,10 +142,7 @@ body {
   flex: 1;
   justify-content: flex-start;
 }
-.sidebar::after {
-  content: "";
-  flex-grow: 1;
-}
+.sidebar::after { content: ""; flex-grow: 1; }
 .sidebar img {
   width: 120px;
   margin-bottom: 20px;
@@ -180,7 +172,7 @@ body {
   transform: scale(1.05);
 }
 
-/* CENTER CONTENT */
+/* ----- CENTER CONTENT ----- */
 .center-content {
   flex: 2;
   text-align: center;
@@ -192,21 +184,30 @@ body {
   margin-bottom: 20px;
 }
 
-/* WELCOME PANEL */
+/* ----- WELCOME PANEL ----- */
 .welcome-box {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #ffd6e8;
-  padding: 15px 20px;
+  padding: 15px 25px;
   border-radius: 12px;
   color: #4B0082;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 20px;
+  border: 3px dashed #ff66cc;
+  box-shadow: 0 0 15px #ff99cc;
+  text-align: center;
 }
 .welcome-box img { width: 80px; border-radius: 8px; }
 
-/* RIGHT PANEL */
+/* Add playful welcome text */
+.welcome-box p { margin: 5px 0; font-size: 1.1rem; line-height: 1.4; }
+.welcome-box span.heart { color: hotpink; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
+/* ----- RIGHT PANEL ----- */
 .right-panel {
   width: 220px;
   background: #ffe6f0;
@@ -219,16 +220,13 @@ body {
   flex: 1;
   justify-content: flex-start;
 }
-.right-panel::after {
-  content: "";
-  flex-grow: 1;
-}
+.right-panel::after { content: ""; flex-grow: 1; }
 .right-panel p { margin: 5px 0; text-align: center; }
 .right-panel #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
 .right-panel #mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; }
 .right-panel button { width: 100%; margin-top: 5px; }
 
-/* SITE FOOTER */
+/* ----- SITE FOOTER ----- */
 .site-footer {
   margin-top: auto;
   padding: 18px;
@@ -238,30 +236,11 @@ body {
   opacity: 0.75;
 }
 
-/* TICKER */
-@keyframes tickerMove {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
+/* ----- TICKER ----- */
+@keyframes tickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-.bottom-image {
-  text-align: center;
-  margin: 30px 0 15px 0;
-}
-
-.bottom-image img {
-  max-width: 45%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 12px #ff99cc;
-}
-
-  
-.sidebar img[alt="Baby V.O.X Blog Button"]:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px #ff99cc;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
+.bottom-image { text-align: center; margin: 30px 0 15px 0; }
+.bottom-image img { max-width: 45%; height: auto; border-radius: 8px; box-shadow: 0 0 12px #ff99cc; }
 
 </style>
 </head>
@@ -272,13 +251,12 @@ body {
   <div class="splash-bg">
     <img src="babyvox30.jpg" alt="Baby VOX" class="splash-img">
     <h1>💖 Welcome to the Baby V.O.X Fansite! 💖</h1>
-    <marquee behavior="scroll" direction="left" scrollamount="10" style="color: hotpink; font-weight:bold; font-size:1.2rem; text-shadow: 1px 1px 2px white;">✨ New Updates, Gallery Pics & Fun Facts! ✨</marquee>
-    
-    <!-- Animated stars -->
+    <marquee behavior="scroll" direction="left" scrollamount="10" style="color: hotpink; font-weight:bold; font-size:1.2rem; text-shadow: 1px 1px 2px white;">
+      ✨ New Updates, Gallery Pics & Fun Facts! ✨
+    </marquee>
     <div class="splash-stars">
       <span>★</span><span>☆</span><span>★</span><span>☆</span><span>★</span>
     </div>
-
     <button id="enter-site">Enter Site</button>
   </div>
 </div>
@@ -295,7 +273,7 @@ body {
 
 <!-- MAIN CONTAINER -->
 <div class="main-container">
-  <!-- LEFT SIDEBAR -->
+  <!-- SIDEBAR -->
   <div class="sidebar">
     <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
     <a href="index.html">Home</a>
@@ -307,11 +285,11 @@ body {
     <a href="links.html">Links</a>
     <a href="newsletter.html">Newsletter</a>
     <a href="guestbook.html">Guestbook</a>
-    <a href="blog.html">V.O.X Blog</a>
-    <a href="fanart.html" class="sidebar-btn">Fan Art</a>
+    <a href="blog.html" class="sidebar-btn">V.O.X Blog</a>
+    <a href="fanart.html">Fan Art</a>
     <a href="bias.html">My Bias</a>
     <button onclick="showRandomFact()">Random Fact</button>
-   </div>
+  </div>
 
   <!-- CENTER CONTENT -->
   <div class="center-content">
@@ -319,16 +297,21 @@ body {
       <img src="IMG_2504.gif" alt="Left GIF" style="width:80px; height:80px; margin-right:10px;">
       <div style="overflow: hidden; white-space: nowrap; flex: 1;">
         <p id="ticker-text" style="display:inline-block; color:#ff3399; font-weight:bold; font-size:1.2rem; animation:tickerMove 15s linear infinite;">
-           🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀
+          🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀
         </p>
       </div>
       <img src="IMG_2505.gif" alt="Right GIF" style="width:80px; height:80px; margin-left:10px;">
     </div>
 
     <img id="center-img" src="IMG_2391.jpeg" alt="Baby VOX Center">
+    
+    <!-- WELCOME BOX WITH CHARACTER -->
     <div class="welcome-box">
       <img src="BV.gif" alt="BV GIF">
-      <span>Welcome to the Baby V.O.X Fansite – new and improved!</span>
+      <p>💖 Hey Baby Angels! 💖</p>
+      <p>Welcome to the ultimate Baby V.O.X fansite — a sparkling corner of the web where we celebrate our favorite K-pop legends from 1997–2006!</p>
+      <p>✨ Explore galleries, videos, fun facts, and even some behind-the-scenes gems!</p>
+      <p>💫 Don’t forget to check the fanart section and share your love if you’re feeling inspired! <span class="heart">♥</span></p>
     </div>
   </div>
 
@@ -344,7 +327,6 @@ body {
       <option value="ja">Japanese</option>
     </select>
     <p><strong>Visitor Count:</strong></p>
-    <!-- Free Visitor Counter Code -->
     <div id="visitor-count">
       <a href='https://www.counters-free.net/'>COUNTER-free</a>
       <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
@@ -356,8 +338,8 @@ body {
     <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
     <button onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
     <button class="gallery-btn" onclick="window.location.href='index-mobile.html'">Mobile / Tablet Version</button>
-   </div>
-</div> <!-- end of main-container -->
+  </div>
+</div>
 
 <!-- BOTTOM FEATURE IMAGE -->
 <div class="bottom-image">
@@ -398,16 +380,16 @@ function showRandomFact() { const randomIndex = Math.floor(Math.random()*facts.l
 
 // ----- LANGUAGE SELECTOR -----
 const welcomeMessages = {
-  en: "Welcome to the Baby V.O.X Fansite – new and improved!",
-  ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
-  zh: "欢迎来到Baby V.O.X粉丝站!",
-  ja: "Baby V.O.Xファンサイトへようこそ!"
+  en: "💖 Hey Baby Angels! 💖 Welcome to the ultimate Baby V.O.X fansite!",
+  ko: "💖 베이비복스 팬사이트에 오신 것을 환영합니다! 💖",
+  zh: "💖 欢迎来到Baby V.O.X粉丝站! 💖",
+  ja: "💖 Baby V.O.Xファンサイトへようこそ! 💖"
 };
 const langSelector = document.getElementById('language-selector');
 langSelector.addEventListener('change', e => {
-  document.querySelector(".welcome-box span").textContent = welcomeMessages[e.target.value];
+  document.querySelector(".welcome-box p").textContent = welcomeMessages[e.target.value];
 });
-document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
+document.querySelector(".welcome-box p").textContent = welcomeMessages["en"];
 
 // ----- LOCAL CLOCK -----
 function updateClock() {
