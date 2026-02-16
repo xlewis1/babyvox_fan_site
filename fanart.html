@@ -140,30 +140,40 @@ h2.subtitle {
   text-shadow: 0 0 15px hotpink;
 }
 
-/* Fanart of the Day Button */
-.fotd-button {
-  display: inline-block;
-  background-color: #ff3399; /* Hot Pink */
-  color: white !important; /* White Text */
-  padding: 12px 25px;
-  margin: 20px 0;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  border: 3px solid #ffffff;
-  border-radius: 50px; /* Pill Shape */
+/* Styling the buttons inside the group */
+.button-group button {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 0px #888; /* Old school shadow */
+}
+
+/* Specific Style for Fanart of the Day */
+.button-group a:first-child button {
+  background: linear-gradient(to bottom, #ffffff, #ffccff);
+  color: #ff00ff !important;
+  border: 3px outset #ff66cc !important;
+}
+
+/* Specific Style for Back to Home */
+.button-group a:last-child button {
+  background: linear-gradient(to bottom, #ffffff, #e1f0ff);
+  color: #0000ff !important;
+  border: 3px outset #66ccff !important;
+}
+
+/* Hover Effects - The "Glow Up" */
+.button-group button:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
   box-shadow: 0 0 10px #ff66cc;
-  transition: 0.3s;
+  cursor: pointer;
 }
 
-.fotd-button:hover {
-  background-color: white;
-  color: #ff3399 !important;
-  border: 3px solid #ff3399;
-  box-shadow: 0 0 20px #ff3399;
-  transform: scale(1.05);
+/* Active "Pressed" Effect */
+.button-group button:active {
+  border: 3px inset #ff66cc !important;
+  transform: scale(0.95);
 }
-
 
 </style>
 </head>
