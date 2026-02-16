@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Fanart</title>
 <style>
-/* Body & container */
 body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
@@ -25,7 +24,6 @@ body {
   padding: 20px;
 }
 
-/* Headers */
 h1 {
   color: #ff3399;
   text-shadow: 2px 2px #fff;
@@ -40,7 +38,6 @@ h2.subtitle {
   margin-bottom: 20px;
 }
 
-/* Banner */
 .banner {
   width: auto;
   max-height: 400px;
@@ -50,7 +47,6 @@ h2.subtitle {
   margin-bottom: 15px;
 }
 
-/* Marquee */
 .marquee {
   color: hotpink;
   font-weight: bold;
@@ -59,7 +55,6 @@ h2.subtitle {
   margin-bottom: 25px;
 }
 
-/* Instructions box */
 .instructions {
   background-color: #fff0f8;
   border: 3px dashed #ff66cc;
@@ -79,7 +74,6 @@ h2.subtitle {
   text-decoration: underline;
 }
 
-/* Gallery grid */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -100,7 +94,6 @@ h2.subtitle {
   transform: scale(1.05);
 }
 
-/* Buttons */
 .button-group {
   margin-top: 25px;
   display: flex;
@@ -120,8 +113,6 @@ h2.subtitle {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(255,102,204,0.4);
   transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
-  position: relative;
-  overflow: hidden;
 }
 
 .button-group button:hover {
@@ -151,7 +142,7 @@ h2.subtitle {
   border: 5px double hotpink;
   border-radius: 12px;
   box-shadow: 0 0 40px #ff66cc;
-  transition: transform 0.3s;
+  cursor: pointer;
 }
 
 #lightbox-close {
@@ -200,17 +191,17 @@ h2.subtitle {
 
   <!-- Gallery -->
   <div class="gallery">
-    <img src="IMG_2765.jpeg" data-full="IMG_2765_full.jpeg" alt="Fanart 1">
-    <img src="IMG_2766.jpeg" data-full="IMG_2766_full.jpeg" alt="Fanart 2">
-    <img src="IMG_2767.jpeg" data-full="IMG_2767_full.jpeg" alt="Fanart 3">
-    <img src="97EF46EF-856D-4EAB-8A55-489041B3A715.jpeg" data-full="97EF46EF-856D-4EAB-8A55-489041B3A715_full.jpeg" alt="Fanart 4">
-    <img src="F98B7C22-7D8A-4DD0-9F0C-CCAE88591228.jpeg" data-full="F98B7C22-7D8A-4DD0-9F0C-CCAE88591228_full.jpeg" alt="Fanart 5">
-    <img src="3CFE1A7F-E17C-498E-8A40-A399FFF6F634.jpeg" data-full="3CFE1A7F-E17C-498E-8A40-A399FFF6F634_full.jpeg" alt="Fanart 6">
-    <img src="C48FDF6A-6023-4F24-819A-F6B96A74597A.jpeg" data-full="C48FDF6A-6023-4F24-819A-F6B96A74597A_full.jpeg" alt="Fanart 7">
+    <img src="IMG_2765.jpeg" alt="Fanart 1">
+    <img src="IMG_2766.jpeg" alt="Fanart 2">
+    <img src="IMG_2767.jpeg" alt="Fanart 3">
+    <img src="97EF46EF-856D-4EAB-8A55-489041B3A715.jpeg" alt="Fanart 4">
+    <img src="F98B7C22-7D8A-4DD0-9F0C-CCAE88591228.jpeg" alt="Fanart 5">
+    <img src="3CFE1A7F-E17C-498E-8A40-A399FFF6F634.jpeg" alt="Fanart 6">
+    <img src="C48FDF6A-6023-4F24-819A-F6B96A74597A.jpeg" alt="Fanart 7">
   </div>
 </div>
 
-<!-- LIGHTBOX -->
+<!-- Lightbox -->
 <div id="lightbox">
   <span id="lightbox-close">✖</span>
   <img id="lightbox-img" src="" alt="Preview">
@@ -222,11 +213,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.getElementById("lightbox-close");
 
-  // Show full-resolution image in lightbox
+  // Open lightbox when clicking a gallery image
   document.querySelectorAll(".gallery img").forEach(img => {
     img.addEventListener("click", () => {
-      const fullSrc = img.dataset.full || img.src;
-      lightboxImg.src = fullSrc;
+      lightboxImg.src = img.src;
       lightbox.style.display = "flex";
     });
   });
@@ -236,11 +226,16 @@ document.addEventListener("DOMContentLoaded", function() {
     lightbox.style.display = "none";
   });
 
-  // Click outside image closes
+  // Click outside image closes lightbox
   lightbox.addEventListener("click", e => {
     if (e.target === lightbox) {
       lightbox.style.display = "none";
     }
+  });
+
+  // Click image in lightbox opens in new tab
+  lightboxImg.addEventListener("click", () => {
+    window.open(lightboxImg.src, "_blank");
   });
 });
 </script>
