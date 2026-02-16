@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Fanart - Baby V.O.X</title>
+<style>
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  color: #4B0082;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container {
+  width: 800px;
+  max-width: 95%;
+  margin: 50px auto;
+  background-color: #ffe6f0;
+  border: 5px dashed #ff66cc;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+h1 {
+  color: #ff3399;
+  text-shadow: 2px 2px #fff;
+  font-size: 36px;
+}
+
+/* The Spotlight Frame */
+.featured-frame {
+  display: inline-block;
+  padding: 15px;
+  background: linear-gradient(45deg, gold, #fff9ae, gold);
+  border-radius: 10px;
+  box-shadow: 0 0 30px gold;
+  margin: 20px 0;
+}
+
+.featured-img {
+  max-width: 100%;
+  max-height: 500px;
+  border: 4px solid #4B0082;
+  display: block;
+}
+
+.refresh-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #ff3399;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+.refresh-button:hover {
+  background-color: #4B0082;
+  transform: scale(1.1);
+}
+
+.back-link {
+  display: block;
+  margin-top: 20px;
+  color: #ff66cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🌟 Random Fanart Spotlight 🌟</h1>
+  <p>Don't like this one? Click the button to generate another!</p>
+
+  <div class="featured-frame">
+    <img id="random-art" src="" alt="Loading Fanart..." class="featured-img">
+  </div>
+
+  <br>
+  <button class="refresh-button" onclick="generateRandomArt()">✨ Generate New Art! ✨</button>
+
+  <a href="fanart.html" class="back-link">⬅ Back to Gallery</a>
+</div>
+
+<script>
+// Add all your fanart filenames to this list!
+const fanartFiles = [
+  "IMG_2765.jpeg", 
+  "IMG_2766.jpeg", 
+  "IMG_2767.jpeg", 
+  "97EF46EF-856D-4EAB-8A55-489041B3A715.jpeg", 
+  "F98B7C22-7D8A-4DD0-9F0C-CCAE88591228.jpeg"
+];
+
+function generateRandomArt() {
+  const imgElement = document.getElementById('random-art');
+  
+  // Pick a random index
+  const randomIndex = Math.floor(Math.random() * fanartFiles.length);
+  
+  // Update the image source
+  imgElement.src = fanartFiles[randomIndex];
+}
+
+// Run once on page load
+window.onload = generateRandomArt;
+</script>
+
+</body>
+</html>
