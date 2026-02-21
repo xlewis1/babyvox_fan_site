@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Baby V.O.X Member Are You?</title>
+<style>
+body {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  color: #4B0082;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  background-color: #ffe6f0;
+  border: 5px dashed #ff66cc;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 40px;
+  color: #ff3399;
+  text-shadow: 2px 2px #fff;
+  margin-bottom: 20px;
+}
+
+.question {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.question h3 {
+  margin-bottom: 10px;
+}
+
+.answers button {
+  display: block;
+  margin: 5px 0;
+  padding: 10px 20px;
+  background: #ff66cc;
+  color: white;
+  border: 3px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.answers button:hover {
+  transform: scale(1.05);
+  background: #ff3399;
+}
+
+#result {
+  display: none;
+  margin-top: 30px;
+  padding: 20px;
+  border: 3px dashed #ff66cc;
+  border-radius: 12px;
+  background: #fff0f8;
+}
+
+#result img {
+  max-width: 250px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Which Baby V.O.X Member Are You?</h1>
+
+  <div id="quiz">
+
+    <div class="question" data-question="1">
+      <h3>1. How would your friends describe you?</h3>
+      <div class="answers">
+        <button data-points="EZ">Fun & Outgoing</button>
+        <button data-points="Miyoun">Smart & Trendy</button>
+        <button data-points="Heejin">Calm & Sweet</button>
+        <button data-points="Eunjin">Strong & Loyal</button>
+        <button data-points="Eunhye">Cute & Charming</button>
+      </div>
+    </div>
+
+    <div class="question" data-question="2">
+      <h3>2. What's your ideal hobby?</h3>
+      <div class="answers">
+        <button data-points="EZ">Partying with friends</button>
+        <button data-points="Miyoun">Fashion & Shopping</button>
+        <button data-points="Heejin">Reading or relaxing</button>
+        <button data-points="Eunjin">Sports or fitness</button>
+        <button data-points="Eunhye">Singing or dancing</button>
+      </div>
+    </div>
+
+    <div class="question" data-question="3">
+      <h3>3. Pick your favorite color:</h3>
+      <div class="answers">
+        <button data-points="EZ">Red</button>
+        <button data-points="Miyoun">Purple</button>
+        <button data-points="Heejin">Blue</button>
+        <button data-points="Eunjin">Green</button>
+        <button data-points="Eunhye">Pink</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="result" style="display:none;">
+  <h2>Your Baby V.O.X Member is: <span id="member-name"></span>!</h2>
+
+  <!-- Each member placeholder -->
+  <div class="member" id="kim-ez" style="display:none;">
+    <h3>Kim EZ</h3>
+    <img src="EZ24.jpg" alt="Kim EZ Image">
+  </div>
+
+  <div class="member" id="kan-miyoun" style="display:none;">
+    <h3>Kan Mi Youn</h3>
+    <img src="MIYOUN8.jpg" alt="Kan Mi Youn Image">
+  </div>
+
+  <div class="member" id="lee-hee-jin" style="display:none;">
+    <h3>Lee Hee Jin</h3>
+    <img src="HEEJIN46.JPG" alt="Lee Hee Jin Image">
+  </div>
+
+  <div class="member" id="shim-eun-jin" style="display:none;">
+    <h3>Shim Eun Jin</h3>
+    <img src="eunjin5.jpg" alt="Shim Eun Jin Image">
+  </div>
+
+  <div class="member" id="yoon-eun-hye" style="display:none;">
+    <h3>Yoon Eun Hye</h3>
+    <img src="Eunhye11.jpeg" alt="Yoon Eun Hye Image">
+  </div>
+
+  <button onclick="restartQuiz()">Try Again</button>
+</div>
+
+<script>
+const scores = {
+  EZ: 0,
+  Miyoun: 0,
+  Heejin: 0,
+  Eunjin: 0,
+  Eunhye: 0
+};
+
+const questions = document.querySelectorAll(".question");
+questions.forEach(question => {
+  const buttons = question.querySelectorAll("button");
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const member = button.dataset.points;
+      scores[member] += 1;
+
+      // Hide current question
+      question.style.display = "none";
+
+      // Show next question or results
+      const next = question.nextElementSibling;
+      if(next && next.classList.contains("question")){
+        next.style.display = "block";
+      } else {
+        showResult();
+      }
+    });
+  });
+});
+
+function showResult() {
+  const resultDiv = document.getElementById("result");
+  const memberName = document.getElementById("member-name");
+  const memberImg = document.getElementById("member-img");
+
+  // Find member with highest score
+  let maxScore = -1;
+  let topMember = "";
+  for(const member in scores){
+    if(scores[member] > maxScore){
+      maxScore = scores[member];
+      topMember = member;
+    }
+  }
+
+  memberName.textContent = topMember;
+  memberImg.src = ""; // Add your member images here later
+  memberImg.alt = topMember;
+
+  resultDiv.style.display = "block";
+}
+</script>
+
+</body>
+</html>
