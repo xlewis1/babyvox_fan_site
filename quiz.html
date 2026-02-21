@@ -66,7 +66,11 @@ h1 {
   background: #fff0f8;
 }
 
-#result img {
+.member {
+  display: none;
+}
+
+.member img {
   max-width: 250px;
   border-radius: 12px;
   margin-top: 15px;
@@ -91,7 +95,7 @@ h1 {
       </div>
     </div>
 
-    <div class="question" data-question="2">
+    <div class="question" data-question="2" style="display:none;">
       <h3>2. What's your ideal hobby?</h3>
       <div class="answers">
         <button data-points="EZ">Partying with friends</button>
@@ -102,7 +106,7 @@ h1 {
       </div>
     </div>
 
-    <div class="question" data-question="3">
+    <div class="question" data-question="3" style="display:none;">
       <h3>3. Pick your favorite color:</h3>
       <div class="answers">
         <button data-points="EZ">Red</button>
@@ -115,36 +119,37 @@ h1 {
 
   </div>
 
-  <div id="result" style="display:none;">
-  <h2>Your Baby V.O.X Member is: <span id="member-name"></span>!</h2>
+  <div id="result">
+    <h2>Your Baby V.O.X Member is:</h2>
 
-  <!-- Each member placeholder -->
-  <div class="member" id="kim-ez" style="display:none;">
-    <h3>Kim EZ</h3>
-    <img src="EZ24.jpg" alt="Kim EZ Image">
+    <div class="member" id="EZ">
+      <h3>Kim EZ</h3>
+      <img src="EZ24.jpg" alt="Kim EZ Image">
+    </div>
+
+    <div class="member" id="Miyoun">
+      <h3>Kan Mi Youn</h3>
+      <img src="MIYOUN8.jpg" alt="Kan Mi Youn Image">
+    </div>
+
+    <div class="member" id="Heejin">
+      <h3>Lee Hee Jin</h3>
+      <img src="HEEJIN46.JPG" alt="Lee Hee Jin Image">
+    </div>
+
+    <div class="member" id="Eunjin">
+      <h3>Shim Eun Jin</h3>
+      <img src="eunjin5.jpg" alt="Shim Eun Jin Image">
+    </div>
+
+    <div class="member" id="Eunhye">
+      <h3>Yoon Eun Hye</h3>
+      <img src="Eunhye11.jpeg" alt="Yoon Eun Hye Image">
+    </div>
+
+    <button onclick="restartQuiz()">Try Again</button>
   </div>
 
-  <div class="member" id="kan-miyoun" style="display:none;">
-    <h3>Kan Mi Youn</h3>
-    <img src="MIYOUN8.jpg" alt="Kan Mi Youn Image">
-  </div>
-
-  <div class="member" id="lee-hee-jin" style="display:none;">
-    <h3>Lee Hee Jin</h3>
-    <img src="HEEJIN46.JPG" alt="Lee Hee Jin Image">
-  </div>
-
-  <div class="member" id="shim-eun-jin" style="display:none;">
-    <h3>Shim Eun Jin</h3>
-    <img src="eunjin5.jpg" alt="Shim Eun Jin Image">
-  </div>
-
-  <div class="member" id="yoon-eun-hye" style="display:none;">
-    <h3>Yoon Eun Hye</h3>
-    <img src="Eunhye11.jpeg" alt="Yoon Eun Hye Image">
-  </div>
-
-  <button onclick="restartQuiz()">Try Again</button>
 </div>
 
 <script>
@@ -157,20 +162,18 @@ const scores = {
 };
 
 const questions = document.querySelectorAll(".question");
-questions.forEach(question => {
+
+questions.forEach((question, index) => {
   const buttons = question.querySelectorAll("button");
   buttons.forEach(button => {
     button.addEventListener("click", () => {
       const member = button.dataset.points;
       scores[member] += 1;
 
-      // Hide current question
       question.style.display = "none";
 
-      // Show next question or results
-      const next = question.nextElementSibling;
-      if(next && next.classList.contains("question")){
-        next.style.display = "block";
+      if(index + 1 < questions.length){
+        questions[index + 1].style.display = "block";
       } else {
         showResult();
       }
@@ -180,8 +183,6 @@ questions.forEach(question => {
 
 function showResult() {
   const resultDiv = document.getElementById("result");
-  const memberName = document.getElementById("member-name");
-  const memberImg = document.getElementById("member-img");
 
   // Find member with highest score
   let maxScore = -1;
@@ -193,11 +194,28 @@ function showResult() {
     }
   }
 
-  memberName.textContent = topMember;
-  memberImg.src = ""; // Add your member images here later
-  memberImg.alt = topMember;
+  // Hide all member divs first
+  document.querySelectorAll(".member").forEach(div => div.style.display = "none");
+
+  // Show only the top member
+  const winnerDiv = document.getElementById(topMember);
+  if(winnerDiv) winnerDiv.style.display = "block";
 
   resultDiv.style.display = "block";
+}
+
+function restartQuiz(){
+  // Reset scores
+  for(const member in scores){
+    scores[member] = 0;
+  }
+
+  // Hide result
+  document.getElementById("result").style.display = "none";
+  document.querySelectorAll(".member").forEach(div => div.style.display = "none");
+
+  // Show first question
+  questions.forEach((q,i) => q.style.display = i === 0 ? "block" : "none");
 }
 </script>
 
