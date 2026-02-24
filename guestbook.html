@@ -249,6 +249,12 @@ button:active {
                           <p>we feeling very Ride west</p>`;
     messagesContainer.appendChild(pinned2);
 
+    const pinned3 = document.createElement("div");
+    pinned2.className = "message-box";
+    pinned2.innerHTML = `<h3>kaze ⭐</h3>
+                          <p>I can seriously say that this is the best site! ヾ(≧▽≦*)o</p>`;
+    messagesContainer.appendChild(pinned3);
+
     // Load from Forminit
     try {
       const { data, error } = await forminit.getSubmissions(FORM_ID, { limit: 50 });
