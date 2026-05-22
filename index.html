@@ -11,7 +11,8 @@ body {
   font-family: "Comic Sans MS", cursive, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="4" height="4" fill="none"/><circle cx="2" cy="2" r="1" fill="%23ffcce6" opacity="0.5"/></svg>');
+  background-size: auto, 4px 4px;
   color: #4B0082;
   display: flex;
   flex-direction: column;
@@ -94,13 +95,13 @@ body {
   width: 100%;
   height: 120px; 
   overflow: hidden;
-  border: 2px dashed #ff66cc;
-  border-radius: 12px;
+  border: 3px ridge #ff66cc;
   background: #ffe6f0;
   position: relative;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
 .scrolling-banger-wrapper {
   display: flex;
@@ -124,107 +125,232 @@ body {
   display: flex;
   gap: 20px;
   max-width: 1400px;
+  width: 95%;
   margin: 0 auto 20px auto;
   align-items: flex-start;
 }
 
-/* ----- SIDEBAR ----- */
-.sidebar {
-  width: 220px;
-  background: #ffe6f0;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ff99cc;
+/* ----- DROP DOWN SIDEBARS ----- */
+.sidebar, .right-panel {
+  width: 240px;
+  background: #fcf0f5;
+  padding: 10px;
+  border: 3px outset #ffb3d9;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex: 1;
-  justify-content: flex-start;
 }
-.sidebar::after { content: ""; flex-grow: 1; }
-.sidebar img {
+
+.sidebar img.logo {
   width: 120px;
-  margin-bottom: 20px;
+  margin: 10px auto 20px auto;
   border-radius: 50%;
-  animation: spin 6s linear infinite;
+  border: 2px dashed hotpink;
+  animation: spin 8s linear infinite;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-.sidebar button, .sidebar a {
-  margin: 5px 0;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  background: #ff66b2;
+
+/* Accordion Component Styles */
+.dropdown-section {
+  margin-bottom: 6px;
+  text-align: left;
+  border: 2px inset #fff;
+  background: #ffe6f0;
+}
+
+.dropdown-header {
+  background: linear-gradient(90deg, #ff66b2, #ff99cc);
   color: white;
-  text-decoration: none;
+  padding: 6px 10px;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
-  box-shadow: 0 0 10px #ff99cc;
-  transition: 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 0px #b30059;
 }
-.sidebar button:hover, .sidebar a:hover {
-  background: #ff33aa;
-  transform: scale(1.05);
+
+.dropdown-header::after {
+  content: '▼';
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-section.active .dropdown-header::after {
+  transform: rotate(-180deg);
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+  display: flex;
+  flex-direction: column;
+  background: #fff0f5;
+}
+
+.dropdown-section.active .dropdown-content {
+  max-height: 350px; /* Adjust dynamically for lists */
+}
+
+.dropdown-content a, .dropdown-content button {
+  padding: 8px 12px;
+  color: #4B0082;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed #ffcce6;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.dropdown-content a:hover, .dropdown-content button:hover {
+  background: #ffccff;
+  color: #ff007f;
+  padding-left: 16px;
+  transition: all 0.15s ease;
 }
 
 /* ----- CENTER CONTENT ----- */
 .center-content {
   flex: 2;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 .center-content img#center-img {
-  width: 600px;
-  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  border: 4px inset #ff99cc;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   margin-bottom: 20px;
 }
 
-/* ----- WELCOME PANEL ----- */
-.welcome-box {
-  display: inline-flex;
-  flex-direction: column;
+/* ----- Y2K WINAMP / OS WELCOME PANEL ----- */
+.y2k-window {
+  background: #f3f3f3;
+  border: 3px outset #fff;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
+  margin: 20px auto;
+  max-width: 650px;
+  text-align: left;
+}
+
+.y2k-title-bar {
+  background: linear-gradient(90deg, #ff007f, #ff66cc);
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.y2k-title-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.y2k-window-buttons {
+  display: flex;
+  gap: 3px;
+}
+
+.y2k-btn {
+  background: #f3f3f3;
+  border: 1px outset #fff;
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffd6e8;
-  padding: 15px 25px;
-  border-radius: 12px;
-  color: #4B0082;
-  gap: 10px;
-  margin-bottom: 20px;
-  border: 3px dashed #ff66cc;
-  box-shadow: 0 0 15px #ff99cc;
-  text-align: center;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
 }
-.welcome-box img { width: 80px; border-radius: 8px; }
 
-/* Add playful welcome text */
-.welcome-box p { margin: 5px 0; font-size: 1.1rem; line-height: 1.4; }
-.welcome-box span.heart { color: hotpink; animation: pulse 1.5s infinite; }
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-
-/* ----- RIGHT PANEL ----- */
-.right-panel {
-  width: 220px;
-  background: #ffe6f0;
+.y2k-content {
   padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ff99cc;
+  background: #ffd6e8;
+  border: 2px inset #fff;
+  margin: 4px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  justify-content: flex-start;
+  gap: 15px;
+  align-items: flex-start;
 }
-.right-panel::after { content: ""; flex-grow: 1; }
-.right-panel p { margin: 5px 0; text-align: center; }
-.right-panel #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
-.right-panel #mini-gallery img { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; }
-.right-panel button { width: 100%; margin-top: 5px; }
+
+.y2k-content img {
+  width: 90px;
+  border: 2px inset #fff;
+  background: white;
+}
+
+.y2k-text-box {
+  flex: 1;
+}
+
+.y2k-text-box p {
+  margin: 0 0 10px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.y2k-text-box p:last-child {
+  margin-bottom: 0;
+}
+
+span.heart { 
+  color: hotpink; 
+  display: inline-block;
+  animation: pulse 1.5s infinite; 
+}
+@keyframes pulse { 
+  0% { transform: scale(1); } 
+  50% { transform: scale(1.3); } 
+  100% { transform: scale(1); } 
+}
+
+/* ----- RIGHT PANEL EXTRAS ----- */
+.right-panel p { margin: 8px 0; text-align: center; font-size: 0.9rem; }
+.panel-title {
+  background: #ff66b2;
+  color: white;
+  padding: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 10px !important;
+  border: 2px inset #fff;
+}
+
+#mini-gallery { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 10px 0; }
+.mini-gallery-frame { border: 2px inset white; background: white; padding: 2px; display: inline-flex; }
+#mini-gallery img { width: 62px; height: 62px; object-fit: cover; }
+
+#visitor-count {
+  background: black;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  padding: 6px;
+  border: 2px inset #fff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
 /* ----- SITE FOOTER ----- */
 .site-footer {
@@ -240,13 +366,12 @@ body {
 @keyframes tickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
 .bottom-image { text-align: center; margin: 30px 0 15px 0; }
-.bottom-image img { max-width: 45%; height: auto; border-radius: 8px; box-shadow: 0 0 12px #ff99cc; }
+.bottom-image img { max-width: 45%; height: auto; border: 3px ridge #ff99cc; box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
 
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
 <div id="splash">
   <div class="splash-bg">
     <img src="01-1.jpg.gif" alt="Baby VOX" class="splash-img">
@@ -261,7 +386,6 @@ body {
   </div>
 </div>
 
-<!-- TOP SCROLLING BANGER -->
 <div class="top-banger">
   <div class="scrolling-banger-wrapper">
     <img src="vox83.gif" alt="Baby V.O.X Banger">
@@ -271,27 +395,43 @@ body {
   </div>
 </div>
 
-<!-- MAIN CONTAINER -->
 <div class="main-container">
-  <!-- SIDEBAR -->
+  
   <div class="sidebar">
-    <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
-    <a href="index.html">Home</a>
-    <a href="members.html">Members</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="videos.html">Videos</a>
-    <a href="discography.html">Discography</a>
-    <a href="history.html">History</a>
-    <a href="links.html">Links</a>
-    <a href="newsletter.html">Newsletter</a>
-    <a href="guestbook.html">Guestbook</a>
-    <a href="blog.html" class="sidebar-btn">V.O.X Blog</a>
-    <a href="fanart.html">Fan Art</a>
-    <a href="bias.html">My Bias</a>
-    <button onclick="showRandomFact()">Random Fact</button>
+    <img class="logo" src="babyvox.logo.2.svg" alt="Baby VOX Logo">
+    
+    <div class="dropdown-section active">
+      <div class="dropdown-header" onclick="toggleDropdown(this)">Main Hub</div>
+      <div class="dropdown-content">
+        <a href="index.html">🏠 Home</a>
+        <a href="members.html">👑 Members</a>
+        <a href="history.html">📜 History</a>
+        <a href="bias.html">💖 My Bias</a>
+      </div>
+    </div>
+
+    <div class="dropdown-section">
+      <div class="dropdown-header" onclick="toggleDropdown(this)">Media Vault</div>
+      <div class="dropdown-content">
+        <a href="gallery.html">🖼️ Gallery</a>
+        <a href="videos.html">📹 Videos</a>
+        <a href="discography.html">💿 Discography</a>
+        <a href="fanart.html">🎨 Fan Art</a>
+      </div>
+    </div>
+
+    <div class="dropdown-section">
+      <div class="dropdown-header" onclick="toggleDropdown(this)">Interact</div>
+      <div class="dropdown-content">
+        <a href="links.html">🔗 Links</a>
+        <a href="newsletter.html">✉️ Newsletter</a>
+        <a href="guestbook.html">📖 Guestbook</a>
+        <a href="blog.html">✍️ V.O.X Blog</a>
+        <button onclick="showRandomFact()">🎲 Random Fact</button>
+      </div>
+    </div>
   </div>
 
-  <!-- CENTER CONTENT -->
   <div class="center-content">
     <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
       <img src="IMG_2504.gif" alt="Left GIF" style="width:80px; height:80px; margin-right:10px;">
@@ -305,44 +445,61 @@ body {
 
     <img id="center-img" src="01-1.jpg.gif" alt="Baby VOX Center">
     
-    <!-- WELCOME BOX WITH CHARACTER -->
-    <div class="welcome-box">
-      <img src="BV.gif" alt="BV GIF">
-      <p>💖 Hey Baby Angels! 💖</p>
-      <p>Welcome to the ultimate Baby V.O.X fansite — a sparkling corner of the web where we celebrate our favorite K-pop legends from 1997–2006!</p>
-      <p>✨ Explore galleries, videos, fun facts, and even some behind-the-scenes gems!</p>
-      <p>💫 Don’t forget to check the fanart section and share your love if you’re feeling inspired! <span class="heart">♥</span></p>
+    <div class="y2k-window">
+      <div class="y2k-title-bar">
+        <div class="y2k-title-text">✨ Baby_Angels_Welcome.exe</div>
+        <div class="y2k-window-buttons">
+          <div class="y2k-btn">_</div>
+          <div class="y2k-btn">□</div>
+          <div class="y2k-btn" style="background:#ff3366; color:white;">X</div>
+        </div>
+      </div>
+      <div class="y2k-content">
+        <img src="BV.gif" alt="BV GIF">
+        <div class="y2k-text-box">
+          <p id="welcome-text-target">💖 Hey Baby Angels! 💖</p>
+          <p>Welcome to the ultimate Baby V.O.X fansite — a sparkling corner of the web where we celebrate our favorite K-pop legends from 1997–2006!</p>
+          <p>✨ Explore galleries, videos, fun facts, and even some behind-the-scenes gems!</p>
+          <p>💫 Don’t forget to check the fanart section and share your love if you’re feeling inspired! <span class="heart">♥</span></p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- RIGHT PANEL -->
   <div class="right-panel">
-    <div id="local-clock" style="font-family: monospace; font-size: 1.1rem; color: black; margin-bottom: 10px;"></div>
-    <p id="last-update"><strong>Last Fansite Update:</strong> 14/2/26 – added Blog page and updated member galleries</p>
-    <p><strong>Select Language:</strong></p>
-    <select id="language-selector">
+    <div class="panel-title">SYSTEM TIME</div>
+    <div id="local-clock" style="font-family: monospace; font-size: 1.1rem; color: black; margin-bottom: 10px; font-weight: bold;"></div>
+    
+    <div class="panel-title">UPDATES</div>
+    <p id="last-update"><strong>Last Update:</strong> 14/2/26 – added Blog page and updated member galleries</p>
+    
+    <div class="panel-title">LANGUAGE</div>
+    <select id="language-selector" style="width: 100%; padding: 4px; font-family: inherit; margin-bottom: 10px;">
       <option value="en">English</option>
       <option value="ko">Korean</option>
       <option value="zh">Chinese</option>
       <option value="ja">Japanese</option>
     </select>
-    <p><strong>Visitor Count:</strong></p>
+    
+    <div class="panel-title">YOU ARE VISITOR</div>
     <div id="visitor-count">
-      <a href='https://www.counters-free.net/'>COUNTER-free</a>
-      <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
-      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
-    </div>
+      <span>0082833</span> </div>
 
-    <p><strong>Mini Gallery:</strong></p>
+    <div class="panel-title">MINI GALLERY</div>
     <div id="mini-gallery"></div>
-    <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
-    <button onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
-    <button onclick="window.location.href='quiz.html'">Quiz of the Week</button>
-    <button class="gallery-btn" onclick="window.location.href='index-mobile.html'">Mobile / Tablet Version</button>
+    
+    <div class="dropdown-section active" style="width:100%; border:none; background:none; margin-top:10px;">
+      <div class="dropdown-header" onclick="toggleDropdown(this)">Bonus Modules</div>
+      <div class="dropdown-content" style="background:none;">
+        <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
+        <button onclick="window.location.href='member-of-the-day.html'">Member of Day</button>
+        <button onclick="window.location.href='quiz.html'">Quiz of Week</button>
+        <button class="gallery-btn" onclick="window.location.href='index-mobile.html'">Mobile Version</button>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- BOTTOM FEATURE IMAGE -->
 <div class="bottom-image">
   <img src="vox1125.jpeg" alt="Baby V.O.X Feature">
 </div>
@@ -352,6 +509,12 @@ body {
 </footer>
 
 <script>
+// ----- DROP DOWN ACCORDION TOGGLE LOGIC -----
+function toggleDropdown(headerElement) {
+  const section = headerElement.parentElement;
+  section.classList.toggle('active');
+}
+
 // ----- SPLASH -----
 const splash = document.getElementById('splash');
 const enterButton = document.getElementById('enter-site');
@@ -364,9 +527,11 @@ enterButton.addEventListener('click', () => { hideSplash(); sessionStorage.setIt
 const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
 const miniGallery = document.getElementById('mini-gallery');
 galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
+  const containerFrame = document.createElement('div');
+  containerFrame.className = 'mini-gallery-frame';
   const link = document.createElement('a'); link.href = src; link.target="_blank";
   const img = document.createElement('img'); img.src = src;
-  link.appendChild(img); miniGallery.appendChild(link);
+  link.appendChild(img); containerFrame.appendChild(link); miniGallery.appendChild(containerFrame);
 });
 
 // ----- RANDOM FACTS -----
@@ -388,9 +553,9 @@ const welcomeMessages = {
 };
 const langSelector = document.getElementById('language-selector');
 langSelector.addEventListener('change', e => {
-  document.querySelector(".welcome-box p").textContent = welcomeMessages[e.target.value];
+  document.getElementById("welcome-text-target").textContent = welcomeMessages[e.target.value];
 });
-document.querySelector(".welcome-box p").textContent = welcomeMessages["en"];
+document.getElementById("welcome-text-target").textContent = welcomeMessages["en"];
 
 // ----- LOCAL CLOCK -----
 function updateClock() {
