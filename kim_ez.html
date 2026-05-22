@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kim EZ – Baby V.O.X</title>
+  <title>Kim EZ – Baby V.O.X Profile</title>
   <style>
+    /* --- OLD SCHOOL NEOCITIES TILE LAYOUT --- */
     body {
-      font-family: Arial, sans-serif;
-      background: #ffd6e8;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background-color: #ffd6e8;
+      /* Neocities repeating glitter/star pastel tile pattern */
+      background-image: radial-gradient(#ffffff 15%, transparent 15%),
+                        radial-gradient(#ff99cc 15%, transparent 15%);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
       margin: 0;
       padding: 0;
       text-align: center;
+      color: #4B0082;
     }
 
+    /* FLOATING LOGO CHASSIS */
     .logo {
       position: fixed;
       top: 10px;
       left: 10px;
       width: 60px;
-      height: auto;
+      border: 3px ridge #ff66b2;
+      border-radius: 50%;
+      background: white;
+      padding: 2px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      animation: spin 5s linear infinite;
       z-index: 1000;
-      animation: spin 4s linear infinite;
     }
 
     @keyframes spin {
@@ -28,64 +41,130 @@
       to   { transform: rotate(360deg); }
     }
 
-    h1, h2 {
-      color: #4B0082;
+    /* NEOCITIES HEADER BOX */
+    .header-container {
+      background: #ffecf5;
+      border: 4px ridge #ff3399;
+      margin: 30px auto;
+      padding: 15px;
+      max-width: 700px;
+      box-shadow: 4px 4px 0px #ff66b2;
     }
 
+    h1 {
+      font-size: 2.5rem;
+      margin: 5px 0;
+      text-shadow: 2px 2px 0px #ff99cc;
+      color: #ff3399;
+    }
+
+    /* PROFILE LAYOUT WRAPPER */
     .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      padding: 0 15px;
+    }
+
+    /* INLINE BUTTON INTERFACE */
+    .nav-box {
+      margin: 20px 0;
+    }
+
+    .back-button {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #ff66b2;
+      color: white;
+      border: 3px outset #ffccff;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 2px 2px 0px #4B0082;
+    }
+
+    .back-button:hover {
+      background: #ff3399;
+      border-style: inset;
+    }
+
+    /* PHOTO BOX WITH 3D OUTSET BORDER */
+    .photo-wrapper {
+      margin: 30px 0;
     }
 
     .member-photo {
       width: 200px;
       height: 200px;
       border-radius: 50%;
+      border: 5px outset #ff66b2;
       object-fit: cover;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
-      margin-bottom: 20px;
+      background: #ffffff;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
     }
 
-    p {
-      color: #4B0082;
+    /* BIO DESCRIPTION BLOCK */
+    .bio-text {
+      background: #ffffff;
+      border: 2px dashed #ff66b2;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 15px;
       line-height: 1.6;
     }
 
-    .back-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 15px;
-      background: #ff80bf;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
+    /* 3D OUTSET PROFILE FACT SHEET */
     .fact-list {
       text-align: left;
-      margin-top: 20px;
-      padding: 15px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.4);
+      margin: 30px auto;
+      padding: 20px 20px 20px 40px;
+      background: #fff0f5;
+      border: 4px outset #ff66b2;
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+      max-width: 550px;
     }
 
     .fact-list li {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .fact-list strong {
+      color: #ff3399;
+    }
+
+    /* NEOCITIES STANDARD DECORATIVE LINE */
+    hr {
+      border: none;
+      border-top: 4px dotted #ff66b2;
+      width: 85%;
+      margin: 40px auto;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Logo" class="logo">
+
+  <img src="Baby_V.O.X_logo.webp" alt="Logo" class="logo">
+
+  <div class="header-container">
+    <h1>Kim EZ (Kim Hee-Jung)</h1>
+    <marquee scrollamount="3" direction="left" style="color: #4B0082; font-weight: bold; font-size: 12px;">
+      ✨ Leader and Main Rapper of Baby V.O.X -- Voice Of Expression Profile Module Loaded! ✨
+    </marquee>
+  </div>
 
   <div class="container">
-    <a href="members.html" class="back-button">← Back to Members</a>
+    <div class="nav-box">
+      <a href="members.html" class="back-button">◀ Back to Members</a>
+    </div>
 
-    <h1>Kim EZ (Kim Hee-Jung)</h1>
-    <img src="Kim_ez.jpg" alt="Kim EZ" class="member-photo">
+    <div class="photo-wrapper">
+      <img src="Kim_ez.jpg" alt="Kim EZ" class="member-photo">
+    </div>
 
-    <p>Kim EZ was the main rapper and leader of Baby V.O.X. She was part of the group from its early days in 1997 until 2006, helping to shape the group's identity and success.</p>
+    <div class="bio-text">
+      Kim EZ was the main rapper and leader of Baby V.O.X. She was part of the group from its early days in 1997 until 2006, helping to shape the group's identity and success.
+    </div>
 
     <ul class="fact-list">
       <li><strong>Born:</strong> January 31, 1979</li>
@@ -95,7 +174,12 @@
       <li>Continued to influence K-pop and inspire future idols after the group's disbandment.</li>
     </ul>
 
-    <a href="members.html" class="back-button">← Back to Members</a>
+    <hr>
+
+    <div class="nav-box">
+      <a href="members.html" class="back-button">◀ Back to Members</a>
+    </div>
   </div>
+
 </body>
 </html>
