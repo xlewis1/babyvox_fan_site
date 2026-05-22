@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kim EZ – Baby V.O.X Profile</title>
+  <title>Kim EZ – Baby V.O.X</title>
   <style>
-    /* --- OLD SCHOOL NEOCITIES TILE LAYOUT --- */
     body {
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      background-color: #ffd6e8;
-      /* Neocities repeating glitter/star pastel tile pattern */
-      background-image: radial-gradient(#ffffff 15%, transparent 15%),
-                        radial-gradient(#ff99cc 15%, transparent 15%);
-      background-size: 20px 20px;
-      background-position: 0 0, 10px 10px;
+      font-family: "Comic Sans MS", "Courier New", sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        #ffd6e8,
+        #ffd6e8 15px,
+        #ffe3f0 15px,
+        #ffe3f0 30px
+      );
       margin: 0;
       padding: 0;
       text-align: center;
-      color: #4B0082;
     }
 
-    /* FLOATING LOGO CHASSIS */
     .logo {
       position: fixed;
       top: 10px;
       left: 10px;
       width: 60px;
-      border: 3px ridge #ff66b2;
-      border-radius: 50%;
-      background: white;
-      padding: 2px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-      animation: spin 5s linear infinite;
+      height: auto;
       z-index: 1000;
+      filter: drop-shadow(1px 1px 0px #ff0080);
+      animation: spin 4s linear infinite;
     }
 
     @keyframes spin {
@@ -41,130 +35,139 @@
       to   { transform: rotate(360deg); }
     }
 
-    /* NEOCITIES HEADER BOX */
-    .header-container {
-      background: #ffecf5;
-      border: 4px ridge #ff3399;
-      margin: 30px auto;
-      padding: 15px;
-      max-width: 700px;
-      box-shadow: 4px 4px 0px #ff66b2;
-    }
-
     h1 {
-      font-size: 2.5rem;
-      margin: 5px 0;
-      text-shadow: 2px 2px 0px #ff99cc;
-      color: #ff3399;
+      color: #ffffff;
+      font-size: 36px;
+      font-family: "Arial Black", Impact, sans-serif;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      -webkit-text-stroke: 1.5px #4B0082;
+      text-shadow: 2px 2px 0px #ff0080, 4px 4px 0px #4B0082;
     }
 
-    /* PROFILE LAYOUT WRAPPER */
     .container {
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      padding: 0 15px;
-    }
-
-    /* INLINE BUTTON INTERFACE */
-    .nav-box {
-      margin: 20px 0;
-    }
-
-    .back-button {
-      display: inline-block;
-      padding: 8px 15px;
-      background: #ff66b2;
-      color: white;
-      border: 3px outset #ffccff;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-      box-shadow: 2px 2px 0px #4B0082;
-    }
-
-    .back-button:hover {
-      background: #ff3399;
-      border-style: inset;
-    }
-
-    /* PHOTO BOX WITH 3D OUTSET BORDER */
-    .photo-wrapper {
-      margin: 30px 0;
+      max-width: 800px;
+      margin: 25px auto;
+      padding: 20px;
+      background: #ffffff;
+      border: 5px outset #ffb3d1;
+      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
     }
 
     .member-photo {
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      border: 5px outset #ff66b2;
       object-fit: cover;
-      background: #ffffff;
-      box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+      border: 3px ridge #ff0080;
+      box-shadow: 0 0 15px rgba(255, 102, 178, 0.7);
+      margin-bottom: 20px;
     }
 
-    /* BIO DESCRIPTION BLOCK */
-    .bio-text {
-      background: #ffffff;
-      border: 2px dashed #ff66b2;
-      padding: 15px;
-      margin: 20px 0;
-      font-size: 15px;
+    marquee {
+      background: #4B0082;
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 4px;
+      border: 2px inset #ff80bf;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #4B0082;
       line-height: 1.6;
+      background: #fff5fa;
+      padding: 12px;
+      border: 1px dashed #ff80bf;
     }
 
-    /* 3D OUTSET PROFILE FACT SHEET */
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #ff80bf;
+      color: white !important;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 12px;
+      border-top: 3px solid #ffb3d9;
+      border-left: 3px solid #ffb3d9;
+      border-right: 3px solid #cc0066;
+      border-bottom: 3px solid #cc0066;
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .back-button:hover {
+      background: #ff47a3;
+      border-top: 3px solid #cc0066;
+      border-left: 3px solid #cc0066;
+      border-right: 3px solid #ffb3d9;
+      border-bottom: 3px solid #ffb3d9;
+    }
+
     .fact-list {
       text-align: left;
-      margin: 30px auto;
-      padding: 20px 20px 20px 40px;
-      background: #fff0f5;
-      border: 4px outset #ff66b2;
-      box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
-      max-width: 550px;
+      margin-top: 20px;
+      padding: 15px;
+      background: #fff;
+      border: 3px double #ff0080;
+      box-shadow: inset 0 0 8px rgba(255, 102, 178, 0.15);
     }
 
     .fact-list li {
-      margin-bottom: 12px;
-      font-size: 14px;
+      margin-bottom: 10px;
+      color: #4B0082;
+      list-style: none;
+      position: relative;
+      padding-left: 22px;
     }
 
-    .fact-list strong {
-      color: #ff3399;
+    .fact-list li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ff0080;
     }
 
-    /* NEOCITIES STANDARD DECORATIVE LINE */
-    hr {
-      border: none;
-      border-top: 4px dotted #ff66b2;
-      width: 85%;
-      margin: 40px auto;
+    .badges-dock {
+      margin-top: 25px;
+      border-top: 1px dotted #ff0080;
+      padding-top: 15px;
+    }
+    
+    .badge-mock {
+      display: inline-block;
+      width: 88px;
+      height: 31px;
+      font-size: 9px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      line-height: 31px;
+      border: 1px solid #ffffff;
+      margin: 2px;
     }
   </style>
 </head>
 <body>
 
-  <img src="Baby_V.O.X_logo.webp" alt="Logo" class="logo">
-
-  <div class="header-container">
-    <h1>Kim EZ (Kim Hee-Jung)</h1>
-    <marquee scrollamount="3" direction="left" style="color: #4B0082; font-weight: bold; font-size: 12px;">
-      ✨ Leader and Main Rapper of Baby V.O.X -- Voice Of Expression Profile Module Loaded! ✨
-    </marquee>
-  </div>
+  <img src="logo.png" alt="Logo" class="logo">
 
   <div class="container">
-    <div class="nav-box">
-      <a href="members.html" class="back-button">◀ Back to Members</a>
-    </div>
+    <a href="members.html" class="back-button">← Back to Members</a>
 
-    <div class="photo-wrapper">
-      <img src="Kim_ez.jpg" alt="Kim EZ" class="member-photo">
-    </div>
+    <h1>Kim EZ (Kim Hee-Jung)</h1>
+    
+    <marquee scrollamount="4">
+      *** FAN SHRINE CORNER * STATUS: LEGENDARY LEADER & MAIN RAPPER * WELCOME TO THE FAN ARCHIVE! ***
+    </marquee>
 
-    <div class="bio-text">
-      Kim EZ was the main rapper and leader of Baby V.O.X. She was part of the group from its early days in 1997 until 2006, helping to shape the group's identity and success.
-    </div>
+    <img src="Kim_ez.jpg" alt="Kim EZ" class="member-photo">
+
+    <p>Kim EZ was the main rapper and leader of Baby V.O.X. She was part of the group from its early days in 1997 until 2006, helping to shape the group's identity and success.</p>
 
     <ul class="fact-list">
       <li><strong>Born:</strong> January 31, 1979</li>
@@ -174,12 +177,14 @@
       <li>Continued to influence K-pop and inspire future idols after the group's disbandment.</li>
     </ul>
 
-    <hr>
-
-    <div class="nav-box">
-      <a href="members.html" class="back-button">◀ Back to Members</a>
+    <div class="badges-dock">
+      <div class="badge-mock" style="background:#ff0080; color:#fff;">BABYV.O.X</div>
+      <div class="badge-mock" style="background:#4B0082; color:#ffd6e8;">HALLYU_00s</div>
+      <div class="badge-mock" style="background:#cc0066; color:#ffffff;">KPOP_RETRO</div>
     </div>
-  </div>
 
+    <br>
+    <a href="members.html" class="back-button">← Back to Members</a>
+  </div>
 </body>
 </html>
