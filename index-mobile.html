@@ -5,23 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Fansite – Mobile/Tablet</title>
 <style>
-/* RESET & BODY */
+/* ----- RESET & BODY ----- */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   margin: 0; padding: 0;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  background: linear-gradient(135deg, #ffe6f0, #f8e1ff), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="4" height="4" fill="none"/><circle cx="2" cy="2" r="1" fill="%23ffcce6" opacity="0.5"/></svg>');
+  background-size: auto, 4px 4px;
   color: #4B0082;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
-/* SPLASH OVERLAY */
+/* ----- SPLASH OVERLAY ----- */
 #splash {
   position: fixed;
   inset: 0;
   background: 
-    linear-gradient(rgba(255,105,180,0.35), rgba(255,105,180,0.35)),
+    linear-gradient(rgba(255,105,180,0.45), rgba(255,105,180,0.45)),
     url("babyvox30.jpg") center / cover no-repeat;
   display: flex;
   flex-direction: column;
@@ -30,194 +32,318 @@ body {
   color: white;
   z-index: 9999;
   text-align: center;
+  padding: 20px;
 }
 #splash h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff33aa;
+  text-shadow: 2px 2px #000, 0 0 10px #ff66cc;
 }
 #splash button {
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 12px 28px;
+  font-size: 1.1rem;
   border-radius: 12px;
-  border: none;
-  background: white;
-  color: #ff3399;
+  border: 3px double hotpink;
+  background: #ff99cc;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 15px #ff66cc, 0 0 25px #ff3399;
-  transition: transform 0.2s ease;
+  box-shadow: 0 0 15px #ff66cc;
 }
-#splash button:hover { transform: scale(1.05); }
 
-/* SIDEBAR / NAVBAR TOP */
-.sidebar {
+/* ----- MOBILE NAVBAR & HAMBURGER ----- */
+.mobile-nav {
   width: 100%;
+  background: #fcf0f5;
+  border-bottom: 3px outset #ffb3d9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background: #ffe6f0;
-  padding: 10px 0;
-  box-shadow: 0 0 10px #ff99cc;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-.sidebar img {
-  width: 60px;
+.mobile-nav img.logo {
+  width: 50px;
   border-radius: 50%;
-  animation: spin 6s linear infinite;
+  border: 1px dashed hotpink;
+  animation: spin 8s linear infinite;
 }
 @keyframes spin { 0% {transform:rotate(0deg);} 100% {transform:rotate(360deg);} }
 
-.sidebar a, .sidebar button {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 6px;
-  background: #ff66b2;
+.menu-toggle {
+  background: linear-gradient(135deg, #ff66b2, #ff99cc);
+  border: 2px outset #fff;
   color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Vertical Dropdown Drawer */
+.nav-menu {
+  display: none;
+  width: 100%;
+  background: #fff0f5;
+  border-bottom: 3px inset #fff;
+  flex-direction: column;
+}
+.nav-menu.show {
+  display: flex;
+}
+.nav-menu a, .nav-menu button {
+  padding: 12px 20px;
+  color: #4B0082;
   text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
+  border-bottom: 1px dashed #ffcce6;
+  background: none;
+  border-top: none; border-left: none; border-right: none;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
-.sidebar a:hover, .sidebar button:hover { background: #ff33aa; transform: scale(1.05); }
+.nav-menu a:hover, .nav-menu button:hover {
+  background: #ffccff;
+  color: #ff007f;
+}
 
-/* CENTER CONTENT */
+/* ----- MAIN WORKSPACE ----- */
 .center-content {
-  width: 95%;
-  max-width: 500px;
+  width: 92%;
+  max-width: 480px;
   text-align: center;
   margin-top: 15px;
 }
 .center-content img#center-img {
   width: 100%;
-  border-radius: 12px;
+  border: 3px inset #ff99cc;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
   margin-bottom: 15px;
 }
 
-/* WELCOME PANEL */
-.welcome-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #ffd6e8;
-  padding: 15px;
-  border-radius: 12px;
-  color: #4B0082;
-  gap: 10px;
-  margin-bottom: 15px;
+/* ----- Y2K PORTABLE WINAMP BOX ----- */
+.y2k-window {
+  background: #f3f3f3;
+  border: 3px outset #fff;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+  margin: 15px 0;
+  text-align: left;
 }
-.welcome-box img { width: 60px; border-radius: 8px; }
-
-/* RIGHT PANEL INFO (now stacked under content) */
-.right-panel {
-  width: 95%;
-  max-width: 500px;
-  background: #ffe6f0;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ff99cc;
+.y2k-title-bar {
+  background: linear-gradient(90deg, #ff007f, #ff66cc);
+  padding: 4px 8px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-.right-panel img { width: 100%; border-radius: 12px; margin-bottom: 10px; }
-.right-panel p { margin: 5px 0; text-align: center; }
-.right-panel #mini-gallery { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
-.right-panel #mini-gallery img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; }
-.right-panel button { width: 100%; margin-top: 5px; }
-
-/* TICKER */
-#ticker {
-  width: 100%;
-  background: transparent;
-  color: #ff3399;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-bottom: 10px;
+  color: white;
   font-weight: bold;
+  font-size: 0.85rem;
 }
-#ticker p {
-  display: inline-block;
-  animation: tickerMove 15s linear infinite;
+.y2k-window-buttons {
+  display: flex;
+  gap: 3px;
+}
+.y2k-btn {
+  background: #f3f3f3;
+  border: 1px outset #fff;
+  width: 14px;
+  height: 14px;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.y2k-content {
+  padding: 12px;
+  background: #ffd6e8;
+  border: 2px inset #fff;
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.y2k-content img {
+  width: 70px;
+  border: 2px inset #fff;
+  background: white;
+}
+.y2k-text-box p {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+span.heart { color: hotpink; animation: pulse 1.5s infinite; display: inline-block; }
+@keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.2);} 100% {transform: scale(1);} }
+
+/* ----- INFO PANEL (Stacked below) ----- */
+.right-panel {
+  width: 92%;
+  max-width: 480px;
+  background: #fcf0f5;
+  padding: 12px;
+  border: 3px outset #ffb3d9;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+.panel-title {
+  width: 100%;
+  background: #ff66b2;
+  color: white;
+  padding: 4px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  border: 2px inset #fff;
+}
+.right-panel p { margin: 6px 0; text-align: center; font-size: 0.85rem; }
+
+#mini-gallery { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0; }
+.mini-gallery-frame { border: 2px inset white; background: white; padding: 2px; display: inline-flex; }
+#mini-gallery img { width: 55px; height: 55px; object-fit: cover; }
+
+.right-panel button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  background: #ff66b2;
+  color: white;
+  border: 2px outset #fff;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
 }
 
-/* FOOTER */
+/* ----- TICKER ----- */
+@keyframes mobileTickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+/* ----- FOOTER ----- */
 .site-footer {
-  margin-top: 20px;
-  padding: 10px;
+  width: 100%;
+  padding: 15px 0;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   color: #4B0082;
   opacity: 0.75;
+  background: #ffe6f0;
+  border-top: 1px dashed #ff99cc;
+  margin-top: auto;
 }
-
-@keyframes mobileTickerMove {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-  
 </style>
 </head>
 <body>
 
-<!-- SPLASH -->
 <div id="splash">
   <h1>Welcome to Baby V.O.X Fansite!</h1>
   <button id="enter-site">Enter Site</button>
 </div>
 
-<!-- SIDEBAR / NAVBAR TOP -->
-<div class="sidebar">
-  <img src="babyvox.logo.2.svg" alt="Baby VOX Logo">
-  <a href="index.html">Home</a>
-  <a href="members.html">Members</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="videos.html">Videos</a>
-  <a href="discography.html">Discography</a>
-  <a href="history.html">History</a>
-  <a href="links.html">Links</a>
-  <a href="newsletter.html">Newsletter</a>
-  <a href="bias.html">My Bias</a>
-  <button onclick="showRandomFact()">Random Fact</button>
+<div class="mobile-nav">
+  <img class="logo" src="babyvox.logo.2.svg" alt="Baby VOX Logo">
+  <div style="font-weight: bold; font-size: 0.9rem; color: #ff007f;">BABY V.O.X MOBILE</div>
+  <button class="menu-toggle" onclick="toggleMenu()">Menu ☰</button>
 </div>
 
-<!-- CENTER CONTENT -->
+<div class="nav-menu" id="navDrawer">
+  <a href="index.html">🏠 Desktop Home</a>
+  <a href="members.html">👑 Members</a>
+  <a href="gallery.html">🖼️ Gallery</a>
+  <a href="videos.html">📹 Videos</a>
+  <a href="discography.html">💿 Discography</a>
+  <a href="history.html">📜 History</a>
+  <a href="links.html">🔗 Links</a>
+  <a href="newsletter.html">✉️ Newsletter</a>
+  <a href="bias.html">💖 My Bias</a>
+  <button onclick="showRandomFact(); toggleMenu();">🎲 Random Fact</button>
+</div>
+
 <div class="center-content">
-  <div style="display:flex; align-items:center; justify-content:center; margin-bottom:15px;">
-  <img src="IMG_2504.gif" alt="Left GIF" style="width:50px; height:50px; margin-right:8px;">
-  <div style="overflow:hidden; white-space:nowrap; flex:1;">
-    <p id="mobile-ticker-text" style="display:inline-block; color:#ff3399; font-weight:bold; font-size:1rem; animation:mobileTickerMove 12s linear infinite; margin:0;">
-      🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀
-    </p>
+  <div style="display:flex; align-items:center; justify-content:center; margin-bottom:15px; background: rgba(255,255,255,0.4); padding: 4px; border-radius: 6px;">
+    <img src="IMG_2504.gif" alt="Left GIF" style="width:40px; height:40px; margin-right:6px;">
+    <div style="overflow:hidden; white-space:nowrap; flex:1;">
+      <p id="mobile-ticker-text" style="display:inline-block; color:#ff3399; font-weight:bold; font-size:0.9rem; animation:mobileTickerMove 12s linear infinite; margin:0;">
+        🎀 Welcome Baby Angels! Check out the latest updates and gallery pics! 🎀
+      </p>
+    </div>
+    <img src="IMG_2505.gif" alt="Right GIF" style="width:40px; height:40px; margin-left:6px;">
   </div>
-  <img src="IMG_2505.gif" alt="Right GIF" style="width:50px; height:50px; margin-left:8px;">
-</div>
+
   <img id="center-img" src="IMG_2391.jpeg" alt="Baby VOX Center">
-  <div class="welcome-box">
-    <img src="BV.gif" alt="BV GIF">
-    <span>Welcome to the Baby V.O.X Fansite – new and improved!</span>
+  
+  <div class="y2k-window">
+    <div class="y2k-title-bar">
+      <div>✨ Mobile_Welcome.cfg</div>
+      <div class="y2k-window-buttons">
+        <div class="y2k-btn">_</div>
+        <div class="y2k-btn" style="background:#ff3366; color:white;">X</div>
+      </div>
+    </div>
+    <div class="y2k-content">
+      <img src="BV.gif" alt="BV GIF">
+      <div class="y2k-text-box">
+        <p id="welcome-text-target">💖 Hey Baby Angels! 💖</p>
+        <p>Welcome to the mobile version of our sparkling Baby V.O.X corner! Pocket access to your favorite 1st-Gen K-pop queens.</p>
+        <p>💫 Dive in, explore the mini gallery, check your daily trivia, and enjoy the updates! <span class="heart">♥</span></p>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- RIGHT PANEL INFO -->
 <div class="right-panel">
+  <div class="panel-title">SYSTEM TIME</div>
+  <div id="local-clock" style="font-family: monospace; font-size: 1.1rem; color: black; margin-bottom: 6px; font-weight: bold;"></div>
+
+  <div class="panel-title">LATEST LIVE UPDATE</div>
   <p id="last-update"><strong>Last Fansite Update:</strong> 9/2/26 – updated home page center image</p>
   <p><strong>News:</strong> Please check out Babyvoxi new website design! Link in the links page</p>
-  <p><strong>Select Language:</strong></p>
-  <select id="language-selector">
+  
+  <div class="panel-title">SELECT LANGUAGE</div>
+  <select id="language-selector" style="width: 100%; padding: 6px; font-family: inherit; margin-bottom: 8px;">
     <option value="en">English</option>
     <option value="ko">Korean</option>
     <option value="zh">Chinese</option>
     <option value="ja">Japanese</option>
   </select>
-  <p><strong>Visitor Count:</strong> <span id="visitor-count">0</span></p>
-  <p><strong>Mini Gallery:</strong></p>
+  
+  <div class="panel-title">YOU ARE VISITOR</div>
+  <p style="font-family: monospace; font-size: 1.1rem; font-weight: bold; background: black; color: #00ff00; padding: 4px 12px; border: 2px inset #fff;">
+    <span id="visitor-count">0</span>
+  </p>
+  
+  <div class="panel-title">MINI GALLERY</div>
   <div id="mini-gallery"></div>
-  <button class="gallery-btn" onclick="window.location.href='gallery.html'">View Full Gallery</button>
-  <button class="gallery-btn" onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
-  <button class="gallery-btn" onclick="window.location.href='index.html'">Desktop Version</button>
+  
+  <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
+  <button onclick="window.location.href='member-of-the-day.html'">Member of the Day</button>
+  <button style="background: linear-gradient(135deg, #ff007f, #ff66cc);" onclick="window.location.href='index.html'">🖥️ Swap to Desktop Layout</button>
 </div>
 
+<footer class="site-footer">
+  <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
+</footer>
+
 <script>
+// ----- MOBILE MENU DRAWER LOGIC -----
+function toggleMenu() {
+  const drawer = document.getElementById('navDrawer');
+  drawer.classList.toggle('show');
+}
+
 // ----- SPLASH -----
 const splash = document.getElementById('splash');
 const enterButton = document.getElementById('enter-site');
@@ -226,23 +352,26 @@ if (!sessionStorage.getItem('splashShown')) { splash.style.display = 'flex'; }
 else { splash.style.display = 'none'; }
 enterButton.addEventListener('click', () => { hideSplash(); sessionStorage.setItem('splashShown','true'); });
 
-// ----- VISITOR COUNTER -----
+// ----- LOCAL STORAGE VISITOR COUNTER -----
 const visitorCountEl = document.getElementById('visitor-count');
 let count = parseInt(localStorage.getItem('visitorCount')) || 0;
 count++;
 localStorage.setItem('visitorCount', count);
-visitorCountEl.textContent = count;
+// Zero-pad for retro appearance
+visitorCountEl.textContent = String(count).padStart(7, '0');
 
-// ----- MINI GALLERY -----
+// ----- RANDOM MINI GALLERY SELECTION -----
 const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
 const miniGallery = document.getElementById('mini-gallery');
 galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
+  const frame = document.createElement('div');
+  frame.className = 'mini-gallery-frame';
   const link = document.createElement('a'); link.href = src; link.target="_blank";
   const img = document.createElement('img'); img.src = src;
-  link.appendChild(img); miniGallery.appendChild(link);
+  link.appendChild(img); frame.appendChild(link); miniGallery.appendChild(frame);
 });
 
-// ----- RANDOM FACTS -----
+// ----- RANDOM FACTS ENGINE -----
 const facts = [
   "Baby V.O.X stands for 'Baby Voices of Xpression'.",
   "They debuted in 1997 and helped pioneer the Korean Wave.",
@@ -255,23 +384,31 @@ function showRandomFact() {
   alert(facts[randomIndex]);
 }
 
-// ----- LANGUAGE SELECTOR -----
+// ----- LOCAL DYNAMIC CLOCK -----
+function updateClock() {
+  const clockEl = document.getElementById('local-clock');
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2,'0');
+  const minutes = String(now.getMinutes()).padStart(2,'0');
+  const seconds = String(now.getSeconds()).padStart(2,'0');
+  clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ----- LANGUAGE MULTI-STRING SYSTEM -----
 const welcomeMessages = {
-  en: "Welcome to the Baby V.O.X Fansite – new and improved!",
-  ko: "베이비복스 팬사이트에 오신 것을 환영합니다!",
-  zh: "欢迎来到Baby V.O.X粉丝站!",
-  ja: "Baby V.O.Xファンサイトへようこそ!"
+  en: "💖 Hey Baby Angels! 💖 Welcome to the mobile version of our sparkling Baby V.O.X corner!",
+  ko: "💖 베이비복스 모바일 팬사이트에 오신 것을 환영합니다! 💖",
+  zh: "💖 欢迎来到Baby V.O.X手机粉丝站! 💖",
+  ja: "💖 Baby V.O.Xモバイルファンサイトへようこそ! 💖"
 };
 const langSelector = document.getElementById('language-selector');
 langSelector.addEventListener('change', e => {
-  document.querySelector(".welcome-box span").textContent = welcomeMessages[e.target.value];
+  document.getElementById("welcome-text-target").textContent = welcomeMessages[e.target.value];
 });
-document.querySelector(".welcome-box span").textContent = welcomeMessages["en"];
+document.getElementById("welcome-text-target").textContent = welcomeMessages["en"];
 </script>
-
-<footer class="site-footer">
-  <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
-</footer>
 
 </body>
 </html>
