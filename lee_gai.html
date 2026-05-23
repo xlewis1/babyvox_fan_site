@@ -4,36 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lee Gai – Baby V.O.X</title>
-
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #ffd6e8;
+      font-family: "Comic Sans MS", "Courier New", sans-serif;
+      /* Historical/Archival variant: Lavender diagonal grid lines */
+      background: repeating-linear-gradient(
+        45deg,
+        #ebd6ff,
+        #ebd6ff 15px,
+        #dcc4f5 15px,
+        #dcc4f5 30px
+      );
       margin: 0;
       padding: 0;
       text-align: center;
-      color: #4B0082;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: auto;
+      z-index: 1000;
+      filter: drop-shadow(1px 1px 0px #4B0082);
+      animation: spin 4s linear infinite;
     }
 
-    a.back {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 8px 12px;
-      background: #ff80bf;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
+    /* 🎤 Classic 3D Pop Title Style - Deep Violet Theme */
     h1 {
-      margin-top: 10px;
+      color: #ffffff;
+      font-size: 36px;
+      font-family: "Arial Black", Impact, sans-serif;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      -webkit-text-stroke: 1.5px #220042;
+      text-shadow: 2px 2px 0px #9933ff, 4px 4px 0px #4B0082;
+    }
+
+    h2 {
+      color: #4B0082;
+      font-family: "Arial Black", sans-serif;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    /* 📦 Outset Vintage Content Frame */
+    .container {
+      max-width: 800px;
+      margin: 25px auto;
+      padding: 20px;
+      background: #ffffff;
+      border: 5px outset #dca8ff;
+      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
     }
 
     .profile-img {
@@ -41,95 +70,175 @@
       height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
-      margin: 20px 0;
-    }
-
-    .info-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.5);
-      text-align: left;
+      border: 3px ridge #9933ff;
+      box-shadow: 0 0 15px rgba(153, 51, 255, 0.7);
       margin-bottom: 20px;
     }
 
-    .info-box h2 {
-      margin-top: 0;
-      color: #4B0082;
+    /* 📣 Scrolling Ticker Tacked to Content */
+    marquee {
+      background: #4B0082;
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 4px;
+      border: 2px inset #9933ff;
+      margin-bottom: 15px;
     }
 
-    .info-box p {
-      margin: 8px 0;
+    p {
+      color: #4B0082;
       line-height: 1.6;
+      background: #f7f0ff;
+      padding: 12px;
+      border: 1px dashed #9933ff;
+      text-align: left;
+    }
+
+    /* 🕹️ Retro Beveled Push-Buttons */
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #9933ff;
+      color: white !important;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 12px;
+      border-top: 3px solid #c285ff;
+      border-left: 3px solid #c285ff;
+      border-right: 3px solid #5900b3;
+      border-bottom: 3px solid #5900b3;
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .back:hover {
+      background: #7a00cc;
+      border-top: 3px solid #5900b3;
+      border-left: 3px solid #5900b3;
+      border-right: 3px solid #c285ff;
+      border-bottom: 3px solid #c285ff;
+    }
+
+    /* 🎀 Multi-Border Shrine Facts Container */
+    .facts-list {
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #fff;
+      border: 3px double #4B0082;
+      box-shadow: inset 0 0 8px rgba(153, 51, 255, 0.15);
+    }
+
+    .facts-list li {
+      margin-bottom: 8px;
+      color: #4B0082;
+      list-style: none;
+      position: relative;
+      padding-left: 22px;
+    }
+
+    /* Diamond Bullet Variant for Historical/Lineup Archive Visuals */
+    .facts-list li::before {
+      content: "♦";
+      position: absolute;
+      left: 5px;
+      top: 0;
+      color: #9933ff;
+    }
+
+    /* 🏷️ 88x31 Pixels Web Badges Dock */
+    .badges-dock {
+      margin-top: 25px;
+      border-top: 1px dotted #4B0082;
+      padding-top: 15px;
+    }
+    
+    .badge-mock {
+      display: inline-block;
+      width: 88px;
+      height: 31px;
+      font-size: 9px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      line-height: 31px;
+      border: 1px solid #ffffff;
+      margin: 2px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <img src="logo.png" alt="Logo" class="logo">
 
+  <div class="container">
     <a href="members.html" class="back">← Back to Members</a>
 
     <h1>Lee Gai</h1>
+    
+    <marquee scrollamount="4">
+      *** BABY V.O.X HISTORY TIMELINE * MEMBER PROFILE ARCHIVE: LEE GAI (1998-1999) ***
+    </marquee>
 
     <img src="Lee_Gai.jpeg" alt="Lee Gai" class="profile-img">
 
-    <div class="info-box">
-      <h2>Basic Information</h2>
-      <p><strong>Stage Name:</strong> Lee Gai</p>
-      <p><strong>Birth Name:</strong> Lee Ji Na</p>
-      <p><strong>Born:</strong> July 19, 1968</p>
-      <p><strong>Role in Baby V.O.X:</strong> Vocalist</p>
-      <p><strong>Years Active in Group:</strong> 1998–1999</p>
+    <h2>Basic Information</h2>
+    <ul class="facts-list">
+      <li><strong>Stage Name:</strong> Lee Gai</li>
+      <li><strong>Birth Name:</strong> Lee Ji Na</li>
+      <li><strong>Born:</strong> July 19, 1968</li>
+      <li><strong>Role in Baby V.O.X:</strong> Vocalist</li>
+      <li><strong>Years Active in Group:</strong> 1998–1999</li>
+    </ul>
+
+    <h2>Joining Baby V.O.X</h2>
+    <p>
+      Lee Gai joined Baby V.O.X in 1998 during a period of lineup changes.
+      At the time, the group was still stabilizing after its early debut years and several original members had already departed.
+    </p>
+    <p>
+      She participated in group activities during this transitional phase and appeared as a member for approximately one year.
+    </p>
+
+    <h2>The Controversy</h2>
+    <p>
+      In 1999, it was revealed that Lee Gai was significantly older than the age that had been publicly presented.
+      While Baby V.O.X was marketed as a youthful girl group, her real age did not align with the group’s intended image.
+    </p>
+    <p>
+      This discovery caused public backlash and media scrutiny, which ultimately led to her departure from the group.
+      The situation became one of the most well-known early controversies in first-generation K-pop.
+    </p>
+
+    <h2>After Leaving the Group</h2>
+    <p>
+      Following her exit from Baby V.O.X, Lee Gai withdrew from the public eye.
+      She did not continue an idol career and has largely remained out of the entertainment industry since then.
+    </p>
+    <p>
+      Unlike later generations, idols during this era had limited protections, and controversies often resulted in permanent career endings.
+    </p>
+
+    <h2>Legacy</h2>
+    <p>
+      Lee Gai’s time in Baby V.O.X was brief, but her story remains an important part of the group’s history.
+      It highlights the intense image standards and pressures placed on idols during the late 1990s.
+    </p>
+    <p>
+      Today, her inclusion in the group’s timeline is remembered as part of Baby V.O.X’s early struggles before achieving long-term stability.
+    </p>
+
+    <div class="badges-dock">
+      <div class="badge-mock" style="background:#4B0082; color:#fff;">BABYV.O.X</div>
+      <div class="badge-mock" style="background:#9933ff; color:#fff;">LINEUP_ARC</div>
+      <div class="badge-mock" style="background:#000000; color:#00ffcc;">KPOP_RETRO</div>
     </div>
 
-    <div class="info-box">
-      <h2>Joining Baby V.O.X</h2>
-      <p>
-        Lee Gai joined Baby V.O.X in 1998 during a period of lineup changes.
-        At the time, the group was still stabilizing after its early debut years and several original members had already departed.
-      </p>
-      <p>
-        She participated in group activities during this transitional phase and appeared as a member for approximately one year.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>The Controversy</h2>
-      <p>
-        In 1999, it was revealed that Lee Gai was significantly older than the age that had been publicly presented.
-        While Baby V.O.X was marketed as a youthful girl group, her real age did not align with the group’s intended image.
-      </p>
-      <p>
-        This discovery caused public backlash and media scrutiny, which ultimately led to her departure from the group.
-        The situation became one of the most well-known early controversies in first-generation K-pop.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>After Leaving the Group</h2>
-      <p>
-        Following her exit from Baby V.O.X, Lee Gai withdrew from the public eye.
-        She did not continue an idol career and has largely remained out of the entertainment industry since then.
-      </p>
-      <p>
-        Unlike later generations, idols during this era had limited protections, and controversies often resulted in permanent career endings.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>Legacy</h2>
-      <p>
-        Lee Gai’s time in Baby V.O.X was brief, but her story remains an important part of the group’s history.
-        It highlights the intense image standards and pressures placed on idols during the late 1990s.
-      </p>
-      <p>
-        Today, her inclusion in the group’s timeline is remembered as part of Baby V.O.X’s early struggles before achieving long-term stability.
-      </p>
-    </div>
-
+    <br>
+    <a href="members.html" class="back">← Back to Members</a>
   </div>
 
 </body>
