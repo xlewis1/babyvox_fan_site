@@ -4,36 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lee Hee Jin – Baby V.O.X</title>
-
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #ffd6e8;
+      font-family: "Comic Sans MS", "Courier New", sans-serif;
+      /* Subtle Y2K diagonal grid lines matching the master fansite layout */
+      background: repeating-linear-gradient(
+        45deg,
+        #ffd6e8,
+        #ffd6e8 15px,
+        #ffe3f0 15px,
+        #ffe3f0 30px
+      );
       margin: 0;
       padding: 0;
       text-align: center;
-      color: #4B0082;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: auto;
+      z-index: 1000;
+      filter: drop-shadow(1px 1px 0px #ff0080);
+      animation: spin 4s linear infinite;
     }
 
-    a.back {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 8px 12px;
-      background: #ff80bf;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
+    /* 🎤 Classic 3D Pop Title Style */
     h1 {
-      margin-top: 10px;
+      color: #ffffff;
+      font-size: 36px;
+      font-family: "Arial Black", Impact, sans-serif;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      -webkit-text-stroke: 1.5px #4B0082;
+      text-shadow: 2px 2px 0px #ff0080, 4px 4px 0px #4B0082;
+    }
+
+    h2 {
+      color: #4B0082;
+      font-family: "Arial Black", sans-serif;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    /* 📦 Outset Vintage Content Frame */
+    .container {
+      max-width: 800px;
+      margin: 25px auto;
+      padding: 20px;
+      background: #ffffff;
+      border: 5px outset #ffb3d1;
+      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
     }
 
     .profile-img {
@@ -41,94 +70,174 @@
       height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
-      margin: 20px 0;
-    }
-
-    .info-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.5);
-      text-align: left;
+      border: 3px ridge #ff0080;
+      box-shadow: 0 0 15px rgba(255, 102, 178, 0.7);
       margin-bottom: 20px;
     }
 
-    .info-box h2 {
-      margin-top: 0;
-      color: #4B0082;
+    /* 📣 Scrolling Ticker Tacked to Content */
+    marquee {
+      background: #4B0082;
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 4px;
+      border: 2px inset #ff80bf;
+      margin-bottom: 15px;
     }
 
-    .info-box p {
-      margin: 8px 0;
+    p {
+      color: #4B0082;
       line-height: 1.6;
+      background: #fff5fa;
+      padding: 12px;
+      border: 1px dashed #ff80bf;
+      text-align: left;
+    }
+
+    /* 🕹️ Retro Beveled Push-Buttons */
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #ff80bf;
+      color: white !important;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 12px;
+      border-top: 3px solid #ffb3d9;
+      border-left: 3px solid #ffb3d9;
+      border-right: 3px solid #cc0066;
+      border-bottom: 3px solid #cc0066;
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .back:hover {
+      background: #ff47a3;
+      border-top: 3px solid #cc0066;
+      border-left: 3px solid #cc0066;
+      border-right: 3px solid #ffb3d9;
+      border-bottom: 3px solid #ffb3d9;
+    }
+
+    /* 🎀 Multi-Border Shrine Facts Container */
+    .facts-list {
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #fff;
+      border: 3px double #ff0080;
+      box-shadow: inset 0 0 8px rgba(255, 102, 178, 0.15);
+    }
+
+    .facts-list li {
+      margin-bottom: 8px;
+      color: #4B0082;
+      list-style: none;
+      position: relative;
+      padding-left: 22px;
+    }
+
+    /* Little Custom Star Bullet Injectors matching the sitewide template */
+    .facts-list li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #ff0080;
+    }
+
+    /* 🏷️ 88x31 Pixels Web Badges Dock */
+    .badges-dock {
+      margin-top: 25px;
+      border-top: 1px dotted #ff0080;
+      padding-top: 15px;
+    }
+    
+    .badge-mock {
+      display: inline-block;
+      width: 88px;
+      height: 31px;
+      font-size: 9px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      line-height: 31px;
+      border: 1px solid #ffffff;
+      margin: 2px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <img src="logo.png" alt="Logo" class="logo">
 
+  <div class="container">
     <a href="members.html" class="back">← Back to Members</a>
 
     <h1>Lee Hee Jin</h1>
+    
+    <marquee scrollamount="4">
+      *** FAN SHRINE CORNER * STATUS: SUB VOCALIST, VISUAL & TALENTED ACTRESS * WELCOME TO THE FAN ARCHIVE! ***
+    </marquee>
 
     <img src="Lee_Heejin.webp" alt="Lee Hee Jin" class="profile-img">
 
-    <div class="info-box">
-      <h2>Basic Information</h2>
-      <p><strong>Full Name:</strong> Lee Hee Jin</p>
-      <p><strong>Born:</strong> May 16, 1979</p>
-      <p><strong>Role in Baby V.O.X:</strong> Sub Vocalist, Visual</p>
-      <p><strong>Years Active in Group:</strong> 1997–2006</p>
+    <h2>Basic Information</h2>
+    <ul class="facts-list">
+      <li><strong>Full Name:</strong> Lee Hee Jin</li>
+      <li><strong>Born:</strong> May 16, 1979</li>
+      <li><strong>Role in Baby V.O.X:</strong> Sub Vocalist, Visual</li>
+      <li><strong>Years Active in Group:</strong> 1997–2006</li>
+    </ul>
+
+    <h2>Career with Baby V.O.X</h2>
+    <p>
+      Lee Hee Jin was one of the final five members of Baby V.O.X and became known for her elegant visuals and calm stage presence.
+      She participated in the group’s most successful era, contributing to albums and promotions that helped establish Baby V.O.X
+      as one of the defining girl groups of first-generation K-pop.
+    </p>
+    <p>
+      During her time in the group, she was often recognized as a visual member and appeared in various broadcasts and performances
+      alongside the group’s peak popularity.
+    </p>
+
+    <h2>Acting Career</h2>
+    <p>
+      After Baby V.O.X, Lee Hee Jin transitioned into acting. She appeared in Korean television dramas as well as stage productions,
+      building a steady acting career that showcased a different side of her talents beyond music.
+    </p>
+    <p>
+      Her work includes both screen and theater acting, earning her respect as a versatile entertainer rather than remaining limited
+      to idol activities.
+    </p>
+
+    <h2>Café Owner</h2>
+    <p>
+      In addition to her work as a singer and actress, Lee Hee Jin has also become a café owner.
+      She has been involved in operating a café, including a brunch-style café, marking her move into business outside the entertainment industry.
+    </p>
+    <p>
+      The café reflects her warm personality and quieter post-idol lifestyle, and it has become a meaningful part of her life
+      after stepping away from full-time entertainment activities.
+    </p>
+
+    <h2>Legacy</h2>
+    <p>
+      Lee Hee Jin is remembered by fans as a graceful and consistent presence within Baby V.O.X.
+      Her ability to successfully transition into acting and business has made her an example of longevity beyond idol fame.
+    </p>
+
+    <div class="badges-dock">
+      <div class="badge-mock" style="background:#ff0080; color:#fff;">BABYV.O.X</div>
+      <div class="badge-mock" style="background:#4B0082; color:#ffd6e8;">HALLYU_00s</div>
+      <div class="badge-mock" style="background:#cc0066; color:#ffffff;">KPOP_RETRO</div>
     </div>
 
-    <div class="info-box">
-      <h2>Career with Baby V.O.X</h2>
-      <p>
-        Lee Hee Jin was one of the final five members of Baby V.O.X and became known for her elegant visuals and calm stage presence.
-        She participated in the group’s most successful era, contributing to albums and promotions that helped establish Baby V.O.X
-        as one of the defining girl groups of first-generation K-pop.
-      </p>
-      <p>
-        During her time in the group, she was often recognized as a visual member and appeared in various broadcasts and performances
-        alongside the group’s peak popularity.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>Acting Career</h2>
-      <p>
-        After Baby V.O.X, Lee Hee Jin transitioned into acting. She appeared in Korean television dramas as well as stage productions,
-        building a steady acting career that showcased a different side of her talents beyond music.
-      </p>
-      <p>
-        Her work includes both screen and theater acting, earning her respect as a versatile entertainer rather than remaining limited
-        to idol activities.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>Café Owner</h2>
-      <p>
-        In addition to her work as a singer and actress, Lee Hee Jin has also become a café owner.
-        She has been involved in operating a café, including a brunch-style café, marking her move into business outside the entertainment industry.
-      </p>
-      <p>
-        The café reflects her warm personality and quieter post-idol lifestyle, and it has become a meaningful part of her life
-        after stepping away from full-time entertainment activities.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>Legacy</h2>
-      <p>
-        Lee Hee Jin is remembered by fans as a graceful and consistent presence within Baby V.O.X.
-        Her ability to successfully transition into acting and business has made her an example of longevity beyond idol fame.
-      </p>
-    </div>
-
+    <br>
+    <a href="members.html" class="back">← Back to Members</a>
   </div>
 
 </body>
