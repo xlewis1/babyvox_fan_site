@@ -1,178 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shim Eun Jin Gallery - Baby VOX Fansite</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shim Eun Jin Gallery - Baby VOX Fansite</title>
+  <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 40px 20px;
-  background: linear-gradient(to bottom, #ffd6f5, #ff9edc);
-}
+  <style>
+    body {
+      font-family: "Comic Sans MS", "Courier New", sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      /* Signature Y2K diagonal grid lines matching the site theme */
+      background: repeating-linear-gradient(
+        45deg,
+        #ffd6e8,
+        #ffd6e8 15px,
+        #ffe3f0 15px,
+        #ffe3f0 30px
+      );
+      color: #4B0082;
+    }
 
-/* Framed container */
-.page-wrapper {
-  max-width: 1100px;
-  margin: auto;
-  background: white;
-  padding: 30px;
-  border: 6px double hotpink;
-  box-shadow: 0 0 25px #ff66cc;
-  text-align: center;
-}
+    /* 🛸 Spinning Mini-Logo */
+    .mini-logo {
+      width: 70px;
+      margin: 0 auto 10px auto;
+      display: block;
+      filter: drop-shadow(1px 1px 0px #ff0080);
+      animation: spin 5s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
 
-h1 { 
-  color: #4B0082; 
-  margin-bottom: 10px;
-}
+    /* 📦 Outset Windows Explorer Frame */
+    .page-wrapper {
+      max-width: 950px;
+      margin: 0 auto 40px auto;
+      padding: 25px;
+      background: #ffffff;
+      border: 5px outset #ffb3d1;
+      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
+    }
 
-.instructions { 
-  color: #4B0082; 
-  margin-bottom: 30px; 
-}
+    /* 🎤 3D Pop Title Style */
+    h1 {
+      color: #ffffff;
+      font-size: 32px;
+      font-family: "Arial Black", Impact, sans-serif;
+      text-transform: uppercase;
+      margin: 5px 0;
+      -webkit-text-stroke: 1.2px #4B0082;
+      text-shadow: 2px 2px 0px #ff0080, 3px 3px 0px #4B0082;
+    }
 
-/* Gallery grid: always 3 per row */
-.member-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  justify-items: center;
-  margin-bottom: 40px;
-}
+    .instructions {
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      font-weight: bold;
+      color: #ff0066;
+      background: #fff5fa;
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px dashed #ff80bf;
+      margin-bottom: 25px;
+      max-width: 80%;
+    }
 
-/* Portrait thumbnails */
-.member-gallery img {
-  width: 150px;
-  height: 200px;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 6px;
-  box-shadow: 0 0 8px #ff99cc;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+    /* 🖼️ Gallery grid - 3 per row */
+    .member-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+      margin-bottom: 25px;
+    }
 
-.member-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 18px #ff33aa;
-}
+    .member-gallery a {
+      display: block;
+      background: #fff5fa;
+      padding: 8px;
+      border: 2px ridge #ff80bf;
+      transition: transform 0.2s, background-color 0.2s;
+    }
 
-/* Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1000;
-}
+    .member-gallery a:hover {
+      background: #ffe6f2;
+      transform: scale(1.04);
+    }
 
-.lightbox img {
-  max-width: 90%;
-  max-height: 80%;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
+    .member-gallery img {
+      width: 100%;
+      max-width: 240px;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border: 3px inset #ff0080;
+      box-shadow: 2px 2px 0px #4B0082;
+    }
 
-.controls button {
-  font-size: 20px;
-  margin: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 4px;
-  border: none;
-  background: #ff3399;
-  color: white;
-}
+    /* 🕹️ Retro Beveled Push-Buttons */
+    .back-btn {
+      margin: 8px;
+      padding: 10px 16px;
+      font-weight: bold;
+      font-size: 13px;
+      font-family: "Comic Sans MS", sans-serif;
+      background: #ff80bf;
+      color: white !important;
+      border-top: 3px solid #ffb3d9;
+      border-left: 3px solid #ffb3d9;
+      border-right: 3px solid #cc0066;
+      border-bottom: 3px solid #cc0066;
+      box-shadow: 1px 1px 0px #000000;
+      cursor: pointer;
+    }
 
-.controls button:hover {
-  background: #cc0077;
-}
+    .back-btn:hover {
+      background: #ff47a3;
+      border-top: 3px solid #cc0066;
+      border-left: 3px solid #cc0066;
+      border-right: 3px solid #ffb3d9;
+      border-bottom: 3px solid #ffb3d9;
+    }
 
-/* Navigation buttons */
-.back-btn {
-  margin: 10px;
-  padding: 10px 18px;
-  border-radius: 6px;
-  background: #ff66b2;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
+    /* 🎞️ Lightbox Overlay Style */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(34, 0, 66, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
 
-.back-btn:hover { 
-  background: #ff33aa; 
-}
+    .lightbox img {
+      max-width: 85%;
+      max-height: 75%;
+      margin-bottom: 25px;
+      cursor: pointer;
+      border: 4px solid #ffffff;
+      box-shadow: 0px 0px 20px rgba(255, 0, 128, 0.8);
+    }
 
-/* Spinning logo */
-.logo {
-  height: 80px;
-  animation: spin 5s linear infinite;
-  margin-bottom: 20px;
-}
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-</style>
+    .lightbox .controls button {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      background: #ff0080;
+      color: white;
+      border-top: 3px solid #ff66b2;
+      border-left: 3px solid #ff66b2;
+      border-right: 3px solid #99004d;
+      border-bottom: 3px solid #99004d;
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .lightbox .controls button:hover {
+      background: #cc0066;
+    }
+
+    @media (max-width: 768px) {
+      .member-gallery { gap: 12px; }
+      .member-gallery a { padding: 4px; }
+      h1 { font-size: 24px; }
+    }
+  </style>
 </head>
 <body>
 
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="mini-logo">
+
 <div class="page-wrapper">
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+  <h1>Shim Eun Jin Gallery</h1>
+  <p class="instructions">
+    Click an image to open the lightbox. Use arrow keys to navigate. Click image for full resolution.
+  </p>
 
-<h1>Shim Eun Jin Gallery</h1>
-<p class="instructions">
-Click an image to open the lightbox. Use arrow keys to navigate. Click image for full resolution.
-</p>
-
-<!-- Eun Jin Gallery -->
-<div id="eunjin-gallery" class="member-gallery">
-  <a href="EUNJIN.jpg"><img src="EUNJIN.jpg" alt=""></a>
-  <a href="shim_3rd13.jpg"><img src="shim_3rd13.jpg" alt=""></a>
-  <a href="shim_3rd14.jpg"><img src="shim_3rd14.jpg" alt=""></a>
-  <a href="eunjin5.jpg"><img src="eunjin5.jpg" alt=""></a>
-  <a href="eunjin6.jpg"><img src="eunjin6.jpg" alt=""></a>
-  <a href="shimeunjin7.jpg"><img src="shimeunjin7.jpg" alt=""></a>
-  <a href="eunjin11_upscaled.jpg"><img src="eunjin11_upscaled.jpg" alt=""></a>
-  <a href="eunjin14.jpg"><img src="eunjin14.jpg" alt=""></a>
-  <a href="Eunjin12_upscaled.jpg"><img src="Eunjin12_upscaled.jpg" alt=""></a>
-  <a href="Eunjin45.jpg"><img src="Eunjin45.jpg" alt=""></a>
-  <a href="Eunjin46.png"><img src="Eunjin46.png" alt=""></a>
-  <a href="IMG_4656.jpg"><img src="IMG_4656.jpg" alt=""></a>
-  <a href="IMG_4657.jpg"><img src="IMG_4657.jpg" alt=""></a>
-  <a href="IMG_4658.jpg"><img src="IMG_4658.jpg" alt=""></a>  
-  <a href="IMG_2062.jpeg"><img src="IMG_2062.jpeg" alt=""></a>
-  <a href="IMG_2274.jpeg"><img src="IMG_2274.jpeg" alt=""></a>
-  <a href="IMG_2245.jpeg"><img src="IMG_2245.jpeg" alt=""></a>
-  <a href="IMG_2254.jpeg"><img src="IMG_2254.jpeg" alt=""></a>
-  <a href="Untitled856.png"><img src="Untitled856.png" alt=""></a>
-  <a href="FB_IMG_1766678581286.jpeg"><img src="FB_IMG_1766678581286.jpeg" alt=""></a>
-  <a href="FB_IMG_1766678631506.jpeg"><img src="FB_IMG_1766678631506.jpeg" alt=""></a>
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img">
-  <div class="controls">
-    <button id="prev">&#8592;</button>
-    <button id="next">&#8594;</button>
-    <button id="close">X</button>
+  <div id="eunjin-gallery" class="member-gallery">
+    <a href="EUNJIN.jpg"><img src="EUNJIN.jpg" alt="Shim Eun Jin"></a>
+    <a href="shim_3rd13.jpg"><img src="shim_3rd13.jpg" alt="Shim Eun Jin 3rd Album 13"></a>
+    <a href="shim_3rd14.jpg"><img src="shim_3rd14.jpg" alt="Shim Eun Jin 3rd Album 14"></a>
+    <a href="eunjin5.jpg"><img src="eunjin5.jpg" alt="Shim Eun Jin 5"></a>
+    <a href="eunjin6.jpg"><img src="eunjin6.jpg" alt="Shim Eun Jin 6"></a>
+    <a href="shimeunjin7.jpg"><img src="shimeunjin7.jpg" alt="Shim Eun Jin 7"></a>
+    <a href="eunjin11_upscaled.jpg"><img src="eunjin11_upscaled.jpg" alt="Shim Eun Jin 11 Upscaled"></a>
+    <a href="eunjin14.jpg"><img src="eunjin14.jpg" alt="Shim Eun Jin 14"></a>
+    <a href="Eunjin12_upscaled.jpg"><img src="Eunjin12_upscaled.jpg" alt="Shim Eun Jin 12 Upscaled"></a>
+    <a href="Eunjin45.jpg"><img src="Eunjin45.jpg" alt="Shim Eun Jin 45"></a>
+    <a href="Eunjin46.png"><img src="Eunjin46.png" alt="Shim Eun Jin 46"></a>
+    <a href="IMG_4656.jpg"><img src="IMG_4656.jpg" alt="Shim Eun Jin 4656"></a>
+    <a href="IMG_4657.jpg"><img src="IMG_4657.jpg" alt="Shim Eun Jin 4657"></a>
+    <a href="IMG_4658.jpg"><img src="IMG_4658.jpg" alt="Shim Eun Jin 4658"></a>  
+    <a href="IMG_2062.jpeg"><img src="IMG_2062.jpeg" alt="Shim Eun Jin 2062"></a>
+    <a href="IMG_2274.jpeg"><img src="IMG_2274.jpeg" alt="Shim Eun Jin 2274"></a>
+    <a href="IMG_2245.jpeg"><img src="IMG_2245.jpeg" alt="Shim Eun Jin 2245"></a>
+    <a href="IMG_2254.jpeg"><img src="IMG_2254.jpeg" alt="Shim Eun Jin 2254"></a>
+    <a href="Untitled856.png"><img src="Untitled856.png" alt="Shim Eun Jin Rare Artwork"></a>
+    <a href="FB_IMG_1766678581286.jpeg"><img src="FB_IMG_1766678581286.jpeg" alt="Shim Eun Jin FB Archive 1"></a>
+    <a href="FB_IMG_1766678631506.jpeg"><img src="FB_IMG_1766678631506.jpeg" alt="Shim Eun Jin FB Archive 2"></a>
   </div>
-</div>
 
-<!-- Navigation -->
-<div>
-  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
-  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
-  <button class="back-btn" onclick="window.location.href='eunjinpage2.html'">Next Page</button>
-</div>
+  <div class="lightbox" id="lightbox">
+    <img src="" id="lightbox-img" alt="Lightbox Preview">
+    <div class="controls">
+      <button id="prev">&#8592;</button>
+      <button id="next">&#8594;</button>
+      <button id="close">X</button>
+    </div>
+  </div>
+
+  <div>
+    <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+    <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+    <button class="back-btn" onclick="window.location.href='eunjinpage2.html'">Next Page →</button>
+  </div>
 
 </div>
 
