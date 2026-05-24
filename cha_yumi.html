@@ -4,36 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cha Yumi – Baby V.O.X</title>
-
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #ffd6e8;
+      font-family: "Comic Sans MS", "Courier New", sans-serif;
+      /* Foundational/Origins variant: Soft Teal diagonal grid lines */
+      background: repeating-linear-gradient(
+        45deg,
+        #d6fff5,
+        #d6fff5 15px,
+        #c4f5ea 15px,
+        #c4f5ea 30px
+      );
       margin: 0;
       padding: 0;
       text-align: center;
-      color: #4B0082;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: auto;
+      z-index: 1000;
+      filter: drop-shadow(1px 1px 0px #4B0082);
+      animation: spin 4s linear infinite;
     }
 
-    a.back {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 8px 12px;
-      background: #ff80bf;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
+    /* 🎤 Classic 3D Pop Title Style - Deep Teal/Violet Accent Theme */
     h1 {
-      margin-top: 10px;
+      color: #ffffff;
+      font-size: 36px;
+      font-family: "Arial Black", Impact, sans-serif;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      -webkit-text-stroke: 1.5px #113f37;
+      text-shadow: 2px 2px 0px #00cc99, 4px 4px 0px #4B0082;
+    }
+
+    h2 {
+      color: #4B0082;
+      font-family: "Arial Black", sans-serif;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    /* 📦 Outset Vintage Content Frame */
+    .container {
+      max-width: 800px;
+      margin: 25px auto;
+      padding: 20px;
+      background: #ffffff;
+      border: 5px outset #a8ffd8;
+      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
     }
 
     .profile-img {
@@ -41,98 +70,181 @@
       height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
-      margin: 20px 0;
-    }
-
-    .info-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.5);
-      text-align: left;
+      border: 3px ridge #00cc99;
+      box-shadow: 0 0 15px rgba(0, 204, 153, 0.7);
       margin-bottom: 20px;
     }
 
-    .info-box h2 {
-      margin-top: 0;
-      color: #4B0082;
+    /* 📣 Scrolling Ticker Tacked to Content */
+    marquee {
+      background: #4B0082;
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 4px;
+      border: 2px inset #00cc99;
+      margin-bottom: 15px;
     }
 
-    .info-box p {
-      margin: 8px 0;
+    p {
+      color: #4B0082;
       line-height: 1.6;
+      background: #f0fffb;
+      padding: 12px;
+      border: 1px dashed #00cc99;
+      text-align: left;
+    }
+
+    /* 🕹️ Retro Beveled Push-Buttons */
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #00cc99;
+      color: white !important;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 12px;
+      border-top: 3px solid #85ffd6;
+      border-left: 3px solid #85ffd6;
+      border-right: 3px solid #00805f;
+      border-bottom: 3px solid #00805f;
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .back:hover {
+      background: #00a37a;
+      border-top: 3px solid #00805f;
+      border-left: 3px solid #00805f;
+      border-right: 3px solid #85ffd6;
+      border-bottom: 3px solid #85ffd6;
+    }
+
+    /* 🎀 Multi-Border Shrine Facts Container */
+    .facts-list {
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #fff;
+      border: 3px double #4B0082;
+      box-shadow: inset 0 0 8px rgba(0, 204, 153, 0.15);
+    }
+
+    .facts-list li {
+      margin-bottom: 8px;
+      color: #4B0082;
+      list-style: none;
+      position: relative;
+      padding-left: 22px;
+    }
+
+    /* Diamond Bullet Variant for Historical Lineup Archive Visuals */
+    .facts-list li::before {
+      content: "♦";
+      position: absolute;
+      left: 5px;
+      top: 0;
+      color: #00cc99;
+    }
+
+    /* 🏷️ 88x31 Pixels Web Badges Dock */
+    .badges-dock {
+      margin-top: 25px;
+      border-top: 1px dotted #4B0082;
+      padding-top: 15px;
+    }
+    
+    .badge-mock {
+      display: inline-block;
+      width: 88px;
+      height: 31px;
+      font-size: 9px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      line-height: 31px;
+      border: 1px solid #ffffff;
+      margin: 2px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <img src="logo.png" alt="Logo" class="logo">
 
+  <div class="container">
     <a href="members.html" class="back">← Back to Members</a>
 
     <h1>Cha Yumi</h1>
+    
+    <marquee scrollamount="4">
+      *** BABY V.O.X HISTORY TIMELINE * MEMBER PROFILE ARCHIVE: CHA YUMI (1997 DEBUT DEPARTURE) ***
+    </marquee>
 
     <img src="cha_yumi.WEBP" alt="Cha Yumi" class="profile-img">
 
-    <div class="info-box">
-      <h2>Basic Information</h2>
-      <p><strong>Name:</strong> Cha Yumi</p>
-      <p><strong>Role in Baby V.O.X:</strong> Main Vocalist</p>
-      <p><strong>Years Active in Group:</strong> 1997</p>
-      <p><strong>Status:</strong> Original member</p>
+    <h2>Basic Information</h2>
+    <ul class="facts-list">
+      <li><strong>Name:</strong> Cha Yumi</li>
+      <li><strong>Role in Baby V.O.X:</strong> Main Vocalist</li>
+      <li><strong>Years Active in Group:</strong> 1997</li>
+      <li><strong>Status:</strong> Original member</li>
+    </ul>
+
+    <h2>Debut with Baby V.O.X</h2>
+    <p>
+      Cha Yumi was one of the original members of Baby V.O.X at their debut in 1997.
+      She held the position of main vocalist and was an important part of the group’s early sound.
+    </p>
+    <p>
+      At the time, Baby V.O.X was still forming its identity, and Cha Yumi was expected to play a key role going forward.
+    </p>
+    <p>She is also notable for being the only Korean-American member of Baby V.O.X</p>
+
+    <h2>Injury and Departure</h2>
+    <p>
+      Not long after debut, Cha Yumi suffered a serious injury.
+      Due to the physical demands of idol life and limited medical recovery options at the time,
+      she was forced to leave the group.
+    </p>
+    <p>
+      Unlike many other lineup changes, her departure was not due to controversy or conflict,
+      but simply because she could no longer continue performing.
+    </p>
+
+    <h2>After Leaving the Group</h2>
+    <p>
+      Following her exit from Baby V.O.X, Cha Yumi stepped away from the Korean entertainment industry.
+      She did not pursue a public career afterward and has largely remained out of the spotlight.
+    </p>
+    <p>
+      She later returned to Los Angeles to form a duo with her sister called LFBJ.
+    </p>
+    <p>
+      Her departure is often remembered as one of the most unfortunate moments in the group’s early history.
+    </p>
+    <p>Yumi would later be replaced by Kan Mi Youn during promotions of Equalizeher</p>
+
+    <h2>Legacy</h2>
+    <p>
+      Cha Yumi is remembered by fans as a talented vocalist whose career ended far too early.
+      Her story reflects the harsh realities faced by first-generation idols,
+      where injuries often meant permanent endings.
+    </p>
+    <p>
+      Though her time in Baby V.O.X was brief, she remains an important part of the group’s origin story.
+    </p>
+
+    <div class="badges-dock">
+      <div class="badge-mock" style="background:#4B0082; color:#fff;">BABYV.O.X</div>
+      <div class="badge-mock" style="background:#00cc99; color:#fff;">97_ORIGIN</div>
+      <div class="badge-mock" style="background:#000000; color:#00ffcc;">KPOP_RETRO</div>
     </div>
 
-    <div class="info-box">
-      <h2>Debut with Baby V.O.X</h2>
-      <p>
-        Cha Yumi was one of the original members of Baby V.O.X at their debut in 1997.
-        She held the position of main vocalist and was an important part of the group’s early sound.
-      </p>
-      <p>
-        At the time, Baby V.O.X was still forming its identity, and Cha Yumi was expected to play a key role going forward.
-      </p>
-      <p>She is also notable for being the only Korean-American member of Baby V.O.X</p>
-    </div>
-
-    <div class="info-box">
-      <h2>Injury and Departure</h2>
-      <p>
-        Not long after debut, Cha Yumi suffered a serious injury.
-        Due to the physical demands of idol life and limited medical recovery options at the time,
-        she was forced to leave the group.
-      </p>
-      <p>
-        Unlike many other lineup changes, her departure was not due to controversy or conflict,
-        but simply because she could no longer continue performing.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>After Leaving the Group</h2>
-      <p>
-        Following her exit from Baby V.O.X, Cha Yumi stepped away from the entertainment industry.
-        She did not pursue a public career afterward and has largely remained out of the spotlight.
-      </p>
-      <p>
-        Her departure is often remembered as one of the most unfortunate moments in the group’s early history.
-      </p>
-      <p>Yumi would later be replaced by Kan Mi Youn during promotions of Equalizeher</p>
-    </div>
-
-    <div class="info-box">
-      <h2>Legacy</h2>
-      <p>
-        Cha Yumi is remembered by fans as a talented vocalist whose career ended far too early.
-        Her story reflects the harsh realities faced by first-generation idols,
-        where injuries often meant permanent endings.
-      </p>
-      <p>
-        Though her time in Baby V.O.X was brief, she remains an important part of the group’s origin story.
-      </p>
-    </div>
-
+    <br>
+    <a href="members.html" class="back">← Back to Members</a>
   </div>
 
 </body>
