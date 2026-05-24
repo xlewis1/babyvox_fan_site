@@ -4,36 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jung Hyun Jeon – Baby V.O.X</title>
-
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #ffd6e8;
+      font-family: "Comic Sans MS", "Courier New", sans-serif;
+      /* Foundational/Origins variant: Soft Teal diagonal grid lines */
+      background: repeating-linear-gradient(
+        45deg,
+        #d6fff5,
+        #d6fff5 15px,
+        #c4f5ea 15px,
+        #c4f5ea 30px
+      );
       margin: 0;
       padding: 0;
       text-align: center;
-      color: #4B0082;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: auto;
+      z-index: 1000;
+      filter: drop-shadow(1px 1px 0px #4B0082);
+      animation: spin 4s linear infinite;
     }
 
-    a.back {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 8px 12px;
-      background: #ff80bf;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
+    /* 🎤 Classic 3D Pop Title Style - Deep Teal/Violet Accent Theme */
     h1 {
-      margin-top: 10px;
+      color: #ffffff;
+      font-size: 36px;
+      font-family: "Arial Black", Impact, sans-serif;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      -webkit-text-stroke: 1.5px #113f37;
+      text-shadow: 2px 2px 0px #00cc99, 4px 4px 0px #4B0082;
+    }
+
+    h2 {
+      color: #4B0082;
+      font-family: "Arial Black", sans-serif;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    /* 📦 Outset Vintage Content Frame */
+    .container {
+      max-width: 800px;
+      margin: 25px auto;
+      padding: 20px;
+      background: #ffffff;
+      border: 5px outset #a8ffd8;
+      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
     }
 
     .profile-img {
@@ -41,87 +70,167 @@
       height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
-      margin: 20px 0;
-    }
-
-    .info-box {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.5);
-      text-align: left;
+      border: 3px ridge #00cc99;
+      box-shadow: 0 0 15px rgba(0, 204, 153, 0.7);
       margin-bottom: 20px;
     }
 
-    .info-box h2 {
-      margin-top: 0;
-      color: #4B0082;
+    /* 📣 Scrolling Ticker Tacked to Content */
+    marquee {
+      background: #4B0082;
+      color: #00ffcc;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 4px;
+      border: 2px inset #00cc99;
+      margin-bottom: 15px;
     }
 
-    .info-box p {
-      margin: 8px 0;
+    p {
+      color: #4B0082;
       line-height: 1.6;
+      background: #f0fffb;
+      padding: 12px;
+      border: 1px dashed #00cc99;
+      text-align: left;
+    }
+
+    /* 🕹️ Retro Beveled Push-Buttons */
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #00cc99;
+      color: white !important;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 12px;
+      border-top: 3px solid #85ffd6;
+      border-left: 3px solid #85ffd6;
+      border-right: 3px solid #00805f;
+      border-bottom: 3px solid #00805f;
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .back:hover {
+      background: #00a37a;
+      border-top: 3px solid #00805f;
+      border-left: 3px solid #00805f;
+      border-right: 3px solid #85ffd6;
+      border-bottom: 3px solid #85ffd6;
+    }
+
+    /* 🎀 Multi-Border Shrine Facts Container */
+    .facts-list {
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #fff;
+      border: 3px double #4B0082;
+      box-shadow: inset 0 0 8px rgba(0, 204, 153, 0.15);
+    }
+
+    .facts-list li {
+      margin-bottom: 8px;
+      color: #4B0082;
+      list-style: none;
+      position: relative;
+      padding-left: 22px;
+    }
+
+    /* Diamond Bullet Variant for Historical Lineup Archive Visuals */
+    .facts-list li::before {
+      content: "♦";
+      position: absolute;
+      left: 5px;
+      top: 0;
+      color: #00cc99;
+    }
+
+    /* 🏷️ 88x31 Pixels Web Badges Dock */
+    .badges-dock {
+      margin-top: 25px;
+      border-top: 1px dotted #4B0082;
+      padding-top: 15px;
+    }
+    
+    .badge-mock {
+      display: inline-block;
+      width: 88px;
+      height: 31px;
+      font-size: 9px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      line-height: 31px;
+      border: 1px solid #ffffff;
+      margin: 2px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+  <img src="logo.png" alt="Logo" class="logo">
 
+  <div class="container">
     <a href="members.html" class="back">← Back to Members</a>
 
     <h1>Jung Hyun Jeon</h1>
+    
+    <marquee scrollamount="4">
+      *** BABY V.O.X HISTORY TIMELINE * MEMBER PROFILE ARCHIVE: JUNG HYUN JEON (1997 DEBUT MEMBER) ***
+    </marquee>
 
     <img src="jung hyun jeon.WEBP" alt="Jung Hyun Jeon" class="profile-img">
 
-    <div class="info-box">
-      <h2>Basic Information</h2>
-      <p><strong>Name:</strong> Jung Hyun Jeon</p>
-      <p><strong>Role in Baby V.O.X:</strong> Lead Vocalist</p>
-      <p><strong>Years Active in Group:</strong> 1997</p>
-      <p><strong>Status:</strong> Original member</p>
+    <h2>Basic Information</h2>
+    <ul class="facts-list">
+      <li><strong>Name:</strong> Jung Hyun Jeon</li>
+      <li><strong>Role in Baby V.O.X:</strong> Lead Vocalist</li>
+      <li><strong>Years Active in Group:</strong> 1997</li>
+      <li><strong>Status:</strong> Original member</li>
+    </ul>
+
+    <h2>Role in the Group</h2>
+    <p>
+      Jung Hyun Jeon served as the original lead vocalist of Baby V.O.X.
+      Her voice helped define the group’s early sound and contributed to their debut album.
+    </p>
+    <p>
+      As one of the founding members, she played a key role in establishing the group’s musical identity.
+    </p>
+
+    <h2>Departure from Baby V.O.X</h2>
+    <p>
+      Jung Hyun Jeon left the group on her own terms during the early formation period.
+      Her decision was personal and amicable, allowing the group to continue evolving.
+    </p>
+
+    <h2>Replacement by Shim Eun Jin</h2>
+    <p>
+      After Jung Hyun Jeon’s departure in 1998, she was replaced by Shim Eun Jin,
+      who took over as lead vocalist and went on to become a mainstay of the group.
+    </p>
+
+    <h2>Legacy</h2>
+    <p>
+      Although her tenure was brief, Jung Hyun Jeon’s contributions as the original lead vocalist
+      were important to Baby V.O.X’s foundation and early development.
+    </p>
+    <p>
+      Her role paved the way for the lineup that would later achieve greater fame and long-lasting success.
+    </p>
+
+    <div class="badges-dock">
+      <div class="badge-mock" style="background:#4B0082; color:#fff;">BABYV.O.X</div>
+      <div class="badge-mock" style="background:#00cc99; color:#fff;">97_ORIGIN</div>
+      <div class="badge-mock" style="background:#000000; color:#00ffcc;">KPOP_RETRO</div>
     </div>
 
-    <div class="info-box">
-      <h2>Role in the Group</h2>
-      <p>
-        Jung Hyun Jeon served as the original lead vocalist of Baby V.O.X.
-        Her voice helped define the group’s early sound and contributed to their debut album.
-      </p>
-      <p>
-        As one of the founding members, she played a key role in establishing the group’s musical identity.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>Departure from Baby V.O.X</h2>
-      <p>
-        Jung Hyun Jeon left the group on her own terms during the early formation period.
-        Her decision was personal and amicable, allowing the group to continue evolving.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>Replacement by Shim Eun Jin</h2>
-      <p>
-        After Jung Hyun Jeon’s departure in 1998, she was replaced by Shim Eun Jin,
-        who took over as lead vocalist and went on to become a mainstay of the group.
-      </p>
-    </div>
-
-    <div class="info-box">
-      <h2>Legacy</h2>
-      <p>
-        Although her tenure was brief, Jung Hyun Jeon’s contributions as the original lead vocalist
-        were important to Baby V.O.X’s foundation and early development.
-      </p>
-      <p>
-        Her role paved the way for the lineup that would later achieve greater fame and long-lasting success.
-      </p>
-    </div>
-
+    <br>
+    <a href="members.html" class="back">← Back to Members</a>
   </div>
 
 </body>
