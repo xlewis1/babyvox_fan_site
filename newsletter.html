@@ -3,149 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X Newsletter</title>
+<title>✦ Welcome to the Baby V.O.X Newsletter Zone! ✦</title>
 <style>
-/* ---------------- GEOCITIES CANVAS SETUP ---------------- */
+/* ---------------- THE ULTIMATE NEOCITIES BACKGROUND ---------------- */
 body {
   font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: #ffb6c1; /* Classic Geocities pink */
+  background-color: #000000; /* Deep space black for maximum contrast */
+  /* Vintage tile background effect - repeatable star sparkle */
+  background-image: radial-gradient(circle, #ffffff 1px, transparent 1px), 
+                    radial-gradient(circle, #ff69b4 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  color: #ff69b4;
   margin: 0;
-  padding: 0;
+  padding: 10px;
+}
+
+/* ---------------- CENTERING MAIN PORTAL DECK ---------------- */
+.neocities-frame {
+  max-width: 850px;
+  margin: 20px auto;
+  padding: 15px;
   text-align: center;
 }
 
-/* Main container */
-.container {
-  width: 900px;
-  margin: 30px auto;
-  box-sizing: border-box;
+/* Glitzy Cyber Header */
+.title-container {
+  border: 4px dashed #ff00ff;
+  background: rgba(255, 20, 147, 0.15);
+  padding: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0px 0px 15px #ff00ff;
 }
 
-/* Header */
 h1 {
-  color: #ff69b4;
-  text-shadow: 2px 2px #000000;
-  font-size: 48px;
-  margin-top: 10px;
+  font-size: 38px;
+  color: #00ffff;
+  text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #000000;
+  margin: 5px 0;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+/* ---------------- RETRO MARQUEE TICKER ---------------- */
+.marquee-holder {
+  background: #ff00ff;
+  border: 2px outset #ffffff;
+  padding: 4px;
   margin-bottom: 25px;
 }
+.marquee-holder marquee {
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  text-shadow: 1px 1px #000000;
+}
 
-/* Retro text boxes */
-.text-box {
-  background-color: #ffffff;
-  border: 4px solid #ff69b4;
+/* ---------------- GEOCITIES ALERT BOXES ---------------- */
+.welcome-bubble {
+  background-color: #000000;
+  border: 3px double #00ffff;
+  color: #ffffff;
   padding: 15px;
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 10px;
-  color: #000000;
-  font-size: 18px;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  box-shadow: 5px 5px 0px #ff00ff;
 }
 
-/* Newsletter icon link container */
-.icon-link {
+.welcome-bubble span {
+  color: #00ffff;
+  font-weight: bold;
+}
+
+/* ---------------- THE MAGAZINE HUB STAND ---------------- */
+.magazine-stand {
+  margin: 30px auto;
   display: inline-block;
-  text-decoration: none;
-  margin: 20px auto;
+  position: relative;
 }
 
-/* Newsletter cover image */
+.magazine-stand h2 {
+  font-size: 22px;
+  color: #ffff00;
+  text-shadow: 2px 2px #000000;
+  margin-bottom: 15px;
+  animation: flashText 1s ease infinite alternate;
+}
+
+@keyframes flashText {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.8; transform: scale(1.02); }
+}
+
+/* Cover Image Interactive Framing */
 .newsletter-icon {
-  width: 400px;
-  display: block;
-  border: 5px dashed #ff69b4;
-  border-radius: 12px;
+  width: 420px;
+  border: 8px ridge #ff00ff;
+  background-color: #ffffff;
+  padding: 5px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
-/* Glow & bounce animation on hover */
-.icon-link:hover .newsletter-icon {
-  border-color: #ff85c1;
-  box-shadow: 0 0 25px #ff85c1, 0 0 50px #ff69b4;
-  transform: scale(1.05) rotate(-2deg);
-  animation: bounce 0.4s ease forwards;
+/* Radical hover bounce effect */
+.magazine-stand a:hover .newsletter-icon {
+  border-color: #00ffff;
+  transform: scale(1.06) rotate(2deg);
+  box-shadow: 0px 0px 25px #00ffff;
 }
 
-/* Tilt and glow on click */
-.icon-link:active .newsletter-icon {
-  transform: scale(0.95) rotate(5deg);
-  box-shadow: 0 0 40px #ff69b4, 0 0 60px #ff85c1;
+/* ---------------- BLINKIES & BADGES BASEMENT ---------------- */
+.badge-basement {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px dashed #ff00ff;
+  padding: 15px;
+  margin: 35px auto 25px auto;
 }
 
-/* Bounce keyframes */
-@keyframes bounce {
-  0% { transform: scale(1.05) rotate(-2deg); }
-  25% { transform: scale(1.10) rotate(-3deg); }
-  50% { transform: scale(1.05) rotate(-2deg); }
-  75% { transform: scale(1.08) rotate(-1deg); }
-  100% { transform: scale(1.05) rotate(-2deg); }
-}
-
-/* Vintage blinkie layout wrap */
-.blinkie-row {
-  margin: 25px auto;
+.badge-title {
+  font-size: 12px;
+  color: #00ffff;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .blinkie {
   width: 50px;
   height: 50px;
-  margin: 0 10px;
+  margin: 0 5px;
   vertical-align: middle;
 }
 
-/* Return navigation link */
-.back-home {
-  display: inline-block;
-  margin: 20px auto 40px auto;
-  padding: 12px 25px;
-  background: #ff3399;
-  color: #ffffff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 0 10px #ff66b2;
-  transition: all 0.3s ease;
+/* 88x31 Vintage Web Buttons */
+.web-button {
+  width: 88px;
+  height: 31px;
+  margin: 5px;
+  image-rendering: pixelated;
+  vertical-align: middle;
 }
 
-.back-home:hover {
-  background: #ff66cc;
-  box-shadow: 0 0 20px #ff85c1;
-  transform: scale(1.05);
+/* ---------------- RETRO WEBRING NAV SECTION ---------------- */
+.webring-zone {
+  border: 3px solid #ffff00;
+  background: #111111;
+  padding: 10px;
+  max-width: 500px;
+  margin: 20px auto;
+  font-size: 13px;
+  color: #ffffff;
+}
+.webring-links a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 10px;
+}
+.webring-links a:hover {
+  text-decoration: underline;
+  color: #ff00ff;
+}
+
+/* ---------------- NAVIGATION COMMANDS ---------------- */
+.nav-buttons {
+  margin: 35px auto;
+}
+
+.btn-retro {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  background: #ff00ff;
+  border: 4px outset #ff69b4;
+  text-shadow: 1px 1px #000000;
+}
+
+.btn-retro:hover {
+  border-style: inset;
+  background: #00ffff;
+  color: #000000;
+  text-shadow: none;
 }
 </style>
 </head>
 <body>
 
-<div class="container">
-  
-  <h1>Baby V.O.X Newsletter!</h1>
+<div class="neocities-frame">
 
-  <div class="text-box">
-    Hello fans! Welcome to this month’s newsletter page!
+  <div class="title-container">
+    <h1>★ BABY V.O.X NEWSSTAND ★</h1>
+    <div class="subtitle">THE ULTIMATE FIRST-GEN MULTIMEDIA HQ</div>
   </div>
 
-  <div class="text-box">
-    Click on the icon below to view this month’s letter and see all the latest Baby V.O.X updates!
+  <div class="marquee-holder">
+    <marquee scrollamount="5" direction="left">
+      ⚡ [NEWS FLASH] ⚡ ISSUE #1 IS LIVE! 📢 ALL BABY ANGELS CLICK THE COVER BELOW TO ENTER THE NEWSLETTER! 💖 KEEP THE 1ST GEN LIVE! ⚡
+    </marquee>
   </div>
 
-  <div class="text-box">
-    Don’t forget to check out our gallery, videos, and guestbook while you’re here! 💖
+  <div class="welcome-bubble">
+    Welcome to the <span>Newsletter HQ</span>, fellow Baby Angels! This is where we drop exclusive month-by-month archival updates, site development logs, and focus features on our favorite members. Don't forget to grab our button for your site links layout before leaving! 🌟
   </div>
 
-  <a href="letter.html" class="icon-link">
-    <img src="IMG_2570.jpeg" alt="Newsletter Issue Cover" class="newsletter-icon">
-  </a>
-
-  <div class="blinkie-row">
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="retro blinkie decoration" class="blinkie">
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="retro blinkie decoration" class="blinkie">
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="retro blinkie decoration" class="blinkie">
+  <div class="magazine-stand">
+    <h2>⚡ CLICK IMAGE TO READ ISSUE ⚡</h2>
+    <a href="letter.html">
+      <img src="IMG_2570.jpeg" alt="Baby V.O.X Newsletter Main Cover" class="newsletter-icon">
+    </a>
   </div>
-  
-  <a href="index.html" class="back-home">Back to Home</a>
+
+  <div class="webring-zone">
+    <p style="margin: 0 0 8px 0; font-weight: bold; color: #ffff00;">🔮 Part of the 1st-Gen Kpop Webring 🔮</p>
+    <div class="webring-links">
+      <a href="#">[Prev Site]</a>
+      <a href="index.html">[List All]</a>
+      <a href="#">[Next Site]</a>
+    </div>
+  </div>
+
+  <div class="badge-basement">
+    <div class="badge-title">✦ Site Badges & Collectibles Hub ✦</div>
+    
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie decoration" class="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie decoration" class="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="Blinkie decoration" class="blinkie">
+    
+    <br><br>
+    <img src="https://neocities.org/images/badges/neocities-button.gif" alt="Neocities Badge" class="web-button">
+    <img src="https://neocities.org/images/badges/notepad.gif" alt="Built with Notepad" class="web-button">
+    <img src="https://neocities.org/images/badges/netscape4.gif" alt="Netscape Optimized" class="web-button">
+  </div>
+
+  <div class="nav-buttons">
+    <a href="index.html" class="btn-retro">◀ RETURN TO MISSION CONTROL</a>
+  </div>
 
 </div>
 
