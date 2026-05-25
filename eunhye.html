@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lee Hee Jin – Baby V.O.X</title>
+  <title>Yoon Eun Hye Gallery - Baby VOX Fansite</title>
+  <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
+
   <style>
     body {
       font-family: "Comic Sans MS", "Courier New", sans-serif;
-      /* Subtle Y2K diagonal grid lines matching the master fansite layout */
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      /* Signature Y2K diagonal grid lines matching the site theme */
       background: repeating-linear-gradient(
         45deg,
         #ffd6e8,
@@ -15,105 +20,106 @@
         #ffe3f0 15px,
         #ffe3f0 30px
       );
-      margin: 0;
-      padding: 0;
-      text-align: center;
+      color: #4B0082;
     }
 
-    .logo {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      width: 60px;
-      height: auto;
-      z-index: 1000;
+    /* 🛸 Spinning Mini-Logo */
+    .mini-logo {
+      width: 70px;
+      margin: 0 auto 10px auto;
+      display: block;
       filter: drop-shadow(1px 1px 0px #ff0080);
-      animation: spin 4s linear infinite;
+      animation: spin 5s linear infinite;
     }
-
     @keyframes spin {
       from { transform: rotate(0deg); }
       to   { transform: rotate(360deg); }
     }
 
-    /* 🎤 Classic 3D Pop Title Style */
-    h1 {
-      color: #ffffff;
-      font-size: 36px;
-      font-family: "Arial Black", Impact, sans-serif;
-      text-transform: uppercase;
-      margin-top: 15px;
-      margin-bottom: 5px;
-      -webkit-text-stroke: 1.5px #4B0082;
-      text-shadow: 2px 2px 0px #ff0080, 4px 4px 0px #4B0082;
-    }
-
-    h2 {
-      color: #4B0082;
-      font-family: "Arial Black", sans-serif;
-      font-size: 20px;
-      margin-top: 25px;
-    }
-
-    /* 📦 Outset Vintage Content Frame */
-    .container {
-      max-width: 800px;
-      margin: 25px auto;
-      padding: 20px;
+    /* 📦 Outset Windows Explorer Frame */
+    .page-wrapper {
+      max-width: 950px;
+      margin: 0 auto 40px auto;
+      padding: 25px;
       background: #ffffff;
       border: 5px outset #ffb3d1;
       box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
     }
 
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px ridge #ff0080;
-      box-shadow: 0 0 15px rgba(255, 102, 178, 0.7);
-      margin-bottom: 20px;
+    /* 🎤 3D Pop Title Style */
+    h1 {
+      color: #ffffff;
+      font-size: 32px;
+      font-family: "Arial Black", Impact, sans-serif;
+      text-transform: uppercase;
+      margin: 5px 0;
+      -webkit-text-stroke: 1.2px #4B0082;
+      text-shadow: 2px 2px 0px #ff0080, 3px 3px 0px #4B0082;
     }
 
-    /* 📣 Scrolling Ticker Tacked to Content */
-    marquee {
-      background: #4B0082;
-      color: #00ffcc;
+    .instructions {
       font-family: "Courier New", monospace;
-      font-weight: bold;
       font-size: 13px;
-      padding: 4px;
-      border: 2px inset #ff80bf;
-      margin-bottom: 15px;
+      font-weight: bold;
+      color: #ff0066;
+      background: #fff5fa;
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px dashed #ff80bf;
+      margin-bottom: 25px;
+      max-width: 80%;
     }
 
-    p {
-      color: #4B0082;
-      line-height: 1.6;
+    /* 🖼️ Gallery grid - 3 per row */
+    .member-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+      margin-bottom: 25px;
+    }
+
+    .member-gallery a {
+      display: block;
       background: #fff5fa;
-      padding: 12px;
-      border: 1px dashed #ff80bf;
-      text-align: left;
+      padding: 8px;
+      border: 2px ridge #ff80bf;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .member-gallery a:hover {
+      background: #ffe6f2;
+      transform: scale(1.04);
+    }
+
+    .member-gallery img {
+      width: 100%;
+      max-width: 240px;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      border: 3px inset #ff0080;
+      box-shadow: 2px 2px 0px #4B0082;
     }
 
     /* 🕹️ Retro Beveled Push-Buttons */
-    .back {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 15px;
+    .back-btn {
+      margin: 8px;
+      padding: 10px 16px;
+      font-weight: bold;
+      font-size: 13px;
+      font-family: "Comic Sans MS", sans-serif;
       background: #ff80bf;
       color: white !important;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 12px;
       border-top: 3px solid #ffb3d9;
       border-left: 3px solid #ffb3d9;
       border-right: 3px solid #cc0066;
       border-bottom: 3px solid #cc0066;
       box-shadow: 1px 1px 0px #000000;
+      cursor: pointer;
     }
 
-    .back:hover {
+    .back-btn:hover {
       background: #ff47a3;
       border-top: 3px solid #cc0066;
       border-left: 3px solid #cc0066;
@@ -121,124 +127,166 @@
       border-bottom: 3px solid #ffb3d9;
     }
 
-    /* 🎀 Multi-Border Shrine Facts Container */
-    .facts-list {
-      text-align: left;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #fff;
-      border: 3px double #ff0080;
-      box-shadow: inset 0 0 8px rgba(255, 102, 178, 0.15);
+    /* 🎞️ Lightbox Overlay Style */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(34, 0, 66, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1000;
     }
 
-    .facts-list li {
-      margin-bottom: 8px;
-      color: #4B0082;
-      list-style: none;
-      position: relative;
-      padding-left: 22px;
+    .lightbox img {
+      max-width: 85%;
+      max-height: 75%;
+      margin-bottom: 25px;
+      cursor: pointer;
+      border: 4px solid #ffffff;
+      box-shadow: 0px 0px 20px rgba(255, 0, 128, 0.8);
     }
 
-    /* Little Custom Star Bullet Injectors matching the sitewide template */
-    .facts-list li::before {
-      content: "★";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #ff0080;
-    }
-
-    /* 🏷️ 88x31 Pixels Web Badges Dock */
-    .badges-dock {
-      margin-top: 25px;
-      border-top: 1px dotted #ff0080;
-      padding-top: 15px;
-    }
-    
-    .badge-mock {
-      display: inline-block;
-      width: 88px;
-      height: 31px;
-      font-size: 9px;
-      font-weight: bold;
+    .lightbox .controls button {
       font-family: Arial, sans-serif;
-      line-height: 31px;
-      border: 1px solid #ffffff;
-      margin: 2px;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      background: #ff0080;
+      color: white;
+      border-top: 3px solid #ff66b2;
+      border-left: 3px solid #ff66b2;
+      border-right: 3px solid #99004d;
+      border-bottom: 3px solid #99004d;
+      box-shadow: 1px 1px 0px #000000;
+    }
+
+    .lightbox .controls button:hover {
+      background: #cc0066;
+    }
+
+    @media (max-width: 768px) {
+      .member-gallery { gap: 12px; }
+      .member-gallery a { padding: 4px; }
+      h1 { font-size: 24px; }
     }
   </style>
 </head>
-
 <body>
 
-  <img src="logo.png" alt="Logo" class="logo">
+<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="mini-logo">
 
-  <div class="container">
-    <a href="members.html" class="back">← Back to Members</a>
+<div class="page-wrapper">
 
-    <h1>Lee Hee Jin</h1>
-    
-    <marquee scrollamount="4">
-      *** FAN SHRINE CORNER * STATUS: SUB VOCALIST, VISUAL & TALENTED ACTRESS * WELCOME TO THE FAN ARCHIVE! ***
-    </marquee>
+  <h1>Yoon Eun Hye Gallery</h1>
+  <p class="instructions">
+    Click an image to open the lightbox. Use arrow keys to navigate. Click image to view full resolution.
+  </p>
 
-    <img src="Lee_Heejin.webp" alt="Lee Hee Jin" class="profile-img">
-
-    <h2>Basic Information</h2>
-    <ul class="facts-list">
-      <li><strong>Full Name:</strong> Lee Hee Jin</li>
-      <li><strong>Born:</strong> May 16, 1979</li>
-      <li><strong>Role in Baby V.O.X:</strong> Sub Vocalist, Visual</li>
-      <li><strong>Years Active in Group:</strong> 1997–2006</li>
-    </ul>
-
-    <h2>Career with Baby V.O.X</h2>
-    <p>
-      Lee Hee Jin was one of the final five members of Baby V.O.X and became known for her elegant visuals and calm stage presence.
-      She participated in the group’s most successful era, contributing to albums and promotions that helped establish Baby V.O.X
-      as one of the defining girl groups of first-generation K-pop.
-    </p>
-    <p>
-      During her time in the group, she was often recognized as a visual member and appeared in various broadcasts and performances
-      alongside the group’s peak popularity.
-    </p>
-
-    <h2>Acting Career</h2>
-    <p>
-      After Baby V.O.X, Lee Hee Jin transitioned into acting. She appeared in Korean television dramas as well as stage productions,
-      building a steady acting career that showcased a different side of her talents beyond music.
-    </p>
-    <p>
-      Her work includes both screen and theater acting, earning her respect as a versatile entertainer rather than remaining limited
-      to idol activities.
-    </p>
-
-    <h2>Café Owner</h2>
-    <p>
-      In addition to her work as a singer and actress, Lee Hee Jin has also become a café owner.
-      She has been involved in operating a café, including a brunch-style café, marking her move into business outside the entertainment industry.
-    </p>
-    <p>
-      The café reflects her warm personality and quieter post-idol lifestyle, and it has become a meaningful part of her life
-      after stepping away from full-time entertainment activities.
-    </p>
-
-    <h2>Legacy</h2>
-    <p>
-      Lee Hee Jin is remembered by fans as a graceful and consistent presence within Baby V.O.X.
-      Her ability to successfully transition into acting and business has made her an example of longevity beyond idol fame.
-    </p>
-
-    <div class="badges-dock">
-      <div class="badge-mock" style="background:#ff0080; color:#fff;">BABYV.O.X</div>
-      <div class="badge-mock" style="background:#4B0082; color:#ffd6e8;">HALLYU_00s</div>
-      <div class="badge-mock" style="background:#cc0066; color:#ffffff;">KPOP_RETRO</div>
-    </div>
-
-    <br>
-    <a href="members.html" class="back">← Back to Members</a>
+  <div id="eunhye-gallery" class="member-gallery">
+    <a href="EUNHYE.jpg"><img src="EUNHYE.jpg" alt="Yoon Eun Hye 1"></a>
+    <a href="EUNHYE2.jpg"><img src="EUNHYE2.jpg" alt="Yoon Eun Hye 2"></a>
+    <a href="EUNHYE3.jpg"><img src="EUNHYE3.jpg" alt="Yoon Eun Hye 3"></a>
+    <a href="EUNHYE4.jpeg"><img src="EUNHYE4.jpeg" alt="Yoon Eun Hye 4"></a>
+    <a href="EUNHYE5.jpg"><img src="EUNHYE5.jpg" alt="Yoon Eun Hye 5"></a>
+    <a href="EUNHYE6.jpg"><img src="EUNHYE6.jpg" alt="Yoon Eun Hye 6"></a>
+    <a href="EUNHYE7.jpg"><img src="EUNHYE7.jpg" alt="Yoon Eun Hye 7"></a>
+    <a href="EUNHYE8.jpg"><img src="EUNHYE8.jpg" alt="Yoon Eun Hye 8"></a>
+    <a href="EUNHYE9.jpg"><img src="EUNHYE9.jpg" alt="Yoon Eun Hye 9"></a>
+    <a href="EUNHYE10.jpg"><img src="EUNHYE10.jpg" alt="Yoon Eun Hye 10"></a>
+    <a href="eunhye&miyoun.jpg"><img src="eunhye&miyoun.jpg" alt="Eunhye & Miyoun"></a>
+    <a href="Miyoun&Eunhye2.jpg"><img src="Miyoun&Eunhye2.jpg" alt="Miyoun & Eunhye 2"></a>
+    <a href="Eunhye&EZ.jpg"><img src="Eunhye&EZ.jpg" alt="EZ & Eunhye 2"></a>
+    <a href="EZ&Eunhye2.jpg"><img src="EZ&Eunhye2.jpg" alt="EZ & Eunhye 3"></a>
+    <a href="IMG_3172.jpg"><img src="IMG_3172.jpg" alt="Yoon Eun Hye 11"></a>
+    <a href="IMG_3167.jpg"><img src="IMG_3167.jpg" alt="Yoon Eun Hye 12"></a>
+    <a href="IMG_3168 2.jpg"><img src="IMG_3168 2.jpg" alt="Yoon Eun Hye 13"></a>
+    <a href="Eunhye11.jpeg"><img src="Eunhye11.jpeg" alt="Yoon Eun Hye 14"></a>
+    <a href="Eunhye12.jpeg"><img src="Eunhye12.jpeg" alt="Yoon Eun Hye 15"></a>
+    <a href="BF041E23-A777-44DE-9549-C2FB459F89B3.jpeg"><img src="BF041E23-A777-44DE-9549-C2FB459F89B3.jpeg" alt="Yoon Eun Hye 16"></a>
+    <a href="38F9082D-5F2C-413B-8166-88B5DABE710D.jpeg"><img src="38F9082D-5F2C-413B-8166-88B5DABE710D.jpeg" alt="Yoon Eun Hye 17"></a>
+    <a href="A3C0202A-E799-495D-98FF-36A992FA0B87.jpeg"><img src="A3C0202A-E799-495D-98FF-36A992FA0B87.jpeg" alt="Yoon Eun Hye 18"></a>
+    <a href="eh2820.jpeg"><img src="eh2820.jpeg" alt="Yoon Eun Hye 19"></a>
+    <a href="eh3012.jpeg"><img src="eh3012.jpeg" alt="Yoon Eun Hye 20"></a>
   </div>
+
+  <div class="lightbox" id="lightbox">
+    <img src="" id="lightbox-img" alt="Lightbox Preview">
+    <div class="controls">
+      <button id="prev">&#8592;</button>
+      <button id="next">&#8594;</button>
+      <button id="close">X</button>
+    </div>
+  </div>
+
+  <div>
+    <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
+    <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+    <button class="back-btn" onclick="window.location.href='eunhyepage2.html'">Next Page →</button>
+  </div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelectorAll('#eunhye-gallery a');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = "auto";
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  gallery.forEach((item, index) => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  document.getElementById('close').onclick = closeLightbox;
+  document.getElementById('next').onclick = nextImage;
+  document.getElementById('prev').onclick = prevImage;
+
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  lightboxImg.addEventListener('click', () => {
+    window.open(lightboxImg.src, '_blank');
+  });
+});
+</script>
 
 </body>
 </html>
