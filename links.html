@@ -4,203 +4,213 @@
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby VOX Links</title>
+<title>✦ Baby V.O.X Fan Club - Links Directory ✦</title>
 <style>
-/* ---------------- BODY ---------------- */
+/* ---------------- THE GEOCITIES CANVAS ---------------- */
 body {
   font-family: 'Comic Sans MS', Arial, sans-serif;
-  background: url('retro-pattern.png') repeat;
+  background-color: #ffb6c1; /* Matching your core Geocities pink */
   color: #4B0082;
   text-align: center;
   margin: 0;
-  padding: 20px;
-  overflow-x: hidden;
+  padding: 30px 10px;
 }
 
-/* Sparkle effect */
-body::after {
-  content: "✨";
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  font-size: 24px;
-  opacity: 0.5;
-  animation: sparkleMove 5s infinite alternate;
-}
-@keyframes sparkleMove {
-  0% { transform: translateX(-30px); }
-  100% { transform: translateX(30px); }
+/* ---------------- GRAPHICS & LOGOS ---------------- */
+.logo-wrapper {
+  margin-bottom: 20px;
 }
 
-/* ---------------- LOGOS & GIFS ---------------- */
 .logo-top, .secondary-img {
+  border: 3px ridge #ff69b4;
   border-radius: 12px;
-  box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
-  margin-bottom: 15px;
+  box-shadow: 0 0 15px #ff66b2;
+  margin: 10px;
+  vertical-align: middle;
 }
 
 .logo-top { width: 220px; height: auto; }
 .secondary-img { width: 180px; height: auto; }
 
-/* ---------------- TITLES ---------------- */
+/* Titles */
 h1 {
-  font-size: 2.2em;
-  text-shadow: 2px 2px #ff99cc, -2px -2px #ff66b2;
-  margin-bottom: 20px;
+  font-size: 2.4em;
+  color: #ff1493;
+  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #4B0082;
+  margin-bottom: 25px;
 }
 
-h2 {
-  font-size: 1.5em;
-  margin-top: 40px;
-  text-shadow: 1px 1px #ff66b2;
-}
-
-/* ---------------- LINKS BOX ---------------- */
+/* ---------------- THE CENTRAL LINKS HUB CONTAINER ---------------- */
 .links-box {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 450px;
-  margin: 0 auto 40px auto;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 5px double #ff3399;
-  border-radius: 15px;
-  box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
-  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  padding: 30px 20px;
+  background: #ffffff;
+  border: 4px ridge #ff69b4; /* Classic metallic multi-border styling */
+  box-shadow: 6px 6px 0px #ff3399; /* Hard 90s pixel shadow */
   position: relative;
+  box-sizing: border-box;
 }
 
-/* Add small GIF sparkles inside links box corners */
+/* Small sparkle symbols inside link container corners */
 .links-box::before,
 .links-box::after {
   content: "✨";
   position: absolute;
-  font-size: 24px;
+  font-size: 20px;
 }
-.links-box::before {
-  top: 5px; left: 5px; animation: blink 1.5s infinite alternate;
-}
-.links-box::after {
-  bottom: 5px; right: 5px; animation: blink 2s infinite alternate;
-}
+.links-box::before { top: 8px; left: 10px; animation: blink 1.5s infinite alternate; }
+.links-box::after { bottom: 8px; right: 10px; animation: blink 2s infinite alternate; }
+
 @keyframes blink {
-  0% { opacity: 0.2; }
+  0% { opacity: 0.3; }
   100% { opacity: 1; }
 }
 
-/* ---------------- LINKS ---------------- */
-.links-box a {
-  font-size: 16px;
+/* Section Dividers inside the container */
+.section-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #ff1493;
+  margin: 25px 0 12px 0;
+  text-decoration: underline wavy #ff69b4;
+  text-transform: uppercase;
+}
+.section-title:first-of-type {
+  margin-top: 5px;
+}
+
+/* Text link styles */
+.text-link {
+  font-size: 15px;
   color: #880e4f;
   text-decoration: none;
-  padding: 6px 8px;
-  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 4px 0;
   display: block;
-  transition: all 0.3s ease;
-}
-.links-box a:hover {
-  color: white;
-  background: #ff3399;
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 0 15px #ff66b2;
-}
-
-/* ---------------- BACK BUTTON ---------------- */
-.back-btn {
-  margin-top: 20px;
-  padding: 12px 22px;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  background: #ff66b2;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 0 15px #ff33aa;
-  transition: all 0.3s ease;
-}
-.back-btn:hover {
-  background: #ff33aa;
-  transform: scale(1.05);
-}
-
-/* ---------------- FANSITES SECTION ---------------- */
-.fansites-title {
   font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  text-decoration: underline wavy #ff3399;
+  border: 1px dotted transparent;
 }
+.text-link:hover {
+  color: #ffffff;
+  background: #ff3399;
+  border-color: #4B0082;
+  transform: scale(1.03) rotate(-0.5deg);
+}
+
+/* ---------------- BUTTONS & EXCHANGES ---------------- */
+.button-display-zone {
+  background: #fff0f5;
+  border: 2px dashed #ff69b4;
+  padding: 15px 10px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
 .fansite-button {
   display: block;
-  margin: 6px auto;
+  margin: 8px auto;
   width: 180px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #ff66b2;
-  transition: all 0.3s ease;
+  border: 3px outset #ff69b4;
+  box-shadow: 2px 2px 5px rgba(255, 51, 153, 0.3);
+  transition: all 0.2s ease;
 }
 .fansite-button:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 0 30px #ff33aa;
+  transform: scale(1.04) rotate(1deg);
+  border-style: inset;
+  box-shadow: 0 0 12px #ff33aa;
 }
 
-/* ---------------- SMALL NOTE ---------------- */
 .permission-note {
   font-size: 12px;
   color: #880e4f;
-  opacity: 0.8;
-  margin-bottom: 10px;
+  font-style: italic;
+  margin: 4px 0 15px 0;
+}
+.permission-note:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------- CLEAN SITE NAVIGATION ---------------- */
+.back-btn {
+  display: inline-block;
+  margin: 15px auto 30px auto;
+  padding: 12px 30px;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border: 3px outset #ff69b4;
+  border-radius: 8px;
+  background: #ff3399;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px #4B0082;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.back-btn:hover {
+  background: #ff66cc;
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #4B0082;
 }
 </style>
 </head>
 <body>
 
-<!-- MAIN LOGOS -->
-<img src="VOX.gif" alt="Baby VOX Logo" class="logo-top">
-<img src="image.gif" alt="Baby VOX Image" class="secondary-img">
-
-<h1>Baby VOX Links</h1>
-
-<div class="links-box">
-  <!-- Fan accounts -->
-  <h2 class="fansites-title">Fan Accounts</h2>
-  <a href="https://instagram.com/lewislovesbabyvox" target="_blank">@lewislovesbabyvox on Instagram</a>
-  <a href="https://www.tiktok.com/@lewislovesbabyvox" target="_blank">@lewislovesbabyvox on TikTok</a>
-
-  <!-- Official member Instagram -->
-  <h2 class="fansites-title">Members</h2>
-  <a href="https://www.instagram.com/miyoun_kan" target="_blank">Kan Mi Youn on Instagram</a>
-  <a href="https://www.instagram.com/eundung81" target="_blank">Shim Eun Jin on Instagram</a>
-  <a href="https://www.instagram.com/_lee_heejin" target="_blank">Lee Hee Jin on Instagram</a>
-  <a href="https://www.instagram.com/ezez0417" target="_blank">Kim EZ on Instagram</a>
-  <a href="https://www.instagram.com/y1003_grace" target="_blank">Yoon Eun Hye on Instagram</a>
-
-  <!-- Resources -->
-  <h2 class="fansites-title">Resources</h2>
-  <a href="https://en.wikipedia.org/wiki/Baby_VOX" target="_blank">Baby VOX Wikipedia</a>
-  <a href="https://www.youtube.com/c/babyvoxarchive" target="_blank">Baby VOX YouTube Archive</a>
-  <a href="https://www.allkpop.com/search/articles/baby%20vox" target="_blank">Allkpop - Baby VOX</a>
-  <a href="https://kpop.fandom.com/wiki/Baby_V.O.X_(group)" target="_blank">Baby Vox Kpop Wiki Page</a>
-
-  <!-- Fansites -->
-  <h2 class="fansites-title">Fansites & Community</h2>
-  <a href="https://babyvoxi.neocities.org/" target="_blank">
-    <img src="72DA04B6-53C0-48F2-A9EF-2B686EEC50B3.jpeg" alt="BabyVoxi Fansite Button" class="fansite-button">
-  </a>
-  <p class="permission-note">Linked with permission 💗</p>
-  
-  <a href="https://xlewis1.github.io/FrutigerAeroFansite/" target="_blank">
-    <img src="3E14C462-646F-4441-A6F2-D5F064E2535C.jpeg" alt="Frutiger Aero Fansite" class="fansite-button">
-  </a>
-
-  <h2 class="Baby V.O.X Fansite">Link to My Fansite</h2>
-  <a href="index.html" target="_blank">
-    <img src="14065FB7-1B91-4A37-A754-A9E5D51FD0FD.jpeg" alt="https://xlewis1.github.io/babyvox_fan_site/" class="fansite-button">
-  </a>
-  <p class="permission-note">Use this button if you want to link my fansite 💗</p>
+<div class="logo-wrapper">
+  <img src="VOX.gif" alt="Baby VOX Animated Graphic" class="logo-top">
+  <img src="image.gif" alt="Baby VOX Static Banner" class="secondary-img">
 </div>
 
-<button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+<h1>Baby V.O.X Links Portal</h1>
+
+<div class="links-box">
+
+  <div class="section-title">Fan Accounts</div>
+  <a href="https://instagram.com/lewislovesbabyvox" class="text-link" target="_blank">@lewislovesbabyvox on Instagram 📸</a>
+  <a href="https://www.tiktok.com/@lewislovesbabyvox" class="text-link" target="_blank">@lewislovesbabyvox on TikTok 🎬</a>
+
+  <div class="section-title">Official Members</div>
+  <a href="https://www.instagram.com/miyoun_kan" class="text-link" target="_blank">★ Kan Mi Youn on Instagram</a>
+  <a href="https://www.instagram.com/ezez0417" class="text-link" target="_blank">★ Kim EZ on Instagram</a>
+  <a href="https://www.instagram.com/eundung81" class="text-link" target="_blank">★ Shim Eun Jin on Instagram</a>
+  <a href="https://www.instagram.com/_lee_heejin" class="text-link" target="_blank">★ Lee Hee Jin on Instagram</a>
+  <a href="https://www.instagram.com/y1003_grace" class="text-link" target="_blank">★ Yoon Eun Hye on Instagram</a>
+
+  <div class="section-title">Archival Resources</div>
+  <a href="https://en.wikipedia.org/wiki/Baby_VOX" class="text-link" target="_blank">Baby V.O.X Encyclopedia Page (Wikipedia)</a>
+  <a href="https://www.youtube.com/c/babyvoxarchive" class="text-link" target="_blank">Baby V.O.X Complete YouTube Archive</a>
+  <a href="https://kpop.fandom.com/wiki/Baby_V.O.X_(group)" class="text-link" target="_blank">Baby V.O.X Community K-Pop Wiki</a>
+  <a href="https://www.allkpop.com/search/articles/baby%20vox" class="text-link" target="_blank">Allkpop Historical News Index</a>
+
+  <div class="section-title">Fansite Affiliates</div>
+  
+  <div class="button-display-zone">
+    <a href="https://babyvoxi.neocities.org/" target="_blank">
+      <img src="72DA04B6-53C0-48F2-A9EF-2B686EEC50B3.jpeg" alt="BabyVoxi Affiliate Button" class="fansite-button">
+    </a>
+    <p class="permission-note">Linked with permission 💗</p>
+    
+    <a href="https://xlewis1.github.io/FrutigerAeroFansite/" target="_blank">
+      <img src="3E14C462-646F-4441-A6F2-D5F064E2535C.jpeg" alt="Frutiger Aero Hub Button" class="fansite-button">
+    </a>
+    <p class="permission-note">Check out our affiliate layout! 🌐</p>
+    
+    <hr style="border: 0; border-top: 1px dashed #ff69b4; margin: 15px 10px;">
+    
+    <p style="font-size: 14px; font-weight: bold; margin: 5px 0; color: #ff1493;">Link To My Fansite!</p>
+    <a href="index.html">
+      <img src="14065FB7-1B91-4A37-A754-A9E5D51FD0FD.jpeg" alt="Baby V.O.X Fansite Link Banner" class="fansite-button">
+    </a>
+    <p class="permission-note">Use this graphic button if you want to link back to us! 💗</p>
+  </div>
+
+</div>
+
+<div>
+  <a href="index.html" class="back-btn">Back to Home</a>
+</div>
 
 </body>
 </html>
