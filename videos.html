@@ -105,7 +105,7 @@ h1 {
   box-shadow: 0 0 25px #ff33aa;
 }
 
-/* Thumbnail */
+/* Thumbnail and Text Styling */
 .video-thumb {
   width: 100%;
   height: 160px;
@@ -113,18 +113,25 @@ h1 {
   border-radius: 8px;
   cursor: pointer;
 }
+.video-title {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #aa33aa;
+}
 
 /* Mute button */
 .mute-btn {
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 35px; /* Moved up slightly to not overlap titles */
+  right: 15px;
   background: rgba(255,255,255,0.9);
   border: none;
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
   font-size: 16px;
+  z-index: 5;
 }
 
 /* Now Watching */
@@ -148,14 +155,15 @@ h1 {
   flex-direction: column;
 }
 
-#video-lightbox video,
-#video-lightbox iframe {
+/* Shared media styling to prevent container snapping */
+.lightbox-media {
   width: 95%;
   max-width: 1200px;
   height: 70vh;
   border: 4px solid #ff3399;
   border-radius: 12px;
   box-shadow: 0 0 40px #ff66b2;
+  display: none; /* Controlled via JS */
 }
 
 #video-lightbox button,
@@ -169,13 +177,14 @@ h1 {
   border: none;
   border-radius: 50%;
   padding: 5px 10px;
+  z-index: 1010;
 }
 #close-btn { right: 30px; }
 #max-btn { right: 80px; }
 
 /* ---------------- BACK BUTTON ---------------- */
 .back-home {
-  display: block;
+  display: inline-block;
   margin: 20px auto 40px auto;
   padding: 12px 20px;
   background: #ff3399;
@@ -184,6 +193,9 @@ h1 {
   text-decoration: none;
   font-size: 18px;
   box-shadow: 0 0 10px #ff66b2;
+}
+.back-home:hover {
+  background: #ff007f;
 }
 
 </style>
@@ -201,11 +213,11 @@ h1 {
   <div id="now-watching">Now Watching: None</div>
 </div>
 
-<!-- LIGHTBOX -->
 <div id="video-lightbox">
   <span id="close-btn" onclick="closeLightbox()">&times;</span>
   <button id="max-btn" onclick="toggleMaximize()">⛶</button>
-  <video id="lightbox-video" controls></video>
+  <video id="lightbox-video" class="lightbox-media" controls></video>
+  <iframe id="lightbox-iframe" class="lightbox-media" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <a href="index.html" class="back-home">Back to Home</a>
@@ -225,6 +237,7 @@ const videos = [
 const grid = document.getElementById('video-grid');
 const lightbox = document.getElementById('video-lightbox');
 const lightboxVideo = document.getElementById('lightbox-video');
+const lightboxIframe = document.getElementById('lightbox-iframe');
 const nowWatching = document.getElementById('now-watching');
 
 let isMaximized = false;
@@ -254,45 +267,69 @@ videos.forEach(video => {
     box.appendChild(btn);
   } else if(video.type === "youtube") {
     const thumb = document.createElement('img');
-    // Use YouTube thumbnail as placeholder
     const id = video.src.split("/embed/")[1];
     thumb.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
     thumb.className = "video-thumb";
     box.appendChild(thumb);
   }
 
+  // Inject label to let fans know what song they are clicking!
+  const titleLabel = document.createElement('div');
+  titleLabel.className = "video-title";
+  titleLabel.textContent = video.title;
+  box.appendChild(titleLabel);
+
   box.onclick = () => {
     nowWatching.textContent = "Now Watching: " + video.title;
     lightbox.style.display = "flex";
+    
     if(video.type === "local") {
+      lightboxIframe.style.display = "none";
+      lightboxIframe.src = ""; // Flush out background streaming
+      
       lightboxVideo.style.display = "block";
       lightboxVideo.src = video.src;
+      lightboxVideo.play();
     } else {
-      lightboxVideo.style.display = "block";
-      lightboxVideo.outerHTML = `<iframe src="${video.src}" class="video-thumb" frameborder="0" allowfullscreen></iframe>`;
+      lightboxVideo.style.display = "none";
+      lightboxVideo.pause();
+      lightboxVideo.src = "";
+      
+      lightboxIframe.style.display = "block";
+      lightboxIframe.src = video.src;
     }
   };
 
   grid.appendChild(box);
 });
 
-// ---------------- LIGHTBOX ----------------
+// ---------------- LIGHTBOX CLOSING ----------------
 function closeLightbox() {
-  const iframe = lightbox.querySelector("iframe");
-  if(iframe) iframe.src = "";
+  // Gracefully stop local files
   lightboxVideo.pause();
   lightboxVideo.src = "";
+  
+  // Gracefully stop iframe streaming
+  lightboxIframe.src = "";
+  
+  // Hide everything cleanly
+  lightboxVideo.style.display = "none";
+  lightboxIframe.style.display = "none";
   lightbox.style.display = "none";
+  nowWatching.textContent = "Now Watching: None";
 }
 
+// ---------------- LIGHTBOX RESIZING ----------------
 function toggleMaximize() {
+  const currentMedia = lightboxVideo.style.display === "block" ? lightboxVideo : lightboxIframe;
+  
   if(!isMaximized) {
-    lightboxVideo.style.width = "98%";
-    lightboxVideo.style.height = "90vh";
+    currentMedia.style.width = "98%";
+    currentMedia.style.height = "90vh";
     isMaximized = true;
   } else {
-    lightboxVideo.style.width = "95%";
-    lightboxVideo.style.height = "70vh";
+    currentMedia.style.width = "95%";
+    currentMedia.style.height = "70vh";
     isMaximized = false;
   }
 }
