@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Newsletter</title>
 <style>
+/* ---------------- GEOCITIES CANVAS SETUP ---------------- */
 body {
   font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: #ffb6c1; /* classic Geocities pink */
+  background-color: #ffb6c1; /* Classic Geocities pink */
   margin: 0;
   padding: 0;
   text-align: center;
@@ -16,48 +18,58 @@ body {
 .container {
   width: 900px;
   margin: 30px auto;
+  box-sizing: border-box;
 }
 
 /* Header */
 h1 {
   color: #ff69b4;
-  text-shadow: 2px 2px #000;
+  text-shadow: 2px 2px #000000;
   font-size: 48px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 /* Retro text boxes */
 .text-box {
-  background-color: #fff;
+  background-color: #ffffff;
   border: 4px solid #ff69b4;
   padding: 15px;
-  margin: 15px auto;
+  margin: 20px auto;
   width: 80%;
   border-radius: 10px;
-  color: #000;
+  color: #000000;
   font-size: 18px;
-  text-shadow: 1px 1px #aaa;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-/* Newsletter icon */
+/* Newsletter icon link container */
+.icon-link {
+  display: inline-block;
+  text-decoration: none;
+  margin: 20px auto;
+}
+
+/* Newsletter cover image */
 .newsletter-icon {
   width: 400px;
+  display: block;
   border: 5px dashed #ff69b4;
   border-radius: 12px;
-  margin-top: 20px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-/* Glow on hover */
-.newsletter-icon:hover {
+/* Glow & bounce animation on hover */
+.icon-link:hover .newsletter-icon {
   border-color: #ff85c1;
   box-shadow: 0 0 25px #ff85c1, 0 0 50px #ff69b4;
   transform: scale(1.05) rotate(-2deg);
-  animation: bounce 0.4s ease;
+  animation: bounce 0.4s ease forwards;
 }
 
 /* Tilt and glow on click */
-.newsletter-icon:active {
+.icon-link:active .newsletter-icon {
   transform: scale(0.95) rotate(5deg);
   box-shadow: 0 0 40px #ff69b4, 0 0 60px #ff85c1;
 }
@@ -71,23 +83,29 @@ h1 {
   100% { transform: scale(1.05) rotate(-2deg); }
 }
 
-/* Optional: blinkie style */
+/* Vintage blinkie layout wrap */
+.blinkie-row {
+  margin: 25px auto;
+}
+
 .blinkie {
   width: 50px;
   height: 50px;
-  margin: 10px;
+  margin: 0 10px;
   vertical-align: middle;
 }
 
+/* Return navigation link */
 .back-home {
   display: inline-block;
   margin: 20px auto 40px auto;
-  padding: 12px 20px;
+  padding: 12px 25px;
   background: #ff3399;
-  color: white;
+  color: #ffffff;
   border-radius: 8px;
   text-decoration: none;
   font-size: 18px;
+  font-weight: bold;
   box-shadow: 0 0 10px #ff66b2;
   transition: all 0.3s ease;
 }
@@ -97,16 +115,14 @@ h1 {
   box-shadow: 0 0 20px #ff85c1;
   transform: scale(1.05);
 }
-
 </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Header -->
+  
   <h1>Baby V.O.X Newsletter!</h1>
 
-  <!-- Greeting text boxes -->
   <div class="text-box">
     Hello fans! Welcome to this month’s newsletter page!
   </div>
@@ -119,18 +135,18 @@ h1 {
     Don’t forget to check out our gallery, videos, and guestbook while you’re here! 💖
   </div>
 
-  <!-- Newsletter icon -->
-  <a href="letter.html">
-    <img src="IMG_2570.jpeg" alt="Newsletter Issue" class="newsletter-icon">
+  <a href="letter.html" class="icon-link">
+    <img src="IMG_2570.jpeg" alt="Newsletter Issue Cover" class="newsletter-icon">
   </a>
 
-  <!-- Optional blinkie for extra retro feel -->
-  <div>
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie" class="blinkie">
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie" class="blinkie">
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie" class="blinkie">
+  <div class="blinkie-row">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="retro blinkie decoration" class="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="retro blinkie decoration" class="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="retro blinkie decoration" class="blinkie">
   </div>
-   <a href="index.html" class="back-home">Back to Home</a>
+  
+  <a href="index.html" class="back-home">Back to Home</a>
+
 </div>
 
 </body>
