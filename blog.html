@@ -3,109 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X Fansite Blog</title>
+<title>✦ Baby V.O.X Fan Club ✦</title>
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <style>
-/* ---------------- NEOCITIES STYLE ROOT RULES ---------------- */
+/* ---------------- 90S INTERNET CANVAS ---------------- */
 html {
   background: url('BABYVOX15.jpg') repeat;
   background-size: 100px 100px;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 body {
   margin: 0;
-  padding: 40px 15px;
+  padding: 30px 15px 60px 15px;
   font-family: 'Courier New', Courier, monospace;
-  color: #4B0082;
+  color: #330066;
 }
 
-/* ---------------- MAIN NEOCITIES CONTENT BOX ---------------- */
+/* ---------------- THE ULTIMATE DESKTOP FRAME ---------------- */
 .blog-frame {
-  max-width: 750px;
+  max-width: 800px;
   margin: 0 auto;
-  background: #fff0f8;
-  border: 5px double #ff66cc;
+  background: #ffeef8;
+  border: 4px ridge #ff33aa; /* Classic chunky metallic border look */
   padding: 25px;
-  box-shadow: 0px 0px 20px #ff99cc;
-  border-radius: 15px;
+  box-shadow: 8px 8px 0px #ff0077; /* Hard geometric pixel shadow */
 }
 
-/* Spinning logo section */
+/* ---------------- LOGO & HEADER ---------------- */
 .logo-container {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .logo-container img {
   width: 110px;
-  animation: spin 6s linear infinite;
+  filter: drop-shadow(0px 0px 8px #ff00aa);
+  animation: spin 8s linear infinite;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* Blog Page Title */
 h1 {
   text-align: center;
   font-size: 2.2rem;
-  margin: 0 0 30px 0;
-  color: #ff33aa;
-  text-shadow: 2px 2px #ffffff;
+  margin: 10px 0 30px 0;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ff00aa, #aa00ff);
+  padding: 10px;
+  border: 2px dashed #ffffff;
+  text-shadow: 2px 2px #000000;
+  letter-spacing: 1px;
 }
 
-/* ---------------- NEOCITIES VIBRANT POSTS ---------------- */
+/* ---------------- NEOCITIES RETRO BULLETIN POSTS ---------------- */
 .post {
-  background: #ffe6f0;
-  padding: 20px;
-  border: 2px dashed #ff66cc;
-  margin-bottom: 30px;
-  border-radius: 12px;
+  background: #ffffff;
+  margin-bottom: 35px;
+  border: 3px double #ff00aa;
+  box-shadow: 4px 4px 0px rgba(170, 0, 255, 0.2);
 }
 
-.post h2 {
-  font-size: 1.5rem;
-  margin-top: 0;
-  margin-bottom: 12px;
+/* Retro Top Bar Info Row */
+.post-header {
+  background: #ff33aa;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-bottom: 2px solid #ff00aa;
+  display: flex;
+  justify-content: space-between;
+  text-shadow: 1px 1px #000000;
+}
+
+/* Decorative Sub-Heading */
+.post-title-bar {
+  background: #fff0f7;
+  padding: 8px 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
   color: #ff00aa;
-  border-bottom: 1px dotted #ff66cc;
-  padding-bottom: 5px;
+  border-bottom: 1px dashed #ff99cc;
 }
 
-.post p, .post ul {
-  line-height: 1.6;
+/* Inner Text Area */
+.post-body {
+  padding: 20px;
   font-size: 14px;
+  line-height: 1.6;
+  color: #4B0082;
 }
 
-.post ul {
-  margin: 10px 0;
-  padding-left: 25px;
+.post-body p {
+  margin: 0 0 15px 0;
+}
+.post-body p:last-child {
+  margin-bottom: 0;
 }
 
-.post ul li {
-  margin-bottom: 6px;
+/* Bullet points styled like vintage text symbols */
+.post-body ul {
+  margin: 12px 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+.post-body ul li {
+  margin-bottom: 8px;
+  position: relative;
+}
+.post-body ul li::before {
+  content: "☞ ";
+  color: #ff00aa;
+  font-weight: bold;
+  font-size: 16px;
 }
 
-/* ---------------- BACK HOME NAVIGATION BUTTON ---------------- */
+/* Highlight boxes inside logs */
+strong {
+  color: #ff00aa;
+  background: #fff0f5;
+  padding: 0 4px;
+  border: 1px dotted #ff66cc;
+}
+
+/* ---------------- VINTAGE CLICKABLE NAVIGATION ---------------- */
 .back-home {
   display: block;
-  max-width: 220px;
-  margin: 30px auto 0 auto;
-  padding: 12px 20px;
+  width: 240px;
+  margin: 40px auto 10px auto;
+  padding: 12px;
   font-weight: bold;
-  font-size: 1rem;
-  background: #ff66b2;
+  font-size: 1.1rem;
+  background: #aa00ff;
   color: #ffffff;
   text-decoration: none;
-  border-radius: 10px;
   text-align: center;
-  box-shadow: 0px 0px 12px #ff99cc;
-  transition: transform 0.2s, background-color 0.2s;
+  border: 3px ridge #ff66cc;
+  box-shadow: 4px 4px 0px #000000;
 }
 
 .back-home:hover {
-  background: #ff33aa;
-  transform: scale(1.05);
+  background: #ff00aa;
+  color: #ffffff;
+  box-shadow: 2px 2px 0px #000000;
+  transform: translate(2px, 2px);
 }
 </style>
 </head>
@@ -117,64 +160,100 @@ h1 {
     <img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo">
   </div>
 
-  <h1>Baby V.O.X Fansite Blog</h1>
+  <h1>⚡ Baby V.O.X Fan Club Blog ⚡</h1>
 
   <div class="post">
-    <h2>Baby V.O.X under reconstruction 🛠️</h2>
-    <p>Attention Baby Angels! 📢</p>
-    <p>Please note that some zones of the site are currently <strong>under reconstruction</strong> as I pull down old scripts and implement our new web layouts! If a button doesn't trigger or a link looks dead, don't panic! The multi-media hub and streaming panels are being optimized.</p>
-    <p>Pardon our digital dust while we bring back the ultimate 1999 internet experience! 🎀</p>
+    <div class="post-header">
+      <span>[SYSTEM NOTICE]</span>
+      <span>Date: 2026-05-25</span>
+    </div>
+    <div class="post-title-bar">🛠️ Update: Under Reconstruction!</div>
+    <div class="post-body">
+      <p>Attention Baby Angels! 📢</p>
+      <p>Please note that some zones of the site are currently <strong>under reconstruction</strong> as I pull down old scripts and implement our new web layouts! If a button doesn't trigger or a link looks dead, don't panic! The multi-media hub and streaming panels are being optimized.</p>
+      <p>Pardon our digital dust while we bring back the ultimate 1999 internet experience! 🎀</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2>Major Site Update!</h2>
-    <p>Hello Baby Angels! 🎀</p>
-    <p>Welcome to the brand-new version of the Baby V.O.X Fansite! Inspired by classic Daum blogs and Geocities-style layouts, this new page brings back that nostalgic early internet feel while keeping everything clean and modern.</p>
-    <p>Expect new updates, stories, and behind-the-scenes insights from me, Lewis, the creator of this fansite. Posts will be coming soon, so keep checking back for more content!</p>
+    <div class="post-header">
+      <span>LOG ENTRY #05</span>
+      <span>Date: 2026-02-14</span>
+    </div>
+    <div class="post-title-bar">🎀 Major Site Update!</div>
+    <div class="post-body">
+      <p>Hello Baby Angels! 🎀</p>
+      <p>Welcome to the brand-new version of the Baby V.O.X Fansite! Inspired by classic Daum blogs and Geocities-style layouts, this new page brings back that nostalgic early internet feel while keeping everything clean and modern.</p>
+      <p>Expect new updates, stories, and behind-the-scenes insights from me, Lewis, the creator of this fansite. Posts will be coming soon, so keep checking back for more content!</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2>What's Next?</h2>
-    <p>We’ll be posting:</p>
-    <ul>
-      <li>Stories about Baby V.O.X members</li>
-      <li>Rare images and media from their history</li>
-      <li>New updates on the fansite itself</li>
-    </ul>
-    <p>Stay tuned and enjoy the classic internet vibes mixed with modern features!</p>
+    <div class="post-header">
+      <span>LOG ENTRY #04</span>
+      <span>Date: 2025-10-22</span>
+    </div>
+    <div class="post-title-bar">🔮 Future Log Updates...</div>
+    <div class="post-body">
+      <p>We’ll be posting:</p>
+      <ul>
+        <li>Stories about Baby V.O.X members</li>
+        <li>Rare images and media from their history</li>
+        <li>New updates on the fansite itself</li>
+      </ul>
+      <p>Stay tuned and enjoy the classic internet vibes mixed with modern features!</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2>Site Updates 🎉</h2>
-    <p>Hello Baby Angels!</p>
-    <p>We've added some exciting new features to the fansite:</p>
-    <ul>
-      <li>A working <strong>Guestbook</strong> so you can leave messages</li>
-      <li>A real <strong>visitor counter</strong> to see how many fans visit</li>
-      <li>Updated pages with more images and content</li>
-      <li>Redeveloped fansite styles for a fresher look</li>
-    </ul>
-    <p>Thanks for visiting, and I hope you enjoy the new features! 💖</p>
+    <div class="post-header">
+      <span>LOG ENTRY #03</span>
+      <span>Date: 2025-07-09</span>
+    </div>
+    <div class="post-title-bar">🎉 New Scripts Installed!</div>
+    <div class="post-body">
+      <p>Hello Baby Angels!</p>
+      <p>We've added some exciting new features to the fansite:</p>
+      <ul>
+        <li>A working <strong>Guestbook</strong> so you can leave messages</li>
+        <li>A real <strong>visitor counter</strong> to see how many fans visit</li>
+        <li>Updated pages with more images and content</li>
+        <li>Redeveloped fansite styles for a fresher look</li>
+      </ul>
+      <p>Thanks for visiting, and I hope you enjoy the new features! 💖</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2>About Me</h2>
-    <p>Hi! I'm Lewis, the creator of this fansite. My Baby V.O.X journey started in 2022 when I became a huge fan of <strong>Yoon Eun Hye</strong>. Soon after, I also became a passionate fan of <strong>Kim EZ</strong> and <strong>Miyoun</strong> (even though I love all five members equally!).</p>
-    <p>This fansite is my way of sharing my love for Baby V.O.X with other fans and celebrating the amazing legacy of the group. Thank you for stopping by and enjoying the content!</p>
+    <div class="post-header">
+      <span>LOG ENTRY #02</span>
+      <span>Date: 2025-03-15</span>
+    </div>
+    <div class="post-title-bar">👤 Webmaster Profile: Lewis</div>
+    <div class="post-body">
+      <p>Hi! I'm Lewis, the creator of this fansite. My Baby V.O.X journey started in 2022 when I became a huge fan of <strong>Yoon Eun Hye</strong>. Soon after, I also became a passionate fan of <strong>Kim EZ</strong> and <strong>Miyoun</strong> (even though I love all five members equally!).</p>
+      <p>This fansite is my way of sharing my love for Baby V.O.X with other fans and celebrating the amazing legacy of the group. Thank you for stopping by and enjoying the content!</p>
+    </div>
   </div>
 
   <div class="post">
-    <h2>New photos</h2>
-    <p>New baby vox pics are coming to gallery</p>
-    <ul>
-      <li>Special thanks to Beautiful voices archive on Wayback Machine</li> 
-      <li>Ive collected new images with the help of python scripts to post new images here!</li>
-      <li>please keep a look out as they will be uploaded to the fansite gradually ❤️</li>
-    </ul>
-    <p>Please enjoy the fansite in the meantime! ❤️</p>
+    <div class="post-header">
+      <span>LOG ENTRY #01</span>
+      <span>Date: 2025-01-05</span>
+    </div>
+    <div class="post-title-bar">📸 Image Database Updates</div>
+    <div class="post-body">
+      <p>New baby vox pics are coming to gallery</p>
+      <ul>
+        <li>Special thanks to Beautiful voices archive on Wayback Machine</li> 
+        <li>Ive collected new images with the help of python scripts to post new images here!</li>
+        <li>please keep a look out as they will be uploaded to the fansite gradually ❤️</li>
+      </ul>
+      <p>Please enjoy the fansite in the meantime! ❤️</p>
+    </div>
   </div>
 
-  <a href="index.html" class="back-home">⬅ Back to Home</a>
+  <a href="index.html" class="back-home">◀ Return To Home Base</a>
 
 </div>
 
