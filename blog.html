@@ -6,33 +6,38 @@
 <title>Baby V.O.X Fansite Blog</title>
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <style>
+/* ---------------- NEOCITIES STYLE ROOT RULES ---------------- */
+html {
+  background: url('BABYVOX15.jpg') repeat;
+  background-size: 100px 100px;
+  min-height: 100%;
+}
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 40px 15px;
   font-family: 'Courier New', Courier, monospace;
-  background: url('BABYVOX15.jpg') repeat; /* repeat the image */
-  background-size: 100px 100px; /* make each tile smaller */
   color: #4B0082;
 }
-/* Container for the blog (framed page) */
+
+/* ---------------- MAIN NEOCITIES CONTENT BOX ---------------- */
 .blog-frame {
-  max-width: 800px;
-  margin: 40px auto;
+  max-width: 750px;
+  margin: 0 auto;
   background: #fff0f8;
   border: 5px double #ff66cc;
-  padding: 20px;
-  box-shadow: 0 0 15px #ff99cc;
-  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0px 0px 20px #ff99cc;
+  border-radius: 15px;
 }
 
-/* Spinning logo at the top */
+/* Spinning logo section */
 .logo-container {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 .logo-container img {
-  width: 120px;
+  width: 110px;
   animation: spin 6s linear infinite;
 }
 @keyframes spin {
@@ -40,48 +45,64 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Blog Title */
+/* Blog Page Title */
 h1 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 25px;
-  text-shadow: 1px 1px #ff99cc;
+  font-size: 2.2rem;
+  margin: 0 0 30px 0;
+  color: #ff33aa;
+  text-shadow: 2px 2px #ffffff;
 }
 
-/* Individual Posts */
+/* ---------------- NEOCITIES VIBRANT POSTS ---------------- */
 .post {
   background: #ffe6f0;
-  padding: 15px;
+  padding: 20px;
   border: 2px dashed #ff66cc;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   border-radius: 12px;
 }
+
 .post h2 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-.post p, .post ul {
-  line-height: 1.5;
-}
-.post ul li {
-  margin-left: 20px;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #ff00aa;
+  border-bottom: 1px dotted #ff66cc;
+  padding-bottom: 5px;
 }
 
-/* Back to Home Button */
+.post p, .post ul {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.post ul {
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.post ul li {
+  margin-bottom: 6px;
+}
+
+/* ---------------- BACK HOME NAVIGATION BUTTON ---------------- */
 .back-home {
   display: block;
-  margin: 20px auto 10px auto;
-  padding: 10px 20px;
+  max-width: 220px;
+  margin: 30px auto 0 auto;
+  padding: 12px 20px;
   font-weight: bold;
   font-size: 1rem;
   background: #ff66b2;
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
-  box-shadow: 0 0 10px #ff99cc;
-  transition: 0.2s;
+  box-shadow: 0px 0px 12px #ff99cc;
+  transition: transform 0.2s, background-color 0.2s;
 }
+
 .back-home:hover {
   background: #ff33aa;
   transform: scale(1.05);
@@ -92,14 +113,19 @@ h1 {
 
 <div class="blog-frame">
 
-  <!-- Spinning logo -->
   <div class="logo-container">
     <img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo">
   </div>
 
   <h1>Baby V.O.X Fansite Blog</h1>
 
-  <!-- First Post -->
+  <div class="post">
+    <h2>Baby V.O.X under reconstruction 🛠️</h2>
+    <p>Attention Baby Angels! 📢</p>
+    <p>Please note that some zones of the site are currently <strong>under reconstruction</strong> as I pull down old scripts and implement our new web layouts! If a button doesn't trigger or a link looks dead, don't panic! The multi-media hub and streaming panels are being optimized.</p>
+    <p>Pardon our digital dust while we bring back the ultimate 1999 internet experience! 🎀</p>
+  </div>
+
   <div class="post">
     <h2>Major Site Update!</h2>
     <p>Hello Baby Angels! 🎀</p>
@@ -107,7 +133,6 @@ h1 {
     <p>Expect new updates, stories, and behind-the-scenes insights from me, Lewis, the creator of this fansite. Posts will be coming soon, so keep checking back for more content!</p>
   </div>
 
-  <!-- Second Post -->
   <div class="post">
     <h2>What's Next?</h2>
     <p>We’ll be posting:</p>
@@ -119,28 +144,25 @@ h1 {
     <p>Stay tuned and enjoy the classic internet vibes mixed with modern features!</p>
   </div>
 
-  <!-- New Post: Guestbook & Updates -->
-<div class="post">
-  <h2>Site Updates 🎉</h2>
-  <p>Hello Baby Angels!</p>
-  <p>We've added some exciting new features to the fansite:</p>
-  <ul>
-    <li>A working <strong>Guestbook</strong> so you can leave messages</li>
-    <li>A real <strong>visitor counter</strong> to see how many fans visit</li>
-    <li>Updated pages with more images and content</li>
-    <li>Redeveloped fansite styles for a fresher look</li>
-  </ul>
-  <p>Thanks for visiting, and I hope you enjoy the new features! 💖</p>
-</div>
+  <div class="post">
+    <h2>Site Updates 🎉</h2>
+    <p>Hello Baby Angels!</p>
+    <p>We've added some exciting new features to the fansite:</p>
+    <ul>
+      <li>A working <strong>Guestbook</strong> so you can leave messages</li>
+      <li>A real <strong>visitor counter</strong> to see how many fans visit</li>
+      <li>Updated pages with more images and content</li>
+      <li>Redeveloped fansite styles for a fresher look</li>
+    </ul>
+    <p>Thanks for visiting, and I hope you enjoy the new features! 💖</p>
+  </div>
 
-<!-- New Post: About Me -->
-<div class="post">
-  <h2>About Me</h2>
-  <p>Hi! I'm Lewis, the creator of this fansite. My Baby V.O.X journey started in 2022 when I became a huge fan of <strong>Yoon Eun Hye</strong>. Soon after, I also became a passionate fan of <strong>Kim EZ</strong> and <strong>Miyoun</strong> (even though I love all five members equally!).</p>
-  <p>This fansite is my way of sharing my love for Baby V.O.X with other fans and celebrating the amazing legacy of the group. Thank you for stopping by and enjoying the content!</p>
-</div>
+  <div class="post">
+    <h2>About Me</h2>
+    <p>Hi! I'm Lewis, the creator of this fansite. My Baby V.O.X journey started in 2022 when I became a huge fan of <strong>Yoon Eun Hye</strong>. Soon after, I also became a passionate fan of <strong>Kim EZ</strong> and <strong>Miyoun</strong> (even though I love all five members equally!).</p>
+    <p>This fansite is my way of sharing my love for Baby V.O.X with other fans and celebrating the amazing legacy of the group. Thank you for stopping by and enjoying the content!</p>
+  </div>
 
-<!--  5th Post -->
   <div class="post">
     <h2>New photos</h2>
     <p>New baby vox pics are coming to gallery</p>
@@ -152,7 +174,6 @@ h1 {
     <p>Please enjoy the fansite in the meantime! ❤️</p>
   </div>
 
-  <!-- Back to Home -->
   <a href="index.html" class="back-home">⬅ Back to Home</a>
 
 </div>
