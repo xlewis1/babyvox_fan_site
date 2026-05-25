@@ -4,245 +4,273 @@
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X Videos</title>
+<title>Baby V.O.X - VIDEOS SECTION</title>
 <style>
-/* ---------------- BODY ---------------- */
+/* ---------------- GLOBAL WEB 1.0 RESET ---------------- */
 body {
-  font-family: 'Comic Sans MS', Arial, sans-serif;
+  font-family: 'Comic Sans MS', 'Arial', sans-serif;
   margin: 0;
-  padding: 0;
-  background: url('retro-pattern.png') repeat;
-  color: #4B0082;
+  padding: 15px;
+  background: #ffecf6 url('retro-pattern.png') repeat; /* Soft pink nostalgic tiling */
+  color: #4b0082; /* Deep Indigo text */
   text-align: center;
-  overflow-x: hidden;
 }
 
-/* Sparkle animation */
-body::after {
-  content: "✨";
-  position: fixed;
-  top: 30px;
-  left: 50%;
-  font-size: 24px;
-  opacity: 0.4;
-  animation: sparkleMove 6s infinite alternate;
+/* ---------------- NEOCITIES BADGES & SITE COUNTER ---------------- */
+.fan-stats {
+  margin: 15px auto;
 }
-@keyframes sparkleMove {
-  0% { transform: translateX(-20px); }
-  100% { transform: translateX(20px); }
-}
-
-/* ---------------- LOGO ---------------- */
-.logo {
-  width: 150px;
-  margin: 20px auto;
-  display: block;
-  animation: spin 8s linear infinite;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* ---------------- TITLES ---------------- */
-h1 {
-  margin: 10px 0 5px 0;
-  text-shadow: 0 0 10px #ff66b2;
-  animation: glowTitle 2s infinite alternate;
-}
-@keyframes glowTitle {
-  0% { color: #aa33aa; }
-  100% { color: #ff3399; }
-}
-.subtitle {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-/* ---------------- VIDEO CONTAINER ---------------- */
-.video-container {
-  width: 95%;
-  max-width: 1000px;
-  margin: 20px auto 40px auto;
-  padding: 20px;
-  background: linear-gradient(145deg, #ffe6f5, #fff0fb);
-  border: 5px double #ff3399;
-  border-radius: 20px;
-  box-shadow: 0 0 40px #ff66b2;
-  position: relative;
-}
-
-/* Header */
-.video-header {
+.counter-total {
+  background: #000000;
+  border: 2px outset #ff3399;
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
   font-weight: bold;
-  margin-bottom: 15px;
-  animation: blinkText 2s infinite alternate;
-}
-@keyframes blinkText {
-  0% { color: #aa33aa; }
-  100% { color: #ff3399; }
+  padding: 3px 8px;
+  display: inline-block;
+  font-size: 14px;
 }
 
-/* ---------------- LOCKED 2 COLUMN GRID ---------------- */
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* ALWAYS 2 columns */
-  gap: 20px;
+/* ---------------- THE MAIN FAN-SITE BOX ---------------- */
+.multimedia-hub {
+  width: 95%;
+  max-width: 900px;
+  margin: 20px auto;
+  background: #ffffff;
+  border: 4px ridge #ff3399; /* Classic textured ridge border */
+  padding: 20px;
+  box-shadow: 5px 5px 0px #ff99cc; /* Flat hard drop shadow */
 }
 
-/* ---------------- VIDEO BOX ---------------- */
+/* ---------------- RETRO MARQUEE TRACKER ---------------- */
+marquee {
+  background: #ff3399;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  border: 2px inset #ffffff;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+/* ---------------- AUTHENTIC HTML LAYOUT TABLE ---------------- */
+.video-layout-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.video-cell {
+  width: 50%;
+  padding: 12px;
+  vertical-align: top;
+}
+
+/* Rigid Retro Video Frame */
 .video-box {
-  position: relative;
-  border: 3px solid #ff66b2;
-  border-radius: 12px;
+  background: #fff0f8;
+  border: 3px double #ff3399;
   padding: 8px;
-  background: white;
-  box-shadow: 0 0 15px #ff99cc;
-  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  position: relative;
 }
 .video-box:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 0 25px #ff33aa;
+  background: #ffe6f2;
+  border-color: #ff007f;
 }
 
-/* Thumbnail and Text Styling */
 .video-thumb {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
+  border: 2px inset #ff3399;
+  display: block;
 }
+
+/* Song Title Links */
 .video-title {
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
-  color: #aa33aa;
+  color: #ff007f;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.video-box:hover .video-title {
+  color: #4b0082;
 }
 
-/* Mute button */
+/* Vintage Square Mute Button */
 .mute-btn {
   position: absolute;
-  bottom: 35px; /* Moved up slightly to not overlap titles */
-  right: 15px;
-  background: rgba(255,255,255,0.9);
-  border: none;
-  border-radius: 50%;
-  padding: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  z-index: 5;
-}
-
-/* Now Watching */
-#now-watching {
-  margin-top: 15px;
-  font-size: 14px;
+  top: 12px;
+  right: 12px;
+  background: #ff3399;
+  color: white;
+  border: 2px outset #ffffff;
+  font-size: 11px;
   font-weight: bold;
-  color: #ff3399;
+  cursor: pointer;
+  padding: 2px 5px;
+  font-family: sans-serif;
+}
+.mute-btn:active {
+  border: 2px inset #ffffff;
 }
 
-/* ---------------- LIGHTBOX ---------------- */
+#now-watching {
+  margin-top: 20px;
+  background: #ffe6f2;
+  border: 2px dashed #ff3399;
+  padding: 8px;
+  color: #ff007f;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ---------------- Y2K POPUP-STYLE LIGHTBOX ---------------- */
 #video-lightbox {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.95);
+  background: rgba(75, 0, 130, 0.85); /* Indigo tinted overlay */
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  flex-direction: column;
 }
 
-/* Shared media styling to prevent container snapping */
-.lightbox-media {
-  width: 95%;
-  max-width: 1200px;
-  height: 70vh;
-  border: 4px solid #ff3399;
-  border-radius: 12px;
-  box-shadow: 0 0 40px #ff66b2;
-  display: none; /* Controlled via JS */
+.lightbox-window {
+  background: #ffffff;
+  border: 5px ridge #ff3399;
+  width: 90%;
+  max-width: 800px;
+  padding: 10px;
+  box-shadow: 10px 10px 0px #ff99cc;
 }
 
-#video-lightbox button,
-#video-lightbox span {
-  position: absolute;
-  top: 20px;
-  font-size: 28px;
-  color: white;
+/* Lightbox Sub-Bar Control Header */
+.lightbox-bar {
+  background: #ff3399;
+  color: #ffffff;
+  padding: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.lightbox-controls span {
+  background: #ffffff;
+  color: #ff3399;
+  border: 1px solid #ffffff;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: bold;
   cursor: pointer;
-  background: rgba(0,0,0,0.5);
-  border: none;
-  border-radius: 50%;
-  padding: 5px 10px;
-  z-index: 1010;
+  margin-left: 4px;
 }
-#close-btn { right: 30px; }
-#max-btn { right: 80px; }
 
-/* ---------------- BACK BUTTON ---------------- */
+.lightbox-media {
+  width: 100%;
+  height: 55vh;
+  background: #000000;
+  border: 2px inset #ff3399;
+  display: none;
+}
+
+/* ---------------- RETRO UNDERLINED BACK LINK ---------------- */
 .back-home {
   display: inline-block;
-  margin: 20px auto 40px auto;
-  padding: 12px 20px;
-  background: #ff3399;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 18px;
-  box-shadow: 0 0 10px #ff66b2;
+  margin: 30px auto;
+  color: #ff007f;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: underline;
 }
 .back-home:hover {
-  background: #ff007f;
+  color: #4b0082;
 }
-
 </style>
 </head>
 <body>
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+<div style="margin: 20px auto;">
+  <span style="font-size: 32px; font-weight: bold; color: #ff3399; text-shadow: 2px 2px #ff99cc;">
+    ★ Baby V.O.X - VIDEOS SECTION ★
+  </span>
+  <p style="margin: 5px 0; font-size: 14px; font-style: italic; color: #4b0082;">
+    ~ Welcome to the ultimate streaming shrine for our favorite angels! ~
+  </p>
+</div>
 
-<h1>Baby V.O.X Videos</h1>
-<p class="subtitle">Mini previews autoplay · Click to enlarge</p>
+<div class="fan-stats">
+  <div class="counter-total">FAN HITS COUNTER: 042917</div>
+  <img src="https://neocities.org/images/badges/neocities-button.gif" alt="Neocities Badge" style="vertical-align: middle; margin-left: 15px; border: 1px solid #ff3399;">
+</div>
 
-<div class="video-container">
-  <div class="video-header">★ OFFICIAL MV ARCHIVE ★</div>
-  <div class="video-grid" id="video-grid"></div>
-  <div id="now-watching">Now Watching: None</div>
+<div class="multimedia-hub">
+  
+  <marquee scrollamount="3" direction="left">
+    ++ NEW VIDEOS UPDATED!! CLEAR OUT YOUR BROWSER CACHE IF THE THUMBNAILS DON'T LOAD!! CLICK A SONG LINK BELOW TO TRIGGER THE POPUP AUDIO STREAM!! ++
+  </marquee>
+
+  <table class="video-layout-table">
+    <tbody id="table-grid-body">
+      </tbody>
+  </table>
+
+  <div id="now-watching">MEDIA STATUS: IDLE // CHOOSE A CLIP ABOVE!</div>
 </div>
 
 <div id="video-lightbox">
-  <span id="close-btn" onclick="closeLightbox()">&times;</span>
-  <button id="max-btn" onclick="toggleMaximize()">⛶</button>
-  <video id="lightbox-video" class="lightbox-media" controls></video>
-  <iframe id="lightbox-iframe" class="lightbox-media" frameborder="0" allowfullscreen></iframe>
+  <div class="lightbox-window">
+    <div class="lightbox-bar">
+      <span id="lightbox-title-text">Baby V.O.X Media Streamer v1.1</span>
+      <div class="lightbox-controls">
+        <span onclick="toggleMaximize()">[ Maximize ]</span>
+        <span onclick="closeLightbox()">[ X ]</span>
+      </div>
+    </div>
+    <div style="background:#000000; padding:4px;">
+      <video id="lightbox-video" class="lightbox-media" controls></video>
+      <iframe id="lightbox-iframe" class="lightbox-media" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
 
-<a href="index.html" class="back-home">Back to Home</a>
+<a href="index.html" class="back-home">[ << Back to Headquarters Main Entrance ]</a>
 
 <script>
 const videos = [
-  {src: "BV1.mp4", title: "Video 1", type: "local"},
-  {src: "BV3.mp4", title: "Video 2", type: "local"},
-  {src: "BV4.mp4", title: "Video 3", type: "local"},
-  {src: "BV5.mp4", title: "Video 4", type: "local"},
-  {src: "https://www.youtube.com/embed/auIFIvpXdac", title: "YouTube Video 1", type: "youtube"},
-  {src: "https://www.youtube.com/embed/oZ_d-o7dHTs", title: "YouTube Video 2", type: "youtube"},
-  {src: "https://www.youtube.com/embed/ru3G39dcgWg", title: "YouTube Video 3", type: "youtube"},
-  {src: "https://www.youtube.com/embed/dd4zeSdtFlA", title: "YouTube Video 4", type: "youtube"}
+  {src: "BV1.mp4", title: "Video 1 (Local Preview)", type: "local"},
+  {src: "BV3.mp4", title: "Video 2 (Rare Stage Loop)", type: "local"},
+  {src: "BV4.mp4", title: "Video 3 (Broadcast Cut)", type: "local"},
+  {src: "BV5.mp4", title: "Video 4 (HQ Clip Archive)", type: "local"},
+  {src: "https://www.youtube.com/embed/auIFIvpXdac", title: "YouTube Stream 1 (Official MV)", type: "youtube"},
+  {src: "https://www.youtube.com/embed/oZ_d-o7dHTs", title: "YouTube Stream 2 (Inkigayo Live)", type: "youtube"},
+  {src: "https://www.youtube.com/embed/ru3G39dcgWg", title: "YouTube Stream 3 (Music Bank)", type: "youtube"},
+  {src: "https://www.youtube.com/embed/dd4zeSdtFlA", title: "YouTube Stream 4 (Special Stage)", type: "youtube"}
 ];
 
-const grid = document.getElementById('video-grid');
+const tableBody = document.getElementById('table-grid-body');
 const lightbox = document.getElementById('video-lightbox');
 const lightboxVideo = document.getElementById('lightbox-video');
 const lightboxIframe = document.getElementById('lightbox-iframe');
+const lightboxTitleText = document.getElementById('lightbox-title-text');
 const nowWatching = document.getElementById('now-watching');
 
 let isMaximized = false;
+let currentRow;
 
-videos.forEach(video => {
+// Build structural table layout pairs manually just like classic web editors
+videos.forEach((video, index) => {
+  if (index % 2 === 0) {
+    currentRow = document.createElement('tr');
+    tableBody.appendChild(currentRow);
+  }
+
+  const cell = document.createElement('td');
+  cell.className = "video-cell";
+
   const box = document.createElement('div');
   box.className = "video-box";
 
@@ -258,11 +286,11 @@ videos.forEach(video => {
 
     const btn = document.createElement('button');
     btn.className = "mute-btn";
-    btn.textContent = "🔇";
+    btn.textContent = "MUTED";
     btn.onclick = (e) => {
       e.stopPropagation();
       vid.muted = !vid.muted;
-      btn.textContent = vid.muted ? "🔇" : "🔊";
+      btn.textContent = vid.muted ? "MUTED" : "SOUND ON";
     };
     box.appendChild(btn);
   } else if(video.type === "youtube") {
@@ -273,20 +301,19 @@ videos.forEach(video => {
     box.appendChild(thumb);
   }
 
-  // Inject label to let fans know what song they are clicking!
-  const titleLabel = document.createElement('div');
-  titleLabel.className = "video-title";
-  titleLabel.textContent = video.title;
-  box.appendChild(titleLabel);
+  const label = document.createElement('div');
+  label.className = "video-title";
+  label.textContent = `★ ${video.title} ★`;
+  box.appendChild(label);
 
   box.onclick = () => {
-    nowWatching.textContent = "Now Watching: " + video.title;
+    nowWatching.textContent = "NOW WATCHING: " + video.title.toUpperCase();
+    lightboxTitleText.textContent = "Baby V.O.X Player - Streaming: " + video.title;
     lightbox.style.display = "flex";
     
     if(video.type === "local") {
       lightboxIframe.style.display = "none";
-      lightboxIframe.src = ""; // Flush out background streaming
-      
+      lightboxIframe.src = "";
       lightboxVideo.style.display = "block";
       lightboxVideo.src = video.src;
       lightboxVideo.play();
@@ -294,42 +321,36 @@ videos.forEach(video => {
       lightboxVideo.style.display = "none";
       lightboxVideo.pause();
       lightboxVideo.src = "";
-      
       lightboxIframe.style.display = "block";
       lightboxIframe.src = video.src;
     }
   };
 
-  grid.appendChild(box);
+  cell.appendChild(box);
+  currentRow.appendChild(cell);
 });
 
-// ---------------- LIGHTBOX CLOSING ----------------
 function closeLightbox() {
-  // Gracefully stop local files
   lightboxVideo.pause();
   lightboxVideo.src = "";
-  
-  // Gracefully stop iframe streaming
   lightboxIframe.src = "";
-  
-  // Hide everything cleanly
   lightboxVideo.style.display = "none";
   lightboxIframe.style.display = "none";
   lightbox.style.display = "none";
-  nowWatching.textContent = "Now Watching: None";
+  nowWatching.textContent = "MEDIA STATUS: IDLE // CHOOSE A CLIP ABOVE!";
 }
 
-// ---------------- LIGHTBOX RESIZING ----------------
 function toggleMaximize() {
-  const currentMedia = lightboxVideo.style.display === "block" ? lightboxVideo : lightboxIframe;
-  
+  const windowContainer = document.querySelector('.lightbox-window');
   if(!isMaximized) {
-    currentMedia.style.width = "98%";
-    currentMedia.style.height = "90vh";
+    windowContainer.style.maxWidth = "98%";
+    lightboxVideo.style.height = "80vh";
+    lightboxIframe.style.height = "80vh";
     isMaximized = true;
   } else {
-    currentMedia.style.width = "95%";
-    currentMedia.style.height = "70vh";
+    windowContainer.style.maxWidth = "800px";
+    lightboxVideo.style.height = "55vh";
+    lightboxIframe.style.height = "55vh";
     isMaximized = false;
   }
 }
