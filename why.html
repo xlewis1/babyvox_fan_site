@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why — Baby V.O.X</title>
 
 <style>
-/* ---------------- BODY ---------------- */
+/* ---------- BODY & GENERATED RETRO PATTERN ---------- */
 body {
   margin: 0;
   padding: 20px;
   font-family: 'Comic Sans MS', Arial, sans-serif;
-  background: url('retro-pattern.png') repeat;
-  color: #4B0082;
+  color: #3b0066;
   text-align: center;
   overflow-x: hidden;
+
+  /* Pure CSS generated retro pixel mesh backdrop */
+  background-image: 
+    radial-gradient(rgba(255, 105, 180, 0.15) 15%, transparent 16%),
+    radial-gradient(rgba(100, 149, 237, 0.15) 15%, transparent 16%),
+    linear-gradient(135deg, #ffe6ff, #e6f0ff);
+  background-size: 16px 16px, 16px 16px, 100% 100%;
+  background-position: 0 0, 8px 8px, 0 0;
 }
 
 /* ---------------- SPARKLE ACCENTS ---------------- */
@@ -26,6 +34,7 @@ body::after {
   font-size: 24px;
   opacity: 0.5;
   animation: sparkleMove 6s infinite alternate;
+  pointer-events: none;
 }
 @keyframes sparkleMove {
   0% { transform: translateX(-30px) rotate(0deg); }
@@ -37,165 +46,211 @@ body::after {
   position: fixed;
   top: 15px;
   right: 15px;
-  width: 80px;
-  animation: spin 10s linear infinite;
+  width: 90px;
+  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
   z-index: 100;
+  filter: drop-shadow(0 0 8px #ff66cc);
 }
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
-/* ---------------- CONTAINER ---------------- */
+/* ---------------- MAIN CONTAINER ---------------- */
 .container {
-  max-width: 1000px;
-  margin: 60px auto 40px;
-  padding: 0 20px;
-  border: 5px double #ff3399;
-  border-radius: 15px;
-  box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
-  background: rgba(255,255,255,0.9);
+  max-width: 950px;
+  margin: 50px auto 40px;
+  padding: 25px;
+  /* Thick 90s jewel case style borders */
+  border: 4px ridge #ff33aa;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px rgba(255, 51, 170, 0.15);
   position: relative;
 }
 
 /* ---------------- ALBUM HEADER ---------------- */
 .album-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  gap: 20px;
+  gap: 25px;
   position: relative;
 }
 
+/* CD Cover Frame */
 .album-header img {
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff;
-  animation: pulse 3s infinite alternate;
+  width: 290px;
+  border: 2px solid #3b0066;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px #ff99cc;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
-@keyframes pulse {
-  0% { box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff; }
-  100% { box-shadow: 0 0 25px #ff99ff, 0 0 40px #ff66ff; }
+.album-header img:hover {
+  transform: scale(1.02) rotate(1deg);
+  filter: saturate(1.25);
 }
-
-/* Mini animated sparkle GIFs on album corners */
-.album-header::before, .album-header::after {
-  content: "✨";
-  position: absolute;
-  font-size: 20px;
-  animation: blink 1.5s infinite alternate;
-}
-.album-header::before { top: 0; left: 0; }
-.album-header::after { bottom: 0; right: 0; }
-@keyframes blink { 0% { opacity: 0.2; } 100% { opacity: 1; } }
 
 /* ---------------- ALBUM INFO ---------------- */
 .album-info {
+  flex: 1;
   font-size: 14px;
   line-height: 1.6;
+  text-align: left;
+  padding-top: 40px; /* Gives room for absolute era badge placement */
 }
 
 .album-info h1 {
-  font-size: 32px;
-  margin: 0;
-  text-shadow: 2px 2px #ff99ff;
+  font-size: 38px;
+  margin: 0 0 15px 0;
+  color: #ff1493;
+  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #3b0066;
+  animation: neonGlow 2s infinite alternate;
+}
+
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 4px #ff99ff, 0 0 10px #ff66cc, 2px 2px 0px #ffffff; }
+  100% { text-shadow: 0 0 8px #ff33aa, 0 0 20px #ff99cc, 2px 2px 0px #ffffff; }
+}
+
+.album-info p {
+  margin: 8px 0;
+  background: #fff5fd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #ff33aa;
 }
 
 /* ---------------- SECTION TITLES ---------------- */
 .section-title {
-  font-size: 18px;
-  margin-top: 22px;
-  text-decoration: underline dotted #ff66cc;
-  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: #ff1493;
+  text-align: left;
+  display: inline-block;
+  background: #ffe6f5;
+  padding: 4px 15px;
+  border-radius: 20px;
+  border: 1px dashed #ff33aa;
 }
 
-/* ---------------- TRACKLIST ---------------- */
+/* ---------------- TRACKLIST BOX ---------------- */
 .tracklist-box {
-  background: url('tracklist-bg.png') repeat;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: inset 0 0 8px #ff99cc;
-  font-size: 13px;
-  margin-top: 8px;
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 4px;
+  border: 2px inset #ff99cc;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);
+  margin-top: 5px;
+  position: relative;
+  
+  /* Internal vintage micro-grid alignment lines */
+  background-image: linear-gradient(rgba(255, 230, 245, 0.4) 1px, transparent 1px);
+  background-size: 100% 32px;
 }
 
-/* Highlight key tracks */
+.tracklist-box ol {
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.tracklist-box li {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 0;
+  color: #3b0066;
+  border-bottom: 1px dotted #ffe0f0;
+}
+.tracklist-box li:last-child {
+  border-bottom: none;
+}
+
+/* Highlight title tracks and major promotional releases */
 .tracklist-box li:nth-child(1),
 .tracklist-box li:nth-child(2) {
-  font-weight: bold;
-  color: #ff3399;
-  position: relative;
+  color: #ff1493;
+  text-shadow: 1px 1px 0px #fff5fd;
 }
-.tracklist-box li:nth-child(1)::after,
-.tracklist-box li:nth-child(2)::after {
-  content: " ✨";
-}
+.tracklist-box li:nth-child(1)::after { content: " 🔥 [Title Track]"; font-size: 11px; font-weight: normal; margin-left: 8px; }
+.tracklist-box li:nth-child(2)::after { content: " ⚡ [Follow-up Single]"; font-size: 11px; font-weight: normal; margin-left: 8px; }
 
-/* ---------------- BACK LINK ---------------- */
+/* ---------------- BACK LINK CONTROLS ---------------- */
 .back-link {
   display: inline-block;
-  margin-top: 30px;
-  padding: 10px 18px;
+  margin-top: 35px;
+  padding: 12px 25px;
   background: #ff33aa;
   color: white;
+  font-weight: bold;
+  font-size: 15px;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: bold;
-  box-shadow: 0 0 12px #ff66cc;
-  transition: all 0.3s ease;
+  border: 3px outset #ff66cc;
+  box-shadow: 4px 4px 0px #3b0066;
+  transition: all 0.2s ease;
 }
 .back-link:hover {
   background: #ff66cc;
-  transform: scale(1.05) rotate(-1deg);
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #3b0066;
 }
 
-/* ---------------- MINI “MAINSTREAM ERA” BADGE ---------------- */
+/* ---------------- MAINSTREAM ERA BADGE ---------------- */
 .era-badge {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #ffccff;
-  color: #880e4f;
-  padding: 5px 12px;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(135deg, #ff1493, #ff66cc);
+  color: #ffffff;
+  padding: 6px 14px;
   font-size: 12px;
   font-weight: bold;
-  border-radius: 10px;
-  box-shadow: 0 0 8px #ff99cc;
-  animation: blink 1.5s infinite alternate;
+  border-radius: 4px;
+  border: 2px solid #ffffff;
+  box-shadow: 3px 3px 0px #3b0066;
+  z-index: 10;
+  letter-spacing: 0.5px;
 }
 
+/* ---------------- FOOTER CREDITS ---------------- */
+.footer {
+  font-size: 13px;
+  margin-top: 45px;
+  color: #aa33aa;
+  font-weight: bold;
+}
 </style>
 </head>
 
 <body>
 
-<!-- Spinning logo -->
-<img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
+<img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="logo-spin">
 
 <div class="container">
 
   <div class="album-header">
-    <span class="era-badge">Mainstream Era</span>
+    <span class="era-badge">👑 Mainstream Peak Era 👑</span>
     <img src="Unknown-5.jpeg" alt="Why Album Cover">
     
     <div class="album-info">
       <h1>Why</h1>
-      <p><strong>Release Date:</strong> May 15, 2000</p>
-      <p><strong>Members during this era:</strong><br>
-         Kim E‑Z, Lee Hee‑jin, Shim Eun‑jin,<br>
-         Kan Mi‑youn, Yoon Eun‑hye</p>
-      <p><strong>Genre:</strong> K‑Pop, R&B, Dance‑Pop</p>
-      <p><strong>Bio / Fun Facts:</strong><br>
-         <strong>Why</strong> is the fourth Korean‑language studio album
-         by Baby V.O.X, released in the spring of 2000. This era saw the
-         group gaining wider commercial success and more polished production
-         than before.
-         <br><br>
-         The album features the title track “Why” and the follow‑up single
-         “Betrayal,” both of which were promoted heavily on Korean music shows.
-         The group trained with international choreographers and vocal coaches
-         for this release, blending powerful visuals with a matured sound.
+      <p><strong>📅 Release Date:</strong> May 15, 2000</p>
+      <p><strong>🎤 Members:</strong> Kim E‑Z, Lee Hee‑jin, Shim Eun‑jin, Kan Mi‑youn, Yoon Eun‑hye</p>
+      <p><strong>🎸 Genre:</strong> K‑Pop, R&B, Dance‑Pop</p>
+      <p><strong>📝 Bio / Fun Facts:</strong><br>
+        <strong>Why</strong> is the fourth full-length studio album by Baby V.O.X, landing in the spring of 2000. This era captured the group operating at their peak commercial momentum, benefiting from pristine vocal arrangements and sophisticated pop instrumentation.<br><br>
+        The title track “Why” and the heavy hitting follow-up single “Betrayal” were promoted aggressively across national music charts. To prepare for this era, the five members trained extensively alongside international choreographers and professional vocal engineers, resulting in an exceptionally polished, fiercely mature performance package.
       </p>
     </div>
   </div>
 
-  <div class="section-title">Tracklist</div>
+  <br>
+  <div style="text-align: left;">
+    <div class="section-title">💿 Audio Tracklist</div>
+  </div>
+  
   <div class="tracklist-box">
     <ol>
       <li>Why</li>
@@ -214,6 +269,10 @@ body::after {
   </div>
 
   <a href="discography.html" class="back-link">← Back to Discography</a>
+
+  <div class="footer">
+    🌸 © 2026 Baby V.O.X Fansite — Geocities & Daum Cafe Vibes 🌸
+  </div>
 
 </div>
 
