@@ -1,61 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X II — Baby V.O.X</title>
 
 <style>
+/* ---------- BODY & GENERATED RETRO PATTERN ---------- */
 body {
   margin: 0;
   padding: 20px;
   font-family: 'Comic Sans MS', Arial, sans-serif;
-  background: url('retro-pattern.png') repeat;
   color: #3b0066;
   text-align: center;
   overflow-x: hidden;
+
+  /* Pure CSS generated retro pixel mesh backdrop */
+  background-image: 
+    radial-gradient(rgba(255, 105, 180, 0.15) 15%, transparent 16%),
+    radial-gradient(rgba(100, 149, 237, 0.15) 15%, transparent 16%),
+    linear-gradient(135deg, #ffe6ff, #e6f0ff);
+  background-size: 16px 16px, 16px 16px, 100% 100%;
+  background-position: 0 0, 8px 8px, 0 0;
 }
 
-/* Spinning logo */
+/* Spinning Logo */
 .logo-spin {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 80px;
-  animation: spin 10s linear infinite;
+  top: 15px;
+  right: 15px;
+  width: 90px;
+  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
   z-index: 100;
+  filter: drop-shadow(0 0 8px #ff66cc);
 }
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
 
-/* Container */
+/* ---------- MAIN WINDOW CONTAINER ---------- */
 .container {
-  max-width: 1000px;
-  margin: 60px auto 40px;
-  padding: 20px;
-  border: 5px double #ff66cc;
-  border-radius: 15px;
-  background: rgba(255, 230, 255, 0.95);
-  box-shadow: 0 0 25px #ff99ff, 0 0 50px #cc66ff;
+  max-width: 950px;
+  margin: 50px auto 40px;
+  padding: 25px;
+  /* Thick 90s jewel case style borders */
+  border: 4px ridge #ff33aa;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px rgba(255, 51, 170, 0.15);
   position: relative;
 }
 
-/* Album Header */
+/* Album Header Panel */
 .album-header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 20px;
+  gap: 25px;
 }
 
+/* CD Cover Frame */
 .album-header img {
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff;
+  width: 290px;
+  border: 2px solid #3b0066;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px #ff99cc;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.album-header img:hover {
+  transform: scale(1.02) rotate(1deg);
+  filter: saturate(1.25);
 }
 
+/* Metadata Text Board */
 .album-info {
   flex: 1;
   font-size: 14px;
@@ -64,80 +87,119 @@ body {
 }
 
 .album-info h1 {
-  font-size: 32px;
-  margin: 0 0 10px;
-  color: #9900cc;
-  text-shadow: 2px 2px #ff99ff;
+  font-size: 38px;
+  margin: 0 0 15px 0;
+  color: #ff1493;
+  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #3b0066;
+  animation: neonGlow 2s infinite alternate;
 }
 
-/* Section Titles */
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 4px #ff99ff, 0 0 10px #ff66cc, 2px 2px 0px #ffffff; }
+  100% { text-shadow: 0 0 8px #ff33aa, 0 0 20px #ff99cc, 2px 2px 0px #ffffff; }
+}
+
+.album-info p {
+  margin: 8px 0;
+  background: #fff5fd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #ff33aa;
+}
+
+/* ---------- RETRO DECORATIVE SECTIONS ---------- */
 .section-title {
-  font-size: 18px;
-  margin-top: 22px;
-  margin-bottom: 6px;
-  text-decoration: underline dotted #ff66cc;
-  color: #aa00ff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: #ff1493;
+  text-align: left;
+  display: inline-block;
+  background: #ffe6f5;
+  padding: 4px 15px;
+  border-radius: 20px;
+  border: 1px dashed #ff33aa;
 }
 
-/* Tracklist Box */
+/* ---------- TRACKLIST MEDIA CONTAINER ---------- */
 .tracklist-box {
-  background: #ffe6f5;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: 3px dashed #ff66cc;
-  box-shadow: inset 0 0 10px #ff99cc;
-  font-size: 14px;
-  margin-top: 10px;
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 4px;
+  border: 2px inset #ff99cc;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);
+  margin-top: 5px;
   position: relative;
 }
 
-/* Sparkle corners for tracklist */
+.tracklist-box ol {
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.tracklist-box li {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 0;
+  color: #3b0066;
+  border-bottom: 1px dotted #ffe0f0;
+}
+.tracklist-box li:last-child {
+  border-bottom: none;
+}
+
+/* Tracklist Corner Sparkle Decals */
 .tracklist-box::before, .tracklist-box::after {
   content: "✨";
   position: absolute;
-  font-size: 18px;
+  font-size: 16px;
+  animation: sparkleMove 2s infinite alternate;
 }
-.tracklist-box::before { top: 5px; left: 5px; animation: sparkleMove 1.5s infinite alternate; }
-.tracklist-box::after { bottom: 5px; right: 5px; animation: sparkleMove 2s infinite alternate; }
+.tracklist-box::before { top: 8px; left: 8px; }
+.tracklist-box::after { bottom: 8px; right: 8px; animation-delay: 0.5s; }
 
 @keyframes sparkleMove {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
-  50% { transform: translateY(-10px) rotate(15deg); opacity: 1; }
-  100% { transform: translateY(0) rotate(-15deg); opacity: 0.5; }
+  0% { transform: translateY(0) scale(0.9); opacity: 0.5; }
+  100% { transform: translateY(-4px) scale(1.1); opacity: 1; }
 }
 
-/* Back Link Button */
+/* ---------- BACK BUTTON CONTROLS ---------- */
 .back-link {
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 20px;
+  margin-top: 35px;
+  padding: 12px 25px;
   background: #ff33aa;
   color: white;
   font-weight: bold;
+  font-size: 15px;
   text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ff66cc;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  border: 3px outset #ff66cc;
+  box-shadow: 4px 4px 0px #3b0066;
+  transition: all 0.2s ease;
 }
 .back-link:hover {
   background: #ff66cc;
-  transform: scale(1.1) rotate(-2deg);
-  box-shadow: 0 0 25px #ff33aa;
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #3b0066;
 }
 
-/* Footer */
+/* ---------- FOOTER CREDITS ---------- */
 .footer {
   font-size: 13px;
-  margin-top: 40px;
-  color: #9900cc;
-  text-shadow: 1px 1px #ff99ff;
+  margin-top: 45px;
+  color: #aa33aa;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
+<img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="logo-spin">
 
 <div class="container">
 
@@ -145,30 +207,21 @@ body {
     <img src="Unknown-3.jpeg" alt="Baby V.O.X II Album Cover">
     <div class="album-info">
       <h1>Baby V.O.X II</h1>
-      <p><strong>Release Date:</strong> September 15, 1998</p>
-      <p><strong>Members during this era:</strong><br>
-         Lee Gai, Kim E‑Z, Lee Hee‑jin,<br>
-         Shim Eun‑jin, Kan Mi‑youn</p>
-      <p><strong>Genre:</strong> K‑Pop / Dance‑Pop / Ballad</p>
-      <p><strong>Bio & Fun Facts:</strong><br>
-         The second studio album by Baby V.O.X continued
-         the group’s evolution from their debut year. “YaYaYa”
-         served as the title track and became one of their most
-         recognizable early hits. (also a recognizable meme in Kpop culture)
-         <br><br>
-         This album showcased the updated lineup after earlier
-         member changes. It includes a mix of dance tracks and
-         vocal songs reflecting the late‑90s K‑Pop style. 
-         <br><br>
-         "YaYaYa" and "Change" were promoted as singles during
-         this era, helping to raise Baby V.O.X’s profile and
-         popularity in Korea. The album blends upbeat pop
-         with melodic ballads typical of the period.
+      <p><strong>📅 Release Date:</strong> September 15, 1998</p>
+      <p><strong>🎤 Members during this era:</strong> Lee Gai, Kim E‑Z, Lee Hee‑jin, Shim Eun‑jin, Kan Mi‑youn</p>
+      <p><strong>🎸 Genre:</strong> K‑Pop / Dance‑Pop / Ballad</p>
+      <p><strong>📝 Bio & Fun Facts:</strong><br>
+        The second studio album by Baby V.O.X continued the group’s evolution from their debut year. “YaYaYa” served as the title track and became one of their most recognizable early hits, remaining a beloved classic in K-pop pop culture history.<br><br>
+        This entry is notably the only studio album to feature member Lee Gai. The release showcased an updated visual identity, blending upbeat dance tracks with the smooth, melodic vocal ballads typical of the late‑90s music scene. Both "YaYaYa" and "Change" were heavily promoted, significantly raising Baby V.O.X's profile and commercial status in Korea.
       </p>
     </div>
   </div>
 
-  <div class="section-title">Tracklist</div>
+  <br>
+  <div style="text-align: left;">
+    <div class="section-title">💿 Audio Tracklist</div>
+  </div>
+  
   <div class="tracklist-box">
     <ol>
       <li>YaYaYa (야야야)</li>
@@ -185,7 +238,7 @@ body {
   <a href="discography.html" class="back-link">← Back to Discography</a>
 
   <div class="footer">
-    © 2026 Baby V.O.X Fansite — Geocities & Daum Vibes
+    🌸 © 2026 Baby V.O.X Fansite — Geocities & Daum Cafe Vibes 🌸
   </div>
 
 </div>
