@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Equalizeher — Baby V.O.X</title>
 
-<!-- ---------------- STYLES ---------------- -->
 <style>
+/* ---------- BODY & GENERATED RETRO PATTERN ---------- */
 body {
   margin: 0;
   padding: 20px;
   font-family: 'Comic Sans MS', Arial, sans-serif;
-  background: url('retro-pattern.png') repeat;
   color: #3b0066;
   text-align: center;
   overflow-x: hidden;
+
+  /* Manually generating a custom retro pixel-grid pattern to match the discography page */
+  background-image: 
+    radial-gradient(rgba(255, 105, 180, 0.15) 15%, transparent 16%),
+    radial-gradient(rgba(100, 149, 237, 0.15) 15%, transparent 16%),
+    linear-gradient(135deg, #ffe6ff, #e6f0ff);
+  background-size: 16px 16px, 16px 16px, 100% 100%;
+  background-position: 0 0, 8px 8px, 0 0;
 }
 
-/* Spinning Logo */
+/* Spinning Logo Overlay */
 .logo-spin {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 80px;
-  animation: spin 10s linear infinite;
+  top: 15px;
+  right: 15px;
+  width: 90px;
+  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
   z-index: 100;
+  filter: drop-shadow(0 0 8px #ff66cc);
 }
+
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
 
-/* Sparkle GIF effects */
+/* Sparkle CSS Animations */
 .sparkle {
   position: absolute;
   font-size: 20px;
   animation: sparkleMove 4s infinite alternate;
+  pointer-events: none;
 }
 @keyframes sparkleMove {
   0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
@@ -43,32 +58,41 @@ body {
   100% { transform: translateY(0) rotate(-15deg); opacity: 0.5; }
 }
 
-/* Container */
+/* ---------- MAIN ARCHIVE WINDOW CONTAINER ---------- */
 .container {
-  max-width: 1000px;
-  margin: 60px auto 40px;
-  padding: 20px;
-  border: 5px double #ff66cc;
-  border-radius: 15px;
-  background: rgba(255, 230, 255, 0.95);
-  box-shadow: 0 0 25px #ff99ff, 0 0 50px #cc66ff;
+  max-width: 950px;
+  margin: 50px auto 40px;
+  padding: 25px;
+  /* Thick 90s dual-pane physical borders */
+  border: 4px ridge #ff33aa;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px rgba(255, 51, 170, 0.15);
   position: relative;
 }
 
-/* Album Header */
+/* Album Layout Header Deck */
 .album-header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 20px;
+  gap: 25px;
 }
 
+/* CD Cover Artwork Frame */
 .album-header img {
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff;
+  width: 290px;
+  border: 2px solid #3b0066;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px #ff99cc;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.album-header img:hover {
+  transform: scale(1.02) rotate(1deg);
+  filter: saturate(1.25);
 }
 
+/* Metadata Text Board */
 .album-info {
   flex: 1;
   font-size: 14px;
@@ -77,75 +101,115 @@ body {
 }
 
 .album-info h1 {
-  font-size: 32px;
-  margin: 0 0 10px;
-  color: #9900cc;
-  text-shadow: 2px 2px #ff99ff;
+  font-size: 38px;
+  margin: 0 0 15px 0;
+  color: #ff1493;
+  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #3b0066;
+  animation: neonGlow 2s infinite alternate;
 }
 
-/* Section Titles */
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 4px #ff99ff, 0 0 10px #ff66cc, 2px 2px 0px #ffffff; }
+  100% { text-shadow: 0 0 8px #ff33aa, 0 0 20px #ff99cc, 2px 2px 0px #ffffff; }
+}
+
+.album-info p {
+  margin: 8px 0;
+  background: #fff5fd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #ff33aa;
+}
+
+/* ---------- RETRO WAVY DECORATIVE SECTIONS ---------- */
 .section-title {
-  font-size: 18px;
-  margin-top: 22px;
-  margin-bottom: 6px;
-  text-decoration: underline dotted #ff66cc;
-  color: #aa00ff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: #ff1493;
+  text-align: left;
+  display: inline-block;
+  background: #ffe6f5;
+  padding: 4px 15px;
+  border-radius: 20px;
+  border: 1px dashed #ff33aa;
 }
 
-/* Tracklist Box */
+/* ---------- TRACKLIST MEDIA SLOT ---------- */
 .tracklist-box {
-  background: #ffe6f5;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border: 3px dashed #ff66cc;
-  box-shadow: inset 0 0 10px #ff99cc;
-  font-size: 14px;
-  margin-top: 10px;
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 4px;
+  border: 2px inset #ff99cc;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);
+  margin-top: 5px;
   position: relative;
 }
 
-/* Sparkle corners for tracklist */
-.tracklist-box::before, .tracklist-box::after {
-  content: "✨";
-  position: absolute;
-  font-size: 18px;
+/* Custom numbers inside the ordered list container */
+.tracklist-box ol {
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
 }
-.tracklist-box::before { top: 5px; left: 5px; animation: sparkleMove 1.5s infinite alternate; }
-.tracklist-box::after { bottom: 5px; right: 5px; animation: sparkleMove 2s infinite alternate; }
 
-/* Back Link Button */
+.tracklist-box li {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 0;
+  color: #3b0066;
+  border-bottom: 1px dotted #ffe0f0;
+}
+.tracklist-box li:last-child {
+  border-bottom: none;
+}
+
+/* Track list dynamic corner badges */
+.tracklist-box::before, .tracklist-box::after {
+  content: "💿";
+  position: absolute;
+  font-size: 14px;
+  animation: spin 5s linear infinite;
+}
+.tracklist-box::before { top: 8px; right: 12px; }
+.tracklist-box::after { bottom: 8px; right: 12px; }
+
+/* ---------- INTERACTIVE CONTROLS ---------- */
 .back-link {
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 20px;
+  margin-top: 35px;
+  padding: 12px 25px;
   background: #ff33aa;
   color: white;
   font-weight: bold;
+  font-size: 15px;
   text-decoration: none;
-  border-radius: 12px;
-  box-shadow: 0 0 15px #ff66cc;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  border: 3px outset #ff66cc;
+  box-shadow: 4px 4px 0px #3b0066;
+  transition: all 0.2s ease;
 }
 .back-link:hover {
   background: #ff66cc;
-  transform: scale(1.1) rotate(-2deg);
-  box-shadow: 0 0 25px #ff33aa;
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #3b0066;
 }
 
-/* Footer */
+/* ---------- FOOTER CREDITS ---------- */
 .footer {
   font-size: 13px;
-  margin-top: 40px;
-  color: #9900cc;
-  text-shadow: 1px 1px #ff99ff;
+  margin-top: 45px;
+  color: #aa33aa;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Spinning Logo -->
-<img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
+<img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="logo-spin">
 
 <div class="container">
 
@@ -153,22 +217,23 @@ body {
     <img src="Unknown-1.jpeg" alt="Equalizeher Album Cover">
     <div class="album-info">
       <h1>Equalizeher</h1>
-      <p><strong>Release Date:</strong> July 3, 1997</p>
-      <p><strong>Members at the time:</strong><br>
-        Jeong Hyeonjeon, Jung Shiwoon, Cha Yumi,<br>
-        Kim EZ, Lee Heejin
-      </p>
-      <p><strong>Label:</strong> DR Music / Cream Records</p>
-      <p><strong>Genre:</strong> Dance, Ballad / 90s K‑Pop</p>
-      <p><strong>Bio / Fun Facts:</strong><br>
+      <p><strong>📅 Release Date:</strong> July 3, 1997</p>
+      <p><strong>🎤 Members:</strong> Jeong Hyeonjeon, Jung Shiwoon, Cha Yumi, Kim EZ, Lee Heejin</p>
+      <p><strong>🏢 Label:</strong> DR Music / Cream Records</p>
+      <p><strong>🎸 Genre:</strong> Dance, Ballad / 90s K‑Pop</p>
+      <p><strong>📝 Bio / Fun Facts:</strong><br>
         Equalizeher (also stylized as “Voice of Xpression”) is the debut full-length album by Baby V.O.X. 
-        Originally, "To Men (Democracy)" was planned as lead track but banned from broadcast, replaced by "Haircut." 
-        Cha Yumi was replaced by Kan Miyoun; Shim Eun Jin joined after lineup changes.
+        Originally, "To Men (Democracy)" was planned as the lead track but was banned from broadcasting, leading it to be replaced by "Haircut." 
+        Cha Yumi was subsequently replaced by Kan Miyoun, and Shim Eun Jin joined shortly after following further lineup changes.
       </p>
     </div>
   </div>
 
-  <div class="section-title">Tracklist</div>
+  <br>
+  <div style="text-align: left;">
+    <div class="section-title">✨ Audio Tracklist</div>
+  </div>
+  
   <div class="tracklist-box">
     <ol>
       <li>Interlude</li>
@@ -186,7 +251,7 @@ body {
   <a href="discography.html" class="back-link">← Back to Discography</a>
 
   <div class="footer">
-    © 2026 Baby V.O.X Fansite — Geocities & Daum Vibes
+    🌸 © 2026 Baby V.O.X Fansite — Geocities & Daum Cafe Vibes 🌸
   </div>
 
 </div>
