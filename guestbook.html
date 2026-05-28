@@ -1,213 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baby V.O.X Guestbook</title>
+
 <style>
-/* Geocities-style body */
+/* ---------- BODY & GENERATED CYBER SCANLINES ---------- */
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
-  color: #4B0082;
   margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-/* Spinning logo */
-.spinning-logo {
-  width: 150px;
-  margin: 20px auto;
-  animation: spin 6s linear infinite;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Container */
-.container {
-  width: 800px;
-  margin: 0 auto 50px auto;
-  background-color: #ffe6f0;
-  border: 5px dashed #ff66cc;
-  border-radius: 15px;
   padding: 20px;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  color: #1a0033;
+  text-align: center;
+  overflow-x: hidden;
+
+  /* Y2K Cyber-pop theme background */
+  background-image: 
+    linear-gradient(rgba(255, 20, 147, 0.04) 50%, rgba(0, 191, 255, 0.04) 50%),
+    linear-gradient(135deg, #ffe6f0, #f8e1ff);
+  background-size: 100% 4px, 100% 100%;
+}
+
+/* ---------------- SPINNING LOGO ---------------- */
+.spinning-logo {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 90px;
+  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
+  z-index: 100;
+  filter: drop-shadow(0 0 8px #ff1493);
+}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+
+/* ---------------- CONTAINER ---------------- */
+.container {
+  max-width: 950px;
+  margin: 50px auto 40px;
+  padding: 25px;
+  border: 4px ridge #ff1493;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px rgba(0, 191, 255, 0.2);
+  position: relative;
 }
 
 /* Header */
 h1 {
-  color: #ff3399;
-  text-shadow: 2px 2px #fff;
-  font-size: 48px;
-  margin-bottom: 25px;
-}
-
-/* Guestbook form */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Labels */
-label {
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-  font-size: 18px;
-}
-
-/* Input fields */
-input, textarea {
-  width: 90%;
-  padding: 8px;
-  border: 3px dashed #ff66cc;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 16px;
-}
-
-/* Submit button */
-button {
-  padding: 12px 25px;
-  font-size: 18px;
-  background: #ff66cc;
-  color: white;
-  border: 3px dashed #ff3399;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 0 10px #ff99cc;
-  transition: 0.2s;
-}
-
-button:hover {
-  box-shadow: 0 0 25px #ff99cc, 0 0 40px #ff66cc;
-  transform: scale(1.05) rotate(-2deg);
-}
-
-button:active {
-  transform: scale(0.95) rotate(5deg);
-  box-shadow: 0 0 40px #ff66cc, 0 0 60px #ff99cc;
-}
-
-/* Messages container */
-#messages {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.message-box {
-  background-color: #fff0f8;
-  border: 3px dashed #ff66cc;
-  border-radius: 10px;
-  width: 90%;
-  padding: 10px;
+  font-size: 42px;
   margin: 10px 0;
+  color: #ff1493;
+  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #1a0033;
+  animation: neonGlow 2.5s infinite alternate;
+}
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 4px #00bfff, 0 0 10px #ff1493, 2px 2px 0px #ffffff; }
+  100% { text-shadow: 0 0 8px #ff1493, 0 0 20px #00bfff, 2px 2px 0px #ffffff; }
+}
+
+/* ---------------- FLEX DECK (FORM & RULES) ---------------- */
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
   text-align: left;
 }
 
-.message-box h3 {
-  margin: 0 0 5px 0;
-  font-size: 18px;
-  color: #ff3399;
+.form-box {
+  flex: 1.3;
+  min-width: 300px;
+  background: #ffffff;
+  padding: 20px;
+  border: 2px inset #ff1493;
+  border-radius: 4px;
 }
 
-.message-box p {
-  margin: 0;
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  font-size: 15px;
+  color: #ff1493;
+}
+
+input, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ff99cc;
+  background: #fff5fa;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  font-size: 14px;
+  color: #1a0033;
+}
+input:focus, textarea:focus {
+  outline: 2px solid #00bfff;
+  background: #ffffff;
+}
+
+/* Submit Button */
+button {
+  padding: 12px 25px;
   font-size: 16px;
+  background: #ff1493;
+  color: white;
+  border: 3px outset #ff66cc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 4px 4px 0px #1a0033;
+  transition: all 0.2s ease;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+}
+button:hover {
+  background: #00bfff;
+  border-color: #66ccff;
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #1a0033;
 }
 
 /* Rules box */
 .rules-box {
   flex: 1;
-  background-color: #fff0f8;
-  border: 4px double hotpink;
-  border-radius: 12px;
+  min-width: 280px;
+  background-color: #fdf6ff;
+  border-left: 4px solid #ff1493;
+  border-radius: 0 4px 4px 0;
   padding: 20px;
-  color: #ff3399;
-  text-align: left;
-  margin-top: 30px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
-
 .rules-box h2 {
-  text-align: center;
-  margin-bottom: 10px;
-  text-shadow: 1px 1px white;
+  font-size: 18px;
+  margin-top: 0;
+  color: #ff1493;
+  border-bottom: 1px dashed #ff99cc;
+  padding-bottom: 5px;
 }
-
 .rules-box ol {
   padding-left: 20px;
+  margin: 0;
+}
+.rules-box li {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.5;
 }
 
-.rules-box li {
-  margin-bottom: 8px;
-  font-size: 16px;
+/* ---------------- MESSAGES MODULE ---------------- */
+#messages {
+  margin-top: 40px;
+  text-align: left;
+}
+#messages h2 {
+  font-size: 20px;
+  color: #ff1493;
+  background: #eaf8ff;
+  padding: 6px 15px;
+  border-radius: 4px;
+  border: 1px solid #00bfff;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.message-box {
+  background-color: #ffffff;
+  border: 2px inset #ff1493;
+  border-radius: 4px;
+  padding: 15px;
+  margin: 12px 0;
+  position: relative;
+  background-image: linear-gradient(rgba(0, 191, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 32px;
+}
+.message-box h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  color: #ff1493;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.message-box p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---------------- BACK HOME TRIGGER ---------------- */
+.back-home {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: #330066;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 3px outset #5900b3;
+  box-shadow: 4px 4px 0px #ff1493;
+  transition: all 0.2s ease;
+}
+.back-home:hover {
+  background: #ff1493;
+  border-color: #ff66cc;
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #330066;
 }
 
 /* Retro blinkies */
+.blinkie-container {
+  margin-top: 40px;
+}
 .blinkie-container img {
-  width: 200px;
+  max-width: 200px;
   height: auto;
-  margin: 10px auto;
-  display: block;
+  border-radius: 4px;
 }
 </style>
 </head>
 <body>
 
-<!-- Spinning Baby V.O.X Logo -->
 <img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="spinning-logo">
 
-<!-- Container -->
 <div class="container">
-  <h1>Guestbook</h1>
-  <p style="font-size: 20px; color: #ff66cc; text-shadow: 1px 1px white; margin-bottom: 25px;">
-    Leave your message here, pls be nice :) 
+  <h1>Guestbook Portal</h1>
+  <p style="font-size: 16px; font-weight: bold; color: #660099; margin: 0;">
+    Leave your message here! Please follow community guidelines. ✨
   </p>
-  <form id="guestbook-form">
-    <label>Your Name:</label>
-    <input type="text" name="fi-sender-firstName" placeholder="Type your name here" required>
 
-    <label>Email (optional):</label>
-    <input type="email" name="fi-sender-email" placeholder="Type your email">
+  <div class="deck">
+    <div class="form-box">
+      <form id="guestbook-form">
+        <label>Your Name:</label>
+        <input type="text" name="fi-sender-firstName" placeholder="Type your name here" required>
 
-    <label>Message:</label>
-    <textarea name="fi-text-message" rows="6" placeholder="Write your message here..." required></textarea>
+        <label>Email (optional):</label>
+        <input type="email" name="fi-sender-email" placeholder="Type your email">
 
-    <button type="submit">Sign Guestbook!</button>
-  </form>
+        <label>Message:</label>
+        <textarea name="fi-text-message" rows="5" placeholder="Write your message here..." required></textarea>
 
-  <a href="index.html" class="back-home">← Back to Home</a>
+        <div style="text-align: right;">
+          <button type="submit">Sign Guestbook!</button>
+        </div>
+      </form>
+    </div>
 
-  <!-- Messages -->
+    <div class="rules-box">
+      <h2>Guestbook Rules</h2>
+      <ol>
+        <li>Swearing, slurs, or hostile remarks will not be tolerated.</li>
+        <li>Be respectful to fellow platform commentators.</li>
+        <li>Constructive feedback for our archival fansite is always welcome!</li>
+        <li>Disrespectful or malicious comments will be screened out immediately.</li>
+        <li>Antifan spam content will be expunged instantly from the live stream.</li>
+      </ol>
+    </div>
+  </div>
+
   <div id="messages">
     <h2>Messages from fans:</h2>
   </div> 
 
-  <!-- Rules Box -->
-  <div class="rules-box">
-    <h2>Guestbook Rules</h2>
-    <ol>
-      <li>Swearing, slurs or rude language won’t be tolerated and won’t be added to the messages list.</li>
-      <li>Be respectful to people who comment on this guestbook.</li>
-      <li>Please give positive feedback to the fansite.</li>
-      <li>Disrespectful comments won’t be allowed.</li>
-      <li>Antifan comments will be deleted straight away.</li>
-    </ol>
-  </div>
+  <a href="index.html" class="back-home">← Back to Home Directory</a>
 
-  <!-- Retro blinkies -->
   <div class="blinkie-container">
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie">
+    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie banner">
   </div>
 </div>
 
-<!-- Include Forminit SDK -->
 <script src="https://forminit.com/sdk/v1/forminit.js"></script>
 <script>
   const forminit = new Forminit();
@@ -232,31 +307,31 @@ button:active {
     loadMessages(); // Refresh messages after submitting
   });
 
-  // Load messages from Forminit
+  // Load messages from Forminit database configuration
   async function loadMessages() {
     messagesContainer.innerHTML = "<h2>Messages from fans:</h2>";
 
-    // Pinned messages
+    // Static/Pinned Historical Messages Block
     const pinned1 = document.createElement("div");
     pinned1.className = "message-box";
-    pinned1.innerHTML = `<h3>BabyVoxi ⭐</h3>
+    pinned1.innerHTML = `<h3>BabyVoxi ⭐ <span style="font-size:11px; font-weight:normal; color:#00bfff;">[VIP PIN]</span></h3>
                           <p>thank you for being such a lovely person and a great baby angel~~ the site looks awesome! keep up the good work!!</p>`;
     messagesContainer.appendChild(pinned1); 
 
     const pinned2 = document.createElement("div");
     pinned2.className = "message-box";
-    pinned2.innerHTML = `<h3>Arthur ⭐</h3>
+    pinned2.innerHTML = `<h3>Arthur ⭐ <span style="font-size:11px; font-weight:normal; color:#00bfff;">[VIP PIN]</span></h3>
                           <p>we feeling very Ride west</p>`;
     messagesContainer.appendChild(pinned2);
 
     const pinned3 = document.createElement("div");
     pinned3.className = "message-box";
-    pinned3.innerHTML = `<h3>kaze ⭐</h3>
+    pinned3.innerHTML = `<h3>kaze ⭐ <span style="font-size:11px; font-weight:normal; color:#00bfff;">[VIP PIN]</span></h3>
       <p>Я серьезно могу сказать, что это самый лучший сайт! ヾ(≧▽≦*)o</p>
-      <p style="font-style: italic; color: #4B0082;">(I can seriously say that this is the best site! ヾ(≧▽≦*)o)</p>`;
+      <p style="font-style: italic; color: #660099; font-size:12px; margin-top:4px;">(I can seriously say that this is the best site! ヾ(≧▽≦*)o)</p>`;
     messagesContainer.appendChild(pinned3);
     
-    // Load from Forminit
+    // Asynchronous injection loop from active server channels
     try {
       const { data, error } = await forminit.getSubmissions(FORM_ID, { limit: 50 });
       if (error) throw new Error(error.message);
@@ -269,7 +344,7 @@ button:active {
         const email = msg["fi-sender-email"] || "";
         const message = msg["fi-text-message"] || "";
 
-        box.innerHTML = `<h3>${name}${email ? " ("+email+")" : ""}</h3><p>${message}</p>`;
+        box.innerHTML = `<h3>${name}${email ? " <span style='font-size:12px; color:#666;'>&lt;" + email + "&gt;</span>" : ""}</h3><p>${message}</p>`;
         messagesContainer.appendChild(box);
       });
     } catch (err) {
