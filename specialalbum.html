@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Special Album — Baby V.O.X</title>
 
 <style>
-/* ---------------- BODY ---------------- */
+/* ---------- BODY & GENERATED Y2K CYBER GRID ---------- */
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Verdana", "Tahoma", sans-serif;
-  background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
-  color: #3b0066;
+  padding: 20px;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  color: #1a0033;
   text-align: center;
+  overflow-x: hidden;
+
+  /* Y2K Cyber-pop background engine: Horizontal scanlines over a metallic lavender layout shift */
+  background-image: 
+    linear-gradient(rgba(255, 20, 147, 0.04) 50%, rgba(0, 191, 255, 0.04) 50%),
+    linear-gradient(135deg, #fbe6ff, #eef7ff);
+  background-size: 100% 4px, 100% 100%;
+}
+
+/* ---------------- FLOATING CYBER GLOWS ---------------- */
+body::after {
+  content: "💿✨💫";
+  position: fixed;
+  top: 15px;
+  left: 48%;
+  font-size: 20px;
+  opacity: 0.6;
+  animation: cyberPulse 4s infinite ease-in-out;
+  pointer-events: none;
+}
+@keyframes cyberPulse {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 0.4; filter: drop-shadow(0 0 2px #00bfff); }
+  50% { transform: scale(1.1) translateY(-5px); opacity: 0.9; filter: drop-shadow(0 0 8px #ff1493); }
 }
 
 /* ---------------- SPINNING LOGO ---------------- */
@@ -21,166 +44,244 @@ body {
   position: fixed;
   top: 15px;
   right: 15px;
-  width: 80px;
-  animation: spin 10s linear infinite;
+  width: 90px;
+  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
   z-index: 100;
+  filter: drop-shadow(0 0 8px #ff1493);
 }
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
-/* ---------------- CONTAINER ---------------- */
+/* ---------------- CYBER CONTAINER ---------------- */
 .container {
-  max-width: 1000px;
-  margin: 60px auto 40px;
-  padding: 0 20px;
+  max-width: 950px;
+  margin: 50px auto 40px;
+  padding: 25px;
+  /* Hard metallic double ridge line borders */
+  border: 4px ridge #ff1493;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px rgba(0, 191, 255, 0.2);
+  position: relative;
 }
 
 /* ---------------- ALBUM HEADER ---------------- */
 .album-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  gap: 20px;
+  gap: 25px;
+  position: relative;
 }
 
+/* CD Cover Cyber Frame */
 .album-header img {
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff;
+  width: 290px;
+  border: 2px solid #ff1493;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px #00bfff;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.album-header img:hover {
+  transform: scale(1.02) rotate(1deg);
+  filter: contrast(1.1) saturate(1.2);
 }
 
+/* ---------------- ALBUM INFO ---------------- */
 .album-info {
+  flex: 1;
   font-size: 14px;
   line-height: 1.6;
   text-align: left;
+  padding-top: 40px; /* Space for absolute badge placement */
 }
 
 .album-info h1 {
-  font-size: 32px;
-  margin: 0;
-  text-shadow: 2px 2px #ff99ff;
+  font-size: 38px;
+  margin: 0 0 15px 0;
+  color: #ff1493;
+  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #1a0033;
+  animation: neonGlow 2.5s infinite alternate;
 }
 
-/* ---------------- SECTION TITLE ---------------- */
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 4px #00bfff, 0 0 10px #ff1493, 2px 2px 0px #ffffff; }
+  100% { text-shadow: 0 0 8px #ff1493, 0 0 20px #00bfff, 2px 2px 0px #ffffff; }
+}
+
+.album-info p {
+  margin: 8px 0;
+  background: #fbf5ff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #00bfff;
+}
+
+/* ---------------- SECTION TITLES ---------------- */
 .section-title {
-  font-size: 18px;
-  margin-top: 22px;
-  text-decoration: underline dotted #ff66cc;
-  text-align: center;
-}
-
-/* ---------------- TRACKLIST BOX ---------------- */
-.tracklist-box {
-  background: #ffe6f5;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: inset 0 0 8px #ff99cc;
-  font-size: 13px;
-  margin-top: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: #ff1493;
   text-align: left;
+  display: inline-block;
+  background: #eaf8ff;
+  padding: 4px 15px;
+  border-radius: 4px;
+  border: 1px solid #00bfff;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* ---------------- CD HEADINGS WITH SPARKLES ---------------- */
-.cd-sparkle::before {
-  content: "✨";
-  margin-right: 6px;
-  animation: blink 1.5s infinite alternate;
-}
-.cd-sparkle::after {
-  content: "✨";
-  margin-left: 6px;
-  animation: blink 2s infinite alternate;
-}
-@keyframes blink {
-  0% { opacity: 0.2; }
-  100% { opacity: 1; }
+/* ---------------- BOX MULTI-DISC TRACKLIST ---------------- */
+.tracklist-box {
+  background: #ffffff;
+  padding: 20px;
+  border: 2px inset #ff1493;
+  margin-top: 5px;
+  text-align: left;
+  border-radius: 4px;
 }
 
-/* ---------------- BACK LINK ---------------- */
+.cd-section {
+  background: #fdf6ff;
+  border-left: 4px solid #ff1493;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 0 4px 4px 0;
+}
+.cd-section:last-child {
+  margin-bottom: 0;
+}
+
+.cd-sparkle {
+  font-size: 15px;
+  color: #ff1493;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.track-text {
+  font-size: 13px;
+  font-weight: bold;
+  color: #3b0066;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+}
+
+/* Highlight specific historic mega singles */
+.highlight-track {
+  color: #ff1493;
+  background: #fff0f8;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* ---------------- INTERACTIVE CONTROLS ---------------- */
 .back-link {
   display: inline-block;
-  margin-top: 30px;
-  padding: 10px 18px;
-  background: #ff33aa;
+  margin-top: 35px;
+  padding: 12px 25px;
+  background: #ff1493;
   color: white;
-  text-decoration: none;
-  border-radius: 8px;
   font-weight: bold;
-  box-shadow: 0 0 12px #ff66cc;
-  transition: all 0.3s ease;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 3px outset #ff66cc;
+  box-shadow: 4px 4px 0px #1a0033;
+  transition: all 0.2s ease;
 }
 .back-link:hover {
-  background: #ff66cc;
-  transform: scale(1.05);
+  background: #00bfff;
+  border-color: #66ccff;
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #1a0033;
 }
 
-/* ---------------- BLINKIES IN BODY ---------------- */
-body::after {
-  content: "✨💖🌟";
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  font-size: 24px;
-  opacity: 0.5;
-  animation: sparkleMove 5s infinite alternate;
+/* ---------------- NEW ERA BADGE ---------------- */
+.era-badge {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(135deg, #ff1493, #00bfff);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid #ffffff;
+  box-shadow: 3px 3px 0px #1a0033;
+  z-index: 10;
+  letter-spacing: 0.5px;
 }
-@keyframes sparkleMove {
-  0% { transform: translateX(-30px); }
-  100% { transform: translateX(30px); }
+
+/* ---------------- FOOTER CREDITS ---------------- */
+.footer {
+  font-size: 13px;
+  margin-top: 45px;
+  color: #9900cc;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
+<img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="logo-spin">
 
 <div class="container">
 
   <div class="album-header">
+    <span class="era-badge">🏅 5th Anniversary Golden Era 🏅</span>
     <img src="Unknown-6.jpeg" alt="Special Album Cover">
 
     <div class="album-info">
       <h1>Special Album</h1>
-      <p><strong>Release Date:</strong> April 23, 2002</p>
-      <p><strong>Members during this era:</strong><br>
-         Kim E‑Z, Shim Eun‑jin, Kan Mi‑youn,<br>
-         Yoon Eun‑hye, Lee Hee‑jin</p>
-      <p><strong>Album Type:</strong> Compilation / Special Album</p>
-      <p><strong>Bio / Fun Facts:</strong><br>
-        <em>Special Album</em> is a major compilation released to
-        celebrate the group’s fifth anniversary and career
-        highlights. The final product included three CDs and
-        one VCD with music video footage and exclusive
-        content.  
-        <br><br>
-        Originally, the plan was for a five‑disc set (two VCDs,
-        a remix CD, a ballad & hits CD, and an unreleased tracks
-        CD), but this was reduced due to pricing and content
-        limitations to a 3 CD + 1 VCD package.  
-        <br><br>
-        The album features the World Cup–themed title track
-        <em>By Chance</em> (also known as “Coincidence”) and the song
-        “Go.” It became one of the group’s best‑selling releases
-        to date. 
+      <p><strong>📅 Release Date:</strong> April 23, 2002</p>
+      <p><strong>🎤 Members:</strong> Kim E‑Z, Shim Eun‑jin, Kan Mi‑youn, Yoon Eun‑hye, Lee Hee‑jin</p>
+      <p><strong>💿 Album Type:</strong> Compilation / 5th Anniversary Special Box Set</p>
+      <p><strong>📝 Bio / Fun Facts:</strong><br>
+        <em>Special Album</em> is a massive milestone compilation released to celebrate the group's 5th anniversary and trace their historic career highlights. The physical package includes 3 audio CDs alongside an exclusive VCD containing music video archives and rare behind-the-scenes footage.<br><br>
+        Originally envisioned as a premium 5-disc box set (featuring a standalone remix disc, ballad assembly, unreleased session cuts, and two video discs), production caps and consumer retail pricing models streamlined it into the optimized 4-disc package. Driven by the explosive, iconic World Cup promotional title track <span class="highlight-track">Coincidence (우연)</span> and the smash follow-up "Go", this became one of Baby V.O.X's most successful and top-selling physical releases.
       </p>
     </div>
   </div>
 
-  <div class="section-title">Tracklist (Selected Highlights)</div>
+  <br>
+  <div style="text-align: left;">
+    <div class="section-title">💿 Tracklist Box (Selected Highlights)</div>
+  </div>
+  
   <div class="tracklist-box">
-    <strong class="cd-sparkle">CD 1 • New Songs & Classic Mix:</strong><br>
-    Coincidence (우연), Go, Betrayal (배신), Game Over, YaYaYa, Get Up, Killer, Why, Dolls, Love and Extasy<br><br>
+    <div class="cd-section">
+      <strong class="cd-sparkle">✨ CD 1 • New Studio Tracks & Essential Mixes:</strong>
+      <div class="track-text">
+        <span class="highlight-track">Coincidence (우연)</span>, Go, Betrayal (배신), Game Over, YaYaYa, Get Up, Killer, Why, Dolls, Love and Extasy
+      </div>
+    </div>
 
-    <strong class="cd-sparkle">CD 2 • Non‑Stop Dance Mix:</strong><br>
-    Cut, Recall (회상), I Love You (사랑해요), Mask, Bad Boy, Come To Me, Lucky7, Puzzle, Lasso, Summer Story, Resurrection, Floral Bikini, Sugar Baby<br><br>
+    <div class="cd-section" style="border-left-color: #00bfff;">
+      <strong class="cd-sparkle" style="color: #00bfff;">✨ CD 2 • Non‑Stop Cyber Club Dance Mix:</strong>
+      <div class="track-text">
+        Cut, Recall (회상), I Love You (사랑해요), Mask, Bad Boy, Come To Me, Lucky7, Puzzle, Lasso, Summer Story, Resurrection, Floral Bikini, Sugar Baby
+      </div>
+    </div>
 
-    <strong class="cd-sparkle">CD 3 • Ballads:</strong><br>
-    Missing You, Consent (허락), Waiting, Before Sunrise, Love With the Sky, In the Sad Star, Hope You Were My Love
+    <div class="cd-section" style="border-left-color: #aa33aa;">
+      <strong class="cd-sparkle" style="color: #aa33aa;">✨ CD 3 • Golden Vocal Ballads Showcase:</strong>
+      <div class="track-text">
+        Missing You, Consent (허락), Waiting, Before Sunrise, Love With the Sky, In the Sad Star, Hope You Were My Love
+      </div>
+    </div>
   </div>
 
   <a href="discography.html" class="back-link">← Back to Discography</a>
+
+  <div class="footer">
+    🪐 © 2026 Baby V.O.X Fansite — Cyber Cafe Hub 🪐
+  </div>
 
 </div>
 
