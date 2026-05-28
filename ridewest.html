@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ride West — Baby V.O.X</title>
 
 <style>
-/* ---------------- BODY ---------------- */
+/* ---------- BODY & GENERATED 2004 URBAN DIGITAL PATTERN ---------- */
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Verdana", "Tahoma", sans-serif;
-  background: linear-gradient(135deg, #ffe6ff, #e6f0ff);
-  color: #3b0066;
+  padding: 20px;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  color: #111122;
   text-align: center;
+  overflow-x: hidden;
+
+  /* 2004 Global Urban Crossover background engine: Sleek horizontal matrix bars over a dark metallic layout */
+  background-image: 
+    linear-gradient(rgba(255, 20, 147, 0.05) 50%, rgba(20, 20, 35, 0.05) 50%),
+    linear-gradient(135deg, #ebd6ff, #d1f0ff);
+  background-size: 100% 6px, 100% 100%;
+}
+
+/* ---------------- GLOBAL OVERLAY BLINKIES ---------------- */
+body::after {
+  content: "⚡🎧💿";
+  position: fixed;
+  top: 15px;
+  left: 48%;
+  font-size: 20px;
+  opacity: 0.7;
+  animation: urbanPulse 3s infinite ease-in-out;
+  pointer-events: none;
+}
+@keyframes urbanPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #ff1493); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 10px #330066); }
 }
 
 /* ---------------- SPINNING LOGO ---------------- */
@@ -21,153 +44,214 @@ body {
   position: fixed;
   top: 15px;
   right: 15px;
-  width: 80px;
-  animation: spin 10s linear infinite;
+  width: 90px;
+  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
   z-index: 100;
+  filter: drop-shadow(0 0 8px #ff1493);
 }
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
-/* ---------------- CONTAINER ---------------- */
+/* ---------------- URBAN CONTAINER ---------------- */
 .container {
-  max-width: 1000px;
-  margin: 60px auto 40px;
-  padding: 0 20px;
+  max-width: 950px;
+  margin: 50px auto 40px;
+  padding: 25px;
+  /* Deep structural edge framework */
+  border: 4px ridge #ff1493;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0px rgba(51, 0, 102, 0.2);
+  position: relative;
 }
 
 /* ---------------- ALBUM HEADER ---------------- */
 .album-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  gap: 20px;
+  gap: 25px;
+  position: relative;
 }
 
+/* CD Cover High-Contrast Frame */
 .album-header img {
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 0 18px #cc66ff, 0 0 30px #ff99ff;
+  width: 290px;
+  border: 2px solid #330066;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px #ff1493;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.album-header img:hover {
+  transform: scale(1.02) rotate(-1deg);
+  filter: contrast(1.1) saturate(1.15);
 }
 
+/* ---------------- ALBUM INFO ---------------- */
 .album-info {
+  flex: 1;
   font-size: 14px;
   line-height: 1.6;
   text-align: left;
+  padding-top: 40px; /* Provides separation clear of absolute corner badge */
 }
 
 .album-info h1 {
-  font-size: 32px;
-  margin: 0;
-  text-shadow: 2px 2px #ff99ff;
+  font-size: 38px;
+  margin: 0 0 15px 0;
+  color: #ff1493;
+  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #330066;
+  animation: metallicGlow 2.5s infinite alternate;
 }
 
-/* ---------------- SECTION TITLE ---------------- */
+@keyframes metallicGlow {
+  0% { text-shadow: 0 0 4px #ff1493, 0 0 8px #330066, 2px 2px 0px #ffffff; }
+  100% { text-shadow: 0 0 8px #330066, 0 0 16px #ff1493, 2px 2px 0px #ffffff; }
+}
+
+.album-info p {
+  margin: 8px 0;
+  background: #fdf5ff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border-left: 3px solid #330066;
+}
+
+/* ---------------- SECTION TITLES ---------------- */
 .section-title {
-  font-size: 18px;
-  margin-top: 22px;
-  text-decoration: underline dotted #ff66cc;
-  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: #ff1493;
+  text-align: left;
+  display: inline-block;
+  background: #f5e6ff;
+  padding: 4px 15px;
+  border-radius: 4px;
+  border: 1px solid #ff1493;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* ---------------- TRACKLIST BOX ---------------- */
+/* ---------------- TRACKLIST SYSTEM ---------------- */
 .tracklist-box {
-  background: #ffe6f5;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: inset 0 0 8px #ff99cc;
-  font-size: 13px;
-  margin-top: 8px;
+  background: #ffffff;
+  padding: 15px 25px;
+  border-radius: 4px;
+  border: 2px inset #ff1493;
+  margin-top: 5px;
+  position: relative;
+  
+  /* Matrix lining horizontal rows */
+  background-image: linear-gradient(rgba(255, 20, 147, 0.04) 1px, transparent 1px);
+  background-size: 100% 32px;
+}
+
+.tracklist-box ol {
+  margin: 0;
+  padding-left: 20px;
   text-align: left;
 }
 
-/* ---------------- CD HEADINGS WITH SPARKLES ---------------- */
-.cd-sparkle::before {
-  content: "✨";
-  margin-right: 6px;
-  animation: blink 1.5s infinite alternate;
+.tracklist-box li {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 0;
+  color: #330066;
+  border-bottom: 1px dotted #f5e6ff;
 }
-.cd-sparkle::after {
-  content: "✨";
-  margin-left: 6px;
-  animation: blink 2s infinite alternate;
-}
-@keyframes blink {
-  0% { opacity: 0.2; }
-  100% { opacity: 1; }
+.tracklist-box li:last-child {
+  border-bottom: none;
 }
 
-/* ---------------- BACK LINK ---------------- */
+/* Highlight lead cross-cultural experimental tracks */
+.tracklist-box li:nth-child(2),
+.tracklist-box li:nth-child(3),
+.tracklist-box li:nth-child(5) {
+  color: #ff1493;
+  text-shadow: 1px 1px 0px #fdf5ff;
+}
+.tracklist-box li:nth-child(2)::after { content: " 🌍 [Global Lead Track]"; font-size: 11px; font-weight: normal; margin-left: 8px; color: #330066; }
+.tracklist-box li:nth-child(3)::after { content: " 🇰🇷 [Korean Single]"; font-size: 11px; font-weight: normal; margin-left: 8px; color: #330066; }
+.tracklist-box li:nth-child(5)::after { content: " 🔥 [Crossover Promo]"; font-size: 11px; font-weight: normal; margin-left: 8px; color: #330066; }
+
+/* ---------------- NAVIGATION BUTTON INTERFACES ---------------- */
 .back-link {
   display: inline-block;
-  margin-top: 30px;
-  padding: 10px 18px;
-  background: #ff33aa;
+  margin-top: 35px;
+  padding: 12px 25px;
+  background: #ff1493;
   color: white;
-  text-decoration: none;
-  border-radius: 8px;
   font-weight: bold;
-  box-shadow: 0 0 12px #ff66cc;
-  transition: all 0.3s ease;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 3px outset #ff66cc;
+  box-shadow: 4px 4px 0px #330066;
+  transition: all 0.2s ease;
 }
 .back-link:hover {
-  background: #ff66cc;
-  transform: scale(1.05);
+  background: #330066;
+  border-color: #5900b3;
+  border-style: inset;
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0px #ff1493;
 }
 
-/* ---------------- BLINKIES IN BODY ---------------- */
-body::after {
-  content: "✨💖🌟";
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  font-size: 24px;
-  opacity: 0.5;
-  animation: sparkleMove 5s infinite alternate;
+/* ---------------- FINAL TENURE ERA BADGE ---------------- */
+.era-badge {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: linear-gradient(135deg, #330066, #ff1493);
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid #ffffff;
+  box-shadow: 3px 3px 0px #ff1493;
+  z-index: 10;
+  letter-spacing: 0.5px;
 }
-@keyframes sparkleMove {
-  0% { transform: translateX(-30px); }
-  100% { transform: translateX(30px); }
+
+/* ---------------- FOOTER SYSTEM ---------------- */
+.footer {
+  font-size: 13px;
+  margin-top: 45px;
+  color: #800060;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<img src="logo.png" alt="Baby V.O.X Logo" class="logo-spin">
+<img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="logo-spin">
 
 <div class="container">
 
   <div class="album-header">
+    <span class="era-badge">🏁 Final Legacy Studio Era 🏁</span>
     <img src="Unknown-7.jpeg" alt="Ride West Album Cover">
 
     <div class="album-info">
       <h1>Ride West</h1>
-      <p><strong>Release Date:</strong> March 18, 2004</p>
-      <p><strong>Members during this era:</strong><br>
-         Kim E‑Z, Shim Eun‑jin, Kan Mi‑youn,<br>
-         Yoon Eun‑hye, Lee Hee‑jin</p>
-      <p><strong>Genre:</strong> K‑Pop, Dance‑Pop, Hip Hop, Ballad</p>
-      <p><strong>Bio / Fun Facts:</strong><br>
-        Ride West is the seventh and final studio album
-        by Baby V.O.X before their official disbandment in 2006.  
-        <br><br>
-        This album is known for its cross-cultural experimentation
-        with English, Korean, Chinese, and Japanese tracks, as well
-        as hip-hop and Western pop influences.  
-        <br><br>
-        Key songs like “Xcstasy” and “Play Remix” have multiple
-        versions and showcased the group’s ambition to appeal
-        internationally.  
-        <br><br>
-        Ride West remains controversial among fans due to stylistic
-        changes and experimental direction, but it closes Baby V.O.X’s
-        original discography with a bold statement.  
+      <p><strong>📅 Release Date:</strong> March 18, 2004</p>
+      <p><strong>🎤 Lineup Line:</strong> Kim E‑Z, Shim Eun‑jin, Kan Mi‑youn, Yoon Eun‑hye, Lee Hee‑jin</p>
+      <p><strong>🎸 Genre:</strong> K‑Pop / Dance‑Pop / Hip Hop / Crossover</p>
+      <p><strong>📝 Bio / Fun Facts:</strong><br>
+        <em>Ride West</em> marks the seventh and final studio album delivered by Baby V.O.X before their official transformation and conclusion in 2006. This final release stood out as an ambitious, boundary-pushing effort to integrate into the Western hip-hop market and expand multi-language reach.<br><br>
+        The record explores cross-cultural production models, seamlessly containing specific versions sung in English, Korean, Chinese, and Japanese. Main tracks like “Xcstasy” and “Play Remix” championed an aggressive sound shift. While the experimental stylistic pivot challenged conventional mainstream patterns of the time, <em>Ride West</em> remains a daring, historic conclusion to the original discography of first-generation pioneers.
       </p>
     </div>
   </div>
 
-  <div class="section-title">Tracklist</div>
+  <br>
+  <div style="text-align: left;">
+    <div class="section-title">💿 Audio Tracklist</div>
+  </div>
+  
   <div class="tracklist-box">
     <ol>
       <li>Intro</li>
@@ -187,6 +271,10 @@ body::after {
   </div>
 
   <a href="discography.html" class="back-link">← Back to Discography</a>
+
+  <div class="footer">
+    👑 © 2026 Baby V.O.X Fansite — Final Chapter Archival Hub 👑
+  </div>
 
 </div>
 
