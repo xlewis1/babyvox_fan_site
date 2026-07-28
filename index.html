@@ -113,18 +113,6 @@
   .retro-btn:active {
     border: 2px inset #FFFFFF;
   }
-
-  /* Hit Counter Display */
-  .odometer {
-    background-color: #000000;
-    color: #00FF00;
-    font-family: "Courier New", monospace;
-    font-weight: bold;
-    padding: 3px 6px;
-    border: 2px inset #808080;
-    letter-spacing: 2px;
-    display: inline-block;
-  }
 </style>
 </head>
 <body>
@@ -224,7 +212,7 @@
             <br>
             <table border="1" cellpadding="2" bgcolor="#0000FF">
               <tr>
-                <td><font size="1" color="#FFFFFF" face="sans-serif"><b>NIE 5.0<br>COMPATIBLE</b></font></td>
+                <td><font size="1" color="#FFFFFF" face="sans-serif"><b>IE 5.0<br>COMPATIBLE</b></font></td>
               </tr>
             </table>
             <br>
@@ -324,9 +312,11 @@
         <div class="window-titlebar">Visitor Counter</div>
         <div style="padding: 8px; text-align: center; background-color: #FFF0F5;">
           <font size="1">You are visitor no:</font><br><br>
-          <div class="odometer">0 8 2 4 9 1</div>
-          <br><br>
-          <font size="1" color="#808080">Since Nov 2001</font>
+          <div id="visitor-count">
+            <a href='https://www.counters-free.net/'>COUNTER-free</a>
+            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
+          </div>
         </div>
       </div>
 
