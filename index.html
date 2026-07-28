@@ -1,573 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/svg+xml" href="Baby_V.O.X_logo.webp">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X Fansite</title>
+<title>~*~ Welcome to the Ultimate Baby V.O.X Fansite! ~*~</title>
 <style>
-/* ----- RESET & BODY ----- */
-body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><rect width="4" height="4" fill="none"/><circle cx="2" cy="2" r="1" fill="%23ffcce6" opacity="0.5"/></svg>');
-  background-size: auto, 4px 4px;
-  color: #4B0082;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+  /* classic 2000s Web Typography & Styles */
+  body {
+    background-color: #FFE6F2;
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw=='); /* classic tiny pixel grid */
+    font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+    color: #000080;
+    margin: 10px;
+    padding: 0;
+  }
 
-/* ----- SPLASH ----- */
-#splash {
-  position: fixed;
-  inset: 0;
-  background-color: #ffccff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 9999;
-}
+  /* Link Styling (Classic Blue & Purple underline) */
+  a:link { color: #0000FF; text-decoration: underline; font-weight: bold; }
+  a:visited { color: #800080; text-decoration: underline; }
+  a:hover { color: #FF007F; background-color: #FFFF99; }
+  a:active { color: #FF0000; }
 
-#splash .splash-bg {
-  border: 4px double hotpink;
-  background: #fff0f8;
-  padding: 30px 40px;
-  box-shadow: 0 0 25px #ff66cc;
-  border-radius: 12px;
-}
+  /* Table Windows & Frames */
+  .netscape-window {
+    background-color: #ECE9D8; /* Classic Windows/Netscape Gray */
+    border: 3px outset #FFFFFF;
+  }
 
-#splash h1 {
-  font-size: 2.8rem;
-  color: #ff3399;
-  text-shadow: 2px 2px #ffffff, 0 0 6px #ff66cc;
-  margin-bottom: 20px;
-  animation: colorCycle 3s infinite alternate;
-}
+  .window-titlebar {
+    background: #000080; /* Classic Blue Titlebar */
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: "Tahoma", "Arial", sans-serif;
+    font-size: 12px;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-@keyframes colorCycle {
-  0% { color: #ff3399; }
-  25% { color: #ff66b2; }
-  50% { color: #ff99cc; }
-  75% { color: #ff3399; }
-  100% { color: #ff66b2; }
-}
+  .window-title-pink {
+    background: #FF1493; /* Y2K Pink Variant Titlebar */
+  }
 
-.splash-stars {
-  margin: 15px 0;
-  font-size: 1.5rem;
-  color: gold;
-  animation: starsTwinkle 1.2s infinite alternate;
-}
+  .window-btn {
+    background-color: #ECE9D8;
+    color: #000000;
+    border: 1px outset #FFFFFF;
+    font-size: 9px;
+    font-family: sans-serif;
+    padding: 0px 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.splash-stars span:nth-child(even) { color: hotpink; }
+  /* Retro Sidebar Navigation Styling */
+  .nav-header {
+    background-color: #FF69B4;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px;
+    font-size: 13px;
+    border: 2px outset #FFB6C1;
+  }
 
-@keyframes starsTwinkle {
-  0% { opacity: 0.6; transform: rotate(0deg) scale(1); }
-  50% { opacity: 1; transform: rotate(15deg) scale(1.2); }
-  100% { opacity: 0.6; transform: rotate(-15deg) scale(1); }
-}
+  .nav-box {
+    background-color: #FFF0F5;
+    border: 2px inset #FFFFFF;
+    padding: 6px;
+    margin-bottom: 10px;
+  }
 
-#splash button {
-  padding: 14px 28px;
-  font-size: 1.2rem;
-  border-radius: 12px;
-  border: 3px double hotpink;
-  background: #ff99cc;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 12px #ff66cc, 0 0 20px #ff3399;
-  transition: all 0.2s ease;
-}
+  .nav-box ul {
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 5px 0px;
+  }
 
-#splash button:hover {
-  background: #ff66b2;
-  color: #fff;
-  transform: scale(1.1);
-  box-shadow: 0 0 18px #ff66cc, 0 0 25px #ff3399;
-}
+  .nav-box li {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
 
-/* ----- TOP SCROLLING BANGER ----- */
-.top-banger {
-  width: 100%;
-  height: 120px; 
-  overflow: hidden;
-  border: 3px ridge #ff66cc;
-  background: #ffe6f0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
-}
-.scrolling-banger-wrapper {
-  display: flex;
-  width: max-content;
-  animation: scrollBanger 15s linear infinite;
-}
-.scrolling-banger-wrapper img {
-  height: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-  margin: 0;
-}
-@keyframes scrollBanger {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+  /* Center Content Area */
+  .content-box {
+    background-color: #FFFFFF;
+    border: 2px inset #ECE9D8;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
 
-/* ----- MAIN FLEX CONTAINER ----- */
-.main-container {
-  flex: 1;
-  display: flex;
-  gap: 20px;
-  max-width: 1400px;
-  width: 95%;
-  margin: 0 auto 20px auto;
-  align-items: flex-start;
-}
+  /* Y2K Blink Effect */
+  .blink {
+    animation: blinker 1s linear infinite;
+    color: #FF007F;
+    font-weight: bold;
+  }
+  @keyframes blinker {
+    50% { opacity: 0; }
+  }
 
-/* ----- DROP DOWN SIDEBARS ----- */
-.sidebar, .right-panel {
-  width: 240px;
-  background: #fcf0f5;
-  padding: 10px;
-  border: 3px outset #ffb3d9;
-  box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-}
+  /* Old-school buttons */
+  .retro-btn {
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    background-color: #ECE9D8;
+    border: 2px outset #FFFFFF;
+    padding: 3px 8px;
+    cursor: pointer;
+  }
+  .retro-btn:active {
+    border: 2px inset #FFFFFF;
+  }
 
-.sidebar img.logo {
-  width: 120px;
-  margin: 10px auto 20px auto;
-  border-radius: 50%;
-  border: 2px dashed hotpink;
-  animation: spin 8s linear infinite;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Accordion Component Styles */
-.dropdown-section {
-  margin-bottom: 6px;
-  text-align: left;
-  border: 2px inset #fff;
-  background: #ffe6f0;
-}
-
-.dropdown-header {
-  background: linear-gradient(90deg, #ff66b2, #ff99cc);
-  color: white;
-  padding: 6px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-  font-size: 0.95rem;
-  text-shadow: 1px 1px 0px #b30059;
-}
-
-.dropdown-header::after {
-  content: '▼';
-  font-size: 0.7rem;
-  transition: transform 0.2s ease;
-}
-
-.dropdown-section.active .dropdown-header::after {
-  transform: rotate(-180deg);
-}
-
-.dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s ease-out;
-  display: flex;
-  flex-direction: column;
-  background: #fff0f5;
-}
-
-.dropdown-section.active .dropdown-content {
-  max-height: 350px;
-}
-
-.dropdown-content a, .dropdown-content button {
-  padding: 8px 12px;
-  color: #4B0082;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  border-bottom: 1px dashed #ffcce6;
-  background: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  text-align: left;
-  cursor: pointer;
-  width: 100%;
-  box-sizing: border-box;
-  font-family: inherit;
-}
-
-.dropdown-content a:hover, .dropdown-content button:hover {
-  background: #ffccff;
-  color: #ff007f;
-  padding-left: 16px;
-  transition: all 0.15s ease;
-}
-
-/* ----- CENTER CONTENT ----- */
-.center-content {
-  flex: 2;
-  text-align: center;
-  padding: 0 10px;
-}
-.center-content img#center-img {
-  width: 100%;
-  max-width: 600px;
-  border: 4px inset #ff99cc;
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-}
-
-/* ----- Y2K WINAMP / OS WELCOME PANEL ----- */
-.y2k-window {
-  background: #f3f3f3;
-  border: 3px outset #fff;
-  box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
-  margin: 20px auto;
-  max-width: 650px;
-  text-align: left;
-}
-
-.y2k-title-bar {
-  background: linear-gradient(90deg, #ff007f, #ff66cc);
-  padding: 4px 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-}
-
-.y2k-title-text {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.y2k-window-buttons {
-  display: flex;
-  gap: 3px;
-}
-
-.y2k-btn {
-  background: #f3f3f3;
-  border: 1px outset #fff;
-  width: 16px;
-  height: 16px;
-  font-size: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.y2k-content {
-  padding: 15px;
-  background: #ffd6e8;
-  border: 2px inset #fff;
-  margin: 4px;
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
-}
-
-.y2k-content img {
-  width: 90px;
-  border: 2px inset #fff;
-  background: white;
-}
-
-.y2k-text-box {
-  flex: 1;
-}
-
-.y2k-text-box p {
-  margin: 0 0 10px 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.y2k-text-box p:last-child {
-  margin-bottom: 0;
-}
-
-span.heart { 
-  color: hotpink; 
-  display: inline-block;
-  animation: pulse 1.5s infinite; 
-}
-@keyframes pulse { 
-  0% { transform: scale(1); } 
-  50% { transform: scale(1.3); } 
-  100% { transform: scale(1); } 
-}
-
-/* ----- RIGHT PANEL EXTRAS ----- */
-.right-panel p { margin: 8px 0; text-align: center; font-size: 0.9rem; }
-.panel-title {
-  background: #ff66b2;
-  color: white;
-  padding: 4px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  margin-bottom: 10px !important;
-  border: 2px inset #fff;
-}
-
-#mini-gallery { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 10px 0; }
-.mini-gallery-frame { border: 2px inset white; background: white; padding: 2px; display: inline-flex; }
-#mini-gallery img { width: 62px; height: 62px; object-fit: cover; }
-
-#visitor-count {
-  background: #fff0f5;
-  padding: 8px;
-  border: 2px inset #fff;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ----- SITE FOOTER ----- */
-.site-footer {
-  margin-top: auto;
-  padding: 18px;
-  text-align: center;
-  font-size: 13px;
-  color: #4B0082;
-  opacity: 0.75;
-}
-
-/* ----- TICKER ----- */
-@keyframes tickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-.bottom-image { text-align: center; margin: 30px 0 15px 0; }
-.bottom-image img { max-width: 45%; height: auto; border: 3px ridge #ff99cc; box-shadow: 4px 4px 0px rgba(0,0,0,0.1); }
-
+  /* Hit Counter Display */
+  .odometer {
+    background-color: #000000;
+    color: #00FF00;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    padding: 3px 6px;
+    border: 2px inset #808080;
+    letter-spacing: 2px;
+    display: inline-block;
+  }
 </style>
 </head>
 <body>
 
-<div id="splash">
-  <div class="splash-bg">
-    <img src="01-1.jpg.gif" alt="Baby VOX" class="splash-img">
-    <h1>💖 Welcome to the Baby V.O.X Fansite! 💖</h1>
-    <marquee behavior="scroll" direction="left" scrollamount="10" style="color: hotpink; font-weight:bold; font-size:1.2rem; text-shadow: 1px 1px 2px white;">
-      ✨ New Updates, Gallery Pics & Fun Facts! ✨
-    </marquee>
-    <div class="splash-stars">
-      <span>★</span><span>☆</span><span>★</span><span>☆</span><span>★</span>
-    </div>
-    <button id="enter-site">Enter Site</button>
-  </div>
-</div>
-
-<div class="top-banger">
-  <div class="scrolling-banger-wrapper">
-    <img src="lee_4th37.jpg" alt="Baby V.O.X Banger">
-    <img src="lee_4th37.jpg" alt="Baby V.O.X Banger">
-    <img src="lee_4th37.jpg" alt="Baby V.O.X Banger">
-    <img src="lee_4th37.jpg" alt="Baby V.O.X Banger">
-  </div>
-</div>
-
-<div class="main-container">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
   
-  <div class="sidebar">
-    <img class="logo" src="babyvox.logo.2.svg" alt="Baby VOX Logo">
+  <tr>
+    <td colspan="3" align="center">
+      
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ Baby V.O.X Heaven - Main Hub ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #FFE4E1; padding: 15px;">
+            <font size="6" color="#FF1493" face="Comic Sans MS"><b>~*~ Baby V.O.X World ~*~</b></font><br>
+            <font size="2" color="#4B0082"><b>-- The #1 Fan Resource for Korea's Pop Queens! --</b></font>
+            <br><br>
+            <table width="90%" border="1" bordercolor="#FF69B4" bgcolor="#FFFFFF" cellpadding="3">
+              <tr>
+                <td>
+                  <marquee behavior="scroll" direction="left" scrollamount="4">
+                    <font size="2" color="#FF007F">
+                      ✨ <b>WELCOME BABY ANGELS!</b> ✨ Best viewed in <b>Netscape Navigator 4.0+</b> or <b>IE 5.0</b> at 800x600 resolution! 💖 Don't forget to sign my Guestbook before you leave! 💖
+                    </font>
+                  </marquee>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+
+  <tr valign="top">
     
-    <div class="dropdown-section active">
-      <div class="dropdown-header" onclick="toggleDropdown(this)">Main Hub</div>
-      <div class="dropdown-content">
-        <a href="index.html">🏠 Home</a>
-        <a href="members.html">👑 Members</a>
-        <a href="history.html">📜 History</a>
-        <a href="bias.html">💖 My Bias</a>
-      </div>
-    </div>
+    <td width="200">
+      
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 6px;">
+          
+          <div class="nav-header">:: MAIN HUB ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="index.html">Home / Main</a></li>
+              <li><a href="members.html">Members Profile</a></li>
+              <li><a href="history.html">Group History</a></li>
+              <li><a href="bias.html">My Bias Page</a></li>
+            </ul>
+          </div>
 
-    <div class="dropdown-section">
-      <div class="dropdown-header" onclick="toggleDropdown(this)">Media Vault</div>
-      <div class="dropdown-content">
-        <a href="gallery.html">🖼️ Gallery</a>
-        <a href="videos.html">📹 Videos</a>
-        <a href="discography.html">💿 Discography</a>
-        <a href="fanart.html">🎨 Fan Art</a>
-      </div>
-    </div>
+          <div class="nav-header">:: MEDIA VAULT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="videos.html">MV & Live Clips</a></li>
+              <li><a href="discography.html">Discography</a></li>
+              <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
+            </ul>
+          </div>
 
-    <div class="dropdown-section">
-      <div class="dropdown-header" onclick="toggleDropdown(this)">Interact</div>
-      <div class="dropdown-content">
-        <a href="links.html">🔗 Links</a>
-        <a href="newsletter.html">✉️ Newsletter</a>
-        <a href="guestbook.html">📖 Guestbook</a>
-        <a href="blog.html">✍️ V.O.X Blog</a>
-        <button onclick="showRandomFact()">🎲 Random Fact</button>
-      </div>
-    </div>
-  </div>
+          <div class="nav-header">:: INTERACT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="guestbook.html">Sign Guestbook</a></li>
+              <li><a href="links.html">Webring / Links</a></li>
+              <li><a href="blog.html">Weblog</a></li>
+              <li><a href="javascript:showRandomFact()">Random Fact</a></li>
+            </ul>
+          </div>
 
-  <div class="center-content">
-    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-      <img src="IMG_2504.gif" alt="Left GIF" style="width:80px; height:80px; margin-right:10px;">
-      <div style="overflow: hidden; white-space: nowrap; flex: 1;">
-        <p id="ticker-text" style="display:inline-block; color:#ff3399; font-weight:bold; font-size:1.2rem; animation:tickerMove 15s linear infinite;">
-          🎀 Welcome Baby Angels! Come see my fansite it'll be much appreciated! 🎀
-        </p>
-      </div>
-      <img src="IMG_2505.gif" alt="Right GIF" style="width:80px; height:80px; margin-left:10px;">
-    </div>
-
-    <img id="center-img" src="01-1.jpg.gif" alt="Baby VOX Center">
-    
-    <div class="y2k-window">
-      <div class="y2k-title-bar">
-        <div class="y2k-title-text">✨ Baby_Angels_Welcome.exe</div>
-        <div class="y2k-window-buttons">
-          <div class="y2k-btn">_</div>
-          <div class="y2k-btn">□</div>
-          <div class="y2k-btn" style="background:#ff3366; color:white;">X</div>
         </div>
       </div>
-      <div class="y2k-content">
-        <img src="BV.gif" alt="BV GIF">
-        <div class="y2k-text-box">
-          <p id="welcome-text-target">💖 Hey Baby Angels! 💖</p>
-          <p>Welcome to the ultimate Baby V.O.X fansite — a sparkling corner of the web where we celebrate our favorite K-pop legends from 1997–2006!</p>
-          <p>✨ Explore galleries, videos, fun facts, and even some behind-the-scenes gems!</p>
-          <p>💫 Don’t forget to check the fanart section and share your love if you’re feeling inspired! <span class="heart">♥</span></p>
+
+      <table width="100%" class="netscape-window" cellpadding="4" cellspacing="0">
+        <tr><td class="window-titlebar">Site Badges</td></tr>
+        <tr>
+          <td align="center" style="background-color: #FFF0F5;">
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#000000">
+              <tr>
+                <td><font size="1" color="#00FF00" face="sans-serif"><b>NETSCAPE<br>NAVIGATOR</b></font></td>
+              </tr>
+            </table>
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#0000FF">
+              <tr>
+                <td><font size="1" color="#FFFFFF" face="sans-serif"><b>NIE 5.0<br>COMPATIBLE</b></font></td>
+              </tr>
+            </table>
+            <br>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+
+    <td width="*">
+      
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>welcome_baby_angels.html</span>
+        </div>
+        <div class="content-box">
+          
+          <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <font size="4" color="#FF1493"><b>Welcome to Baby V.O.X Heaven!</b></font> 
+                <span class="blink">NEW!</span>
+                <hr size="1" color="#FF69B4">
+              </td>
+            </tr>
+          </table>
+
+          <table align="right" border="2" bordercolor="#FF69B4" cellpadding="3" cellspacing="0" style="margin-left: 10px; margin-bottom: 5px;">
+            <tr>
+              <td align="center" bgcolor="#FFF0F5">
+                <img src="01-1.jpg.gif" width="180" alt="Baby VOX Main Photo"><br>
+                <font size="1" color="#800080"><b>Baby V.O.X (1997-2006)</b></font>
+              </td>
+            </tr>
+          </table>
+
+          <p id="welcome-text-target">
+            <font color="#000080">
+              <b>Hello & welcome!</b> You have landed on the ultimate fansite dedicated to the legendary K-pop girl group <b>Baby V.O.X</b> (Baby Voices of Xpression)!
+            </font>
+          </p>
+
+          <p>
+            Whether you've been a fan since their 1997 debut or just discovered their classic hits like <i>"Get Up"</i>, <i>"Killer"</i>, and <i>"Coincidence"</i>, this site has everything you need! Take a look around the photo galleries, download wallpapers, and check back often for new updates!
+          </p>
+
+          <br>
+
+          <table width="100%" border="1" bordercolor="#FFB6C1" cellpadding="6" cellspacing="0" bgcolor="#FFF5F8">
+            <tr bgcolor="#FF69B4">
+              <td><font size="2" color="#FFFFFF"><b>📢 Latest Updates & Site News</b></font></td>
+            </tr>
+            <tr>
+              <td>
+                <font size="2">
+                  <b><u>Date: Feb 14, 2026</u></b><br>
+                  • Added new high-resolution scans to the <a href="gallery.html">Gallery</a>!<br>
+                  • Updated the <a href="blog.html">Weblog</a> with thoughts on recent reunion clips.<br>
+                  • Fixed broken links on the media page.
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <table width="100%" border="1" bordercolor="#ECE9D8" cellpadding="6" bgcolor="#ECE9D8">
+            <tr>
+              <td align="center">
+                <font size="2"><b>Select Site Language / 언어 선택:</b></font><br>
+                <select id="language-selector" style="font-family: Comic Sans MS; font-size: 11px;">
+                  <option value="en">English</option>
+                  <option value="ko">Korean (한국어)</option>
+                  <option value="zh">Chinese (中文)</option>
+                  <option value="ja">Japanese (日本語)</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="right-panel">
-    <div class="panel-title">SYSTEM TIME</div>
-    <div id="local-clock" style="font-family: monospace; font-size: 1.1rem; color: black; margin-bottom: 10px; font-weight: bold;"></div>
-    
-    <div class="panel-title">UPDATES</div>
-    <p id="last-update"><strong>Last Update:</strong> 14/2/26 – added Blog page and updated member galleries</p>
-    
-    <div class="panel-title">LANGUAGE</div>
-    <select id="language-selector" style="width: 100%; padding: 4px; font-family: inherit; margin-bottom: 10px;">
-      <option value="en">English</option>
-      <option value="ko">Korean</option>
-      <option value="zh">Chinese</option>
-      <option value="ja">Japanese</option>
-    </select>
-    
-    <div class="panel-title">YOU ARE VISITOR</div>
-    <div id="visitor-count">
-      <a href='https://www.counters-free.net/'>COUNTER-free</a>
-      <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
-      <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
-    </div>
+    </td>
 
-    <div class="panel-title">MINI GALLERY</div>
-    <div id="mini-gallery"></div>
-    
-    <div class="dropdown-section active" style="width:100%; border:none; background:none; margin-top:10px;">
-      <div class="dropdown-header" onclick="toggleDropdown(this)">Bonus Modules</div>
-      <div class="dropdown-content" style="background:none;">
-        <button onclick="window.location.href='gallery.html'">View Full Gallery</button>
-        <button onclick="window.location.href='member-of-the-day.html'">Member of Day</button>
-        <button onclick="window.location.href='quiz.html'">Quiz of Week</button>
-        <button class="gallery-btn" onclick="window.location.href='index-mobile.html'">Mobile Version</button>
+    <td width="190">
+      
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">System Time</div>
+        <div style="padding: 8px; text-align: center; background-color: #FFFFFF;">
+          <font size="1" face="Courier New" color="#000000"><b>YOUR LOCAL TIME:</b></font><br>
+          <div id="local-clock" style="font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; color: #FF0000; margin-top: 4px;"></div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="bottom-image">
-  <img src="vox1125.jpeg" alt="Baby V.O.X Feature">
-</div>
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Visitor Counter</div>
+        <div style="padding: 8px; text-align: center; background-color: #FFF0F5;">
+          <font size="1">You are visitor no:</font><br><br>
+          <div class="odometer">0 8 2 4 9 1</div>
+          <br><br>
+          <font size="1" color="#808080">Since Nov 2001</font>
+        </div>
+      </div>
 
-<footer class="site-footer">
-  <p>Non-official fansite • Built with ❤️ on GitHub Pages</p>
-</footer>
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Mini Gallery</div>
+        <div style="padding: 6px; text-align: center; background-color: #FFFFFF;">
+          <div id="mini-gallery"></div>
+          <font size="1"><a href="gallery.html">[View Full Gallery]</a></font>
+        </div>
+      </div>
+
+      <div class="netscape-window">
+        <div class="window-titlebar">MIDI Player</div>
+        <div style="padding: 6px; text-align: center; background-color: #ECE9D8;">
+          <font size="1"><b>Now Playing:</b><br>BabyVOX_GetUp.mid</font><br><br>
+          <button class="retro-btn">▶ Play</button>
+          <button class="retro-btn">■ Stop</button>
+        </div>
+      </div>
+
+    </td>
+
+  </tr>
+
+  <tr>
+    <td colspan="3" align="center">
+      <br>
+      <hr size="1" color="#FF69B4">
+      <font size="1" face="Verdana" color="#4B0082">
+        Baby V.O.X Fanpage • Best viewed with 800x600 resolution and 16-bit color.<br>
+        This site is an unofficial fan page created for entertainment purposes. No copyright infringement intended.<br>
+        Hosted on <b>GitHub Pages</b> / Built with HTML tables & ❤️
+      </font>
+      <br><br>
+    </td>
+  </tr>
+
+</table>
 
 <script>
-// ----- DROP DOWN ACCORDION TOGGLE LOGIC -----
-function toggleDropdown(headerElement) {
-  const section = headerElement.parentElement;
-  section.classList.toggle('active');
-}
-
-// ----- SPLASH -----
-const splash = document.getElementById('splash');
-const enterButton = document.getElementById('enter-site');
-function hideSplash() { splash.style.display = 'none'; }
-if (!sessionStorage.getItem('splashShown')) { splash.style.display = 'flex'; } 
-else { splash.style.display = 'none'; }
-enterButton.addEventListener('click', () => { hideSplash(); sessionStorage.setItem('splashShown','true'); });
-
-// ----- MINI GALLERY -----
-const galleryImages = ["EZ56.jpg","Heejin56.jpg","MIYOUN49.jpg","Eunjin12_upscaled.jpg","EUNHYE10.jpg"];
+// ----- MINI GALLERY (Populates retro frame) -----
+const galleryImages = ["EZ56.jpg", "Heejin56.jpg", "MIYOUN49.jpg", "Eunjin12_upscaled.jpg", "EUNHYE10.jpg"];
 const miniGallery = document.getElementById('mini-gallery');
-galleryImages.sort(() => 0.5 - Math.random()).slice(0,3).forEach(src => {
-  const containerFrame = document.createElement('div');
-  containerFrame.className = 'mini-gallery-frame';
-  const link = document.createElement('a'); link.href = src; link.target="_blank";
-  const img = document.createElement('img'); img.src = src;
-  link.appendChild(img); containerFrame.appendChild(link); miniGallery.appendChild(containerFrame);
+
+galleryImages.sort(() => 0.5 - Math.random()).slice(0, 2).forEach(src => {
+  const link = document.createElement('a');
+  link.href = src;
+  link.target = "_blank";
+  
+  const img = document.createElement('img');
+  img.src = src;
+  img.width = 65;
+  img.height = 65;
+  img.style.border = "2px inset #FFFFFF";
+  img.style.margin = "2px";
+  
+  link.appendChild(img);
+  miniGallery.appendChild(link);
 });
 
 // ----- RANDOM FACTS -----
 const facts = [
   "Baby V.O.X stands for 'Baby Voices of Xpression'.",
-  "They debuted in 1997 and helped pioneer the Korean Wave.",
-  "Their hit 'Get Up' helped the group rise to the top charts.",
-  "All five final members reunited at the 2024 KBS Song Festival.",
-  "First solo concert in 23 years: September 26–27, 2025."
+  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
+  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
+  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
 ];
-function showRandomFact() { const randomIndex = Math.floor(Math.random()*facts.length); alert(facts[randomIndex]); }
+
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  alert("✨ BABY V.O.X FACT ✨\n\n" + facts[randomIndex]);
+}
 
 // ----- LANGUAGE SELECTOR -----
 const welcomeMessages = {
-  en: "💖 Hey Baby Angels! 💖 Welcome to the ultimate Baby V.O.X fansite!",
+  en: "💖 Hey Baby Angels! Welcome to the ultimate Baby V.O.X fansite!",
   ko: "💖 베이비복스 팬사이트에 오신 것을 환영합니다! 💖",
-  zh: "💖 欢迎来到Baby V.O.X粉丝站! 💖",
-  ja: "💖 Baby V.O.Xファンサイトへようこそ! 💖"
+  zh: "💖 欢迎来到 Baby V.O.X 粉丝站! 💖",
+  ja: "💖 Baby V.O.X ファンサイトへようこそ! 💖"
 };
+
 const langSelector = document.getElementById('language-selector');
 langSelector.addEventListener('change', e => {
-  document.getElementById("welcome-text-target").textContent = welcomeMessages[e.target.value];
+  document.getElementById("welcome-text-target").innerHTML = "<b>" + welcomeMessages[e.target.value] + "</b>";
 });
-document.getElementById("welcome-text-target").textContent = welcomeMessages["en"];
 
 // ----- LOCAL CLOCK -----
 function updateClock() {
   const clockEl = document.getElementById('local-clock');
   const now = new Date();
-  const hours = String(now.getHours()).padStart(2,'0');
-  const minutes = String(now.getMinutes()).padStart(2,'0');
-  const seconds = String(now.getSeconds()).padStart(2,'0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
   clockEl.textContent = `${hours}:${minutes}:${seconds}`;
 }
 setInterval(updateClock, 1000);
