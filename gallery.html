@@ -1,221 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby V.O.X Gallery</title>
-  <style>
-    body {
-      font-family: "Comic Sans MS", "Courier New", sans-serif;
-      /* Signature Y2K diagonal grid lines matching the rest of the shrine */
-      background: repeating-linear-gradient(
-        45deg,
-        #ffd6e8,
-        #ffd6e8 15px,
-        #ffe3f0 15px,
-        #ffe3f0 30px
-      );
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      color: #4B0082;
-    }
+<meta charset="UTF-8">
+<title>Netscape Communicator - [ Baby V.O.X - Photo Gallery Vault ]</title>
+<style>
+  /* Classic Web 1.0 Typography & Background Tiles */
+  body {
+    background-color: #FFE6F2;
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw=='); /* Tiny pixel grid tile */
+    font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+    color: #000080;
+    margin: 10px;
+    padding: 0;
+  }
 
-    /* 🛸 Spinning Logo with Drop Shadow */
-    .logo {
-      width: 100px;
-      margin: 20px auto 5px auto;
-      display: block;
-      filter: drop-shadow(2px 2px 0px #ff0080);
-      animation: spin 6s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
+  /* Link Styling (High-Contrast Underlines) */
+  a:link { color: #0000FF; text-decoration: underline; font-weight: bold; }
+  a:visited { color: #800080; text-decoration: underline; }
+  a:hover { color: #FF007F; background-color: #FFFF99; }
+  a:active { color: #FF0000; }
 
-    /* 🎤 3D Pop Title Style */
-    h1 {
-      color: #ffffff;
-      font-size: 38px;
-      font-family: "Arial Black", Impact, sans-serif;
-      text-transform: uppercase;
-      margin-top: 10px;
-      margin-bottom: 5px;
-      -webkit-text-stroke: 1.5px #4B0082;
-      text-shadow: 2px 2px 0px #ff0080, 4px 4px 0px #4B0082;
-    }
+  /* Authentic Netscape / Windows OS Window Styling */
+  .netscape-window {
+    background-color: #ECE9D8; /* Classic Windows Gray */
+    border: 3px outset #FFFFFF;
+  }
 
-    /* 📣 Scrolling Ticker */
-    marquee {
-      max-width: 650px;
-      background: #4B0082;
-      color: #00ffcc;
-      font-family: "Courier New", monospace;
-      font-weight: bold;
-      font-size: 13px;
-      padding: 5px;
-      border: 2px inset #ff80bf;
-      margin: 10px auto;
-      display: block;
-    }
+  .window-titlebar {
+    background: #000080; /* Classic Blue Titlebar */
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: "Tahoma", "Arial", sans-serif;
+    font-size: 12px;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    p.instruction {
-      font-family: "Courier New", monospace;
-      font-weight: bold;
-      font-size: 14px;
-      color: #ff0066;
-      background: #ffffff;
-      display: inline-block;
-      padding: 4px 10px;
-      border: 1px dashed #ff80bf;
-      margin-bottom: 20px;
-    }
+  .window-title-pink {
+    background: #FF1493; /* Y2K Pink Titlebar Variant */
+  }
 
-    /* 📦 Outset Vintage Windows Explorer Frame */
-    .gallery-frame {
-      display: inline-block;
-      max-width: 650px;
-      border: 5px outset #ffb3d1;
-      padding: 25px;
-      background: #ffffff;
-      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
-      margin-bottom: 30px;
-    }
+  .window-btn {
+    background-color: #ECE9D8;
+    color: #000000;
+    border: 1px outset #FFFFFF;
+    font-size: 9px;
+    font-family: sans-serif;
+    padding: 0px 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-    /* 🎛️ Clean 3-Column Grid Layout */
-    .gallery-icons {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 25px;
-    }
+  /* Content Boxes */
+  .content-box {
+    background-color: #FFFFFF;
+    border: 2px inset #ECE9D8;
+    padding: 12px;
+  }
 
-    /* 🗂️ Interactive Album Items */
-    .gallery-item {
-      background: #fff5fa;
-      border: 2px ridge #ff80bf;
-      padding: 10px;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.2s;
-    }
+  /* Authentic Web 1.0 Album Folder Card (Native 3D Outset Box) */
+  .gallery-card {
+    background-color: #FFF0F5;
+    border: 3px outset #FFFFFF;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
 
-    .gallery-item:hover {
-      background: #ffe6f2;
-      transform: scale(1.05);
-    }
+  .gallery-card:hover {
+    background-color: #FFE6F0;
+    border: 3px inset #FFFFFF;
+  }
 
-    .gallery-item img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border: 3px inset #ff0080;
-      background: #ffffff;
-      box-shadow: 2px 2px 0px #4B0082;
-      display: block;
-      margin: 0 auto 8px auto;
-    }
+  /* Recessed Image Frame */
+  .gallery-thumb {
+    border: 2px inset #FFFFFF;
+    background-color: #FFFFFF;
+    padding: 3px;
+  }
 
-    /* 🏷️ Micro Text Labels */
-    .gallery-item span {
-      font-family: "Arial Black", sans-serif;
-      font-size: 12px;
-      color: #4B0082;
-      text-transform: uppercase;
-      display: block;
-    }
+  /* Operating System Push Buttons */
+  .retro-btn {
+    font-family: "Tahoma", "MS Sans Serif", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: #ECE9D8;
+    border: 2px outset #FFFFFF;
+    padding: 4px 12px;
+    cursor: pointer;
+    color: #000000;
+  }
 
-    /* 🕹️ Retro Beveled Push-Buttons */
-    .back-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      font-weight: bold;
-      background: #ff80bf;
-      color: white !important;
-      border-top: 3px solid #ffb3d9;
-      border-left: 3px solid #ffb3d9;
-      border-right: 3px solid #cc0066;
-      border-bottom: 3px solid #cc0066;
-      box-shadow: 1px 1px 0px #000000;
-      cursor: pointer;
-      font-size: 14px;
-      font-family: "Comic Sans MS", sans-serif;
-    }
+  .retro-btn:active {
+    border: 2px inset #FFFFFF;
+  }
 
-    .back-btn:hover {
-      background: #ff47a3;
-      border-top: 3px solid #cc0066;
-      border-left: 3px solid #cc0066;
-      border-right: 3px solid #ffb3d9;
-      border-bottom: 3px solid #ffb3d9;
-    }
-
-    /* Responsive shift for small windows */
-    @media (max-width: 550px) {
-      .gallery-icons {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+  /* Blinking Text Effect */
+  .blink {
+    animation: blinker 1s linear infinite;
+    color: #FF007F;
+    font-weight: bold;
+  }
+  @keyframes blinker {
+    50% { opacity: 0; }
+  }
+</style>
 </head>
 <body>
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+  
+  <tr>
+    <td colspan="2" align="center">
+      
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ photo_gallery_vault.exe ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #FFE4E1; padding: 15px;">
+            <font size="6" color="#FF1493" face="Comic Sans MS"><b>~*~ Baby V.O.X Photo Gallery ~*~</b></font><br>
+            <font size="2" color="#4B0082"><b>-- High-Resolution Scans, Live Clips & Magazine Vault --</b></font>
+            <br><br>
+            
+            <table width="90%" border="1" bordercolor="#FF69B4" bgcolor="#FFFFFF" cellpadding="3">
+              <tr>
+                <td>
+                  <marquee behavior="scroll" direction="left" scrollamount="4">
+                    <font size="2" color="#FF007F">
+                      ✨ <b>PHOTO ARCHIVE OVERFLOW!</b> ✨ Press photos, live show screencaps, and magazine scans updated daily! Click a folder below to open! ✨
+                    </font>
+                  </marquee>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-<h1>Baby V.O.X Gallery</h1>
+    </td>
+  </tr>
 
-<marquee scrollamount="4">
-  *** PHOTO ARCHIVE OVERFLOW * PRESS PHOTOS, LIVE SHOW SCREENCAPS, AND MAGAZINE SCANS UPDATED DAILY! ***
-</marquee>
-
-<p class="instruction">Select a media folder to view individual photo archives!</p>
-<br>
-
-<div class="gallery-frame">
-  <div class="gallery-icons">
+  <tr valign="top">
     
-    <div class="gallery-item" onclick="openGallery('group.html')">
-      <img src="voxicon.gif" alt="Baby VOX Group">
-      <span>[ Group Clip ]</span>
-    </div>
+    <td width="180">
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 8px; background-color: #FFF0F5;">
+          <font size="2">
+            <b>:: MAIN MENU ::</b><br>
+            • <a href="index.html">◀ Back to Home</a><br>
+            • <a href="members.html">Members Directory</a><br>
+            • <a href="videos.html">Video Vault</a><br><br>
+            <b>:: ARCHIVE STATUS ::</b><br>
+            <font color="#008000"><b>● 6 FOLDERS ONLINE</b></font>
+          </font>
+        </div>
+      </div>
 
-    <div class="gallery-item" onclick="openGallery('ez.html')">
-      <img src="9AC44AF6-F2D0-4737-B57D-6235A6A88451.gif" alt="Kim EZ">
-      <span>[ Kim EZ ]</span>
-    </div>
+      <div class="netscape-window">
+        <div class="window-titlebar">Gallery Badge</div>
+        <div style="padding: 10px; text-align: center; background-color: #FFFFFF;">
+          <img src="babyvox.logo.2.svg" width="70" alt="Baby V.O.X Logo" style="border: 1px inset #FFFFFF;"><br><br>
+          <font size="1" color="#800080"><b>Official Symbol</b></font>
+        </div>
+      </div>
+    </td>
 
-    <div class="gallery-item" onclick="openGallery('heejin.html')">
-      <img src="9EF6FA94-5256-4BC8-A5CA-C81C1452A5CC.gif" alt="Lee Heejin">
-      <span>[ Lee Heejin ]</span>
-    </div>
+    <td width="*">
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>photo_archive_directories.html</span>
+        </div>
+        <div class="content-box" align="center">
+          
+          <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <font size="4" color="#FF1493"><b>-= Select Media Directory =-</b></font> 
+                <span class="blink">UPDATED!</span>
+                <hr size="1" color="#FF69B4">
+              </td>
+            </tr>
+          </table>
 
-    <div class="gallery-item" onclick="openGallery('eunjin.html')">
-      <img src="IMG_2304.jpeg" alt="Shim Eun Jin">
-      <span>[ Shim Eun Jin ]</span>
-    </div>
+          <p align="center">
+            <font size="2" color="#000080">Click on any album folder icon below to inspect individual photo archives:</font>
+          </p>
 
-    <div class="gallery-item" onclick="openGallery('eunhye.html')">
-      <img src="D96498F8-FF33-4F95-9B2F-B582920044C0.gif" alt="Yoon Eun Hye">
-      <span>[ Eun Hye ]</span>
-    </div>
+          <table width="100%" border="0" cellpadding="8" cellspacing="6">
+            <tr>
+              
+              <td width="33%" align="center">
+                <div class="gallery-card" onclick="window.location.href='group.html'">
+                  <img src="voxicon.gif" width="100" height="100" alt="Group Clip" class="gallery-thumb"><br><br>
+                  <font size="2" color="#FF007F"><b>[ Group Clip ]</b></font>
+                </div>
+              </td>
 
-    <div class="gallery-item" onclick="openGallery('miyoun.html')">
-      <img src="7461FA96-C93D-4E07-8140-E2F68988762F.gif" alt="Kan Mi Youn">
-      <span>[ Mi Youn ]</span>
-    </div>
+              <td width="33%" align="center">
+                <div class="gallery-card" onclick="window.location.href='ez.html'">
+                  <img src="9AC44AF6-F2D0-4737-B57D-6235A6A88451.gif" width="100" height="100" alt="Kim EZ" class="gallery-thumb"><br><br>
+                  <font size="2" color="#FF007F"><b>[ Kim EZ ]</b></font>
+                </div>
+              </td>
 
-  </div>
+              <td width="33%" align="center">
+                <div class="gallery-card" onclick="window.location.href='heejin.html'">
+                  <img src="9EF6FA94-5256-4BC8-A5CA-C81C1452A5CC.gif" width="100" height="100" alt="Lee Heejin" class="gallery-thumb"><br><br>
+                  <font size="2" color="#FF007F"><b>[ Lee Heejin ]</b></font>
+                </div>
+              </td>
 
-  <button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
-</div>
+            </tr>
 
-<script>
-function openGallery(url) {
-  window.location.href = url;
-}
-</script>
+            <tr>
+              
+              <td width="33%" align="center">
+                <div class="gallery-card" onclick="window.location.href='eunjin.html'">
+                  <img src="IMG_2304.jpeg" width="100" height="100" alt="Shim Eun Jin" class="gallery-thumb"><br><br>
+                  <font size="2" color="#FF007F"><b>[ Shim Eun Jin ]</b></font>
+                </div>
+              </td>
+
+              <td width="33%" align="center">
+                <div class="gallery-card" onclick="window.location.href='eunhye.html'">
+                  <img src="D96498F8-FF33-4F95-9B2F-B582920044C0.gif" width="100" height="100" alt="Yoon Eun Hye" class="gallery-thumb"><br><br>
+                  <font size="2" color="#FF007F"><b>[ Eun Hye ]</b></font>
+                </div>
+              </td>
+
+              <td width="33%" align="center">
+                <div class="gallery-card" onclick="window.location.href='miyoun.html'">
+                  <img src="7461FA96-C93D-4E07-8140-E2F68988762F.gif" width="100" height="100" alt="Kan Mi Youn" class="gallery-thumb"><br><br>
+                  <font size="2" color="#FF007F"><b>[ Mi Youn ]</b></font>
+                </div>
+              </td>
+
+            </tr>
+          </table>
+
+          <br><br>
+
+          <button class="retro-btn" onclick="window.location.href='index.html'">◀ RETURN TO MAIN HUB</button>
+
+        </div>
+      </div>
+    </td>
+
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center">
+      <br>
+      <hr size="1" color="#FF69B4">
+      <font size="2" face="Verdana" color="#4B0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
+
+</table>
 
 </body>
 </html>
