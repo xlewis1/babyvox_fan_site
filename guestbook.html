@@ -7,281 +7,178 @@
 <title>Baby V.O.X Guestbook</title>
 
 <style>
-/* ---------- BODY & GENERATED CYBER SCANLINES ---------- */
+/* ---------- NETSCAPE 1.0 / 4.0 STYLING ---------- */
 body {
-  margin: 0;
-  padding: 20px;
-  font-family: 'Comic Sans MS', Arial, sans-serif;
-  color: #1a0033;
-  text-align: center;
-  overflow-x: hidden;
-
-  /* Y2K Cyber-pop theme background */
-  background-image: 
-    linear-gradient(rgba(255, 20, 147, 0.04) 50%, rgba(0, 191, 255, 0.04) 50%),
-    linear-gradient(135deg, #ffe6f0, #f8e1ff);
-  background-size: 100% 4px, 100% 100%;
+  background-color: #c0c0c0;
+  background-image: url('bg_pattern.gif'); /* optional tile pattern */
+  color: #000000;
+  font-family: "Times New Roman", Times, serif;
+  margin: 10px;
 }
 
-/* ---------------- SPINNING LOGO ---------------- */
-.spinning-logo {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  width: 90px;
-  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
-  z-index: 100;
-  filter: drop-shadow(0 0 8px #ff1493);
-}
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+/* Links */
+a:link { color: #0000ff; }
+a:visited { color: #800080; }
+a:hover { color: #ff0000; }
 
-/* ---------------- CONTAINER ---------------- */
-.container {
-  max-width: 950px;
-  margin: 50px auto 40px;
-  padding: 25px;
-  border: 4px ridge #ff1493;
-  border-radius: 4px;
-  background: #ffffff;
-  box-shadow: 8px 8px 0px rgba(0, 191, 255, 0.2);
-  position: relative;
-}
-
-/* Header */
+/* Headers */
 h1 {
-  font-size: 42px;
-  margin: 10px 0;
-  color: #ff1493;
-  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #1a0033;
-  animation: neonGlow 2.5s infinite alternate;
-}
-@keyframes neonGlow {
-  0% { text-shadow: 0 0 4px #00bfff, 0 0 10px #ff1493, 2px 2px 0px #ffffff; }
-  100% { text-shadow: 0 0 8px #ff1493, 0 0 20px #00bfff, 2px 2px 0px #ffffff; }
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  color: #ff00ff;
+  text-shadow: 2px 2px #ffffff, -2px -2px #000000;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 5px;
 }
 
-/* ---------------- FLEX DECK (FORM & RULES) ---------------- */
-.deck {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 30px;
-  text-align: left;
+h2 {
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  font-size: 16px;
+  color: #000066;
+  margin-top: 0;
 }
 
-.form-box {
-  flex: 1.3;
-  min-width: 300px;
-  background: #ffffff;
-  padding: 20px;
-  border: 2px inset #ff1493;
-  border-radius: 4px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-  font-size: 15px;
-  color: #ff1493;
-}
-
+/* Form Elements */
 input, textarea {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  background-color: #ffffff;
+  border: 2px inset #000000;
+  padding: 3px;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px;
-  border: 1px solid #ff99cc;
-  background: #fff5fa;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  font-family: 'Comic Sans MS', Arial, sans-serif;
-  font-size: 14px;
-  color: #1a0033;
-}
-input:focus, textarea:focus {
-  outline: 2px solid #00bfff;
-  background: #ffffff;
+  margin-bottom: 8px;
 }
 
-/* Submit Button */
-button {
-  padding: 12px 25px;
-  font-size: 16px;
-  background: #ff1493;
-  color: white;
-  border: 3px outset #ff66cc;
-  border-radius: 4px;
-  cursor: pointer;
+/* Classic Button */
+button, input[type="submit"] {
+  font-family: 'Comic Sans MS', Arial, sans-serif;
   font-weight: bold;
-  box-shadow: 4px 4px 0px #1a0033;
-  transition: all 0.2s ease;
-  font-family: 'Comic Sans MS', Arial, sans-serif;
-}
-button:hover {
-  background: #00bfff;
-  border-color: #66ccff;
-  border-style: inset;
-  transform: translateY(2px);
-  box-shadow: 2px 2px 0px #1a0033;
-}
-
-/* Rules box */
-.rules-box {
-  flex: 1;
-  min-width: 280px;
-  background-color: #fdf6ff;
-  border-left: 4px solid #ff1493;
-  border-radius: 0 4px 4px 0;
-  padding: 20px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
-.rules-box h2 {
-  font-size: 18px;
-  margin-top: 0;
-  color: #ff1493;
-  border-bottom: 1px dashed #ff99cc;
-  padding-bottom: 5px;
-}
-.rules-box ol {
-  padding-left: 20px;
-  margin: 0;
-}
-.rules-box li {
-  margin-bottom: 10px;
   font-size: 13px;
-  font-weight: bold;
-  line-height: 1.5;
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+button:active, input[type="submit"]:active {
+  border-style: inset;
 }
 
-/* ---------------- MESSAGES MODULE ---------------- */
-#messages {
-  margin-top: 40px;
-  text-align: left;
-}
-#messages h2 {
-  font-size: 20px;
-  color: #ff1493;
-  background: #eaf8ff;
-  padding: 6px 15px;
-  border-radius: 4px;
-  border: 1px solid #00bfff;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
+/* Guestbook Message Entries */
 .message-box {
   background-color: #ffffff;
-  border: 2px inset #ff1493;
-  border-radius: 4px;
-  padding: 15px;
-  margin: 12px 0;
-  position: relative;
-  background-image: linear-gradient(rgba(0, 191, 255, 0.04) 1px, transparent 1px);
-  background-size: 100% 32px;
+  border: 2px inset #808080;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
 }
+
 .message-box h3 {
-  margin: 0 0 8px 0;
-  font-size: 15px;
-  color: #ff1493;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  margin: 0 0 5px 0;
+  font-size: 13px;
+  color: #800000;
+  border-bottom: 1px dotted #c0c0c0;
+  padding-bottom: 2px;
 }
+
 .message-box p {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
-/* ---------------- BACK HOME TRIGGER ---------------- */
-.back-home {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 10px 20px;
-  background: #330066;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  text-decoration: none;
-  border-radius: 4px;
-  border: 3px outset #5900b3;
-  box-shadow: 4px 4px 0px #ff1493;
-  transition: all 0.2s ease;
-}
-.back-home:hover {
-  background: #ff1493;
-  border-color: #ff66cc;
-  border-style: inset;
-  transform: translateY(2px);
-  box-shadow: 2px 2px 0px #330066;
-}
-
-/* Retro blinkies */
-.blinkie-container {
-  margin-top: 40px;
-}
-.blinkie-container img {
-  max-width: 200px;
-  height: auto;
-  border-radius: 4px;
+/* Spinning Logo Badge (Corner Table Cell substitute) */
+.spinning-logo {
+  width: 70px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 </style>
 </head>
+
 <body>
 
-<img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo" class="spinning-logo">
+<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#000066">
+  <tr>
+    <td>
+      <font color="#ffffff" face="Comic Sans MS" size="+2"><b>~* Baby V.O.X Official Guestbook *~</b></font>
+    </td>
+    <td align="right">
+      <font color="#ffff00" face="Arial" size="-1"><b>Sign in and leave your footprint!</b></font>
+    </td>
+  </tr>
+</table>
 
-<div class="container">
-  <h1>Guestbook Portal</h1>
-  <p style="font-size: 16px; font-weight: bold; color: #660099; margin: 0;">
-    Leave your message here! Please follow community guidelines. ✨
-  </p>
+<br>
 
-  <div class="deck">
-    <div class="form-box">
+<center>
+  <h1>BABY V.O.X GUESTBOOK PORTAL</h1>
+  <p><b>Please read the rules before signing our guestbook below!</b></p>
+</center>
+
+<table width="850" border="3" align="center" cellpadding="10" cellspacing="0" bgcolor="#ececec" bordercolor="#ffffff" style="border-color: #ffffff #808080 #808080 #ffffff;">
+  <tr>
+    
+    <td width="55%" valign="top" bgcolor="#dfdfdf" style="border: 2px inset #808080;">
+      <h2>&gt;&gt; Sign the Guestbook</h2>
       <form id="guestbook-form">
-        <label>Your Name:</label>
-        <input type="text" name="fi-sender-firstName" placeholder="Type your name here" required>
+        <font size="2"><b>Your Name:</b></font><br>
+        <input type="text" name="fi-sender-firstName" placeholder="Your name here" required>
 
-        <label>Email (optional):</label>
-        <input type="email" name="fi-sender-email" placeholder="Type your email">
+        <font size="2"><b>Email (optional):</b></font><br>
+        <input type="email" name="fi-sender-email" placeholder="Your email">
 
-        <label>Message:</label>
+        <font size="2"><b>Message:</b></font><br>
         <textarea name="fi-text-message" rows="5" placeholder="Write your message here..." required></textarea>
 
-        <div style="text-align: right;">
+        <div align="right">
           <button type="submit">Sign Guestbook!</button>
         </div>
       </form>
-    </div>
+    </td>
 
-    <div class="rules-box">
-      <h2>Guestbook Rules</h2>
-      <ol>
-        <li>Swearing, slurs, or hostile remarks will not be tolerated.</li>
-        <li>Be respectful to fellow platform commentators.</li>
-        <li>Constructive feedback for our archival fansite is always welcome!</li>
-        <li>Disrespectful or malicious comments will be screened out immediately.</li>
-        <li>Antifan spam content will be expunged instantly from the live stream.</li>
-      </ol>
-    </div>
-  </div>
+    <td width="45%" valign="top" bgcolor="#ffffff" style="border: 2px inset #808080;">
+      <h2>&gt;&gt; Guestbook Rules</h2>
+      <font size="2">
+        <ol>
+          <li>Swearing, slurs, or hostile remarks will not be tolerated.</li>
+          <li>Be respectful to fellow platform commentators.</li>
+          <li>Constructive feedback for our archival fansite is always welcome!</li>
+          <li>Disrespectful or malicious comments will be screened out immediately.</li>
+          <li>Antifan spam content will be expunged instantly.</li>
+        </ol>
+      </font>
+    </td>
 
-  <div id="messages">
-    <h2>Messages from fans:</h2>
-  </div> 
+  </tr>
+</table>
 
-  <a href="index.html" class="back-home">← Back to Home Directory</a>
+<br>
 
-  <div class="blinkie-container">
-    <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie banner">
-  </div>
-</div>
+<table width="850" border="2" align="center" cellpadding="10" cellspacing="0" bgcolor="#ffffff" bordercolor="#808080">
+  <tr>
+    <td>
+      <h2><font color="#800080">📜 Messages from Fans:</font></h2>
+      <div id="messages">
+        </div>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<center>
+  <table border="1" cellpadding="5" cellspacing="0" bgcolor="#c0c0c0">
+    <tr>
+      <td><a href="index.html"><b>&lt;-- Back to Home Directory</b></a></td>
+    </tr>
+  </table>
+  
+  <br>
+  <img src="FCEE67FF-675A-48D7-8B20-00F20ABD0D56.gif" alt="blinkie banner" border="0">
+  <p><font size="1" color="#666666">© 1999-2003 Baby V.O.X Shrine. Best viewed in Netscape Navigator or Internet Explorer 4.0+ at 800x600 resolution.</font></p>
+</center>
 
 <script src="https://forminit.com/sdk/v1/forminit.js"></script>
 <script>
@@ -304,31 +201,31 @@ button:hover {
 
     alert("Message sent successfully!");
     form.reset();
-    loadMessages(); // Refresh messages after submitting
+    loadMessages(); 
   });
 
-  // Load messages from Forminit database configuration
+  // Load messages from database configuration
   async function loadMessages() {
-    messagesContainer.innerHTML = "<h2>Messages from fans:</h2>";
+    messagesContainer.innerHTML = "";
 
-    // Static/Pinned Historical Messages Block
+    // Static/Pinned Historical Messages Block (Formatted retro style)
     const pinned1 = document.createElement("div");
     pinned1.className = "message-box";
-    pinned1.innerHTML = `<h3>BabyVoxi ⭐ <span style="font-size:11px; font-weight:normal; color:#00bfff;">[VIP PIN]</span></h3>
-                          <p>thank you for being such a lovely person and a great baby angel~~ the site looks awesome! keep up the good work!!</p>`;
-    messagesContainer.appendChild(pinned1); 
+    pinned1.innerHTML = `<h3>BabyVoxi &nbsp; <font color="#0000ff" size="1">[VIP PIN]</font></h3>
+                         <p>thank you for being such a lovely person and a great baby angel~~ the site looks awesome! keep up the good work!!</p>`;
+    messagesContainer.appendChild(pinned1);  
 
     const pinned2 = document.createElement("div");
     pinned2.className = "message-box";
-    pinned2.innerHTML = `<h3>Arthur ⭐ <span style="font-size:11px; font-weight:normal; color:#00bfff;">[VIP PIN]</span></h3>
-                          <p>we feeling very Ride west</p>`;
+    pinned2.innerHTML = `<h3>Arthur &nbsp; <font color="#0000ff" size="1">[VIP PIN]</font></h3>
+                         <p>we feeling very Ride west</p>`;
     messagesContainer.appendChild(pinned2);
 
     const pinned3 = document.createElement("div");
     pinned3.className = "message-box";
-    pinned3.innerHTML = `<h3>kaze ⭐ <span style="font-size:11px; font-weight:normal; color:#00bfff;">[VIP PIN]</span></h3>
-      <p>Я серьезно могу сказать, что это самый лучший сайт! ヾ(≧▽≦*)o</p>
-      <p style="font-style: italic; color: #660099; font-size:12px; margin-top:4px;">(I can seriously say that this is the best site! ヾ(≧▽≦*)o)</p>`;
+    pinned3.innerHTML = `<h3>kaze &nbsp; <font color="#0000ff" size="1">[VIP PIN]</font></h3>
+      <p>Я серьезно могу сказать, что это самый лучший сайт! (*^▽^*)</p>
+      <p style="font-style: italic; color: #660099; font-size:11px; margin-top:2px;">(I can seriously say that this is the best site! (*^▽^*))</p>`;
     messagesContainer.appendChild(pinned3);
     
     // Asynchronous injection loop from active server channels
@@ -344,7 +241,7 @@ button:hover {
         const email = msg["fi-sender-email"] || "";
         const message = msg["fi-text-message"] || "";
 
-        box.innerHTML = `<h3>${name}${email ? " <span style='font-size:12px; color:#666;'>&lt;" + email + "&gt;</span>" : ""}</h3><p>${message}</p>`;
+        box.innerHTML = `<h3>${name} ${email ? " <font size='1' color='#666'>&lt;" + email + "&gt;</font>" : ""}</h3><p>${message}</p>`;
         messagesContainer.appendChild(box);
       });
     } catch (err) {
