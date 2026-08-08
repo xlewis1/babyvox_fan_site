@@ -1,241 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X - VIDEOS SECTION</title>
+<title>Netscape Communicator - [ Baby V.O.X - Video Vault ]</title>
 <style>
-/* ---------------- GLOBAL WEB 1.0 RESET ---------------- */
-body {
-  font-family: 'Comic Sans MS', 'Arial', sans-serif;
-  margin: 0;
-  padding: 15px;
-  background: #ffecf6; /* Solid soft pink nostalgic background */
-  color: #4b0082; /* Deep Indigo text */
-  text-align: center;
-}
+  /* Classic early 2000s Web Typography & Styles */
+  body {
+    background-color: #FFE6F2;
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw==');
+    font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+    color: #000080;
+    margin: 10px;
+    padding: 0;
+  }
 
-/* ---------------- IMAGE BANNER ZONE ---------------- */
-.fan-stats {
-  margin: 15px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.banner-badge {
-  border: 1px solid #ff3399;
-  vertical-align: middle;
-}
+  /* Retro Link Styling */
+  a:link { color: #0000FF; text-decoration: underline; font-weight: bold; }
+  a:visited { color: #800080; text-decoration: underline; }
+  a:hover { color: #FF007F; background-color: #FFFF99; }
+  a:active { color: #FF0000; }
 
-/* ---------------- THE MAIN FAN-SITE BOX ---------------- */
-.multimedia-hub {
-  width: 95%;
-  max-width: 900px;
-  margin: 20px auto;
-  background: #ffffff;
-  border: 4px ridge #ff3399; /* Classic textured ridge border */
-  padding: 20px;
-  box-shadow: 5px 5px 0px #ff99cc; /* Flat hard drop shadow */
-}
+  /* Table Windows & Netscape Frames */
+  .netscape-window {
+    background-color: #ECE9D8; /* Classic Windows Gray */
+    border: 3px outset #FFFFFF;
+  }
 
-/* ---------------- RETRO MARQUEE TRACKER ---------------- */
-marquee {
-  background: #ff3399;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 14px;
-  border: 2px inset #ffffff;
-  padding: 4px;
-  margin-bottom: 20px;
-}
+  .window-titlebar {
+    background: #000080; /* Classic Blue Titlebar */
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: "Tahoma", "Arial", sans-serif;
+    font-size: 12px;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-/* ---------------- AUTHENTIC HTML LAYOUT TABLE ---------------- */
-.video-layout-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.video-cell {
-  width: 50%;
-  padding: 12px;
-  vertical-align: top;
-}
+  .window-title-pink {
+    background: #FF1493; /* Y2K Pink Titlebar Variant */
+  }
 
-/* Rigid Retro Video Frame */
-.video-box {
-  background: #fff0f8;
-  border: 3px double #ff3399;
-  padding: 8px;
-  text-align: center;
-  position: relative;
-}
-.video-box:hover {
-  background: #ffe6f2;
-  border-color: #ff007f;
-}
+  .window-btn {
+    background-color: #ECE9D8;
+    color: #000000;
+    border: 1px outset #FFFFFF;
+    font-size: 9px;
+    font-family: sans-serif;
+    padding: 0px 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.video-thumb {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border: 2px inset #ff3399;
-  display: block;
-}
+  .content-box {
+    background-color: #FFFFFF;
+    border: 2px inset #ECE9D8;
+    padding: 12px;
+  }
 
-/* Song Title Links */
-.video-title {
-  margin-top: 8px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #ff007f;
-  text-decoration: underline;
-  cursor: pointer;
-}
-.video-box:hover .video-title {
-  color: #4b0082;
-}
+  /* Classic Windows Button */
+  .retro-btn {
+    font-family: "Tahoma", "MS Sans Serif", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #ECE9D8;
+    border: 2px outset #FFFFFF;
+    padding: 6px 14px;
+    cursor: pointer;
+    color: #000000;
+  }
+  .retro-btn:active {
+    border: 2px inset #FFFFFF;
+  }
 
-/* Vintage Square Mute Button */
-.mute-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: #ff3399;
-  color: white;
-  border: 2px outset #ffffff;
-  font-size: 11px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 2px 5px;
-  font-family: sans-serif;
-}
-.mute-btn:active {
-  border: 2px inset #ffffff;
-}
+  /* Blinking Text Effect */
+  .blink {
+    animation: blinker 1s linear infinite;
+    color: #FF007F;
+    font-weight: bold;
+  }
+  @keyframes blinker {
+    50% { opacity: 0; }
+  }
 
-#now-watching {
-  margin-top: 20px;
-  background: #ffe6f2;
-  border: 2px dashed #ff3399;
-  padding: 8px;
-  color: #ff007f;
-  font-weight: bold;
-  font-size: 14px;
-}
+  /* Media Display Box */
+  #video-display-area {
+    background-color: #000000;
+    border: 3px inset #FFFFFF;
+    padding: 6px;
+    margin-top: 10px;
+    display: none;
+  }
 
-/* ---------------- Y2K POPUP-STYLE LIGHTBOX ---------------- */
-#video-lightbox {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(75, 0, 130, 0.85); /* Indigo tinted overlay */
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.lightbox-window {
-  background: #ffffff;
-  border: 5px ridge #ff3399;
-  width: 90%;
-  max-width: 800px;
-  padding: 10px;
-  box-shadow: 10px 10px 0px #ff99cc;
-}
-
-/* Lightbox Sub-Bar Control Header */
-.lightbox-bar {
-  background: #ff3399;
-  color: #ffffff;
-  padding: 6px;
-  font-weight: bold;
-  font-size: 13px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-.lightbox-controls span {
-  background: #ffffff;
-  color: #ff3399;
-  border: 1px solid #ffffff;
-  padding: 1px 6px;
-  font-size: 11px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-left: 4px;
-}
-
-.lightbox-media {
-  width: 100%;
-  height: 55vh;
-  background: #000000;
-  border: 2px inset #ff3399;
-  display: none;
-}
-
-/* ---------------- RETRO UNDERLINED BACK LINK ---------------- */
-.back-home {
-  display: inline-block;
-  margin: 30px auto;
-  color: #ff007f;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: underline;
-}
-.back-home:hover {
-  color: #4b0082;
-}
+  .media-player {
+    width: 100%;
+    height: 360px;
+    border: none;
+  }
 </style>
 </head>
 <body>
 
-<div style="margin: 20px auto;">
-  <span style="font-size: 32px; font-weight: bold; color: #ff3399; text-shadow: 2px 2px #ff99cc;">
-    ★ Baby V.O.X - VIDEOS SECTION ★
-  </span>
-  <p style="margin: 5px 0; font-size: 14px; font-style: italic; color: #4b0082;">
-    ~ Welcome to the ultimate streaming shrine for our favorite angels! ~
-  </p>
-</div>
-
-<div class="fan-stats">
-  <img src="VOX2.gif" alt="Baby VOX Banner" class="banner-badge">
-</div>
-
-<div class="multimedia-hub">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
   
-  <marquee scrollamount="3" direction="left">
-    ++ NEW VIDEOS UPDATED!! CLEAR OUT YOUR BROWSER CACHE IF THE THUMBNAILS DON'T LOAD!! CLICK A SONG LINK BELOW TO TRIGGER THE POPUP AUDIO STREAM!! ++
-  </marquee>
+  <tr>
+    <td colspan="2" align="center">
+      
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ video_multimedia_vault.exe ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #FFE4E1; padding: 15px;">
+            <font size="6" color="#FF1493" face="Comic Sans MS"><b>~*~ Baby V.O.X Video Vault ~*~</b></font><br>
+            <font size="2" color="#4B0082"><b>-- MV Archives, Live Performances & Stage Cuts --</b></font>
+            <br><br>
+            
+            <table width="90%" border="1" bordercolor="#FF69B4" bgcolor="#FFFFFF" cellpadding="3">
+              <tr>
+                <td>
+                  <marquee behavior="scroll" direction="left" scrollamount="4">
+                    <font size="2" color="#FF007F">
+                      ✨ <b>MULTIMEDIA HUB READY!</b> ✨ Click the <b>RANDOM VIDEO GENERATOR</b> button below to load a random clip from the archive! ✨
+                    </font>
+                  </marquee>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-  <table class="video-layout-table">
-    <tbody id="table-grid-body">
-      </tbody>
-  </table>
+    </td>
+  </tr>
 
-  <div id="now-watching">MEDIA STATUS: IDLE // CHOOSE A CLIP ABOVE!</div>
-</div>
-
-<div id="video-lightbox">
-  <div class="lightbox-window">
-    <div class="lightbox-bar">
-      <span id="lightbox-title-text">Baby V.O.X Media Streamer v1.1</span>
-      <div class="lightbox-controls">
-        <span onclick="toggleMaximize()">[ Maximize ]</span>
-        <span onclick="closeLightbox()">[ X ]</span>
+  <tr valign="top">
+    
+    <td width="200">
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 8px; background-color: #FFF0F5;">
+          <font size="2">
+            <b>:: MENU ::</b><br>
+            • <a href="index.html">◀ Back to Home</a><br>
+            • <a href="members.html">Members Directory</a><br><br>
+            <b>:: SYSTEM STATUS ::</b><br>
+            <font color="#008000"><b>● STREAMING READY</b></font>
+          </font>
+        </div>
       </div>
-    </div>
-    <div style="background:#000000; padding:4px;">
-      <video id="lightbox-video" class="lightbox-media" controls></video>
-      <iframe id="lightbox-iframe" class="lightbox-media" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
 
-<a href="index.html" class="back-home">[ << Back to Home ]</a>
+      <div class="netscape-window">
+        <div class="window-titlebar">Media Info</div>
+        <div style="padding: 10px; text-align: center; background-color: #FFFFFF;">
+          <img src="VOX2.gif" width="120" alt="Baby V.O.X Banner" style="border: 1px inset #FFFFFF;"><br><br>
+          <font size="1" color="#800080"><b>Archive Mode: Active</b></font>
+        </div>
+      </div>
+    </td>
+
+    <td width="*">
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>random_video_selector.exe</span>
+        </div>
+        <div class="content-box" align="center">
+          
+          <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <font size="4" color="#FF1493"><b>-= Random Video Jukebox =-</b></font> 
+                <span class="blink">CLICK TO PLAY!</span>
+                <hr size="1" color="#FF69B4">
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <table border="2" bordercolor="#FF69B4" cellpadding="10" bgcolor="#FFF0F5">
+            <tr>
+              <td align="center">
+                <font size="2" color="#000080"><b>Press below to load a random clip from the vault:</b></font><br><br>
+                <button class="retro-btn" onclick="generateRandomVideo()">🎲 GENERATE RANDOM VIDEO 🎲</button>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <table width="100%" border="1" bordercolor="#FFB6C1" cellpadding="6" bgcolor="#FFF0F5">
+            <tr>
+              <td align="center">
+                <font size="2" color="#FF007F">
+                  <b>MEDIA STATUS:</b> <span id="now-watching">IDLE // PRESS GENERATE BUTTON ABOVE!</span>
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <div id="video-display-area">
+            <video id="local-player" class="media-player" controls style="display:none;"></video>
+            <iframe id="youtube-player" class="media-player" frameborder="0" allowfullscreen style="display:none;"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </td>
+
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center">
+      <br>
+      <hr size="1" color="#FF69B4">
+      <font size="2" face="Verdana" color="#4B0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
+
+</table>
 
 <script>
+// Video Library Archive
 const videos = [
   {src: "BV1.mp4", title: "Video 1 (Local Preview)", type: "local"},
   {src: "BV3.mp4", title: "Video 2 (Rare Stage Loop)", type: "local"},
@@ -247,107 +246,40 @@ const videos = [
   {src: "https://www.youtube.com/embed/dd4zeSdtFlA", title: "YouTube Stream 4 (Special Stage)", type: "youtube"}
 ];
 
-const tableBody = document.getElementById('table-grid-body');
-const lightbox = document.getElementById('video-lightbox');
-const lightboxVideo = document.getElementById('lightbox-video');
-const lightboxIframe = document.getElementById('lightbox-iframe');
-const lightboxTitleText = document.getElementById('lightbox-title-text');
-const nowWatching = document.getElementById('now-watching');
+let lastIndex = -1;
 
-let isMaximized = false;
-let currentRow;
+function generateRandomVideo() {
+  // Select a random video index (avoiding repeating the exact same one back-to-back if possible)
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * videos.length);
+  } while (videos.length > 1 && randomIndex === lastIndex);
+  
+  lastIndex = randomIndex;
+  const selectedVideo = videos[randomIndex];
 
-// Build structural table layout pairs manually just like classic web editors
-videos.forEach((video, index) => {
-  if (index % 2 === 0) {
-    currentRow = document.createElement('tr');
-    tableBody.appendChild(currentRow);
-  }
+  const displayArea = document.getElementById('video-display-area');
+  const localPlayer = document.getElementById('local-player');
+  const youtubePlayer = document.getElementById('youtube-player');
+  const nowWatching = document.getElementById('now-watching');
 
-  const cell = document.createElement('td');
-  cell.className = "video-cell";
+  displayArea.style.display = 'block';
+  nowWatching.textContent = "NOW STREAMING: " + selectedVideo.title.toUpperCase();
 
-  const box = document.createElement('div');
-  box.className = "video-box";
-
-  if(video.type === "local") {
-    const vid = document.createElement('video');
-    vid.src = video.src;
-    vid.className = "video-thumb";
-    vid.muted = true;
-    vid.loop = true;
-    vid.autoplay = true;
-    vid.playsInline = true;
-    box.appendChild(vid);
-
-    const btn = document.createElement('button');
-    btn.className = "mute-btn";
-    btn.textContent = "MUTED";
-    btn.onclick = (e) => {
-      e.stopPropagation();
-      vid.muted = !vid.muted;
-      btn.textContent = vid.muted ? "MUTED" : "SOUND ON";
-    };
-    box.appendChild(btn);
-  } else if(video.type === "youtube") {
-    const thumb = document.createElement('img');
-    const id = video.src.split("/embed/")[1];
-    thumb.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-    thumb.className = "video-thumb";
-    box.appendChild(thumb);
-  }
-
-  const label = document.createElement('div');
-  label.className = "video-title";
-  label.textContent = `★ ${video.title} ★`;
-  box.appendChild(label);
-
-  box.onclick = () => {
-    nowWatching.textContent = "NOW WATCHING: " + video.title.toUpperCase();
-    lightboxTitleText.textContent = "Baby V.O.X Player - Streaming: " + video.title;
-    lightbox.style.display = "flex";
+  if (selectedVideo.type === "local") {
+    youtubePlayer.style.display = "none";
+    youtubePlayer.src = "";
     
-    if(video.type === "local") {
-      lightboxIframe.style.display = "none";
-      lightboxIframe.src = "";
-      lightboxVideo.style.display = "block";
-      lightboxVideo.src = video.src;
-      lightboxVideo.play();
-    } else {
-      lightboxVideo.style.display = "none";
-      lightboxVideo.pause();
-      lightboxVideo.src = "";
-      lightboxIframe.style.display = "block";
-      lightboxIframe.src = video.src;
-    }
-  };
-
-  cell.appendChild(box);
-  currentRow.appendChild(cell);
-});
-
-function closeLightbox() {
-  lightboxVideo.pause();
-  lightboxVideo.src = "";
-  lightboxIframe.src = "";
-  lightboxVideo.style.display = "none";
-  lightboxIframe.style.display = "none";
-  lightbox.style.display = "none";
-  nowWatching.textContent = "MEDIA STATUS: IDLE // CHOOSE A CLIP ABOVE!";
-}
-
-function toggleMaximize() {
-  const windowContainer = document.querySelector('.lightbox-window');
-  if(!isMaximized) {
-    windowContainer.style.maxWidth = "98%";
-    lightboxVideo.style.height = "80vh";
-    lightboxIframe.style.height = "80vh";
-    isMaximized = true;
+    localPlayer.style.display = "block";
+    localPlayer.src = selectedVideo.src;
+    localPlayer.play();
   } else {
-    windowContainer.style.maxWidth = "800px";
-    lightboxVideo.style.height = "55vh";
-    lightboxIframe.style.height = "55vh";
-    isMaximized = false;
+    localPlayer.pause();
+    localPlayer.style.display = "none";
+    localPlayer.src = "";
+    
+    youtubePlayer.style.display = "block";
+    youtubePlayer.src = selectedVideo.src + "?autoplay=1";
   }
 }
 </script>
