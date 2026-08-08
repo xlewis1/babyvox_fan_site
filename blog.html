@@ -3,259 +3,441 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>✦ Baby V.O.X Fan Club ✦</title>
+<title>~*~ Baby V.O.X Fan Club Weblog ~*~</title>
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <style>
-/* ---------------- 90S INTERNET CANVAS ---------------- */
-html {
-  background: url('BABYVOX15.jpg') repeat;
-  background-size: 100px 100px;
-  min-height: 100vh;
-}
+  /* ---------- NETSCAPE 1.0 / 4.0 GLOBAL STYLES ---------- */
+  body {
+    background-color: #ffe6f2;
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw==');
+    color: #000080;
+    font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+    margin: 10px;
+  }
 
-body {
-  margin: 0;
-  padding: 30px 15px 60px 15px;
-  font-family: 'Courier New', Courier, monospace;
-  color: #330066;
-}
+  /* Hyperlinks */
+  a:link { color: #0000ff; text-decoration: underline; font-weight: bold; }
+  a:visited { color: #800080; text-decoration: underline; }
+  a:hover { color: #ff007f; background-color: #ffff99; }
+  a:active { color: #ff0000; }
 
-/* ---------------- THE ULTIMATE DESKTOP FRAME ---------------- */
-.blog-frame {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #ffeef8;
-  border: 4px ridge #ff33aa; /* Classic chunky metallic border look */
-  padding: 25px;
-  box-shadow: 8px 8px 0px #ff0077; /* Hard geometric pixel shadow */
-}
+  /* Windows & Frames */
+  .netscape-window {
+    background-color: #ece9d8;
+    border: 3px outset #ffffff;
+  }
 
-/* ---------------- LOGO & HEADER ---------------- */
-.logo-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.logo-container img {
-  width: 110px;
-  filter: drop-shadow(0px 0px 8px #ff00aa);
-  animation: spin 8s linear infinite;
-}
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+  .window-titlebar {
+    background: #000080;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: "Tahoma", "Arial", sans-serif;
+    font-size: 12px;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-h1 {
-  text-align: center;
-  font-size: 2.2rem;
-  margin: 10px 0 30px 0;
-  color: #ffffff;
-  background: linear-gradient(90deg, #ff00aa, #aa00ff);
-  padding: 10px;
-  border: 2px dashed #ffffff;
-  text-shadow: 2px 2px #000000;
-  letter-spacing: 1px;
-}
+  .window-title-pink {
+    background: #ff1493;
+  }
 
-/* ---------------- NEOCITIES RETRO BULLETIN POSTS ---------------- */
-.post {
-  background: #ffffff;
-  margin-bottom: 35px;
-  border: 3px double #ff00aa;
-  box-shadow: 4px 4px 0px rgba(170, 0, 255, 0.2);
-}
+  .window-btn {
+    background-color: #ece9d8;
+    color: #000000;
+    border: 1px outset #ffffff;
+    font-size: 9px;
+    font-family: sans-serif;
+    padding: 0px 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-/* Retro Top Bar Info Row */
-.post-header {
-  background: #ff33aa;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 13px;
-  padding: 8px 12px;
-  border-bottom: 2px solid #ff00aa;
-  display: flex;
-  justify-content: space-between;
-  text-shadow: 1px 1px #000000;
-}
+  /* Retro Sidebar Navigation Styling */
+  .nav-header {
+    background-color: #ff69b4;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px;
+    font-size: 13px;
+    border: 2px outset #ffb6c1;
+  }
 
-/* Decorative Sub-Heading */
-.post-title-bar {
-  background: #fff0f7;
-  padding: 8px 15px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ff00aa;
-  border-bottom: 1px dashed #ff99cc;
-}
+  .nav-box {
+    background-color: #fff0f5;
+    border: 2px inset #ffffff;
+    padding: 6px;
+    margin-bottom: 10px;
+  }
 
-/* Inner Text Area */
-.post-body {
-  padding: 20px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #4B0082;
-}
+  .nav-box ul {
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 5px 0px;
+  }
 
-.post-body p {
-  margin: 0 0 15px 0;
-}
-.post-body p:last-child {
-  margin-bottom: 0;
-}
+  .nav-box li {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
 
-/* Bullet points styled like vintage text symbols */
-.post-body ul {
-  margin: 12px 0;
-  padding-left: 20px;
-  list-style-type: none;
-}
-.post-body ul li {
-  margin-bottom: 8px;
-  position: relative;
-}
-.post-body ul li::before {
-  content: "☞ ";
-  color: #ff00aa;
-  font-weight: bold;
-  font-size: 16px;
-}
+  /* Center Content Area */
+  .content-box {
+    background-color: #ffffff;
+    border: 2px inset #ece9d8;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
 
-/* Highlight boxes inside logs */
-strong {
-  color: #ff00aa;
-  background: #fff0f5;
-  padding: 0 4px;
-  border: 1px dotted #ff66cc;
-}
+  /* Blog Post Tables */
+  .blog-post-table {
+    background-color: #fff5f8;
+    border: 1px solid #ffb6c1;
+    margin-bottom: 15px;
+  }
 
-/* ---------------- VINTAGE CLICKABLE NAVIGATION ---------------- */
-.back-home {
-  display: block;
-  width: 240px;
-  margin: 40px auto 10px auto;
-  padding: 12px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  background: #aa00ff;
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-  border: 3px ridge #ff66cc;
-  box-shadow: 4px 4px 0px #000000;
-}
-
-.back-home:hover {
-  background: #ff00aa;
-  color: #ffffff;
-  box-shadow: 2px 2px 0px #000000;
-  transform: translate(2px, 2px);
-}
+  /* Old-school buttons */
+  .retro-btn {
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    background-color: #ece9d8;
+    border: 2px outset #ffffff;
+    padding: 3px 8px;
+    cursor: pointer;
+  }
+  .retro-btn:active {
+    border: 2px inset #ffffff;
+  }
 </style>
 </head>
 <body>
 
-<div class="blog-frame">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+  
+  <tr>
+    <td colspan="3" align="center">
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ Baby V.O.X Heaven - Weblog News ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #ffe4e1; padding: 15px;">
+            <font size="6" color="#ff1493" face="Comic Sans MS"><b>~*~ Fan Club Weblog ~*~</b></font><br>
+            <font size="2" color="#4b0082"><b>-- Latest News & Site Updates from Lewis --</b></font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-  <div class="logo-container">
-    <img src="babyvox.logo.2.svg" alt="Baby V.O.X Logo">
-  </div>
+  <tr valign="top">
+    
+    <td width="200">
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 6px;">
+          
+          <div class="nav-header">:: MAIN HUB ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="index.html">Home / Main</a></li>
+              <li><a href="members.html">Members Profile</a></li>
+              <li><a href="history.html">Group History</a></li>
+              <li><a href="bias.html">My Bias Page</a></li>
+            </ul>
+          </div>
 
-  <h1>⚡ Baby V.O.X Fan Club News ⚡</h1>
+          <div class="nav-header">:: MEDIA VAULT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="videos.html">MV & Live Clips</a></li>
+              <li><a href="discography.html">Discography</a></li>
+              <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
+            </ul>
+          </div>
 
-  <div class="post">
-    <div class="post-header">
-      <span>[IMPORTANT NOTICE]</span>
-      <span>Date: 2026-05-25</span>
-    </div>
-    <div class="post-title-bar">🛠️ Site Under Reconstruction!</div>
-    <div class="post-body">
-      <p>Attention Baby Angels! 📢</p>
-      <p>Please note that some zones of the site are currently <strong>under reconstruction</strong> as I pull down old scripts and implement our new web layouts! If a button doesn't trigger or a link looks dead, don't panic! The multi-media hub and streaming panels are being optimized.</p>
-      <p>Pardon our digital dust while we bring back the ultimate 1999 internet experience! 🎀</p>
-    </div>
-  </div>
+          <div class="nav-header">:: INTERACT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="guestbook.html">Sign Guestbook</a></li>
+              <li><a href="links.html">Webring / Links</a></li>
+              <li><a href="blog.html">Weblog</a></li>
+              <li><a href="javascript:showRandomFact()">Random Fact</a></li>
+            </ul>
+          </div>
 
-  <div class="post">
-    <div class="post-header">
-      <span>FANSITE NEWS</span>
-      <span>Date: 2026-02-14</span>
-    </div>
-    <div class="post-title-bar">🎀 Major Site Update!</div>
-    <div class="post-body">
-      <p>Hello Baby Angels! 🎀</p>
-      <p>Welcome to the brand-new version of the Baby V.O.X Fansite! Inspired by classic Daum blogs and Geocities-style layouts, this new page brings back that nostalgic early internet feel while keeping everything clean and modern.</p>
-      <p>Expect new updates, stories, and behind-the-scenes insights from me, Lewis, the creator of this fansite. Posts will be coming soon, so keep checking back for more content!</p>
-    </div>
-  </div>
+        </div>
+      </div>
 
-  <div class="post">
-    <div class="post-header">
-      <span>FANSITE NEWS</span>
-      <span>Date: 2025-10-22</span>
-    </div>
-    <div class="post-title-bar">🔮 Future Page Updates...</div>
-    <div class="post-body">
-      <p>We’ll be posting:</p>
-      <ul>
-        <li>Stories about Baby V.O.X members</li>
-        <li>Rare images and media from their history</li>
-        <li>New updates on the fansite itself</li>
-      </ul>
-      <p>Stay tuned and enjoy the classic internet vibes mixed with modern features!</p>
-    </div>
-  </div>
+      <table width="100%" class="netscape-window" cellpadding="4" cellspacing="0">
+        <tr><td class="window-titlebar">Site Badges</td></tr>
+        <tr>
+          <td align="center" style="background-color: #fff0f5;">
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#000000">
+              <tr><td><font size="1" color="#00ff00" face="sans-serif"><b>NETSCAPE<br>NAVIGATOR</b></font></td></tr>
+            </table>
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#0000ff">
+              <tr><td><font size="1" color="#ffffff" face="sans-serif"><b>IE 5.0<br>COMPATIBLE</b></font></td></tr>
+            </table>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </td>
 
-  <div class="post">
-    <div class="post-header">
-      <span>FANSITE NEWS</span>
-      <span>Date: 2025-07-09</span>
-    </div>
-    <div class="post-title-bar">🎉 New Guestbook & Visitor Counter Added!</div>
-    <div class="post-body">
-      <p>Hello Baby Angels!</p>
-      <p>We've added some exciting new features to the fansite:</p>
-      <ul>
-        <li>A working <strong>Guestbook</strong> so you can leave messages</li>
-        <li>A real <strong>visitor counter</strong> to see how many fans visit</li>
-        <li>Updated pages with more images and content</li>
-        <li>Redeveloped fansite styles for a fresher look</li>
-      </ul>
-      <p>Thanks for visiting, and I hope you enjoy the new features! 💖</p>
-    </div>
-  </div>
+    <td width="*">
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>weblog_archive.html</span>
+        </div>
+        <div class="content-box">
+          
+          <font size="4" color="#ff1493"><b>⚡ Baby V.O.X Fan Club News ⚡</b></font>
+          <hr size="1" color="#ff69b4">
+          <p><font color="#000080">Welcome to the official weblog logbook! Check below for chronological updates regarding site maintenance, gallery expansions, and community news.</font></p>
+          
+          <br>
 
-  <div class="post">
-    <div class="post-header">
-      <span>WEBMASTER BIO</span>
-      <span>Date: 2025-03-15</span>
-    </div>
-    <div class="post-title-bar">👤 About Me: Meet Lewis</div>
-    <div class="post-body">
-      <p>Hi! I'm Lewis, the creator of this fansite. My Baby V.O.X journey started in 2022 when I became a huge fan of <strong>Yoon Eun Hye</strong>. Soon after, I also became a passionate fan of <span style="color: #ff00aa; font-weight: bold;">★ Kim EZ ★</span> and <span style="color: #ff00aa; font-weight: bold;">★ Miyoun ★</span> (even though I love all five members equally!).</p>
-      <p>This fansite is my way of sharing my love for Baby V.O.X with other fans and celebrating the amazing legacy of the group. Thank you for stopping by and enjoying the content!</p>
-    </div>
-  </div>
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="blog-post-table">
+            <tr bgcolor="#ff69b4">
+              <td><font size="2" color="#ffffff"><b>[IMPORTANT NOTICE] — Date: 2026-05-25</b></font></td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffeef8"><font size="2" color="#ff1493"><b>🛠️ Site Under Reconstruction!</b></font></td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  Attention Baby Angels! 📢<br><br>
+                  Please note that some zones of the site are currently <b>under reconstruction</b> as old scripts are replaced to implement classic web layouts! If a button doesn't trigger or a link looks dead, don't panic! The multi-media hub and streaming panels are being optimized.<br><br>
+                  Pardon our digital dust while we bring back the ultimate 1999 internet experience! 🎀
+                </font>
+              </td>
+            </tr>
+          </table>
 
-  <div class="post">
-    <div class="post-header">
-      <span>GALLERY UPDATE</span>
-      <span>Date: 2025-01-05</span>
-    </div>
-    <div class="post-title-bar">📸 Image Database Updates</div>
-    <div class="post-body">
-      <p>New baby vox pics are coming to gallery</p>
-      <ul>
-        <li>Special thanks to Beautiful voices archive on Wayback Machine</li> 
-        <li>Ive collected new images with the help of python scripts to post new images here!</li>
-        <li>please keep a look out as they will be uploaded to the fansite gradually ❤️</li>
-      </ul>
-      <p>Please enjoy the fansite in the meantime! ❤️</p>
-    </div>
-  </div>
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="blog-post-table">
+            <tr bgcolor="#ff69b4">
+              <td><font size="2" color="#ffffff"><b>FANSITE NEWS — Date: 2026-02-14</b></font></td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffeef8"><font size="2" color="#ff1493"><b>🎀 Major Site Update!</b></font></td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  Hello Baby Angels! 🎀<br><br>
+                  Welcome to the updated version of the Baby V.O.X Fansite! Inspired by classic Daum blogs and retro browser frames, this page brings back that nostalgic early internet feel.<br><br>
+                  Expect new updates, stories, and behind-the-scenes insights from me, Lewis, the creator of this fansite. Keep checking back for more content!
+                </font>
+              </td>
+            </tr>
+          </table>
 
-  <a href="index.html" class="back-home">◀ Return To Home Base</a>
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="blog-post-table">
+            <tr bgcolor="#ff69b4">
+              <td><font size="2" color="#ffffff"><b>FANSITE NEWS — Date: 2025-10-22</b></font></td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffeef8"><font size="2" color="#ff1493"><b>🔮 Future Page Updates...</b></font></td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  We’ll be posting:<br>
+                  <ul>
+                    <li>Stories about Baby V.O.X members</li>
+                    <li>Rare images and media from their history</li>
+                    <li>New updates on the fansite itself</li>
+                  </ul>
+                  Stay tuned and enjoy the classic internet vibes!
+                </font>
+              </td>
+            </tr>
+          </table>
 
-</div>
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="blog-post-table">
+            <tr bgcolor="#ff69b4">
+              <td><font size="2" color="#ffffff"><b>FANSITE NEWS — Date: 2025-07-09</b></font></td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffeef8"><font size="2" color="#ff1493"><b>🎉 New Guestbook & Visitor Counter Added!</b></font></td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  Hello Baby Angels!<br><br>
+                  Exciting new features have been added to the fansite:<br>
+                  <ul>
+                    <li>A working <b>Guestbook</b> so you can leave messages</li>
+                    <li>A real <b>visitor counter</b> to track traffic</li>
+                    <li>Updated pages with more images and content</li>
+                  </ul>
+                  Thanks for visiting! 💖
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="blog-post-table">
+            <tr bgcolor="#ff69b4">
+              <td><font size="2" color="#ffffff"><b>WEBMASTER BIO — Date: 2025-03-15</b></font></td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffeef8"><font size="2" color="#ff1493"><b>👤 About Me: Meet Lewis</b></font></td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  Hi! I'm Lewis, the creator of this fansite. My Baby V.O.X journey started in 2022 when I became a huge fan of <b>Yoon Eun Hye</b>. Soon after, I also became a passionate fan of <span style="color: #ff00aa; font-weight: bold;">★ Kim EZ ★</span> and <span style="color: #ff00aa; font-weight: bold;">★ Miyoun ★</span> (even though I love all five members equally!).<br><br>
+                  This fansite is my way of sharing my love for Baby V.O.X with other fans and celebrating the amazing legacy of the group. Thank you for stopping by!
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="blog-post-table">
+            <tr bgcolor="#ff69b4">
+              <td><font size="2" color="#ffffff"><b>GALLERY UPDATE — Date: 2025-01-05</b></font></td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffeef8"><font size="2" color="#ff1493"><b>📸 Image Database Updates</b></font></td>
+            </tr>
+            <tr>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  New baby vox pics are coming to gallery!<br>
+                  <ul>
+                    <li>Special thanks to Beautiful voices archive on Wayback Machine</li>
+                    <li>Collected new images with the help of python scripts to post new pictures here!</li>
+                    <li>Please keep a look out as they will be uploaded to the fansite gradually ❤️</li>
+                  </ul>
+                  Please enjoy the fansite in the meantime! ❤️
+                </font>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </td>
+
+    <td width="190">
+      
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">System Time</div>
+        <div style="padding: 8px; text-align: center; background-color: #ffffff;">
+          <font size="1" face="Courier New" color="#000000"><b>YOUR LOCAL TIME:</b></font><br>
+          <div id="local-clock" style="font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; color: #ff0000; margin-top: 4px;"></div>
+        </div>
+      </div>
+
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Visitor Counter</div>
+        <div style="padding: 8px; text-align: center; background-color: #fff0f5;">
+          <font size="1">You are visitor no:</font><br><br>
+          <div id="visitor-count">
+            <a href='https://www.counters-free.net/'>COUNTER-free</a>
+            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Mini Gallery</div>
+        <div style="padding: 6px; text-align: center; background-color: #ffffff;">
+          <div id="mini-gallery"></div>
+          <font size="1"><a href="gallery.html">[View Full Gallery]</a></font>
+        </div>
+      </div>
+
+      <div class="netscape-window">
+        <div class="window-titlebar">MIDI Player</div>
+        <div style="padding: 6px; text-align: center; background-color: #ece9d8;">
+          <font size="1"><b>Now Playing:</b><br>BabyVOX_GetUp.mid</font><br><br>
+          <button class="retro-btn">▶ Play</button>
+          <button class="retro-btn">■ Stop</button>
+        </div>
+      </div>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3" align="center">
+      <br>
+      <hr size="1" color="#ff69b4">
+      <font size="2" face="Verdana" color="#4b0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
+
+</table>
+
+<script>
+// ----- MINI GALLERY SCRIPT -----
+const galleryImages = ["EZ56.jpg", "Heejin56.jpg", "MIYOUN49.jpg", "Eunjin12_upscaled.jpg", "EUNHYE10.jpg"];
+const miniGallery = document.getElementById('mini-gallery');
+
+galleryImages.sort(() => 0.5 - Math.random()).slice(0, 2).forEach(src => {
+  const link = document.createElement('a');
+  link.href = src;
+  link.target = "_blank";
+  
+  const img = document.createElement('img');
+  img.src = src;
+  img.width = 65;
+  img.height = 65;
+  img.style.border = "2px inset #ffffff";
+  img.style.margin = "2px";
+  
+  link.appendChild(img);
+  miniGallery.appendChild(link);
+});
+
+// ----- RANDOM FACTS SCRIPT -----
+const facts = [
+  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
+  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
+  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
+  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
+];
+
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  alert("✨ BABY V.O.X FACT ✨\n\n" + facts[randomIndex]);
+}
+
+// ----- LOCAL CLOCK SCRIPT -----
+function updateClock() {
+  const clockEl = document.getElementById('local-clock');
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 
 </body>
 </html>
