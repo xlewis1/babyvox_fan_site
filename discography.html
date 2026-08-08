@@ -4,370 +4,468 @@
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X Discography</title>
+<title>Baby V.O.X Discography - Netscape Shrine</title>
 
 <style>
-/* ---------- BODY & GENERATED RETRO PATTERN ---------- */
+/* ---------- NETSCAPE 1.0 / 4.0 GLOBAL STYLES ---------- */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Comic Sans MS', Verdana, sans-serif;
-  color: #3b0066;
-  overflow-x: hidden;
-  padding-top: 40px;
-  
-  /* Manually building a 90s pixel dot-mesh pattern using CSS radial gradients */
-  background-image: 
-    radial-gradient(rgba(255, 105, 180, 0.15) 15%, transparent 16%),
-    radial-gradient(rgba(100, 149, 237, 0.15) 15%, transparent 16%),
-    linear-gradient(135deg, #ffe6ff, #e6f0ff);
-  background-size: 16px 16px, 16px 16px, 100% 100%;
-  background-position: 0 0, 8px 8px, 0 0;
-}
- 
-body::after {
-  content: "✨";
-  position: fixed;
-  top: 20px;
-  left: 40%;
-  font-size: 25px;
-  animation: sparkle 4s infinite alternate;
-  opacity: 0.5;
+  background-color: #ffe6f2;
+  background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw==');
+  color: #000080;
+  font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+  margin: 10px;
 }
 
-@keyframes sparkle {
-  0% { transform: translateX(0px) scale(1) opacity:0.4;}
-  50% { transform: translateX(20px) scale(1.3) opacity:1;}
-  100% { transform: translateX(-10px) scale(1) opacity:0.4;}
+/* Hyperlinks */
+a:link { color: #0000ff; text-decoration: underline; font-weight: bold; }
+a:visited { color: #800080; text-decoration: underline; }
+a:hover { color: #ff007f; background-color: #ffff99; }
+a:active { color: #ff0000; }
+
+/* Windows & Frames */
+.netscape-window {
+  background-color: #ece9d8;
+  border: 3px outset #ffffff;
 }
 
-/* ---------- LOGO ---------- */
-.logo-spin {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  width: 100px;
-  animation: spin 12s linear infinite, bounce 2s ease-in-out infinite;
-  z-index: 100;
-  filter: drop-shadow(0 0 8px #ff66cc);
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg);}
-  to { transform: rotate(360deg);}
-}
-
-@keyframes bounce {
-  0%,100% { transform: translateY(0);}
-  50% { transform: translateY(-5px);}
-}
-
-/* ---------- HEADINGS ---------- */
-h1 {
-  text-align: center;
-  margin: 60px 0 10px;
-  font-size: 44px;
-  color: #ff1493;
-  text-shadow: 2px 2px 0px #ffffff, -1px -1px 0px #3b0066;
-  animation: neonGlow 2s infinite alternate;
-  position: relative;
-}
-
-@keyframes neonGlow {
-  0% { text-shadow: 0 0 4px #ff99ff, 0 0 10px #ff66cc, 2px 2px 0px #ffffff;}
-  50% { text-shadow: 0 0 8px #ff33aa, 0 0 20px #ff99cc, 2px 2px 0px #ffffff;}
-  100% { text-shadow: 0 0 4px #ff99ff, 0 0 10px #ff66cc, 2px 2px 0px #ffffff;}
-}
-
-.subtitle {
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 15px;
+.window-titlebar {
+  background: #000080;
+  color: #ffffff;
   font-weight: bold;
-  letter-spacing: 1px;
-  animation: fadeInSubtitle 3s infinite alternate;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 12px;
+  padding: 3px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@keyframes fadeInSubtitle {
-  0% { color: #aa33aa; }
-  50% { color: #ff3399; }
-  100% { color: #aa33aa; }
+.window-title-pink {
+  background: #ff1493;
 }
 
-/* ---------- DISCO GRID ---------- */
-.disco-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 35px;
-  padding: 0 30px 60px;
-  max-width: 1400px;
-  margin: auto;
-}
-
-/* ---------- UPGRADED JEWEL CASE ALBUM BOX ---------- */
-.album-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.album-box {
-  background: #ffffff;
-  border: 4px ridge #ff33aa; 
-  border-radius: 4px; 
-  box-shadow: 6px 6px 0px rgba(255, 51, 170, 0.2);
-  padding: 20px 15px;
-  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  position: relative;
-  overflow: hidden;
-}
-
-.album-box::before {
-  content: "💿";
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  font-size: 22px;
-  animation: spin 8s linear infinite;
-  z-index: 5;
-}
-
-.album-link:hover .album-box {
-  transform: translateY(-5px) scale(1.03);
-  border-color: #ff1493;
-  box-shadow: 10px 10px 0px rgba(255, 20, 147, 0.25);
-}
-
-.album-box img {
-  width: 100%;
-  border: 2px solid #3b0066;
-  border-radius: 4px;
-  box-shadow: 3px 3px 0px #ff99cc;
-  margin-bottom: 15px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.album-link:hover .album-box img {
-  transform: scale(1.02);
-  filter: saturate(1.2);
-}
-
-.album-title {
-  font-size: 22px;
+.window-btn {
+  background-color: #ece9d8;
+  color: #000000;
+  border: 1px outset #ffffff;
+  font-size: 9px;
+  font-family: sans-serif;
+  padding: 0px 4px;
   font-weight: bold;
-  color: #ff1493;
+  cursor: pointer;
+}
+
+/* Retro Sidebar Navigation Styling */
+.nav-header {
+  background-color: #ff69b4;
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  font-size: 13px;
+  border: 2px outset #ffb6c1;
+}
+
+.nav-box {
+  background-color: #fff0f5;
+  border: 2px inset #ffffff;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.nav-box ul {
+  list-style-type: square;
+  padding-left: 20px;
+  margin: 5px 0px;
+}
+
+.nav-box li {
   margin-bottom: 4px;
-  text-align: center;
-  text-shadow: 1px 1px 0px #ffffff;
-  animation: titleBounce 3s infinite alternate;
+  font-size: 12px;
 }
 
-@keyframes titleBounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-2px); }
-}
-
-.album-meta {
-  font-size: 13px;
-  font-weight: bold;
-  color: #3b0066;
-  margin-bottom: 12px;
-  text-align: center;
-  background: #fff0f5;
-  display: inline-block;
-  padding: 3px 12px;
-  border-radius: 20px;
-  border: 1px dashed #ff33aa;
-}
-
-.tracklist {
-  font-size: 13px;
-  line-height: 1.5;
-  background: #ffe6f5;
-  color: #3b0066;
+/* Center Content Area */
+.content-box {
+  background-color: #ffffff;
+  border: 2px inset #ece9d8;
   padding: 12px;
-  border-radius: 6px;
-  border: 2px inset #ff99cc;
-  max-height: 140px;
-  overflow-y: auto;
-  text-align: left;
+  font-size: 13px;
+  line-height: 1.4;
 }
 
-/* ---------- BACK HOME BUTTON ---------- */
-.back-home {
-  display: block;
-  margin: 40px auto 60px;
-  padding: 12px 30px;
-  background: #ff33aa;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  width: fit-content;
-  font-weight: bold;
-  font-size: 16px;
-  border: 3px outset #ff66cc;
-  box-shadow: 4px 4px 0px #3b0066;
-  transition: all 0.2s ease;
+/* Old-school buttons */
+.retro-btn {
+  font-family: "MS Sans Serif", "Tahoma", sans-serif;
+  font-size: 11px;
+  background-color: #ece9d8;
+  border: 2px outset #ffffff;
+  padding: 3px 8px;
+  cursor: pointer;
 }
-.back-home:hover {
-  background: #ff66cc;
-  border-style: inset;
-  transform: translateY(2px);
-  box-shadow: 2px 2px 0px #3b0066;
+.retro-btn:active {
+  border: 2px inset #ffffff;
 }
 
-/* ---------- EXTRA FUN ANIMATIONS ---------- */
-.star {
-  position: fixed;
-  font-size: 18px;
-  animation: floatStar 5s linear infinite;
-  pointer-events: none;
+/* Album Row Styling inside Content */
+.album-table {
+  background-color: #fff5f8;
+  border: 1px solid #ffb6c1;
+  margin-bottom: 15px;
 }
-
-@keyframes floatStar {
-  0% { transform: translateY(0) rotate(0deg); opacity:0.6; }
-  50% { transform: translateY(-10px) rotate(180deg); opacity:1; }
-  100% { transform: translateY(0) rotate(360deg); opacity:0.6; }
-}
-
-/* Spinning Disc */
-.spinning-disc {
-  position: fixed !important;
-  top: 20px;
-  left: 20px;
-  width: 90px;
-  z-index: 999;
-  animation: spinDisc 8s linear infinite;
-  filter: drop-shadow(0 0 8px #ff66cc);
-}
-
-@keyframes spinDisc {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 </style>
 </head>
 
 <body>
 
-<img src="338A7306-02B9-429D-947D-DD513EF1A958.png" 
-     alt="Baby V.O.X Spinning Disc" 
-     class="spinning-disc">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+  
+  <tr>
+    <td colspan="3" align="center">
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ Baby V.O.X Heaven - Discography Vault ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #ffe4e1; padding: 15px;">
+            <font size="6" color="#ff1493" face="Comic Sans MS"><b>~*~ Baby V.O.X Discography ~*~</b></font><br>
+            <font size="2" color="#4b0082"><b>-- 1997 – 2004 · 8 Official Albums · Complete Chronology --</b></font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="logo-spin">
+  <tr valign="top">
+    
+    <td width="200">
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 6px;">
+          
+          <div class="nav-header">:: MAIN HUB ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="index.html">Home / Main</a></li>
+              <li><a href="members.html">Members Profile</a></li>
+              <li><a href="history.html">Group History</a></li>
+              <li><a href="bias.html">My Bias Page</a></li>
+            </ul>
+          </div>
 
-<h1>Baby V.O.X Discography</h1>
-<p class="subtitle">🌸 1997 – 2004 · 8 Official Albums · No Singles Included 🌸</p>
+          <div class="nav-header">:: MEDIA VAULT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="videos.html">MV & Live Clips</a></li>
+              <li><a href="discography.html">Discography</a></li>
+              <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
+            </ul>
+          </div>
 
-<div class="disco-grid">
+          <div class="nav-header">:: INTERACT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="guestbook.html">Sign Guestbook</a></li>
+              <li><a href="links.html">Webring / Links</a></li>
+              <li><a href="blog.html">Weblog</a></li>
+              <li><a href="javascript:showRandomFact()">Random Fact</a></li>
+            </ul>
+          </div>
 
-  <a href="equalizeher.html" class="album-link">
-    <div class="album-box">
-      <img src="Unknown-1.jpeg" alt="Equalizeher">
-      <div class="album-title">Equalizeher</div>
-      <div class="album-meta">📅 1997 · Debut Album</div>
-      <div class="tracklist">
-        Baby V.O.X’s debut introduced an R&B and New Jack Swing–influenced sound.<br><br>
-        Featuring the original five-member lineup, laying the foundation
-        for the group’s image and vocal style.
+        </div>
       </div>
-    </div>
-  </a>
 
-  <a href="babyvox2.html" class="album-link">
-    <div class="album-box">
-      <img src="Unknown-3.jpeg" alt="Baby V.O.X II">
-      <div class="album-title">Baby V.O.X II</div>
-      <div class="album-meta">📅 1998</div>
-      <div class="tracklist">
-        Transitional release with major lineup changes.<br><br>
-        Lee Gai and Shim Eun Jin joined, shaping Baby V.O.X’s pop identity.
+      <table width="100%" class="netscape-window" cellpadding="4" cellspacing="0">
+        <tr><td class="window-titlebar">Site Badges</td></tr>
+        <tr>
+          <td align="center" style="background-color: #fff0f5;">
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#000000">
+              <tr><td><font size="1" color="#00ff00" face="sans-serif"><b>NETSCAPE<br>NAVIGATOR</b></font></td></tr>
+            </table>
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#0000ff">
+              <tr><td><font size="1" color="#ffffff" face="sans-serif"><b>IE 5.0<br>COMPATIBLE</b></font></td></tr>
+            </table>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <td width="*">
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>discography_vault.html</span>
+        </div>
+        <div class="content-box">
+          
+          <font size="4" color="#ff1493"><b>Official Album Releases</b></font>
+          <hr size="1" color="#ff69b4">
+          <p><font color="#000080">Browse through the complete studio album timeline of Baby V.O.X from their 1997 debut up to their final release.</font></p>
+          
+          <br>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 1. Equalizeher (Debut Album) · 1997</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="Unknown-1.jpeg" width="110" alt="Equalizeher" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 1997<br>
+                  <b>Lineup:</b> Original Five-Member Configuration<br>
+                  <b>Overview:</b> Baby V.O.X’s debut introduced an R&B and New Jack Swing–influenced sound, laying the foundation for the group’s image and vocal style.
+                </font><br><br>
+                <a href="equalizeher.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 2. Baby V.O.X II · 1998</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="Unknown-3.jpeg" width="110" alt="Baby V.O.X II" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 1998<br>
+                  <b>Overview:</b> A transitional release featuring major lineup changes. Lee Gai and Shim Eun Jin joined, shaping Baby V.O.X’s definitive pop identity.
+                </font><br><br>
+                <a href="babyvox2.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 3. Come Come Baby · 1999</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="Unknown-4.jpeg" width="110" alt="Come Come Baby" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 1999<br>
+                  <b>Lineup Solidified:</b> Kim EZ, Kan Mi Youn, Lee Hee Jin, Shim Eun Jin, Yoon Eun Hye<br>
+                  <b>Overview:</b> Yoon Eun Hye officially joined for this record, cementing the iconic lineup that fans know and love today.
+                </font><br><br>
+                <a href="comecomebaby.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 4. Why · 2000</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="Unknown-5.jpeg" width="110" alt="Why" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 2000<br>
+                  <b>Overview:</b> Released during their commercial peak. Widely recognized for strong public acclaim, confident stage concepts, and massive cultural impact across Asia.
+                </font><br><br>
+                <a href="why.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 5. Boyish Story · 2001</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="BoyishStory.jpeg" width="110" alt="Boyish Story" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 2001<br>
+                  <b>Overview:</b> Famously known for collectible photocards tucked inside physical album copies. Musically and visually reflects a youthful, confident image.
+                </font><br><br>
+                <a href="boyishstory.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 6. Special Album (3 CDs + 1 VCD) · 2002</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="Unknown-6.jpeg" width="110" alt="Special Album" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 2002<br>
+                  <b>Overview:</b> A massive compilation celebrating their peak years, packed with remixes, unreleased tracks, and heartfelt ballad recordings.
+                </font><br><br>
+                <a href="specialalbum.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 7. Devotion · 2003</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="Devotion.jpeg" width="110" alt="Devotion" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 2003<br>
+                  <b>Overview:</b> Featured a stylistic shift toward electronic and dance music production, showcasing a mature, experimental direction.
+                </font><br><br>
+                <a href="devotion.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+          <table width="100%" border="1" bordercolor="#ffb6c1" cellpadding="6" cellspacing="0" class="album-table">
+            <tr bgcolor="#ff69b4">
+              <td colspan="2"><font size="2" color="#ffffff"><b>💿 8. Ride West (Final Album) · 2004</b></font></td>
+            </tr>
+            <tr>
+              <td width="120" align="center" bgcolor="#ffffff">
+                <img src="Unknown-7.jpeg" width="110" alt="Ride West" style="border: 2px inset #000000;">
+              </td>
+              <td valign="top">
+                <font size="2" color="#000080">
+                  <b>Release Year:</b> 2004<br>
+                  <b>Overview:</b> Western-influenced production packaged in a unique DVD-style case. Marked the final chapter before group disbandment.
+                </font><br><br>
+                <a href="ridewest.html" class="retro-btn">View Details &gt;&gt;</a>
+              </td>
+            </tr>
+          </table>
+
+        </div>
       </div>
-    </div>
-  </a>
+    </td>
 
-  <a href="comecomebaby.html" class="album-link">
-    <div class="album-box">
-      <img src="Unknown-4.jpeg" alt="Come Come Baby">
-      <div class="album-title">Come Come Baby</div>
-      <div class="album-meta">📅 1999</div>
-      <div class="tracklist">
-        Yoon Eun Hye officially joined, solidifying the iconic lineup:<br><br>
-        Kim EZ, Kan Mi Youn, Lee Hee Jin, Shim Eun Jin, Yoon Eun Hye.
+    <td width="190">
+      
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">System Time</div>
+        <div style="padding: 8px; text-align: center; background-color: #ffffff;">
+          <font size="1" face="Courier New" color="#000000"><b>YOUR LOCAL TIME:</b></font><br>
+          <div id="local-clock" style="font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; color: #ff0000; margin-top: 4px;"></div>
+        </div>
       </div>
-    </div>
-  </a>
 
-  <a href="why.html" class="album-link">
-    <div class="album-box">
-      <img src="Unknown-5.jpeg" alt="Why">
-      <div class="album-title">Why</div>
-      <div class="album-meta">📅 2000</div>
-      <div class="tracklist">
-        Released during their commercial peak.<br><br>
-        Recognized for strong public acclaim, confident image, and cultural impact.
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Visitor Counter</div>
+        <div style="padding: 8px; text-align: center; background-color: #fff0f5;">
+          <font size="1">You are visitor no:</font><br><br>
+          <div id="visitor-count">
+            <a href='https://www.counters-free.net/'>COUNTER-free</a>
+            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
+          </div>
+        </div>
       </div>
-    </div>
-  </a>
 
-  <a href="boyishstory.html" class="album-link">
-    <div class="album-box">
-      <img src="BoyishStory.jpeg" alt="Boyish Story">
-      <div class="album-title">Boyish Story</div>
-      <div class="album-meta">📅 2001</div>
-      <div class="tracklist">
-        Known for collectible cards inside physical copies.<br><br>
-        Musically and visually reflects a confident, youth-oriented image.
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Mini Gallery</div>
+        <div style="padding: 6px; text-align: center; background-color: #ffffff;">
+          <div id="mini-gallery"></div>
+          <font size="1"><a href="gallery.html">[View Full Gallery]</a></font>
+        </div>
       </div>
-    </div>
-  </a>
 
-  <a href="specialalbum.html" class="album-link">
-    <div class="album-box">
-      <img src="Unknown-6.jpeg" alt="Special Album">
-      <div class="album-title">Special Album</div>
-      <div class="album-meta">📅 2002 · 3 CDs + 1 VCD</div>
-      <div class="tracklist">
-        A large-scale compilation celebrating peak years.<br><br>
-        Includes remixes, unreleased tracks, and ballads, widely considered an official release.
+      <div class="netscape-window">
+        <div class="window-titlebar">MIDI Player</div>
+        <div style="padding: 6px; text-align: center; background-color: #ece9d8;">
+          <font size="1"><b>Now Playing:</b><br>BabyVOX_GetUp.mid</font><br><br>
+          <button class="retro-btn">▶ Play</button>
+          <button class="retro-btn">■ Stop</button>
+        </div>
       </div>
-    </div>
-  </a>
 
-  <a href="devotion.html" class="album-link">
-    <div class="album-box">
-      <img src="Devotion.jpeg" alt="Devotion">
-      <div class="album-title">Devotion</div>
-      <div class="album-meta">📅 2003</div>
-      <div class="tracklist">
-        Stylistic shift toward electronic and dance music.<br><br>
-        Showcases a mature, experimental direction distinct from earlier pop sound.
-      </div>
-    </div>
-  </a>
+    </td>
+  </tr>
 
-  <a href="ridewest.html" class="album-link">
-    <div class="album-box">
-      <img src="Unknown-7.jpeg" alt="Ride West">
-      <div class="album-title">Ride West</div>
-      <div class="album-meta">📅 2004 · Final Album</div>
-      <div class="tracklist">
-        Western-influenced production packaged in DVD-style case.<br><br>
-        Controversial final chapter before disbandment.
-      </div>
-    </div>
-  </a>
+  <tr>
+    <td colspan="3" align="center">
+      <br>
+      <hr size="1" color="#ff69b4">
+      <font size="2" face="Verdana" color="#4b0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
 
-</div>
+</table>
 
-<a href="index.html" class="back-home">← Back to Home</a>
+<script>
+// ----- MINI GALLERY SCRIPT -----
+const galleryImages = ["EZ56.jpg", "Heejin56.jpg", "MIYOUN49.jpg", "Eunjin12_upscaled.jpg", "EUNHYE10.jpg"];
+const miniGallery = document.getElementById('mini-gallery');
 
-<span class="star" style="top:80px; left:10%;">🌟</span>
-<span class="star" style="top:150px; left:70%;">✨</span>
-<span class="star" style="top:300px; left:30%;">💫</span>
-<span class="star" style="top:500px; left:80%;">🌟</span>
+galleryImages.sort(() => 0.5 - Math.random()).slice(0, 2).forEach(src => {
+  const link = document.createElement('a');
+  link.href = src;
+  link.target = "_blank";
+  
+  const img = document.createElement('img');
+  img.src = src;
+  img.width = 65;
+  img.height = 65;
+  img.style.border = "2px inset #ffffff";
+  img.style.margin = "2px";
+  
+  link.appendChild(img);
+  miniGallery.appendChild(link);
+});
+
+// ----- RANDOM FACTS SCRIPT -----
+const facts = [
+  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
+  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
+  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
+  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
+];
+
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  alert("✨ BABY V.O.X FACT ✨\n\n" + facts[randomIndex]);
+}
+
+// ----- LOCAL CLOCK SCRIPT -----
+function updateClock() {
+  const clockEl = document.getElementById('local-clock');
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 
 </body>
 </html>
