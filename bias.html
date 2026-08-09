@@ -4,194 +4,360 @@
 <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Bias – Kim EZ</title>
+<title>~*~ Baby V.O.X Fan Club - My Bias Page ~*~</title>
 <style>
-/* ---------------- BODY ---------------- */
+/* ---------- NETSCAPE 1.0 / 4.0 GLOBAL STYLES ---------- */
 body {
-  margin: 0;
-  padding: 20px;
-  font-family: 'Comic Sans MS', Arial, sans-serif;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
-  color: #4B0082;
-  text-align: center;
-  overflow-x: hidden;
+  background-color: #ffe6f2;
+  background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw==');
+  color: #000080;
+  font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+  margin: 10px;
 }
 
-/* ---------------- SPARKLES ---------------- */
-body::before {
-  content: "✨";
-  position: fixed;
-  top: 50px;
-  left: 20%;
-  font-size: 24px;
-  opacity: 0.4;
-  animation: sparkle1 6s infinite alternate;
-}
-body::after {
-  content: "🌟";
-  position: fixed;
-  top: 200px;
-  left: 70%;
-  font-size: 28px;
-  opacity: 0.3;
-  animation: sparkle2 8s infinite alternate-reverse;
+/* Hyperlinks */
+a:link { color: #0000ff; text-decoration: underline; font-weight: bold; }
+a:visited { color: #800080; text-decoration: underline; }
+a:hover { color: #ff007f; background-color: #ffff99; }
+a:active { color: #ff0000; }
+
+/* Windows & Frames */
+.netscape-window {
+  background-color: #ece9d8;
+  border: 3px outset #ffffff;
 }
 
-@keyframes sparkle1 { 0% { transform: translateX(-30px); } 100% { transform: translateX(30px); } }
-@keyframes sparkle2 { 0% { transform: translateX(20px); } 100% { transform: translateX(-20px); } }
-
-/* ---------------- SPINNING LOGO ---------------- */
-.spin-logo {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 80px;
-  animation: spin 12s linear infinite;
-  z-index: 10;
-}
-
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-/* ---------------- TITLE ---------------- */
-h1 {
-  margin-top: 40px;
-  font-size: 3em;
-  text-shadow: 2px 2px 5px #ff66b2, -2px -2px 5px #ff3399;
-}
-
-/* ---------------- CENTER IMAGE ---------------- */
-.bias-image {
-  width: 400px;
-  max-width: 90%;
-  margin: 30px auto;
-  border: 6px double #ff3399;
-  border-radius: 20px;
-  box-shadow: 0 0 35px #ff66b2, 0 0 60px #ff33aa;
-  animation: floatImg 6s ease-in-out infinite alternate;
-}
-
-@keyframes floatImg { 0% { transform: translateY(0px); } 100% { transform: translateY(-15px); } }
-
-/* ---------------- TEXT BOX ---------------- */
-.bias-text {
-  max-width: 750px;
-  margin: 20px auto;
-  background: linear-gradient(135deg, #fff0f5, #ffe6f0);
-  padding: 25px;
-  border: 5px double #ff3399;
-  border-radius: 20px;
-  box-shadow: 0 0 35px #ff66b2, 0 0 60px #ff33aa;
-  font-size: 18px;
-  line-height: 1.6;
-  position: relative;
-}
-
-/* ---------------- FLOATING DECORATIONS ---------------- */
-.bias-text::before, .bias-text::after {
-  content: "💮";
-  position: absolute;
-  font-size: 28px;
-  top: -15px;
-  animation: bounce 2s infinite alternate;
-}
-
-.bias-text::after { content: "✨"; right: 10px; top: -10px; }
-
-@keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
-
-/* ---------------- BUTTONS ---------------- */
-.bias-buttons {
+.window-titlebar {
+  background: #000080;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 12px;
+  padding: 3px 6px;
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin: 40px 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
-button, .back-home, .bias-next {
-  padding: 14px 28px;
-  font-size: 18px;
-  border-radius: 12px;
-  text-decoration: none;
+.window-title-pink {
+  background: #ff1493;
+}
+
+.window-btn {
+  background-color: #ece9d8;
+  color: #000000;
+  border: 1px outset #ffffff;
+  font-size: 9px;
+  font-family: sans-serif;
+  padding: 0px 4px;
   font-weight: bold;
   cursor: pointer;
-  border: 3px double #ff3399;
-  box-shadow: 0 0 25px #ff66b2, 0 0 50px #ff33aa;
-  transition: all 0.3s;
 }
 
-.back-home {
-  background: #ff3399;
-  color: white;
-}
-
-.back-home:hover {
-  background: #ff66b2;
-}
-
-.bias-next {
-  background: #fff0f5;
-  color: #ff3399;
-}
-
-.bias-next:hover {
-  background: #ffe6f0;
-  transform: scale(1.05);
-}
-
-/* ---------------- FOOTER ---------------- */
-.footer {
-  font-size: 14px;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 3px #ff99cc;
-}
-
-/* ---------------- MARQUEE ---------------- */
-.marquee {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #ff3399;
+/* Retro Sidebar Navigation Styling */
+.nav-header {
+  background-color: #ff69b4;
+  color: #ffffff;
   font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  font-size: 13px;
+  border: 2px outset #ffb6c1;
+}
+
+.nav-box {
+  background-color: #fff0f5;
+  border: 2px inset #ffffff;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.nav-box ul {
+  list-style-type: square;
+  padding-left: 20px;
+  margin: 5px 0px;
+}
+
+.nav-box li {
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+/* Center Content Area */
+.content-box {
+  background-color: #ffffff;
+  border: 2px inset #ece9d8;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Bias Page Specific Styles */
+.bias-image {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border: 3px double #ff1493;
+  padding: 3px;
+  background-color: #ffffff;
+}
+
+.bias-text-box {
+  background-color: #fff0f5;
+  border: 2px inset #ffb6c1;
+  padding: 12px;
+  margin: 15px 0;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Old-school buttons */
+.retro-btn {
+  font-family: "MS Sans Serif", "Tahoma", sans-serif;
+  font-size: 11px;
+  background-color: #ece9d8;
+  border: 2px outset #ffffff;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.retro-btn:active {
+  border: 2px inset #ffffff;
 }
 </style>
 </head>
+
 <body>
 
-<!-- Spinning logo -->
-<img src="logo.png" alt="Baby V.O.X Logo" class="spin-logo">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+  
+  <tr>
+    <td colspan="3" align="center">
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ Baby V.O.X Heaven - My Bias Page ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #ffe4e1; padding: 15px;">
+            <font size="6" color="#ff1493" face="Comic Sans MS"><b>~*~ My Bias: Kim EZ ~*~</b></font><br>
+            <font size="2" color="#4b0082"><b>-- Dedicated to the iconic leader of Baby V.O.X --</b></font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-<!-- Page Title -->
-<h1>My Bias – Kim EZ</h1>
+  <tr valign="top">
+    
+    <td width="200">
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 6px;">
+          
+          <div class="nav-header">:: MAIN HUB ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="index.html">Home / Main</a></li>
+              <li><a href="members.html">Members Profile</a></li>
+              <li><a href="history.html">Group History</a></li>
+              <li><a href="bias.html">My Bias Page</a></li>
+            </ul>
+          </div>
 
-<!-- Floating marquee -->
-<marquee class="marquee" scrollamount="8" behavior="scroll" direction="left">💮 Welcome to my Kim EZ fanpage! 💮 Enjoy the sparkle and retro vibes! ✨✨✨</marquee>
+          <div class="nav-header">:: MEDIA VAULT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="videos.html">MV & Live Clips</a></li>
+              <li><a href="discography.html">Discography</a></li>
+              <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
+            </ul>
+          </div>
 
-<!-- Center image -->
-<img src="EZ24.jpg" alt="Kim EZ" class="bias-image">
+          <div class="nav-header">:: INTERACT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="guestbook.html">Sign Guestbook</a></li>
+              <li><a href="links.html">Webring / Links</a></li>
+              <li><a href="blog.html">Weblog</a></li>
+              <li><a href="javascript:showRandomFact()">Random Fact</a></li>
+            </ul>
+          </div>
 
-<!-- Text box with floating decorations -->
-<div class="bias-text">
-  Kim EZ became my bias because of her powerful stage presence, confidence, 
-  and the unique energy she brought to Baby V.O.X.  
-  <br><br>
-  She stood out not only for her visuals, but for her attitude and charisma,
-  especially during the group’s peak years. Her performances always felt bold,
-  expressive, and unforgettable.
-  <br><br>
-  Learning more about her story, personality, and role in Baby V.O.X only
-  strengthened my appreciation for her. Kim EZ represents the strength and
-  individuality that made Baby V.O.X such an iconic first-generation group.
-</div>
+        </div>
+      </div>
 
-<!-- Buttons -->
-<div class="bias-buttons">
-  <a href="index.html" class="back-home">← Back to Home</a>
-  <a href="biaspage2.html" class="bias-next">Go to Kan Mi Youn →</a>
-</div>
+      <table width="100%" class="netscape-window" cellpadding="4" cellspacing="0">
+        <tr><td class="window-titlebar">Site Badges</td></tr>
+        <tr>
+          <td align="center" style="background-color: #fff0f5;">
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#000000">
+              <tr><td><font size="1" color="#00ff00" face="sans-serif"><b>NETSCAPE<br>NAVIGATOR</b></font></td></tr>
+            </table>
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#0000ff">
+              <tr><td><font size="1" color="#ffffff" face="sans-serif"><b>IE 5.0<br>COMPATIBLE</b></font></td></tr>
+            </table>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </td>
 
-<!-- Footer -->
-<div class="footer">
-  © 2025 Baby V.O.X Fansite
-</div>
+    <td width="*">
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>bias.html</span>
+        </div>
+        <div class="content-box" align="center">
+          
+          <div align="center" style="background-color: #fff0f8; border: 1px dashed #ff69b4; padding: 4px; margin-bottom: 15px;">
+            <marquee scrollamount="5" behavior="scroll" direction="left">
+              <font size="2" color="#ff1493"><b>*~ Welcome to my Kim EZ shrine! Enjoy the retro vibes! ~*</b></font>
+            </marquee>
+          </div>
+
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td align="center">
+                <img src="EZ24.jpg" alt="Kim EZ" class="bias-image"><br>
+                <font size="1" color="#800080"><i>Kim EZ - Baby V.O.X Leader & Rapper</i></font>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <div class="bias-text-box">
+            <font color="#4b0082">
+              <p>Kim EZ became my bias because of her powerful stage presence, confidence, and the unique energy she brought to Baby V.O.X.</p>
+              
+              <p>She stood out not only for her visuals, but for her attitude and charisma, especially during the group’s peak years. Her performances always felt bold, expressive, and unforgettable.</p>
+              
+              <p>Learning more about her story, personality, and role in Baby V.O.X only strengthened my appreciation for her. Kim EZ represents the strength and individuality that made Baby V.O.X such an iconic first-generation group.</p>
+            </font>
+          </div>
+
+          <div align="center" style="margin-top: 15px; margin-bottom: 10px;">
+            <a href="biaspage2.html"><button class="retro-btn" style="color:#ff00ff; background:#ffffff;">Go to Kan Mi Youn →</button></a>
+          </div>
+
+        </div>
+      </div>
+    </td>
+
+    <td width="190">
+      
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">System Time</div>
+        <div style="padding: 8px; text-align: center; background-color: #ffffff;">
+          <font size="1" face="Courier New" color="#000000"><b>YOUR LOCAL TIME:</b></font><br>
+          <div id="local-clock" style="font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; color: #ff0000; margin-top: 4px;"></div>
+        </div>
+      </div>
+
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Visitor Counter</div>
+        <div style="padding: 8px; text-align: center; background-color: #fff0f5;">
+          <font size="1">You are visitor no:</font><br><br>
+          <div id="visitor-count">
+            <a href='https://www.counters-free.net/'>COUNTER-free</a>
+            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Mini Gallery</div>
+        <div style="padding: 6px; text-align: center; background-color: #ffffff;">
+          <div id="mini-gallery"></div>
+          <font size="1"><a href="gallery.html">[View Full Gallery]</a></font>
+        </div>
+      </div>
+
+      <div class="netscape-window">
+        <div class="window-titlebar">MIDI Player</div>
+        <div style="padding: 6px; text-align: center; background-color: #ece9d8;">
+          <font size="1"><b>Now Playing:</b><br>BabyVOX_GetUp.mid</font><br><br>
+          <button class="retro-btn">▶ Play</button>
+          <button class="retro-btn">■ Stop</button>
+        </div>
+      </div>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3" align="center">
+      <br>
+      <hr size="1" color="#ff69b4">
+      <font size="2" face="Verdana" color="#4b0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
+
+</table>
+
+<script>
+// ----- MINI GALLERY SCRIPT -----
+const galleryImages = ["EZ56.jpg", "Heejin56.jpg", "MIYOUN49.jpg", "Eunjin12_upscaled.jpg", "EUNHYE10.jpg"];
+const miniGallery = document.getElementById('mini-gallery');
+
+galleryImages.sort(() => 0.5 - Math.random()).slice(0, 2).forEach(src => {
+  const link = document.createElement('a');
+  link.href = src;
+  link.target = "_blank";
+  
+  const img = document.createElement('img');
+  img.src = src;
+  img.width = 65;
+  img.height = 65;
+  img.style.border = "2px inset #ffffff";
+  img.style.margin = "2px";
+  
+  link.appendChild(img);
+  miniGallery.appendChild(link);
+});
+
+// ----- RANDOM FACTS SCRIPT -----
+const facts = [
+  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
+  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
+  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
+  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
+];
+
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  alert("✨ BABY V.O.X FACT ✨\n\n" + facts[randomIndex]);
+}
+
+// ----- LOCAL CLOCK SCRIPT -----
+function updateClock() {
+  const clockEl = document.getElementById('local-clock');
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 
 </body>
 </html>
