@@ -1,128 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baby V.O.X Fanart</title>
+<title>~*~ Baby V.O.X Fan Club - Fanart Gallery ~*~</title>
 <style>
+/* ---------- NETSCAPE 1.0 / 4.0 GLOBAL STYLES ---------- */
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
-  color: #4B0082;
-  margin: 0;
-  padding: 0;
+  background-color: #ffe6f2;
+  background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw==');
+  color: #000080;
+  font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+  margin: 10px;
+}
+
+/* Hyperlinks */
+a:link { color: #0000ff; text-decoration: underline; font-weight: bold; }
+a:visited { color: #800080; text-decoration: underline; }
+a:hover { color: #ff007f; background-color: #ffff99; }
+a:active { color: #ff0000; }
+
+/* Windows & Frames */
+.netscape-window {
+  background-color: #ece9d8;
+  border: 3px outset #ffffff;
+}
+
+.window-titlebar {
+  background: #000080;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 12px;
+  padding: 3px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-title-pink {
+  background: #ff1493;
+}
+
+.window-btn {
+  background-color: #ece9d8;
+  color: #000000;
+  border: 1px outset #ffffff;
+  font-size: 9px;
+  font-family: sans-serif;
+  padding: 0px 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Retro Sidebar Navigation Styling */
+.nav-header {
+  background-color: #ff69b4;
+  color: #ffffff;
+  font-weight: bold;
   text-align: center;
+  padding: 4px;
+  font-size: 13px;
+  border: 2px outset #ffb6c1;
 }
 
-.container {
-  width: 900px;
-  max-width: 95%;
-  margin: 0 auto 50px auto;
-  background-color: #ffe6f0;
-  border: 5px dashed #ff66cc;
-  border-radius: 15px;
-  padding: 20px;
-}
-
-h1 {
-  color: #ff3399;
-  text-shadow: 2px 2px #fff;
-  font-size: 48px;
+.nav-box {
+  background-color: #fff0f5;
+  border: 2px inset #ffffff;
+  padding: 6px;
   margin-bottom: 10px;
 }
 
-h2.subtitle {
-  font-size: 20px;
-  color: #ff66cc;
-  text-shadow: 1px 1px white;
-  margin-bottom: 20px;
+.nav-box ul {
+  list-style-type: square;
+  padding-left: 20px;
+  margin: 5px 0px;
 }
 
+.nav-box li {
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+/* Center Content Area */
+.content-box {
+  background-color: #ffffff;
+  border: 2px inset #ece9d8;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Fanart Page Specific Styles */
 .banner {
-  width: auto;
-  max-height: 400px;
+  width: 100%;
+  max-height: 350px;
   object-fit: cover;
-  border: 4px double hotpink;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.marquee {
-  color: hotpink;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-shadow: 1px 1px white;
-  margin-bottom: 25px;
+  border: 2px inset #ff69b4;
+  margin-bottom: 10px;
 }
 
 .instructions {
   background-color: #fff0f8;
-  border: 3px dashed #ff66cc;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 30px;
+  border: 2px dashed #ff69b4;
+  padding: 10px;
+  margin-bottom: 20px;
   text-align: left;
 }
 
-.instructions a {
-  color: #ff3399;
-  font-weight: bold;
-  text-decoration: none;
+.gallery-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
 }
 
-.instructions a:hover {
-  text-decoration: underline;
+.gallery-cell {
+  background-color: #fff5f8;
+  border: 2px outset #ffb6c1;
+  text-align: center;
+  padding: 8px;
+  vertical-align: middle;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.gallery img {
-  width: 250px;
-  max-width: 100%;
-  border: 3px dashed #ff66cc;
-  border-radius: 10px;
+.gallery-cell img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border: 2px inset #ffffff;
   cursor: pointer;
-  transition: transform 0.2s;
 }
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-.button-group {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.button-group button {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  color: white;
-  background: #ff66cc;
-  padding: 12px 28px;
-  border: 3px solid #fff;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(255,102,204,0.4);
-  transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
-}
-
-.button-group button:hover {
-  transform: scale(1.1) rotate(-2deg);
-  background: #ff3399;
-  box-shadow: 0 0 20px #ff66cc, 0 0 40px #ffccff;
-}
-
-.button-group button:active {
-  transform: scale(0.9);
+.gallery-cell img:hover {
+  border-color: #ff1493;
 }
 
 /* Lightbox */
@@ -139,9 +148,8 @@ h2.subtitle {
 #lightbox-img {
   max-width: 90%;
   max-height: 90%;
-  border: 5px double hotpink;
-  border-radius: 12px;
-  box-shadow: 0 0 40px #ff66cc;
+  border: 4px double hotpink;
+  background: #ffffff;
   cursor: pointer;
 }
 
@@ -152,93 +160,295 @@ h2.subtitle {
   font-size: 40px;
   color: white;
   cursor: pointer;
-  text-shadow: 0 0 15px hotpink;
+  font-weight: bold;
+}
+
+/* Old-school buttons */
+.retro-btn {
+  font-family: "MS Sans Serif", "Tahoma", sans-serif;
+  font-size: 11px;
+  background-color: #ece9d8;
+  border: 2px outset #ffffff;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+.retro-btn:active {
+  border: 2px inset #ffffff;
 }
 </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Baby V.O.X Fanart</h1>
-  <h2 class="subtitle">Leave your fanart here! Please be nice :)</h2>
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+  
+  <tr>
+    <td colspan="3" align="center">
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ Baby V.O.X Heaven - Fanart Gallery ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #ffe4e1; padding: 15px;">
+            <font size="6" color="#ff1493" face="Comic Sans MS"><b>~*~ Baby V.O.X Fanart Gallery ~*~</b></font><br>
+            <font size="2" color="#4b0082"><b>-- Leave your fanart here! Please be nice :) --</b></font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-  <img src="Eunhye005.jpeg" alt="Fanart Banner" class="banner">
+  <tr valign="top">
+    
+    <td width="200">
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 6px;">
+          
+          <div class="nav-header">:: MAIN HUB ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="index.html">Home / Main</a></li>
+              <li><a href="members.html">Members Profile</a></li>
+              <li><a href="history.html">Group History</a></li>
+              <li><a href="bias.html">My Bias Page</a></li>
+            </ul>
+          </div>
 
-  <marquee class="marquee" behavior="scroll" direction="left" scrollamount="10">
-    💖 Want your fanart featured? Message me on Instagram or TikTok! 💖
-  </marquee>
+          <div class="nav-header">:: MEDIA VAULT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="videos.html">MV & Live Clips</a></li>
+              <li><a href="discography.html">Discography</a></li>
+              <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
+            </ul>
+          </div>
 
-  <div class="button-group">
-    <a href="fanart_ofthe_day.html" style="text-decoration:none;">
-      <button type="button" style="color:#ff00ff; font-weight:bold; border:3px outset #ffccff; background:#ffffff;">
-        ✨ Fanart of the Day ✨
-      </button>
-    </a>
-    <a href="index.html" style="text-decoration:none;">
-      <button type="button" style="color:#0000ff; font-weight:bold; border:3px outset #ccccff; background:#ffffff;">
-        🏠 Back to Home
-      </button>
-    </a>
-  </div>
+          <div class="nav-header">:: INTERACT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="guestbook.html">Sign Guestbook</a></li>
+              <li><a href="links.html">Webring / Links</a></li>
+              <li><a href="blog.html">Weblog</a></li>
+              <li><a href="javascript:showRandomFact()">Random Fact</a></li>
+            </ul>
+          </div>
 
-  <div class="instructions">
-    <p>To add your fanart, contact me on my social fanpages and I’ll see if I can post it here:</p>
-    <ul>
-      <li>Instagram: <a href="https://www.instagram.com/babyvoxfan23" target="_blank">@babyvoxfan23</a></li>
-      <li>TikTok: <a href="https://www.tiktok.com/@lewislovesmiyoun" target="_blank">@lewislovesmiyoun</a></li>
-    </ul>
-  </div>
+        </div>
+      </div>
 
-  <!-- Gallery -->
-  <div class="gallery">
-    <img src="IMG_2765.jpeg" alt="Fanart 1">
-    <img src="IMG_2766.jpeg" alt="Fanart 2">
-    <img src="IMG_2767.jpeg" alt="Fanart 3">
-    <img src="97EF46EF-856D-4EAB-8A55-489041B3A715.jpeg" alt="Fanart 4">
-    <img src="F98B7C22-7D8A-4DD0-9F0C-CCAE88591228.jpeg" alt="Fanart 5">
-    <img src="3CFE1A7F-E17C-498E-8A40-A399FFF6F634.jpeg" alt="Fanart 6">
-    <img src="C48FDF6A-6023-4F24-819A-F6B96A74597A.jpeg" alt="Fanart 7">
-    <img src="8F6C1431-8072-424C-A709-A24FF56B0C6C.jpeg" alt="Fanart 8">
-  </div>
-</div>
+      <table width="100%" class="netscape-window" cellpadding="4" cellspacing="0">
+        <tr><td class="window-titlebar">Site Badges</td></tr>
+        <tr>
+          <td align="center" style="background-color: #fff0f5;">
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#000000">
+              <tr><td><font size="1" color="#00ff00" face="sans-serif"><b>NETSCAPE<br>NAVIGATOR</b></font></td></tr>
+            </table>
+            <br>
+            <table border="1" cellpadding="2" bgcolor="#0000ff">
+              <tr><td><font size="1" color="#ffffff" face="sans-serif"><b>IE 5.0<br>COMPATIBLE</b></font></td></tr>
+            </table>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </td>
 
-<!-- Lightbox -->
+    <td width="*">
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>fanart_gallery.html</span>
+        </div>
+        <div class="content-box">
+          
+          <img src="Eunhye005.jpeg" alt="Fanart Banner" class="banner">
+
+          <div align="center" style="background-color: #fff0f8; border: 1px dashed #ff69b4; padding: 5px; margin-bottom: 15px;">
+            <font size="2" color="#ff1493"><b>💖 Want your fanart featured? Message me on Instagram or TikTok! 💖</b></font>
+          </div>
+
+          <div align="center" style="margin-bottom: 20px;">
+            <a href="fanart_ofthe_day.html"><button class="retro-btn" style="color:#ff00ff; font-weight:bold; background:#ffffff;">✨ Fanart of the Day ✨</button></a>
+            &nbsp;&nbsp;
+            <a href="index.html"><button class="retro-btn" style="color:#0000ff; font-weight:bold; background:#ffffff;">🏠 Back to Home</button></a>
+          </div>
+
+          <div class="instructions">
+            <font size="2" color="#4b0082">
+              <b>Submission Guidelines:</b><br>
+              To add your fanart, contact me on my social fanpages and I’ll see if I can post it here:
+              <ul>
+                <li>Instagram: <a href="https://www.instagram.com/babyvoxfan23" target="_blank">@babyvoxfan23</a></li>
+                <li>TikTok: <a href="https://www.tiktok.com/@lewislovesmiyoun" target="_blank">@lewislovesmiyoun</a></li>
+              </ul>
+            </font>
+          </div>
+
+          <table class="gallery-table">
+            <tr>
+              <td class="gallery-cell"><img src="IMG_2765.jpeg" alt="Fanart 1"></td>
+              <td class="gallery-cell"><img src="IMG_2766.jpeg" alt="Fanart 2"></td>
+              <td class="gallery-cell"><img src="IMG_2767.jpeg" alt="Fanart 3"></td>
+            </tr>
+            <tr>
+              <td class="gallery-cell"><img src="97EF46EF-856D-4EAB-8A55-489041B3A715.jpeg" alt="Fanart 4"></td>
+              <td class="gallery-cell"><img src="F98B7C22-7D8A-4DD0-9F0C-CCAE88591228.jpeg" alt="Fanart 5"></td>
+              <td class="gallery-cell"><img src="3CFE1A7F-E17C-498E-8A40-A399FFF6F634.jpeg" alt="Fanart 6"></td>
+            </tr>
+            <tr>
+              <td class="gallery-cell" colspan="1"><img src="C48FDF6A-6023-4F24-819A-F6B96A74597A.jpeg" alt="Fanart 7"></td>
+              <td class="gallery-cell" colspan="2"><img src="8F6C1431-8072-424C-A709-A24FF56B0C6C.jpeg" alt="Fanart 8"></td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+    </td>
+
+    <td width="190">
+      
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">System Time</div>
+        <div style="padding: 8px; text-align: center; background-color: #ffffff;">
+          <font size="1" face="Courier New" color="#000000"><b>YOUR LOCAL TIME:</b></font><br>
+          <div id="local-clock" style="font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; color: #ff0000; margin-top: 4px;"></div>
+        </div>
+      </div>
+
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Visitor Counter</div>
+        <div style="padding: 8px; text-align: center; background-color: #fff0f5;">
+          <font size="1">You are visitor no:</font><br><br>
+          <div id="visitor-count">
+            <a href='https://www.counters-free.net/'>COUNTER-free</a>
+            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
+          </div>
+        </div>
+      </div>
+
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Mini Gallery</div>
+        <div style="padding: 6px; text-align: center; background-color: #ffffff;">
+          <div id="mini-gallery"></div>
+          <font size="1"><a href="gallery.html">[View Full Gallery]</a></font>
+        </div>
+      </div>
+
+      <div class="netscape-window">
+        <div class="window-titlebar">MIDI Player</div>
+        <div style="padding: 6px; text-align: center; background-color: #ece9d8;">
+          <font size="1"><b>Now Playing:</b><br>BabyVOX_GetUp.mid</font><br><br>
+          <button class="retro-btn">▶ Play</button>
+          <button class="retro-btn">■ Stop</button>
+        </div>
+      </div>
+
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3" align="center">
+      <br>
+      <hr size="1" color="#ff69b4">
+      <font size="2" face="Verdana" color="#4b0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
+
+</table>
+
 <div id="lightbox">
   <span id="lightbox-close">✖</span>
   <img id="lightbox-img" src="" alt="Preview">
 </div>
 
 <script>
+// ----- LIGHTBOX SCRIPT -----
 document.addEventListener("DOMContentLoaded", function() {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const closeBtn = document.getElementById("lightbox-close");
 
-  // Open lightbox when clicking a gallery image
-  document.querySelectorAll(".gallery img").forEach(img => {
+  document.querySelectorAll(".gallery-cell img").forEach(img => {
     img.addEventListener("click", () => {
       lightboxImg.src = img.src;
       lightbox.style.display = "flex";
     });
   });
 
-  // Close lightbox
   closeBtn.addEventListener("click", () => {
     lightbox.style.display = "none";
   });
 
-  // Click outside image closes lightbox
   lightbox.addEventListener("click", e => {
     if (e.target === lightbox) {
       lightbox.style.display = "none";
     }
   });
 
-  // Click image in lightbox opens in new tab
   lightboxImg.addEventListener("click", () => {
     window.open(lightboxImg.src, "_blank");
   });
 });
+
+// ----- MINI GALLERY SCRIPT -----
+const galleryImages = ["EZ56.jpg", "Heejin56.jpg", "MIYOUN49.jpg", "Eunjin12_upscaled.jpg", "EUNHYE10.jpg"];
+const miniGallery = document.getElementById('mini-gallery');
+
+galleryImages.sort(() => 0.5 - Math.random()).slice(0, 2).forEach(src => {
+  const link = document.createElement('a');
+  link.href = src;
+  link.target = "_blank";
+  
+  const img = document.createElement('img');
+  img.src = src;
+  img.width = 65;
+  img.height = 65;
+  img.style.border = "2px inset #ffffff";
+  img.style.margin = "2px";
+  
+  link.appendChild(img);
+  miniGallery.appendChild(link);
+});
+
+// ----- RANDOM FACTS SCRIPT -----
+const facts = [
+  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
+  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
+  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
+  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
+];
+
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  alert("✨ BABY V.O.X FACT ✨\n\n" + facts[randomIndex]);
+}
+
+// ----- LOCAL CLOCK SCRIPT -----
+function updateClock() {
+  const clockEl = document.getElementById('local-clock');
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
 </script>
 
 </body>
