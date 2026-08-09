@@ -93,12 +93,24 @@ a:active { color: #ff0000; }
 }
 
 /* Fanart Page Specific Styles */
-.banner {
+.banner-container {
   width: 100%;
-  max-height: 350px;
-  object-fit: cover;
+  max-height: 300px;
+  overflow: hidden;
   border: 2px inset #ff69b4;
   margin-bottom: 10px;
+  background-color: #000;
+  text-align: center;
+}
+
+.banner {
+  width: 80%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+  object-position: center 30%;
+  display: block;
+  margin: 0 auto;
 }
 
 .instructions {
@@ -272,7 +284,9 @@ a:active { color: #ff0000; }
         </div>
         <div class="content-box">
           
-          <img src="Eunhye005.jpeg" alt="Fanart Banner" class="banner">
+          <div class="banner-container">
+            <img src="Eunhye005.jpeg" alt="Fanart Banner" class="banner">
+          </div>
 
           <div align="center" style="background-color: #fff0f8; border: 1px dashed #ff69b4; padding: 5px; margin-bottom: 15px;">
             <font size="2" color="#ff1493"><b>💖 Want your fanart featured? Message me on Instagram or TikTok! 💖</b></font>
@@ -280,8 +294,6 @@ a:active { color: #ff0000; }
 
           <div align="center" style="margin-bottom: 20px;">
             <a href="fanart_ofthe_day.html"><button class="retro-btn" style="color:#ff00ff; font-weight:bold; background:#ffffff;">✨ Fanart of the Day ✨</button></a>
-            &nbsp;&nbsp;
-            <a href="index.html"><button class="retro-btn" style="color:#0000ff; font-weight:bold; background:#ffffff;">🏠 Back to Home</button></a>
           </div>
 
           <div class="instructions">
