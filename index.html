@@ -192,7 +192,7 @@
               <li><a href="guestbook.html">Sign Guestbook</a></li>
               <li><a href="links.html">Webring / Links</a></li>
               <li><a href="blog.html">Weblog</a></li>
-              <li><a href="javascript:showRandomFact()">Random Fact</a></li>
+              <li><a href="javascript:void(0)" onclick="window.open('fact.php', 'factwin', 'width=340,height=200,resizable=no,status=no');">Random Fact</a></li>
             </ul>
           </div>
 
@@ -374,19 +374,6 @@ galleryImages.sort(() => 0.5 - Math.random()).slice(0, 2).forEach(src => {
   link.appendChild(img);
   miniGallery.appendChild(link);
 });
-
-// ----- RANDOM FACTS -----
-const facts = [
-  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
-  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
-  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
-  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
-];
-
-function showRandomFact() {
-  const randomIndex = Math.floor(Math.random() * facts.length);
-  alert("✨ BABY V.O.X FACT ✨\n\n" + facts[randomIndex]);
-}
 
 // ----- LANGUAGE SELECTOR -----
 const welcomeMessages = {
