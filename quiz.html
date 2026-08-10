@@ -2,169 +2,350 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Which Baby V.O.X Member Are You?</title>
+<title>~*~ Which Baby V.O.X Member Are You? Quiz! ~*~</title>
 <style>
-body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background: linear-gradient(135deg, #ffe6f0, #f8e1ff);
-  color: #4B0082;
-  text-align: center;
-  margin: 0;
-  padding: 20px;
-}
+  /* Classic 2000s Web Typography & Styles */
+  body {
+    background-color: #FFE6F2;
+    background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw==');
+    font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+    color: #000080;
+    margin: 10px;
+    padding: 0;
+  }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto 50px auto;
-  background-color: #ffe6f0;
-  border: 5px dashed #ff66cc;
-  border-radius: 15px;
-  padding: 20px;
-}
+  /* Link Styling */
+  a:link { color: #0000FF; text-decoration: underline; font-weight: bold; }
+  a:visited { color: #800080; text-decoration: underline; }
+  a:hover { color: #FF007F; background-color: #FFFF99; }
+  a:active { color: #FF0000; }
 
-h1 {
-  font-size: 40px;
-  color: #ff3399;
-  text-shadow: 2px 2px #fff;
-  margin-bottom: 20px;
-}
+  /* Table Windows & Frames */
+  .netscape-window {
+    background-color: #ECE9D8; /* Classic Windows Gray */
+    border: 3px outset #FFFFFF;
+  }
 
-.question {
-  margin: 20px 0;
-  text-align: left;
-}
+  .window-titlebar {
+    background: #000080; /* Classic Blue Titlebar */
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: "Tahoma", "Arial", sans-serif;
+    font-size: 12px;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.question h3 {
-  margin-bottom: 10px;
-}
+  .window-title-pink {
+    background: #FF1493; /* Y2K Pink Variant Titlebar */
+  }
 
-.answers button {
-  display: block;
-  margin: 5px 0;
-  padding: 10px 20px;
-  background: #ff66cc;
-  color: white;
-  border: 3px solid white;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
+  .window-btn {
+    background-color: #ECE9D8;
+    color: #000000;
+    border: 1px outset #FFFFFF;
+    font-size: 9px;
+    font-family: sans-serif;
+    padding: 0px 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.answers button:hover {
-  transform: scale(1.05);
-  background: #ff3399;
-}
+  /* Retro Sidebar Navigation Styling */
+  .nav-header {
+    background-color: #FF69B4;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px;
+    font-size: 13px;
+    border: 2px outset #FFB6C1;
+  }
 
-#result {
-  display: none;
-  margin-top: 30px;
-  padding: 20px;
-  border: 3px dashed #ff66cc;
-  border-radius: 12px;
-  background: #fff0f8;
-}
+  .nav-box {
+    background-color: #FFF0F5;
+    border: 2px inset #FFFFFF;
+    padding: 6px;
+    margin-bottom: 10px;
+  }
 
-.member {
-  display: none;
-}
+  .nav-box ul {
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 5px 0px;
+  }
 
-.member img {
-  max-width: 250px;
-  border-radius: 12px;
-  margin-top: 15px;
-}
+  .nav-box li {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
 
+  /* Center Content Area */
+  .content-box {
+    background-color: #FFFFFF;
+    border: 2px inset #ECE9D8;
+    padding: 15px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
 
-.back-home {
-  display: block;
-  margin: 20px auto 40px auto;
-  padding: 12px 20px;
-  background: #ff3399;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 18px;
-  box-shadow: 0 0 10px #ff66b2;
-}
-  
+  /* Retro Buttons */
+  .retro-btn {
+    font-family: "MS Sans Serif", "Tahoma", sans-serif;
+    font-size: 11px;
+    background-color: #ECE9D8;
+    border: 2px outset #FFFFFF;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .retro-btn:active {
+    border: 2px inset #FFFFFF;
+  }
+
+  /* Quiz Specific Box */
+  .quiz-box {
+    background-color: #FFF0F5;
+    border: 2px inset #FFFFFF;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .answers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 300px;
+    margin: 15px auto 0 auto;
+  }
+
+  .answers-grid button {
+    font-family: "Comic Sans MS", "Tahoma", sans-serif;
+    font-size: 12px;
+    background-color: #ECE9D8;
+    border: 2px outset #FFFFFF;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: #000080;
+    font-weight: bold;
+  }
+
+  .answers-grid button:hover {
+    background-color: #FFFF99;
+    color: #FF007F;
+  }
+
+  .answers-grid button:active {
+    border: 2px inset #FFFFFF;
+  }
+
+  #result {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px inset #FFFFFF;
+    background: #FFF0F5;
+    text-align: center;
+  }
+
+  .member {
+    display: none;
+  }
+
+  .member img {
+    max-width: 200px;
+    border: 3px inset #FFFFFF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Which Baby V.O.X Member Are You?</h1>
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+  
+  <tr>
+    <td colspan="2" align="center">
+      
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>Netscape Communicator - [ Baby V.O.X Fan Quiz! ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #FFE4E1; padding: 15px;">
+            <font size="6" color="#FF1493" face="Comic Sans MS"><b>~*~ Member Quiz ~*~</b></font><br>
+            <font size="2" color="#4B0082"><b>-- Which Baby V.O.X Queen Are You? Find Out Below! --</b></font>
+          </td>
+        </tr>
+      </table>
 
-  <div id="quiz">
+    </td>
+  </tr>
 
-    <div class="question" data-question="1">
-      <h3>1. How would your friends describe you?</h3>
-      <div class="answers">
-        <button data-points="EZ">Fun & Outgoing</button>
-        <button data-points="Miyoun">Smart & Trendy</button>
-        <button data-points="Heejin">Calm & Sweet</button>
-        <button data-points="Eunjin">Strong & Loyal</button>
-        <button data-points="Eunhye">Cute & Charming</button>
+  <tr valign="top">
+    
+    <td width="200">
+      
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 6px;">
+          
+          <div class="nav-header">:: MAIN HUB ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="index.html">Home / Main</a></li>
+              <li><a href="members.html">Members Profile</a></li>
+              <li><a href="history.html">Group History</a></li>
+              <li><a href="bias.html">My Bias Page</a></li>
+              <li><a href="quiz.html">Member Quiz!</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-header">:: MEDIA VAULT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="gallery.html">Photo Gallery</a></li>
+              <li><a href="videos.html">MV & Live Clips</a></li>
+              <li><a href="discography.html">Discography</a></li>
+              <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-header">:: INTERACT ::</div>
+          <div class="nav-box">
+            <ul>
+              <li><a href="guestbook.html">Sign Guestbook</a></li>
+              <li><a href="links.html">Webring / Links</a></li>
+              <li><a href="blog.html">Weblog</a></li>
+            </ul>
+          </div>
+
+        </div>
       </div>
-    </div>
 
-    <div class="question" data-question="2" style="display:none;">
-      <h3>2. What's your ideal hobby?</h3>
-      <div class="answers">
-        <button data-points="EZ">Partying with friends</button>
-        <button data-points="Miyoun">Fashion & Shopping</button>
-        <button data-points="Heejin">Reading or relaxing</button>
-        <button data-points="Eunjin">Sports or fitness</button>
-        <button data-points="Eunhye">Singing or dancing</button>
+    </td>
+
+    <td width="*">
+      
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>which_member_are_you.exe</span>
+        </div>
+        <div class="content-box">
+          
+          <font size="4" color="#FF1493"><b>✨ Which Baby V.O.X Member Are You? ✨</b></font>
+          <hr size="1" color="#FF69B4">
+
+          <div id="quiz">
+
+            <div class="question quiz-box" data-question="1">
+              <font size="3" color="#FF007F"><b>Question 1: How would your friends describe you?</b></font>
+              <div class="answers-grid">
+                <button data-points="EZ">Fun & Outgoing</button>
+                <button data-points="Miyoun">Smart & Trendy</button>
+                <button data-points="Heejin">Calm & Sweet</button>
+                <button data-points="Eunjin">Strong & Loyal</button>
+                <button data-points="Eunhye">Cute & Charming</button>
+              </div>
+            </div>
+
+            <div class="question quiz-box" data-question="2" style="display:none;">
+              <font size="3" color="#FF007F"><b>Question 2: What's your ideal hobby?</b></font>
+              <div class="answers-grid">
+                <button data-points="EZ">Partying with friends</button>
+                <button data-points="Miyoun">Fashion & Shopping</button>
+                <button data-points="Heejin">Reading or relaxing</button>
+                <button data-points="Eunjin">Sports or fitness</button>
+                <button data-points="Eunhye">Singing or dancing</button>
+              </div>
+            </div>
+
+            <div class="question quiz-box" data-question="3" style="display:none;">
+              <font size="3" color="#FF007F"><b>Question 3: Pick your favorite color:</b></font>
+              <div class="answers-grid">
+                <button data-points="EZ">Red</button>
+                <button data-points="Miyoun">Purple</button>
+                <button data-points="Heejin">Blue</button>
+                <button data-points="Eunjin">Green</button>
+                <button data-points="Eunhye">Pink</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div id="result">
+            <font size="4" color="#FF1493"><b>✨ Your Match Is... ✨</b></font><br><br>
+
+            <div class="member" id="EZ">
+              <font size="3" color="#000080"><b>Kim EZ</b></font><br>
+              <img src="EZ24.jpg" alt="Kim EZ Image"><br>
+              <font size="2" color="#4B0082">You are charismatic, confident, and a natural leader!</font>
+            </div>
+
+            <div class="member" id="Miyoun">
+              <font size="3" color="#000080"><b>Kan Mi Youn</b></font><br>
+              <img src="MIYOUN8.jpg" alt="Kan Mi Youn Image"><br>
+              <font size="2" color="#4B0082">You are stylish, sweet, and always fashion-forward!</font>
+            </div>
+
+            <div class="member" id="Heejin">
+              <font size="3" color="#000080"><b>Lee Hee Jin</b></font><br>
+              <img src="HEEJIN46.JPG" alt="Lee Hee Jin Image"><br>
+              <font size="2" color="#4B0082">You are gentle, talented, and deeply caring!</font>
+            </div>
+
+            <div class="member" id="Eunjin">
+              <font size="3" color="#000080"><b>Shim Eun Jin</b></font><br>
+              <img src="eunjin5.jpg" alt="Shim Eun Jin Image"><br>
+              <font size="2" color="#4B0082">You are cool, fierce, and fiercely loyal to your friends!</font>
+            </div>
+
+            <div class="member" id="Eunhye">
+              <font size="3" color="#000080"><b>Yoon Eun Hye</b></font><br>
+              <img src="Eunhye11.jpeg" alt="Yoon Eun Hye Image"><br>
+              <font size="2" color="#4B0082">You are adorable, multi-talented, and loved by everyone!</font>
+            </div>
+
+            <br><br>
+            <button class="retro-btn" onclick="restartQuiz()">[ Retake Quiz ]</button>
+          </div>
+
+          <br>
+          <div align="center">
+            <a href="index.html" class="retro-btn" style="text-decoration: none; color: black; display: inline-block;">« Back to Main Hub</a>
+          </div>
+
+        </div>
       </div>
-    </div>
 
-    <div class="question" data-question="3" style="display:none;">
-      <h3>3. Pick your favorite color:</h3>
-      <div class="answers">
-        <button data-points="EZ">Red</button>
-        <button data-points="Miyoun">Purple</button>
-        <button data-points="Heejin">Blue</button>
-        <button data-points="Eunjin">Green</button>
-        <button data-points="Eunhye">Pink</button>
-      </div>
-    </div>
+    </td>
 
-  </div>
+  </tr>
 
-  <div id="result">
-    <h2>Your Baby V.O.X Member is:</h2>
+  <tr>
+    <td colspan="2" align="center">
+      <br>
+      <hr size="1" color="#FF69B4">
+      <font size="2" face="Verdana" color="#4B0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
 
-    <div class="member" id="EZ">
-      <h3>Kim EZ</h3>
-      <img src="EZ24.jpg" alt="Kim EZ Image">
-    </div>
-
-    <div class="member" id="Miyoun">
-      <h3>Kan Mi Youn</h3>
-      <img src="MIYOUN8.jpg" alt="Kan Mi Youn Image">
-    </div>
-
-    <div class="member" id="Heejin">
-      <h3>Lee Hee Jin</h3>
-      <img src="HEEJIN46.JPG" alt="Lee Hee Jin Image">
-    </div>
-
-    <div class="member" id="Eunjin">
-      <h3>Shim Eun Jin</h3>
-      <img src="eunjin5.jpg" alt="Shim Eun Jin Image">
-    </div>
-
-    <div class="member" id="Eunhye">
-      <h3>Yoon Eun Hye</h3>
-      <img src="Eunhye11.jpeg" alt="Yoon Eun Hye Image">
-    </div>
-
-    <button onclick="restartQuiz()">Try Again</button>
-  </div>
-   <a href="index.html" class="back-home">Back to Home</a>
-</div>
+</table>
 
 <script>
 const scores = {
@@ -198,7 +379,6 @@ questions.forEach((question, index) => {
 function showResult() {
   const resultDiv = document.getElementById("result");
 
-  // Find member with highest score
   let maxScore = -1;
   let topMember = "";
   for(const member in scores){
@@ -208,10 +388,8 @@ function showResult() {
     }
   }
 
-  // Hide all member divs first
   document.querySelectorAll(".member").forEach(div => div.style.display = "none");
 
-  // Show only the top member
   const winnerDiv = document.getElementById(topMember);
   if(winnerDiv) winnerDiv.style.display = "block";
 
@@ -219,16 +397,13 @@ function showResult() {
 }
 
 function restartQuiz(){
-  // Reset scores
   for(const member in scores){
     scores[member] = 0;
   }
 
-  // Hide result
   document.getElementById("result").style.display = "none";
   document.querySelectorAll(".member").forEach(div => div.style.display = "none");
 
-  // Show first question
   questions.forEach((q,i) => q.style.display = i === 0 ? "block" : "none");
 }
 </script>
