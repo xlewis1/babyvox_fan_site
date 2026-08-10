@@ -113,9 +113,46 @@
   .retro-btn:active {
     border: 2px inset #FFFFFF;
   }
+
+  /* Modal Overlay Popup for Quiz */
+  .quiz-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .quiz-modal {
+    width: 320px;
+    background-color: #ECE9D8;
+    border: 3px outset #FFFFFF;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+  }
 </style>
 </head>
 <body>
+
+<div id="quiz-popup" class="quiz-modal-overlay">
+  <div class="quiz-modal">
+    <div class="window-titlebar window-title-pink">
+      <span>✨ MESSAGE FROM WEBMASTER ✨</span>
+      <button class="window-btn" style="color:red;" onclick="closeQuizPopup()">X</button>
+    </div>
+    <div style="padding: 12px; text-align: center; background-color: #FFF0F5;">
+      <img src="IMG_3208.JPG" alt="Baby V.O.X Quiz Promo" style="max-width: 250px; border: 2px inset #FFFFFF; margin-bottom: 10px;"><br>
+      <font size="2" color="#FF007F"><b>please try my which baby vox member are you? quiz, if you haven't already! (:</b></font>
+      <br><br>
+      <a href="quiz.html" class="retro-btn" style="text-decoration: none; color: black; display: inline-block;">Take Quiz! ♡</a>
+      <button class="retro-btn" onclick="closeQuizPopup()">Maybe Later</button>
+    </div>
+  </div>
+</div>
 
 <table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
   
@@ -173,6 +210,7 @@
               <li><a href="members.html">Members Profile</a></li>
               <li><a href="history.html">Group History</a></li>
               <li><a href="bias.html">My Bias Page</a></li>
+              <li><a href="quiz.html">Member Quiz!</a></li>
             </ul>
           </div>
 
@@ -269,6 +307,7 @@
               <td>
                 <font size="2">
                   <b><u>Date: Feb 14, 2026</u></b><br>
+                  • Added a brand-new <a href="quiz.html">Which Member Are You? Quiz</a>!<br>
                   • Added new high-resolution scans to the <a href="gallery.html">Gallery</a>!<br>
                   • Updated the <a href="blog.html">Weblog</a> with thoughts on recent reunion clips.<br>
                   • Fixed broken links on the media page.
@@ -355,6 +394,18 @@
 </table>
 
 <script>
+// ----- QUIZ POPUP TRIGGER -----
+window.addEventListener('load', () => {
+  // Triggers pop-up 1 second after site loads
+  setTimeout(() => {
+    document.getElementById('quiz-popup').style.display = 'flex';
+  }, 1000);
+});
+
+function closeQuizPopup() {
+  document.getElementById('quiz-popup').style.display = 'none';
+}
+
 // ----- MINI GALLERY (Populates retro frame) -----
 const galleryImages = ["EZ56.jpg", "Heejin56.jpg", "MIYOUN49.jpg", "Eunjin12_upscaled.jpg", "EUNHYE10.jpg"];
 const miniGallery = document.getElementById('mini-gallery');
@@ -400,7 +451,6 @@ function showRandomFact() {
   const randomIndex = Math.floor(Math.random() * facts.length);
   const selectedFact = facts[randomIndex];
   
-  // Creates a real retro-styled pop-up window in JavaScript!
   const factWindow = window.open("", "factwin", "width=340,height=180,resizable=no,status=no");
   factWindow.document.write(`
     <!DOCTYPE html>
