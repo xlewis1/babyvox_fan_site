@@ -192,7 +192,7 @@
               <li><a href="guestbook.html">Sign Guestbook</a></li>
               <li><a href="links.html">Webring / Links</a></li>
               <li><a href="blog.html">Weblog</a></li>
-              <li><a href="javascript:void(0)" onclick="window.open('fact.php', 'factwin', 'width=340,height=200,resizable=no,status=no');">Random Fact</a></li>
+              <li><a href="#" onclick="showRandomFact(); return false;">Random Fact</a></li>
             </ul>
           </div>
 
@@ -387,6 +387,43 @@ const langSelector = document.getElementById('language-selector');
 langSelector.addEventListener('change', e => {
   document.getElementById("welcome-text-target").innerHTML = "<b>" + welcomeMessages[e.target.value] + "</b>";
 });
+
+// ----- CONVERTED PHP ARRAY TO JAVASCRIPT POPUP -----
+const facts = [
+  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
+  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
+  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
+  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
+];
+
+function showRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  const selectedFact = facts[randomIndex];
+  
+  // Creates a real retro-styled pop-up window in JavaScript!
+  const factWindow = window.open("", "factwin", "width=340,height=180,resizable=no,status=no");
+  factWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>✨ Random Fact ✨</title>
+    <style>
+      body { background-color: #ECE9D8; font-family: "Comic Sans MS", sans-serif; margin: 10px; }
+      .box { border: 2px outset #FFFFFF; padding: 12px; background-color: #FFF0F5; text-align: center; }
+      button { font-family: "MS Sans Serif", sans-serif; font-size: 11px; background-color: #ECE9D8; border: 2px outset #FFFFFF; padding: 2px 8px; cursor: pointer; }
+    </style>
+    </head>
+    <body>
+    <div class="box">
+      <font color="#000080" size="2"><b>${selectedFact}</b></font>
+      <br><br>
+      <button onclick="window.close()">Close Window</button>
+    </div>
+    </body>
+    </html>
+  `);
+  factWindow.document.close();
+}
 
 // ----- LOCAL CLOCK -----
 function updateClock() {
