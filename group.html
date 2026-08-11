@@ -2,78 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby VOX Group Gallery</title>
-  <link rel="icon" type="image/svg+xml" href="babyvox.logo.2.svg">
+  <title>Baby V.0.X - Group Gallery Page 1</title>
   <style>
+    /* Classic Web 1.0 Typography & Background Tiles */
     body {
-      font-family: "Comic Sans MS", "Courier New", sans-serif;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-      /* Subtle Y2K diagonal grid lines to keep the site design unified */
-      background: repeating-linear-gradient(
-        45deg,
-        #ffd6e8,
-        #ffd6e8 15px,
-        #ffe3f0 15px,
-        #ffe3f0 30px
-      );
-      color: #4B0082;
+      background-color: #FFE6F2;
+      background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw==');
+      font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
+      color: #000080;
+      margin: 10px;
+      padding: 0;
     }
 
-    /* 🛸 Spinning Mini-Logo */
-    .mini-logo {
-      width: 70px;
-      margin: 0 auto 10px auto;
-      display: block;
-      filter: drop-shadow(1px 1px 0px #ff0080);
-      animation: spin 5s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
+    /* Link Styling */
+    a:link { color: #0000FF; text-decoration: underline; font-weight: bold; }
+    a:visited { color: #800080; text-decoration: underline; }
+    a:hover { color: #FF007F; background-color: #FFFF99; }
+    a:active { color: #FF0000; }
+
+    /* Authentic Web OS Window Styling */
+    .netscape-window {
+      background-color: #ECE9D8;
+      border: 3px outset #FFFFFF;
     }
 
-    /* 📦 Outset Windows Explorer Frame */
-    .panel {
-      max-width: 950px;
-      margin: 0 auto 40px auto;
-      padding: 25px;
-      background: #ffffff;
-      border: 5px outset #ffb3d1;
-      box-shadow: 6px 6px 0px rgba(75, 0, 130, 0.25);
-    }
-
-    /* 🎤 3D Pop Title Style */
-    h1 {
-      color: #ffffff;
-      font-size: 32px;
-      font-family: "Arial Black", Impact, sans-serif;
-      text-transform: uppercase;
-      margin: 5px 0;
-      -webkit-text-stroke: 1.2px #4B0082;
-      text-shadow: 2px 2px 0px #ff0080, 3px 3px 0px #4B0082;
-    }
-
-    .instructions {
-      font-family: "Courier New", monospace;
-      font-size: 13px;
+    .window-titlebar {
+      background: #000080;
+      color: #FFFFFF;
       font-weight: bold;
-      color: #ff0066;
-      background: #fff5fa;
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px dashed #ff80bf;
-      margin-bottom: 25px;
-      max-width: 80%;
+      font-family: "Tahoma", "Arial", sans-serif;
+      font-size: 12px;
+      padding: 3px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* 🖼️ Gallery grid - 3 per row */
+    .window-title-pink {
+      background: #FF1493;
+    }
+
+    .window-btn {
+      background-color: #ECE9D8;
+      color: #000000;
+      border: 1px outset #FFFFFF;
+      font-size: 9px;
+      font-family: sans-serif;
+      padding: 0px 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Content Boxes */
+    .content-box {
+      background-color: #FFFFFF;
+      border: 2px inset #ECE9D8;
+      padding: 12px;
+    }
+
+    /* Gallery Grid (3 per row) */
     .member-gallery {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 15px;
       justify-items: center;
       margin-bottom: 25px;
     }
@@ -81,8 +72,9 @@
     .member-gallery a {
       display: block;
       background: #fff5fa;
-      padding: 8px;
+      padding: 6px;
       border: 2px ridge #ff80bf;
+      text-decoration: none;
       transition: transform 0.2s, background-color 0.2s;
     }
 
@@ -93,50 +85,40 @@
 
     .member-gallery img {
       width: 100%;
-      max-width: 240px;
-      height: 200px;
+      max-width: 220px;
+      height: 180px;
       object-fit: cover;
       display: block;
       border: 3px inset #ff0080;
-      box-shadow: 2px 2px 0px #4B0082;
     }
 
-    /* 🕹️ Retro Beveled Push-Buttons */
-    .back-btn {
-      margin: 8px;
-      padding: 10px 16px;
+    /* Operating System Push Buttons */
+    .retro-btn {
+      font-family: "Tahoma", "MS Sans Serif", sans-serif;
+      font-size: 11px;
       font-weight: bold;
-      font-size: 13px;
-      font-family: "Comic Sans MS", sans-serif;
-      background: #ff80bf;
-      color: white !important;
-      border-top: 3px solid #ffb3d9;
-      border-left: 3px solid #ffb3d9;
-      border-right: 3px solid #cc0066;
-      border-bottom: 3px solid #cc0066;
-      box-shadow: 1px 1px 0px #000000;
+      background-color: #ECE9D8;
+      border: 2px outset #FFFFFF;
+      padding: 6px 14px;
       cursor: pointer;
+      color: #000000;
+      margin: 4px;
     }
 
-    .back-btn:hover {
-      background: #ff47a3;
-      border-top: 3px solid #cc0066;
-      border-left: 3px solid #cc0066;
-      border-right: 3px solid #ffb3d9;
-      border-bottom: 3px solid #ffb3d9;
+    .retro-btn:active {
+      border: 2px inset #FFFFFF;
     }
 
-    /* 🎞️ Lightbox Modernized Classic Style */
+    /* 🎞️ Lightbox Overlay Style */
     .lightbox {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       background: rgba(34, 0, 66, 0.9);
       justify-content: center;
       align-items: center;
-      z-index: 1000;
       flex-direction: column;
+      z-index: 1000;
     }
 
     .lightbox img {
@@ -168,61 +150,136 @@
       background: #cc0066;
     }
 
-    /* Keep the strict 3-column constraint intact across viewports */
     @media (max-width: 768px) {
-      .member-gallery { gap: 12px; }
-      .member-gallery a { padding: 4px; }
-      h1 { font-size: 24px; }
+      .member-gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     }
   </style>
 </head>
 <body>
 
-<img src="babyvox.logo.2.svg" alt="Baby VOX Logo" class="mini-logo">
+<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
+  
+  <tr>
+    <td colspan="2" align="center">
+      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
+        <tr>
+          <td>
+            <div class="window-titlebar window-title-pink">
+              <span>BabyV.O.X_OS - [ group_photo_vault_page1.exe ]</span>
+              <div>
+                <button class="window-btn">_</button>
+                <button class="window-btn">□</button>
+                <button class="window-btn" style="color:red;">X</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="background-color: #FFE4E1; padding: 15px;">
+            <font size="6" color="#FF1493" face="Comic Sans MS"><b>~*~ Baby VOX Group Gallery ~*~</b></font><br>
+            <font size="2" color="#4B0082"><b>Rare group photos, era scans, and archive shots! Click to launch lightbox.</b></font>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-<div class="panel">
-  <h1>Baby VOX Group Gallery</h1>
-  <p class="instructions">
-    Click an image to open the lightbox. Navigate with arrows or press X to close. Click the preview window image for full original resolution.
-  </p>
+  <tr valign="top">
+    
+    <td width="180">
+      <div class="netscape-window" style="margin-bottom: 10px;">
+        <div class="window-titlebar">Navigation</div>
+        <div style="padding: 8px; background-color: #FFF0F5;">
+          <font size="2">
+            <b>:: MAIN MENU ::</b><br>
+            • <a href="gallery.html">◀ Gallery Hub</a><br>
+            • <a href="index.html">Main Hub</a><br><br>
+            <b>:: MEMBERS ::</b><br>
+            • <a href="group.html"><b>Group Clip</b></a><br>
+            • <a href="ez.html">Kim EZ</a><br>
+            • <a href="heejin.html">Lee Heejin</a><br>
+            • <a href="eunjin.html">Shim Eun Jin</a><br>
+            • <a href="eunhye.html">Yoon Eun Hye</a><br>
+            • <a href="miyoun.html">Kan Mi Youn</a>
+          </font>
+        </div>
+      </div>
 
-  <div id="group-gallery" class="member-gallery">
-    <a href="Baby_Vox.jpg"><img src="Baby_Vox.jpg" alt="Baby Vox"></a>
-    <a href="baby_vox copy.jpg"><img src="baby_vox copy.jpg" alt="Baby Vox Copy"></a>
-    <a href="Babyvox.jpg"><img src="Babyvox.jpg" alt="Baby Vox Home"></a>
-    <a href="BABYVOX2.jpg"><img src="BABYVOX2.jpg" alt="Baby Vox 2"></a>
-    <a href="BABYVOX4.jpg"><img src="BABYVOX4.jpg" alt="Baby Vox 4"></a>
-    <a href="BABYVOX5.jpg"><img src="BABYVOX5.jpg" alt="Baby Vox 5"></a>
-    <a href="BABYVOX6.jpg"><img src="BABYVOX6.jpg" alt="Baby Vox 6"></a>
-    <a href="BABYVOX7.jpeg"><img src="BABYVOX7.jpeg" alt="Baby Vox 7"></a>
-    <a href="BABYVOX8.jpeg"><img src="BABYVOX8.jpeg" alt="Baby Vox 8"></a>
-    <a href="Babyvox9.jpg"><img src="Babyvox9.jpg" alt="Baby Vox 9"></a>
-    <a href="vox_4th57.jpg"><img src="vox_4th57.jpg" alt="Baby Vox 10"></a>
-    <a href="vox_4th56.jpg"><img src="vox_4th56.jpg" alt="Baby Vox 11"></a>
-    <a href="Babyvox12.jpg"><img src="Babyvox12.jpg" alt="Baby Vox 12"></a>
-    <a href="Babyvox13.jpg"><img src="Babyvox13.jpg" alt="Baby Vox 13"></a>
-    <a href="babyvox1997.jpg"><img src="babyvox1997.jpg" alt="Baby Vox 1997"></a>
-    <a href="1997vox.jpg"><img src="1997vox.jpg" alt="Baby Vox 1997 2"></a>
-    <a href="BABYVOX14.jpg"><img src="BABYVOX14.jpg" alt="Baby Vox 14"></a>
-    <a href="BABYVOX15.jpg"><img src="BABYVOX15.jpg" alt="Baby Vox 15"></a>
-    <a href="images.jpeg"><img src="images.jpeg" alt="Baby Vox 16"></a>
-    <a href="babyvox30.jpg"><img src="babyvox30.jpg" alt="Baby Vox 30"></a>
-    <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Baby Vox 31"></a>
-    <a href="VoxXmas.JPG"><img src="VoxXmas.JPG" alt="Baby Vox 32"></a>
-    <a href="daum_825.jpg"><img src="daum_825.jpg" alt="Baby Vox 33"></a>
-    <a href="IMG_1985.jpeg"><img src="IMG_1985.jpeg" alt="Baby Vox 34"></a>
-    <a href="IMG_1986.jpeg"><img src="IMG_1986.jpeg" alt="Baby Vox 35"></a>
-    <a href="IMG_2059.jpeg"><img src="IMG_2059.jpeg" alt="Baby Vox 36"></a>
-    <a href="vox433.jpg"><img src="vox433.jpg" alt="Baby Vox 37"></a>
-  </div>
+      <div class="netscape-window">
+        <div class="window-titlebar">Gallery Badge</div>
+        <div style="padding: 10px; text-align: center; background-color: #FFFFFF;">
+          <img src="babyvox.logo.2.svg" width="70" alt="Baby V.O.X Logo" style="border: 1px inset #FFFFFF;"><br><br>
+          <font size="1" color="#800080"><b>Official Symbol</b></font>
+        </div>
+      </div>
+    </td>
 
-  <button class="back-btn" onclick="window.location.href='group2.html'">Next Page →</button>
-  <button class="back-btn" onclick="window.location.href='gallery.html'">Back to Gallery</button>
-  <button class="back-btn" onclick="window.location.href='index.html'">Back to Home</button>
-</div>
+    <td width="*">
+      <div class="netscape-window">
+        <div class="window-titlebar window-title-pink">
+          <span>group_collection_p1.html</span>
+        </div>
+        <div class="content-box" align="center">
+
+          <div id="group-gallery" class="member-gallery">
+            <a href="Baby_Vox.jpg"><img src="Baby_Vox.jpg" alt="Baby Vox"></a>
+            <a href="baby_vox copy.jpg"><img src="baby_vox copy.jpg" alt="Baby Vox Copy"></a>
+            <a href="Babyvox.jpg"><img src="Babyvox.jpg" alt="Baby Vox Home"></a>
+            <a href="BABYVOX2.jpg"><img src="BABYVOX2.jpg" alt="Baby Vox 2"></a>
+            <a href="BABYVOX4.jpg"><img src="BABYVOX4.jpg" alt="Baby Vox 4"></a>
+            <a href="BABYVOX5.jpg"><img src="BABYVOX5.jpg" alt="Baby Vox 5"></a>
+            <a href="BABYVOX6.jpg"><img src="BABYVOX6.jpg" alt="Baby Vox 6"></a>
+            <a href="BABYVOX7.jpeg"><img src="BABYVOX7.jpeg" alt="Baby Vox 7"></a>
+            <a href="BABYVOX8.jpeg"><img src="BABYVOX8.jpeg" alt="Baby Vox 8"></a>
+            <a href="Babyvox9.jpg"><img src="Babyvox9.jpg" alt="Baby Vox 9"></a>
+            <a href="vox_4th57.jpg"><img src="vox_4th57.jpg" alt="Baby Vox 10"></a>
+            <a href="vox_4th56.jpg"><img src="vox_4th56.jpg" alt="Baby Vox 11"></a>
+            <a href="Babyvox12.jpg"><img src="Babyvox12.jpg" alt="Baby Vox 12"></a>
+            <a href="Babyvox13.jpg"><img src="Babyvox13.jpg" alt="Baby Vox 13"></a>
+            <a href="babyvox1997.jpg"><img src="babyvox1997.jpg" alt="Baby Vox 1997"></a>
+            <a href="1997vox.jpg"><img src="1997vox.jpg" alt="Baby Vox 1997 2"></a>
+            <a href="BABYVOX14.jpg"><img src="BABYVOX14.jpg" alt="Baby Vox 14"></a>
+            <a href="BABYVOX15.jpg"><img src="BABYVOX15.jpg" alt="Baby Vox 15"></a>
+            <a href="images.jpeg"><img src="images.jpeg" alt="Baby Vox 16"></a>
+            <a href="babyvox30.jpg"><img src="babyvox30.jpg" alt="Baby Vox 30"></a>
+            <a href="Baby_Vox_Rares_6.jpg"><img src="Baby_Vox_Rares_6.jpg" alt="Baby Vox 31"></a>
+            <a href="VoxXmas.JPG"><img src="VoxXmas.JPG" alt="Baby Vox 32"></a>
+            <a href="daum_825.jpg"><img src="daum_825.jpg" alt="Baby Vox 33"></a>
+            <a href="IMG_1985.jpeg"><img src="IMG_1985.jpeg" alt="Baby Vox 34"></a>
+            <a href="IMG_1986.jpeg"><img src="IMG_1986.jpeg" alt="Baby Vox 35"></a>
+            <a href="IMG_2059.jpeg"><img src="IMG_2059.jpeg" alt="Baby Vox 36"></a>
+            <a href="vox433.jpg"><img src="vox433.jpg" alt="Baby Vox 37"></a>
+          </div>
+
+          <hr size="1" color="#FF69B4">
+
+          <div>
+            <button class="retro-btn" onclick="window.location.href='gallery.html'">Gallery Hub</button>
+            <button class="retro-btn" onclick="window.location.href='index.html'">Main Hub</button>
+            <button class="retro-btn" onclick="window.location.href='group2.html'">Next Page →</button>
+          </div>
+
+        </div>
+      </div>
+    </td>
+
+  </tr>
+
+  <tr>
+    <td colspan="2" align="center">
+      <br>
+      <hr size="1" color="#FF69B4">
+      <font size="2" face="Verdana" color="#4B0082">
+        fansite created on GitHub
+      </font>
+      <br><br>
+    </td>
+  </tr>
+
+</table>
 
 <div class="lightbox" id="lightbox">
-  <img src="" alt="" id="lightbox-img">
+  <img src="" id="lightbox-img" alt="Lightbox Preview">
   <div class="controls">
     <button id="prev">&#8592;</button>
     <button id="next">&#8594;</button>
@@ -231,47 +288,61 @@
 </div>
 
 <script>
-// Lightbox logic
-const gallery = document.querySelectorAll('#group-gallery a');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelectorAll('#group-gallery a');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
 
-gallery.forEach((item, index) => {
-  item.addEventListener('click', (e) => {
-    e.preventDefault();
+  function openLightbox(index) {
     currentIndex = index;
-    openLightbox();
+    lightbox.style.display = 'flex';
+    lightboxImg.src = gallery[currentIndex].href;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = "auto";
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    lightboxImg.src = gallery[currentIndex].href;
+  }
+
+  gallery.forEach((item, index) => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  document.getElementById('close').onclick = closeLightbox;
+  document.getElementById('next').onclick = nextImage;
+  document.getElementById('prev').onclick = prevImage;
+
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+
+  lightboxImg.addEventListener('click', () => {
+    window.open(lightboxImg.src, '_blank');
   });
 });
-
-function openLightbox() {
-  lightbox.style.display = 'flex';
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
-function closeLightbox() {
-  lightbox.style.display = 'none';
-}
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % gallery.length;
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
-function prevImage() {
-  currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
-  lightboxImg.src = gallery[currentIndex].href;
-}
-
-// Full resolution on click
-lightboxImg.addEventListener('click', () => {
-  window.open(lightboxImg.src, '_blank');
-});
-
-document.getElementById('close').addEventListener('click', closeLightbox);
-document.getElementById('next').addEventListener('click', nextImage);
-document.getElementById('prev').addEventListener('click', prevImage);
 </script>
 
 </body>
