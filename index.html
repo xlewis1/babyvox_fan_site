@@ -1,440 +1,799 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>~*~ Welcome to the Ultimate Baby V.O.X Fansite! ~*~</title>
-  <style>
-    /* classic 2000s Web Typography & Styles */
-    body {
-      background-color: #FFE6F2;
-      background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAP///wAAACH5BAEAAAEALAAAAAAEAAQAAAIFhI+pywUAOw=='); /* classic tiny pixel grid */
-      font-family: "Comic Sans MS", "Verdana", "Arial", sans-serif;
-      color: #000080;
-      margin: 10px;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>~*~ Baby V.O.X Heaven ~*~</title>
 
-    /* Link Styling (Classic Blue & Purple underline) */
-    a:link { color: #0000FF; text-decoration: underline; font-weight: bold; }
-    a:visited { color: #800080; text-decoration: underline; }
-    a:hover { color: #FF007F; background-color: #FFFF99; }
-    a:active { color: #FF0000; }
+<style>
+/* ===== CLASSIC Y2K WEBSITE ===== */
+body {
+  background-color: #FFE6F2;
+  font-family: "Comic Sans MS", Verdana, Arial, sans-serif;
+  color: navy;
+  margin: 10px;
+}
 
-    /* Table Windows & Frames */
-    .netscape-window {
-      background-color: #ECE9D8; /* Classic Windows/Netscape Gray */
-      border: 3px outset #FFFFFF;
-    }
+a:link { color: blue; font-weight: bold; }
+a:visited { color: purple; }
+a:hover { color: #ff007f; background: #ffff99; }
 
-    .window-titlebar {
-      background: #000080; /* Classic Blue Titlebar */
-      color: #FFFFFF;
-      font-weight: bold;
-      font-family: "Tahoma", "Arial", sans-serif;
-      font-size: 12px;
-      padding: 3px 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.netscape-window {
+  background: #ECE9D8;
+  border: 3px outset white;
+  margin-bottom: 10px;
+}
 
-    .window-title-pink {
-      background: #FF1493; /* Y2K Pink Variant Titlebar */
-    }
+.window-titlebar {
+  background: navy;
+  color: white;
+  padding: 5px;
+  font: bold 12px Tahoma, sans-serif;
+}
 
-    .window-btn {
-      background-color: #ECE9D8;
-      color: #000000;
-      border: 1px outset #FFFFFF;
-      font-size: 9px;
-      font-family: sans-serif;
-      padding: 0px 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.window-title-pink { background: #ff1493; }
 
-    /* Retro Sidebar Navigation Styling */
-    .nav-header {
-      background-color: #FF69B4;
-      color: #FFFFFF;
-      font-weight: bold;
-      text-align: center;
-      padding: 4px;
-      font-size: 13px;
-      border: 2px outset #FFB6C1;
-    }
+.window-btn {
+  background: #ECE9D8;
+  border: 2px outset white;
+  cursor: pointer;
+  font-size: 10px;
+}
 
-    .nav-box {
-      background-color: #FFF0F5;
-      border: 2px inset #FFFFFF;
-      padding: 6px;
-      margin-bottom: 10px;
-    }
+.nav-header {
+  background: #ff69b4;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+}
 
-    .nav-box ul {
-      list-style-type: square;
-      padding-left: 20px;
-      margin: 5px 0px;
-    }
+.nav-box {
+  background: #fff0f5;
+  border: 2px inset white;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
 
-    .nav-box li {
-      margin-bottom: 4px;
-      font-size: 12px;
-    }
+.nav-box li { margin-bottom: 6px; }
 
-    /* Center Content Area */
-    .content-box {
-      background-color: #FFFFFF;
-      border: 2px inset #ECE9D8;
-      padding: 12px;
-      font-size: 13px;
-      line-height: 1.4;
-    }
+.content-box {
+  background: white;
+  border: 2px inset #ECE9D8;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
 
-    /* Y2K Blink Effect */
-    .blink {
-      animation: blinker 1s linear infinite;
-      color: #FF007F;
-      font-weight: bold;
-    }
-    @keyframes blinker {
-      50% { opacity: 0; }
-    }
+.retro-btn {
+  background: #ECE9D8;
+  border: 2px outset white;
+  padding: 5px 10px;
+  cursor: pointer;
+  font: 11px Tahoma, sans-serif;
+}
 
-    /* Old-school buttons */
-    .retro-btn {
-      font-family: "MS Sans Serif", "Tahoma", sans-serif;
-      font-size: 11px;
-      background-color: #ECE9D8;
-      border: 2px outset #FFFFFF;
-      padding: 3px 8px;
-      cursor: pointer;
-    }
-    .retro-btn:active {
-      border: 2px inset #FFFFFF;
-    }
+.blink {
+  color: #ff1493;
+  animation: blink 1s infinite;
+}
 
-    /* Modal Overlay Popup for Quiz */
-    .quiz-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
+@keyframes blink {
+  50% { opacity: 0; }
+}
 
-    .quiz-modal {
-      width: 320px;
-      background-color: #ECE9D8;
-      border: 3px outset #FFFFFF;
-      box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
-    }
-  </style>
+/* ===== FULLSCREEN ENTRANCE ===== */
+#fansite-entrance {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background-image:
+    linear-gradient(
+      rgba(30,0,45,.55),
+      rgba(30,0,45,.75)
+    ),
+    url("01-1.jpg.gif");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.entrance-window {
+  width: min(90%, 550px);
+  padding: 30px 20px;
+  background: rgba(55,0,70,.88);
+  border: 5px ridge #ffb6df;
+  box-shadow: 0 0 40px #ff1493;
+  color: white;
+  box-sizing: border-box;
+}
+
+.entrance-window h1 {
+  color: #ffb6df;
+  font-size: clamp(25px,5vw,42px);
+  text-shadow: 3px 3px #800080;
+}
+
+#enter-fansite {
+  background: linear-gradient(#ffb6df,#ff1493);
+  color: #550055;
+  border: 4px outset #ffe6f5;
+  padding: 15px 30px;
+  font: bold 20px "Comic Sans MS", sans-serif;
+  cursor: pointer;
+  margin: 15px 0;
+}
+
+#enter-fansite:hover {
+  background: #ff69b4;
+  color: white;
+}
+
+/* ===== FULLSCREEN LOADING SCREEN ===== */
+#fansite-loading {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20001;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background-image:
+    linear-gradient(
+      rgba(25,0,35,.30),
+      rgba(25,0,35,.55)
+    ),
+    url("01-1.jpg.gif");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #22002d;
+}
+
+.loading-box {
+  width: min(90%, 450px);
+  padding: 25px;
+  box-sizing: border-box;
+  background: rgba(255,240,245,.95);
+  border: 5px ridge #ff69b4;
+  box-shadow: 0 0 35px #ff1493;
+  color: purple;
+}
+
+.loading-box h2 {
+  color: #ff1493;
+}
+
+.progress-container {
+  width: 100%;
+  height: 26px;
+  background: white;
+  border: 3px inset #ffb6c1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#loading-progress {
+  height: 100%;
+  width: 0%;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff1493 0px,
+    #ff1493 18px,
+    #ff9ad1 18px,
+    #ff9ad1 21px
+  );
+}
+
+#loading-percentage {
+  font: bold 18px "Courier New", monospace;
+  margin-top: 12px;
+}
+
+/* ===== QUIZ POPUP ===== */
+.quiz-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.quiz-modal {
+  width: min(90%, 320px);
+  background: #ECE9D8;
+  border: 3px outset white;
+  box-shadow: 4px 4px 12px #333;
+}
+
+/* ===== RESPONSIVE LAYOUT ===== */
+.site-layout {
+  width: 98%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 200px minmax(0,1fr) 190px;
+  gap: 10px;
+  align-items: start;
+}
+
+.site-layout > * { min-width: 0; }
+
+@media(max-width: 750px) {
+  .site-layout {
+    grid-template-columns: 1fr;
+  }
+  .site-header h1 {
+    font-size: 28px !important;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  .blink { animation: none; }
+}
+</style>
 </head>
+
 <body>
 
+<!-- ===== ENTRANCE SPLASH ===== -->
+<div id="fansite-entrance"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="entrance-title">
+
+  <div class="entrance-window">
+
+    <p>✧･ﾟ: *✧･ﾟ:* WELCOME BABY ANGELS *:･ﾟ✧*:･ﾟ✧</p>
+
+    <h1 id="entrance-title">
+      ~*~ Baby V.O.X Heaven ~*~
+    </h1>
+
+    <h2>♡ Welcome Baby Angels! ♡</h2>
+
+    <p>
+      The ultimate nostalgic fansite dedicated
+      to Korea's legendary K-pop queens!
+    </p>
+
+    <p>✨ Baby V.O.X • Est. 1997 ✨</p>
+
+    <button id="enter-fansite" type="button">
+      💖 ENTER FANSITE 💖
+    </button>
+
+    <p style="font-size:11px">
+      Best viewed with a little Y2K magic!
+    </p>
+
+  </div>
+</div>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="fansite-loading"
+     role="status"
+     aria-live="polite">
+
+  <div class="loading-box">
+
+    <h2>♡ Loading Baby V.O.X Heaven... ♡</h2>
+
+    <p>Please wait, Baby Angel! ✨</p>
+
+    <div class="progress-container">
+      <div id="loading-progress"></div>
+    </div>
+
+    <div id="loading-percentage">0%</div>
+
+    <p style="font-size:12px">
+      Preparing your nostalgic K-pop experience...
+    </p>
+
+  </div>
+</div>
+
+<!-- ===== QUIZ POPUP ===== -->
 <div id="quiz-popup" class="quiz-modal-overlay">
   <div class="quiz-modal">
+
     <div class="window-titlebar window-title-pink">
-      <span>✨ MESSAGE FROM WEBMASTER ✨</span>
-      <button class="window-btn" style="color:red;" onclick="closeQuizPopup()">X</button>
+      ✨ MESSAGE FROM WEBMASTER ✨
+      <button class="window-btn"
+              onclick="closeQuizPopup()"
+              style="float:right">X</button>
     </div>
-    <div style="padding: 12px; text-align: center; background-color: #FFF0F5;">
-      <img src="IMG_3208.JPG" alt="Baby V.O.X Quiz Promo" style="max-width: 250px; border: 2px inset #FFFFFF; margin-bottom: 10px;"><br>
-      <font size="2" color="#FF007F"><b>please try my which baby vox member are you? quiz, if you haven't already! (:</b></font>
-      <br><br>
-      <a href="quiz.html" class="retro-btn" style="text-decoration: none; color: black; display: inline-block;" onclick="takeQuizAction()">Take Quiz! ♡</a>
-      <button class="retro-btn" onclick="closeQuizPopup()">Maybe Later</button>
+
+    <div style="padding:12px;text-align:center;background:#fff0f5">
+
+      <img src="IMG_3208.JPG"
+           alt="Baby V.O.X Quiz"
+           style="max-width:250px;width:100%;border:2px inset white">
+
+      <p style="color:#ff007f;font-size:12px">
+        <b>
+          please try my which baby vox member are you?
+          quiz, if you haven't already! (:
+        </b>
+      </p>
+
+      <a href="quiz.html"
+         class="retro-btn"
+         onclick="takeQuizAction()">
+         Take Quiz! ♡
+      </a>
+
+      <button class="retro-btn" onclick="closeQuizPopup()">
+        Maybe Later
+      </button>
+
     </div>
   </div>
 </div>
 
-<table width="98%" border="0" align="center" cellpadding="4" cellspacing="0">
-  
-  <tr>
-    <td colspan="3" align="center">
-      
-      <table width="100%" class="netscape-window" cellpadding="0" cellspacing="0" style="margin-bottom: 10px;">
-        <tr>
-          <td>
-            <div class="window-titlebar window-title-pink">
-              <span>BabyV.O.X_OS - [ Baby V.O.X Heaven - Main Hub ]</span>
-              <div>
-                <button class="window-btn">_</button>
-                <button class="window-btn">□</button>
-                <button class="window-btn" style="color:red;">X</button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td align="center" style="background-color: #FFE4E1; padding: 15px;">
-            <font size="6" color="#FF1493" face="Comic Sans MS"><b>~*~ Baby V.O.X World ~*~</b></font><br>
-            <font size="2" color="#4B0082"><b>-- The #1 Fan Resource for Korea's Pop Queens! --</b></font>
-            <br><br>
-            <table width="90%" border="1" bordercolor="#FF69B4" bgcolor="#FFFFFF" cellpadding="3">
-              <tr>
-                <td>
-                  <marquee behavior="scroll" direction="left" scrollamount="4">
-                    <font size="2" color="#FF007F">
-                      ✨ <b>WELCOME BABY ANGELS!</b> ✨ Best viewed in <b>Netscape Navigator 4.0+</b> or <b>IE 5.0</b> at 800x600 resolution! 💖 Don't forget to sign my Guestbook before you leave! 💖
-                    </font>
-                  </marquee>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </table>
+<!-- ===== SITE HEADER ===== -->
+<header class="netscape-window site-header">
 
-    </td>
-  </tr>
+  <div class="window-titlebar window-title-pink">
+    BabyV.O.X_OS - [ Baby V.O.X Heaven - Main Hub ]
+  </div>
 
-  <tr valign="top">
-    
-    <td width="200">
-      
-      <div class="netscape-window" style="margin-bottom: 10px;">
-        <div class="window-titlebar">Navigation</div>
-        <div style="padding: 6px;">
-          
-          <div class="nav-header">:: MAIN HUB ::</div>
-          <div class="nav-box">
-            <ul>
-              <li><a href="index.html">Home / Main</a></li>
-              <li><a href="members.html">Members Profile</a></li>
-              <li><a href="history.html">Group History</a></li>
-              <li><a href="bias.html">My Bias Page</a></li>
-              <li><a href="quiz.html">Member Quiz!</a></li>
-            </ul>
-          </div>
+  <div style="background:#ffe4e1;text-align:center;padding:15px">
 
-          <div class="nav-header">:: MEDIA VAULT ::</div>
-          <div class="nav-box">
-            <ul>
-              <li><a href="gallery.html">Photo Gallery</a></li>
-              <li><a href="videos.html">MV & Live Clips</a></li>
-              <li><a href="discography.html">Discography</a></li>
-              <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
-            </ul>
-          </div>
+    <h1 style="color:#ff1493;font-size:38px">
+      ~*~ Baby V.O.X World ~*~
+    </h1>
 
-          <div class="nav-header">:: INTERACT ::</div>
-          <div class="nav-box">
-            <ul>
-              <li><a href="guestbook.html">Sign Guestbook</a></li>
-              <li><a href="links.html">Webring / Links</a></li>
-              <li><a href="blog.html">Weblog</a></li>
-              <li><a href="#" onclick="showRandomFact(); return false;">Random Fact</a></li>
-            </ul>
-          </div>
+    <b style="font-size:12px;color:#4b0082">
+      -- The #1 Fan Resource for Korea's Pop Queens! --
+    </b>
 
-        </div>
+    <div style="background:white;border:1px solid #ff69b4;margin-top:15px;padding:5px">
+
+      <marquee scrollamount="4" style="color:#ff007f;font-size:12px">
+        ✨ WELCOME BABY ANGELS! ✨
+        Best viewed in Netscape Navigator 4.0+
+        or IE 5.0 at 800x600 resolution!
+        💖 Don't forget to sign my Guestbook! 💖
+      </marquee>
+
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN SITE ===== -->
+<div class="site-layout">
+
+<!-- LEFT SIDEBAR -->
+<aside>
+
+  <div class="netscape-window">
+    <div class="window-titlebar">Navigation</div>
+
+    <div style="padding:6px">
+
+      <div class="nav-header">:: MAIN HUB ::</div>
+      <div class="nav-box">
+        <ul>
+          <li><a href="index.html">Home / Main</a></li>
+          <li><a href="members.html">Members Profile</a></li>
+          <li><a href="history.html">Group History</a></li>
+          <li><a href="bias.html">My Bias Page</a></li>
+          <li><a href="quiz.html">Member Quiz!</a></li>
+        </ul>
       </div>
 
-      <table width="100%" class="netscape-window" cellpadding="4" cellspacing="0">
-        <tr><td class="window-titlebar">Site Badges</td></tr>
-        <tr>
-          <td align="center" style="background-color: #FFF0F5;">
-            <br>
-            <table border="1" cellpadding="2" bgcolor="#000000">
-              <tr>
-                <td><font size="1" color="#00FF00" face="sans-serif"><b>NETSCAPE<br>NAVIGATOR</b></font></td>
-              </tr>
-            </table>
-            <br>
-            <table border="1" cellpadding="2" bgcolor="#0000FF">
-              <tr>
-                <td><font size="1" color="#FFFFFF" face="sans-serif"><b>IE 5.0<br>COMPATIBLE</b></font></td>
-              </tr>
-            </table>
-            <br>
-          </td>
-        </tr>
-      </table>
+      <div class="nav-header">:: MEDIA VAULT ::</div>
+      <div class="nav-box">
+        <ul>
+          <li><a href="gallery.html">Photo Gallery</a></li>
+          <li><a href="videos.html">MV & Live Clips</a></li>
+          <li><a href="discography.html">Discography</a></li>
+          <li><a href="fanart.html">Fan Art & Wallpapers</a></li>
+        </ul>
+      </div>
 
-    </td>
+      <div class="nav-header">:: INTERACT ::</div>
+      <div class="nav-box">
+        <ul>
+          <li><a href="guestbook.html">Sign Guestbook</a></li>
+          <li><a href="links.html">Webring / Links</a></li>
+          <li><a href="blog.html">Weblog</a></li>
+          <li>
+            <a href="#" onclick="showRandomFact();return false;">
+              Random Fact
+            </a>
+          </li>
+        </ul>
+      </div>
 
-    <td width="*">
-      
-      <div class="netscape-window">
-        <div class="window-titlebar window-title-pink">
-          <span>welcome_baby_angels.html</span>
+    </div>
+  </div>
+
+  <div class="netscape-window">
+    <div class="window-titlebar">Site Badges</div>
+
+    <div style="background:#fff0f5;text-align:center;padding:15px">
+
+      <div style="display:inline-block;background:black;color:lime;padding:5px;font:bold 10px Arial">
+        NETSCAPE<br>NAVIGATOR
+      </div>
+
+      <br><br>
+
+      <div style="display:inline-block;background:blue;color:white;padding:5px;font:bold 10px Arial">
+        IE 5.0<br>COMPATIBLE
+      </div>
+
+    </div>
+  </div>
+
+</aside>
+
+<!-- CENTER CONTENT -->
+<main>
+
+  <div class="netscape-window">
+
+    <div class="window-titlebar window-title-pink">
+      welcome_baby_angels.html
+    </div>
+
+    <div class="content-box">
+
+      <h2 style="color:#ff1493">
+        Welcome to Baby V.O.X Heaven!
+        <span class="blink">NEW!</span>
+      </h2>
+
+      <hr color="#ff69b4" size="1">
+
+      <div style="float:right;text-align:center;background:#fff0f5;border:2px solid #ff69b4;padding:5px;margin:0 0 10px 10px">
+
+        <img src="01-1.jpg.gif"
+             width="180"
+             alt="Baby V.O.X Main Photo">
+
+        <br>
+        <small><b>Baby V.O.X (1997-2006)</b></small>
+
+      </div>
+
+      <p id="welcome-text-target">
+        <b>Hello & welcome!</b>
+        You have landed on the ultimate fansite
+        dedicated to the legendary K-pop girl group
+        <b>Baby V.O.X</b>
+        (Baby Voices of Xpression)!
+      </p>
+
+      <p>
+        Whether you've been a fan since their 1997 debut
+        or just discovered their classic hits like
+        <i>"Get Up"</i>, <i>"Killer"</i>,
+        and <i>"Coincidence"</i>,
+        this site has everything you need!
+      </p>
+
+      <p>
+        Take a look around the photo galleries,
+        download wallpapers, and check back often
+        for new updates!
+      </p>
+
+      <div style="clear:both"></div>
+
+      <!-- NEWS -->
+      <div style="border:1px solid #ffb6c1;background:#fff5f8;margin-top:20px">
+
+        <div style="background:#ff69b4;color:white;padding:7px">
+          <b>📢 Latest Updates & Site News</b>
         </div>
-        <div class="content-box">
-          
-          <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr>
-              <td>
-                <font size="4" color="#FF1493"><b>Welcome to Baby V.O.X Heaven!</b></font> 
-                <span class="blink">NEW!</span>
-                <hr size="1" color="#FF69B4">
-              </td>
-            </tr>
-          </table>
 
-          <table align="right" border="2" bordercolor="#FF69B4" cellpadding="3" cellspacing="0" style="margin-left: 10px; margin-bottom: 5px;">
-            <tr>
-              <td align="center" bgcolor="#FFF0F5">
-                <img src="01-1.jpg.gif" width="180" alt="Baby VOX Main Photo"><br>
-                <font size="1" color="#800080"><b>Baby V.O.X (1997-2006)</b></font>
-              </td>
-            </tr>
-          </table>
+        <div style="padding:12px;font-size:12px">
 
-          <p id="welcome-text-target">
-            <font color="#000080">
-              <b>Hello & welcome!</b> You have landed on the ultimate fansite dedicated to the legendary K-pop girl group <b>Baby V.O.X</b> (Baby Voices of Xpression)!
-            </font>
+          <b><u>Date: 10 August, 2026</u></b>
+
+          <p>
+            • Added a brand-new
+            <a href="quiz.html">Which Member Are You? Quiz</a>!
           </p>
 
           <p>
-            Whether you've been a fan since their 1997 debut or just discovered their classic hits like <i>"Get Up"</i>, <i>"Killer"</i>, and <i>"Coincidence"</i>, this site has everything you need! Take a look around the photo galleries, download wallpapers, and check back often for new updates!
+            • Added new high-resolution scans to the
+            <a href="gallery.html">Gallery</a>!
           </p>
 
-          <br>
+          <p>
+            • Updated the
+            <a href="blog.html">Weblog</a>
+            with thoughts on recent reunion clips.
+          </p>
 
-          <table width="100%" border="1" bordercolor="#FFB6C1" cellpadding="6" cellspacing="0" bgcolor="#FFF5F8">
-            <tr bgcolor="#FF69B4">
-              <td><font size="2" color="#FFFFFF"><b>📢 Latest Updates & Site News</b></font></td>
-            </tr>
-            <tr>
-              <td>
-                <font size="2">
-                  <b><u>Date: 10 August, 2026</u></b><br>
-                  • Added a brand-new <a href="quiz.html">Which Member Are You? Quiz</a>!<br>
-                  • Added new high-resolution scans to the <a href="gallery.html">Gallery</a>!<br>
-                  • Updated the <a href="blog.html">Weblog</a> with thoughts on recent reunion clips.<br>
-                  • Fixed broken links on the media page.
-                </font>
-              </td>
-            </tr>
-          </table>
-
-          <br>
-
-          <table width="100%" border="1" bordercolor="#ECE9D8" cellpadding="6" bgcolor="#ECE9D8">
-            <tr>
-              <td align="center">
-                <font size="2"><b>Select Site Language / 언어 선택:</b></font><br>
-                <select id="language-selector" style="font-family: Comic Sans MS; font-size: 11px;">
-                  <option value="en">English</option>
-                  <option value="ko">Korean (한국어)</option>
-                  <option value="zh">Chinese (中文)</option>
-                  <option value="ja">Japanese (日本語)</option>
-                </select>
-              </td>
-            </tr>
-          </table>
+          <p>• Fixed broken links on the media page.</p>
 
         </div>
       </div>
 
-    </td>
+      <!-- LANGUAGE SELECTOR -->
+      <div style="background:#ECE9D8;border:1px solid white;text-align:center;padding:12px;margin-top:20px">
 
-    <td width="190">
-      
-      <div class="netscape-window" style="margin-bottom: 10px;">
-        <div class="window-titlebar">System Time</div>
-        <div style="padding: 8px; text-align: center; background-color: #FFFFFF;">
-          <font size="1" face="Courier New" color="#000000"><b>YOUR LOCAL TIME:</b></font><br>
-          <div id="local-clock" style="font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; color: #FF0000; margin-top: 4px;"></div>
-        </div>
+        <b>Select Site Language / 언어 선택:</b>
+
+        <br><br>
+
+        <select id="language-selector">
+          <option value="en">English</option>
+          <option value="ko">Korean (한국어)</option>
+          <option value="zh">Chinese (中文)</option>
+          <option value="ja">Japanese (日本語)</option>
+        </select>
+
       </div>
 
-      <div class="netscape-window" style="margin-bottom: 10px;">
-        <div class="window-titlebar">Visitor Counter</div>
-        <div style="padding: 8px; text-align: center; background-color: #FFF0F5;">
-          <font size="1">You are visitor no:</font><br><br>
-          <div id="visitor-count">
-            <a href='https://www.counters-free.net/'>COUNTER-free</a>
-            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9'></script>
-            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
-          </div>
-        </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- RIGHT SIDEBAR -->
+<aside>
+
+  <div class="netscape-window">
+    <div class="window-titlebar">System Time</div>
+
+    <div style="background:white;text-align:center;padding:12px">
+
+      <small><b>YOUR LOCAL TIME:</b></small>
+
+      <div id="local-clock"
+           style="font:bold 16px 'Courier New';color:red;margin-top:5px">
       </div>
 
-      <div class="netscape-window" style="margin-bottom: 10px;">
-        <div class="window-titlebar">Mini Gallery</div>
-        <div style="padding: 6px; text-align: center; background-color: #FFFFFF;">
-          <div id="mini-gallery"></div>
-          <font size="1"><a href="gallery.html">[View Full Gallery]</a></font>
-        </div>
-      </div>
+    </div>
+  </div>
 
-      <div class="netscape-window">
-        <div class="window-titlebar">MIDI Player</div>
-        <div style="padding: 6px; text-align: center; background-color: #ECE9D8;">
-          <font size="1"><b>Now Playing:</b><br>BabyVOX_GetUp.mid</font><br><br>
-          <button class="retro-btn">▶ Play</button>
-          <button class="retro-btn">■ Stop</button>
-        </div>
-      </div>
+  <div class="netscape-window">
+    <div class="window-titlebar">Visitor Counter</div>
 
-    </td>
+    <div style="background:#fff0f5;text-align:center;padding:10px">
 
-  </tr>
+      <small>You are visitor no:</small>
 
-  <tr>
-    <td colspan="3" align="center">
-      <br>
-      <hr size="1" color="#FF69B4">
-      <font size="2" face="Verdana" color="#4B0082">
-        fansite created on GitHub
-      </font>
       <br><br>
-    </td>
-  </tr>
 
-</table>
+      <div id="visitor-count">
+        <a href="https://www.counters-free.net/">
+          COUNTER-free
+        </a>
 
+        <script src="https://www.freevisitorcounters.com/auth.php?id=82833f17d68a07cb395902bbac422f7f7d3abeb9"></script>
+        <script src="https://www.freevisitorcounters.com/en/home/counter/1501980/t/2"></script>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="netscape-window">
+    <div class="window-titlebar">Mini Gallery</div>
+
+    <div style="background:white;text-align:center;padding:8px">
+
+      <div id="mini-gallery"></div>
+
+      <small>
+        <a href="gallery.html">[View Full Gallery]</a>
+      </small>
+
+    </div>
+  </div>
+
+  <div class="netscape-window">
+    <div class="window-titlebar">MIDI Player</div>
+
+    <div style="text-align:center;padding:12px">
+
+      <small>
+        <b>Now Playing:</b><br>
+        BabyVOX_GetUp.mid
+      </small>
+
+      <br><br>
+
+      <button class="retro-btn">▶ Play</button>
+      <button class="retro-btn">■ Stop</button>
+
+    </div>
+  </div>
+
+</aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer style="text-align:center;margin-top:20px">
+  <hr color="#ff69b4">
+  <small>fansite created on GitHub</small>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
 <script>
-// ----- QUIZ POPUP TRIGGER WITH SESSION STORAGE -----
-window.addEventListener('load', () => {
-  // Uses sessionStorage so it stays hidden during the current tab session,
-  // but resets (pops up again) if they completely close the browser window/tab and return.
-  if (!sessionStorage.getItem('quizPopupDismissed')) {
-    setTimeout(() => {
-      document.getElementById('quiz-popup').style.display = 'flex';
-    }, 1000);
+
+/* ==========================================
+   ENTRANCE + LOADING + LOCALSTORAGE
+========================================== */
+
+(function() {
+
+  const storageKey = "babyVoxFansiteEntered_v1";
+
+  const entrance = document.getElementById("fansite-entrance");
+  const loading = document.getElementById("fansite-loading");
+  const enterButton = document.getElementById("enter-fansite");
+  const progressBar = document.getElementById("loading-progress");
+  const percentage = document.getElementById("loading-percentage");
+
+  let alreadyEntered = false;
+
+  // Check previous visits
+  try {
+    alreadyEntered = localStorage.getItem(storageKey) === "true";
+  } catch(e) {
+    console.warn("LocalStorage unavailable.");
   }
+
+  // Only show on first visit
+  if (!alreadyEntered) {
+    entrance.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  // Enter fansite
+  enterButton.addEventListener("click", function() {
+
+    enterButton.disabled = true;
+
+    entrance.style.display = "none";
+    loading.style.display = "flex";
+
+    let progress = 0;
+
+    const interval = setInterval(function() {
+
+      progress += 5;
+
+      if(progress > 100) {
+        progress = 100;
+      }
+
+      progressBar.style.width = progress + "%";
+      percentage.textContent = progress + "%";
+
+      if(progress >= 100) {
+
+        clearInterval(interval);
+
+        // Remember successful entrance
+        try {
+          localStorage.setItem(storageKey, "true");
+        } catch(e) {
+          console.warn("Unable to save visit.");
+        }
+
+        setTimeout(function() {
+          loading.style.display = "none";
+          document.body.style.overflow = "";
+          showQuizIfNeeded();
+        }, 400);
+
+      }
+
+    }, 110);
+
+  });
+
+})();
+
+/* ==========================================
+   QUIZ POPUP
+========================================== */
+
+function showQuizIfNeeded() {
+
+  if (!sessionStorage.getItem("quizPopupDismissed")) {
+
+    setTimeout(function() {
+      document.getElementById("quiz-popup").style.display = "flex";
+    }, 1000);
+
+  }
+
+}
+
+window.addEventListener("load", function() {
+
+  let entered = false;
+
+  try {
+    entered = localStorage.getItem(
+      "babyVoxFansiteEntered_v1"
+    ) === "true";
+  } catch(e) {}
+
+  if(entered) {
+    showQuizIfNeeded();
+  }
+
 });
 
 function closeQuizPopup() {
-  sessionStorage.setItem('quizPopupDismissed', 'true');
-  document.getElementById('quiz-popup').style.display = 'none';
+  sessionStorage.setItem("quizPopupDismissed", "true");
+  document.getElementById("quiz-popup").style.display = "none";
 }
 
 function takeQuizAction() {
-  sessionStorage.setItem('quizPopupDismissed', 'true');
+  sessionStorage.setItem("quizPopupDismissed", "true");
 }
 
-// ----- MINI GALLERY (Populates retro frame) -----
-const galleryImages = ["EZ56.jpg", "Heejin56.jpg", "MIYOUN49.jpg", "Eunjin12_upscaled.jpg", "EUNHYE10.jpg"];
-const miniGallery = document.getElementById('mini-gallery');
+/* ==========================================
+   MINI GALLERY
+========================================== */
 
-galleryImages.sort(() => 0.5 - Math.random()).slice(0, 2).forEach(src => {
-  const link = document.createElement('a');
-  link.href = src;
-  link.target = "_blank";
-  
-  const img = document.createElement('img');
-  img.src = src;
-  img.width = 65;
-  img.height = 65;
-  img.style.border = "2px inset #FFFFFF";
-  img.style.margin = "2px";
-  
-  link.appendChild(img);
-  miniGallery.appendChild(link);
-});
+const galleryImages = [
+  "EZ56.jpg",
+  "Heejin56.jpg",
+  "MIYOUN49.jpg",
+  "Eunjin12_upscaled.jpg",
+  "EUNHYE10.jpg"
+];
 
-// ----- LANGUAGE SELECTOR -----
+const miniGallery = document.getElementById("mini-gallery");
+
+galleryImages
+  .sort(() => Math.random() - 0.5)
+  .slice(0,2)
+  .forEach(function(src) {
+
+    const link = document.createElement("a");
+    link.href = src;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.width = 65;
+    img.height = 65;
+    img.style.border = "2px inset white";
+    img.style.margin = "2px";
+
+    link.appendChild(img);
+    miniGallery.appendChild(link);
+
+  });
+
+/* ==========================================
+   LANGUAGE SELECTOR
+========================================== */
+
 const welcomeMessages = {
   en: "💖 Hey Baby Angels! Welcome to the ultimate Baby V.O.X fansite!",
   ko: "💖 베이비복스 팬사이트에 오신 것을 환영합니다! 💖",
@@ -442,58 +801,77 @@ const welcomeMessages = {
   ja: "💖 Baby V.O.X ファンサイトへようこそ! 💖"
 };
 
-const langSelector = document.getElementById('language-selector');
-langSelector.addEventListener('change', e => {
-  document.getElementById("welcome-text-target").innerHTML = "<b>" + welcomeMessages[e.target.value] + "</b>";
-});
+document.getElementById("language-selector")
+  .addEventListener("change", function(e) {
 
-// ----- CONVERTED PHP ARRAY TO JAVASCRIPT POPUP -----
+    document.getElementById("welcome-text-target")
+      .textContent = welcomeMessages[e.target.value];
+
+  });
+
+/* ==========================================
+   RANDOM BABY V.O.X FACT
+========================================== */
+
 const facts = [
-  "Baby V.O.X stands for 'Baby Voices of Xpression'.",
-  "They debuted in 1997 and helped pioneer the early Korean Wave across Asia!",
-  "Their hit single 'Get Up' topped the Korean music charts in 1999.",
-  "They were one of the first K-pop groups to hold concerts in China and Vietnam."
+  "Baby V.O.X stands for Baby Voices of Xpression.",
+  "They debuted in 1997 and helped pioneer the Korean Wave!",
+  "Their hit Get Up became one of their signature songs.",
+  "Baby V.O.X were among the early K-pop groups to expand internationally."
 ];
 
 function showRandomFact() {
-  const randomIndex = Math.floor(Math.random() * facts.length);
-  const selectedFact = facts[randomIndex];
-  
-  const factWindow = window.open("", "factwin", "width=340,height=180,resizable=no,status=no");
-  factWindow.document.write(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <title>✨ Random Fact ✨</title>
-    <style>
-      body { background-color: #ECE9D8; font-family: "Comic Sans MS", sans-serif; margin: 10px; }
-      .box { border: 2px outset #FFFFFF; padding: 12px; background-color: #FFF0F5; text-align: center; }
-      button { font-family: "MS Sans Serif", sans-serif; font-size: 11px; background-color: #ECE9D8; border: 2px outset #FFFFFF; padding: 2px 8px; cursor: pointer; }
-    </style>
-    </head>
-    <body>
-    <div class="box">
-      <font color="#000080" size="2"><b>${selectedFact}</b></font>
-      <br><br>
-      <button onclick="window.close()">Close Window</button>
-    </div>
-    </body>
-    </html>
-  `);
-  factWindow.document.close();
+
+  const fact = facts[Math.floor(Math.random() * facts.length)];
+
+  const popup = window.open(
+    "",
+    "factwin",
+    "width=340,height=180,resizable=yes"
+  );
+
+  if(!popup) {
+    alert(fact);
+    return;
+  }
+
+  popup.document.title = "✨ Random Baby V.O.X Fact ✨";
+
+  popup.document.body.style.cssText =
+    "background:#fff0f5;font-family:Comic Sans MS;text-align:center;padding:20px;color:navy";
+
+  const paragraph = popup.document.createElement("p");
+  paragraph.textContent = fact;
+
+  const button = popup.document.createElement("button");
+  button.textContent = "Close Window";
+  button.onclick = function() { popup.close(); };
+
+  popup.document.body.appendChild(paragraph);
+  popup.document.body.appendChild(button);
+
 }
 
-// ----- LOCAL CLOCK -----
+/* ==========================================
+   LIVE LOCAL CLOCK
+========================================== */
+
 function updateClock() {
-  const clockEl = document.getElementById('local-clock');
+
   const now = new Date();
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
-  clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+
+  const hours = String(now.getHours()).padStart(2,"0");
+  const minutes = String(now.getMinutes()).padStart(2,"0");
+  const seconds = String(now.getSeconds()).padStart(2,"0");
+
+  document.getElementById("local-clock").textContent =
+    hours + ":" + minutes + ":" + seconds;
+
 }
-setInterval(updateClock, 1000);
+
 updateClock();
+setInterval(updateClock,1000);
+
 </script>
 
 </body>
